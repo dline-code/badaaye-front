@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Link from 'next/link'
 import Card from 'src/components/card-benefits'
 import * as S from './styles'
 import { BenefitsProps } from 'src/components/card-benefits/type'
@@ -21,14 +22,18 @@ const viewbenefits: React.FC = () => {
       <S.Benefits>
         {benefits.map((item: BenefitsProps) => {
           return (
-            <Card
-              key={item.id}
-              image={item.image}
-              title={item.title}
-              description={item.description}
-              children={item.children}
-              link={item.link}
-            />
+            <Link href="/ajuda">
+              <a>
+                <Card
+                  key={item.id}
+                  image={item.image}
+                  title={item.title}
+                  description={item.description}
+                  children={item.children}
+                  link={item.link}
+                />
+              </a>
+            </Link>
           )
         })}
       </S.Benefits>

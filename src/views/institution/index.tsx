@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Link from "next/link"
 import { institution } from './mock'
 import * as S from './styles'
 import { InstitutionProps } from 'src/components/card-institution/type'
@@ -25,13 +26,17 @@ const viewinstitution: React.FC = () => {
         <Slider {...settings}>
           {institution.map((item: InstitutionProps) => {
             return (
-              <Card
-                key={item.id}
-                image={item.image}
-                title={item.title}
-                previousprice={item.previousprice}
-                nextprice={item.nextprice}
-              />
+              <Link href="/">
+                <a>
+                  <Card
+                    key={item.id}
+                    image={item.image}
+                    title={item.title}
+                    previousprice={item.previousprice}
+                    nextprice={item.nextprice}
+                  />
+                </a>
+              </Link>
             )
           })}
         </Slider>

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Link from 'next/link'
 import * as S from './styles'
 import { FiUsers } from 'react-icons/fi'
 import { PartnersProps } from './type'
@@ -6,7 +7,6 @@ import { partners } from './mock'
 import Image from 'next/image'
 import Button from '../button'
 import Aos from 'aos'
-import Link from 'next/link'
 
 const banner: React.FC = () => {
   useEffect(() => {

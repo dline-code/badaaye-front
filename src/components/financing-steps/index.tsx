@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Link from 'next/link'
 import * as S from './styles'
 import Aos from 'aos'
 import { steps } from './mock'
@@ -13,7 +14,11 @@ const step: React.FC = () => {
         <S.Container>
           <S.Title>Entenda como a Baadaye funciona</S.Title>
           <S.Download className="download">
-            ▼ Baixar explicação completa
+            <Link href="/">
+              <a>
+                ▼ Baixar explicação completa
+              </a>
+            </Link>
           </S.Download>
         </S.Container>
 
