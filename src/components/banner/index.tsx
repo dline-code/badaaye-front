@@ -6,6 +6,7 @@ import { partners } from './mock'
 import Image from 'next/image'
 import Button from '../button'
 import Aos from 'aos'
+import Link from 'next/link'
 
 const banner: React.FC = () => {
   useEffect(() => {
@@ -25,7 +26,11 @@ const banner: React.FC = () => {
 
         <S.Box>
           <S.ContainerButton>
-            <Button children="Fazer Parte" />
+            <Link href="/cadastro-estudante">
+              <a>
+                <Button children="Fazer Parte" />
+              </a>
+            </Link>
           </S.ContainerButton>
 
           <S.Paragraph>
