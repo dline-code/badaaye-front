@@ -36,14 +36,18 @@ const header: React.FC = () => {
   return (
     <S.Wrapper>
       <S.Header className={activeheader ? 'active-header' : ''}>
-        <Link href="/">
-          <Image
-            src="/logo-baadaye.svg"
-            alt="Picture of the author"
-            width={140}
-            height={48}
-          />
-        </Link>
+        <S.Logo>
+          <Link href="/">
+            <a>
+              <Image
+                src="/logo-baadaye.svg"
+                alt="Picture of the author"
+                width={140}
+                height={48}
+              />
+            </a>
+          </Link>
+        </S.Logo>
 
         <S.List>
           <Link href="/">

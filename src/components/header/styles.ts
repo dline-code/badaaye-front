@@ -25,7 +25,13 @@ export const Header = styled.header`
     padding: 0 4rem;
   }
 `
-
+export const Logo = styled.div`
+  a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } 
+`
 export const List = styled.ul`
   display: flex;
   flex-direction: row;
