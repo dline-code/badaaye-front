@@ -75,10 +75,14 @@ const header: React.FC = () => {
 
         <S.ContainerButton>
           <S.ButtonLogin>
-            <S.IconUser>
-              <AiOutlineUser />
-            </S.IconUser>
-            Entrar
+            <Link href="/login">
+              <a>
+                <S.IconUser>
+                  <AiOutlineUser />
+                </S.IconUser>
+                Entrar
+              </a>
+            </Link>
           </S.ButtonLogin>
 
           <S.IconMenu>
