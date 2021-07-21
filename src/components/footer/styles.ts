@@ -39,7 +39,11 @@ export const List = styled.ul`
     }
   }
 `
-
+export const Logo = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
+`
 export const ContainerIcons = styled.div`
   display: flex;
   flex-direction: row;
@@ -92,6 +96,10 @@ export const Title = styled.h2`
 export const Box = styled.div`
   display: flex;
   flex-direction: column;
+  a{
+    margin-bottom: -${({ theme }) => theme.spacings.xxxxmultipleeight};
+  }
+
 `
 
 export const Item = styled.li`
@@ -100,6 +108,7 @@ export const Item = styled.li`
   transition: 1s;
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxblue};
+  margin-bottom: -${({ theme }) => theme.spacings.xxxxmultipleeight};
 
   :first-child {
     margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};

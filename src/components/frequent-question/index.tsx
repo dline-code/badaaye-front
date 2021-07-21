@@ -16,7 +16,7 @@ const frequentQuestions: React.FC = () => {
   })
 
   return (
-    <S.Container>
+    <S.Container id='frequent-quetions'>
       <S.Title>Perguntas frequentes</S.Title>
 
       <S.AccordionList data-aos="zoom-in">

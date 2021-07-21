@@ -22,7 +22,7 @@ const viewbenefits: React.FC = () => {
       <S.Benefits>
         {benefits.map((item: BenefitsProps) => {
           return (
-            <Link href="/ajuda">
+            <Link href="/ajudas">
               <a>
                 <Card
                   key={item.id}

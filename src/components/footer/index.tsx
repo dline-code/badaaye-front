@@ -6,6 +6,7 @@ import { FaLinkedin } from 'react-icons/fa'
 import { RiWhatsappFill } from 'react-icons/ri'
 import * as S from './styles'
 import Aos from 'aos'
+import Link from 'next/link'
 
 const footer: React.FC = () => {
   useEffect(() => {
@@ -15,7 +16,13 @@ const footer: React.FC = () => {
     <S.Footer data-aos="fade-down">
       <S.BigFooter>
         <S.List>
-          <Image src="/logo-baadaye.svg" width={100} height={100} />
+          <S.Logo>
+            <Link href="/">
+              <a>
+                <Image src="/logo-baadaye.svg" width={100} height={100} />
+              </a>
+            </Link>
+          </S.Logo>
 
           <S.ContainerIcons>
             <S.Icon href="https://www.facebook.com/baadayeangola">
@@ -38,11 +45,31 @@ const footer: React.FC = () => {
         <S.List>
           <S.Title>Navegação</S.Title>
           <S.Box>
-            <S.Item>Início</S.Item>
-            <S.Item>Benefícios</S.Item>
-            <S.Item>Bolsas</S.Item>
-            <S.Item>Perguntas</S.Item>
-            <S.Item>Contactos</S.Item>
+            <Link href="/">
+                <a>
+                  <S.Item>Início</S.Item>
+                </a>
+            </Link>
+            <Link href="/">
+                <a>
+                  <S.Item>Benefícios</S.Item>
+                </a>
+            </Link>
+            <Link href="/">
+                <a>
+                  <S.Item>Bolsas</S.Item>
+                </a>
+            </Link>
+            <Link href="#frequent-questions">
+                <a>
+                  <S.Item>Perguntas</S.Item>
+                </a>
+            </Link>
+            <Link href="/">
+                <a>
+                  <S.Item>Contactos</S.Item>
+                </a>
+            </Link>
           </S.Box>
         </S.List>
 
@@ -57,7 +84,11 @@ const footer: React.FC = () => {
 
       <S.MinFooter>
         <S.Ancora>Política de privacidade</S.Ancora>
-        <S.Ancora>Desenvolvido por DLine-Code</S.Ancora>
+        <Link href="/">
+          <a>
+            <S.Ancora>Desenvolvido por DLine-Code</S.Ancora>
+          </a>
+        </Link>
       </S.MinFooter>
     </S.Footer>
   )
