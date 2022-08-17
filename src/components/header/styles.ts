@@ -24,7 +24,7 @@ export const Lista = styled.ul`
   }
 
   .active {
-    color: ${({ theme }) => theme.colors.secondary.xxblue};
+    color: ${({ theme }) => theme.colors.primary.xblue};
     :after {
       content: '';
       border: 1px solid ${({ theme }) => theme.colors.primary.xblue};
@@ -53,7 +53,7 @@ export const BtnEntrar = styled.button`
   font-weight: ${({ theme }) => theme.font.medium};
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxblue};
-  background: ${({ theme }) => theme.colors.tertiary.cinza};
+  background: ${({ theme }) => theme.colors.tertiary.xcinza};
 
   :hover {
     transition: ${({ theme }) => theme.transition.slow};

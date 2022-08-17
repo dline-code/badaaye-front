@@ -30,7 +30,8 @@ export const theme = {
       contrast: '#f4f4f4',
       xwhite: '#fff',
       xxwhite: '#f1f1f1',
-      cinza: '#dddddd'
+      xcinza: '#dddddd',
+      xxcinza: '#aaaaaa'
     },
     shades: {
       black: (opacity: number) => `rgba(0, 0, 0, ${opacity})`,
