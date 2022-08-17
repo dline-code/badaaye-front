@@ -4,6 +4,7 @@ import { FiUsers } from 'react-icons/fi'
 import { ParceirosProps } from './type'
 import { parceiros } from './mock'
 import Image from 'next/image'
+import Button from '../button'
 
 const banner: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const banner: React.FC = () => {
           estudantes e parceiros capazes de financiar os seus estudos.
         </S.Resume>
         <S.Container>
-          <button>Fazer Parte</button>
+          <Button children="Fazer Parte" />
           <S.Icon>
             <FiUsers />
           </S.Icon>
