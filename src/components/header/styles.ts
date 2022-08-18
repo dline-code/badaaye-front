@@ -32,6 +32,10 @@ export const Lista = styled.ul`
       margin: 0.5rem auto;
     }
   }
+
+  @media (max-width: 1124px) {
+    display: none;
+  }
 `
 export const Item = styled.li`
   list-style: none;
@@ -60,8 +64,30 @@ export const BtnEntrar = styled.button`
     background: ${({ theme }) => theme.colors.primary.xblue};
     color: ${({ theme }) => theme.colors.tertiary.xwhite};
   }
+
+  @media (max-width: 1124px) {
+    display: none;
+  }
 `
 
 export const Icon = styled.span`
   margin-right: 0.5rem;
+`
+
+export const IconMenu = styled.span`
+  display: none;
+
+  @media (max-width: 1124px) {
+    display: block;
+    font-size: 3rem;
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.primary.xblue};
+  }
+`
+
+export const ContainerMenu = styled.div`
+  width: 100%;
+  height: 20rem;
+  display: block;
+  background: red;
 `
