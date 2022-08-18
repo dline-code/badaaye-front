@@ -47,18 +47,21 @@ const header: React.FC = () => {
             <S.Item>Sobre nós</S.Item>
           </Link>
         </S.Lista>
-        <S.BtnEntrar>
-          <S.Icon>
-            <AiOutlineUser />
-          </S.Icon>
-          Entrar
-        </S.BtnEntrar>
 
-        <S.IconMenu onClick={() => setVisible(true)}>
-          <AiOutlineMenu />
-        </S.IconMenu>
+        <S.ContainerBtn>
+          <S.BtnEntrar>
+            <S.IconUser>
+              <AiOutlineUser />
+            </S.IconUser>
+            Entrar
+          </S.BtnEntrar>
+
+          <S.IconMenu onClick={() => setVisible(true)}>
+            <AiOutlineMenu />
+          </S.IconMenu>
+        </S.ContainerBtn>
       </S.Header>
-      {visible ? <MenuMobile onClick={() => setVisible(!visible)} /> : <></>}
+      {visible ? <MenuMobile onClick={() => setVisible(!visible)} /> : null}
     </>
   )
 }

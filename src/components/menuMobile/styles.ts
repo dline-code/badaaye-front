@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components'
 
 export const Container = styled.section`
   display: none;
+  transform: translateY(0);
+  transition: 0s;
 
   @media (max-width: 1124px) {
     display: flex;
@@ -13,13 +15,9 @@ export const Container = styled.section`
     bottom: 0;
     position: fixed;
     z-index: 1000;
-    opacity: 0;
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0px);
-    overflow: hidden;
     padding: 3rem 5rem;
     flex-direction: column;
+    align-items: flex-end;
 
     background: rgba(17, 18, 17, 0.95);
     background: linear-gradient(
@@ -30,19 +28,13 @@ export const Container = styled.section`
   }
 `
 
-export const ContainerLogo = styled.div`
-  width: 100%;
-  height: 4rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`
-
 export const Icon = styled.span`
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
-
+  cursor: pointer;
+  transition: 0.7s;
   :hover {
+    transform: rotate(45deg);
+    transition: 0.7s;
   }
 `
 
@@ -51,8 +43,8 @@ export const Lista = styled.ul`
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-top: 3rem;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Item = styled.li`
@@ -60,5 +52,11 @@ export const Item = styled.li`
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
   font-size: 1.8rem;
   line-height: 3;
-  cursor: pointer;
+  transition: 1s;
+
+  :hover {
+    transform: scale(1.2);
+    transition: 1s;
+    cursor: pointer;
+  }
 `

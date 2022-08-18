@@ -25,7 +25,7 @@ export const Title = styled.h1`
 export const Resume = styled.p`
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxblue};
-  margin-top: 2rem;
+  margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
 `
 export const Container = styled.div`
   display: flex;
@@ -47,12 +47,12 @@ export const Description = styled.h2`
 `
 
 export const ContainerParceiros = styled.div`
-  margin-top: 1rem;
+  margin-top: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   display: flex;
   flex-direction: row;
 `
 export const ItemParceiro = styled.li`
-  margin-left: 2rem;
+  margin-left: ${({ theme }) => theme.spacings.xxxmultipleeight};
 
   :first-child {
     margin-left: 0;
