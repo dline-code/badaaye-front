@@ -18,9 +18,9 @@ const banner: React.FC = () => {
         </S.Resume>
         <S.Container>
           <Button children="Fazer Parte" />
-          <S.Icon>
+          <S.IconUsers>
             <FiUsers />
-          </S.Icon>
+          </S.IconUsers>
           <S.Span>125 financiamentos já atribuidos</S.Span>
         </S.Container>
 

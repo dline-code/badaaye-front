@@ -33,7 +33,7 @@ export const Container = styled.div`
   align-items: center;
   margin-top: 3rem;
 `
-export const Icon = styled.span`
+export const IconUsers = styled.span`
   margin-left: 3rem;
 `
 export const Span = styled.span`

@@ -18,7 +18,6 @@ export const Container = styled.section`
     padding: 3rem 5rem;
     flex-direction: column;
     align-items: flex-end;
-
     background: rgba(17, 18, 17, 0.95);
     background: linear-gradient(
       34deg,

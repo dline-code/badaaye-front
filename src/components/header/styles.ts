@@ -119,6 +119,10 @@ export const BtnEntrar = styled.button`
       color: ${({ theme }) => theme.colors.tertiary.xwhite};
     }
   `}
+
+  @media (max-width: 550px) {
+    display: none;
+  }
 `
 
 export const IconUser = styled.span`

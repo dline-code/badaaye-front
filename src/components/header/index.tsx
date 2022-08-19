@@ -11,6 +11,13 @@ const header: React.FC = () => {
   const currentRoute = router.pathname
   const [visible, setVisible] = useState(false)
 
+  const Toogle = () => {
+    if (visible) {
+      setVisible(!visible)
+      document.body.style.overflow = 'hidden'
+    }
+  }
+
   return (
     <>
       <S.Header>
@@ -61,7 +68,7 @@ const header: React.FC = () => {
           </S.IconMenu>
         </S.ContainerBtn>
       </S.Header>
-      {visible ? <MenuMobile onClick={() => setVisible(!visible)} /> : null}
+      {visible ? <MenuMobile onClick={Toogle} /> : null}
     </>
   )
 }
