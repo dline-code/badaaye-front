@@ -10,13 +10,21 @@ export const Footer = styled.footer`
 export const BigFooter = styled.footer`
   min-width: 100%;
   height: 30rem;
-  padding: 0 10rem;
+  padding: 0 6rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   border-top: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
   border-bottom: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
+
+  @media (max-width: 645px) {
+    width: 100%;
+    height: 70rem;
+    padding: 4rem 6rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `
 
 export const List = styled.ul`
@@ -25,6 +33,15 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  @media (max-width: 645px) {
+    width: 100%;
+    margin-top: 3rem;
+
+    :first-child {
+      margin-left: 0;
+    }
+  }
 `
 export const ContainerIcons = styled.div`
   display: flex;
@@ -134,9 +151,14 @@ export const InputButton = styled.button`
 export const MinFooter = styled.footer`
   display: flex;
   flex-direction: row;
-  padding: 2.5rem 10rem;
+  padding: 2.5rem 6rem;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 645px) {
+    flex-direction: column;
+    line-height: 1.7;
+  }
 `
 
 export const Ancora = styled.p`
