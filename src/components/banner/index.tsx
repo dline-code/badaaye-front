@@ -1,8 +1,8 @@
 import React from 'react'
 import * as S from './styles'
 import { FiUsers } from 'react-icons/fi'
-import { ParceirosProps } from './type'
-import { parceiros } from './mock'
+import { PartnersProps } from './type'
+import { partners } from './mock'
 import Image from 'next/image'
 import Button from '../button'
 
@@ -12,34 +12,35 @@ const banner: React.FC = () => {
       <S.ContainerItems>
         <S.Title>Encontre o financimento para os seus estudos</S.Title>
 
-        <S.Resume>
+        <S.Summary>
           Somos uma plataforma angolana para bolsas de estudos que conecta
           estudantes e parceiros capazes de financiar os seus estudos.
-        </S.Resume>
-        <S.Container>
+        </S.Summary>
+
+        <S.Box>
           <Button children="Fazer Parte" />
           <S.IconUsers>
             <FiUsers />
           </S.IconUsers>
           <S.Span>125 financiamentos já atribuidos</S.Span>
-        </S.Container>
+        </S.Box>
 
         <S.Description>Nossos principais parceiros</S.Description>
 
-        <S.ContainerParceiros>
-          {parceiros.slice(0, 3).map((item: ParceirosProps) => {
+        <S.Partners>
+          {partners.slice(0, 3).map((item: PartnersProps) => {
             return (
-              <S.ItemParceiro>
+              <S.PartnersItems>
                 <Image
                   key={item.id}
                   src={item.instituicao}
                   width={80}
                   height={80}
                 />
-              </S.ItemParceiro>
+              </S.PartnersItems>
             )
           })}
-        </S.ContainerParceiros>
+        </S.Partners>
       </S.ContainerItems>
 
       <Image src="/assets/Ilustracao-Estudante.svg" width={570} height={570} />

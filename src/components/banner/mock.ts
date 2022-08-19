@@ -1,4 +1,4 @@
-export const parceiros = [
+export const partners = [
   {
     id: 0,
     instituicao: '/assets/logo-republica-fr.svg'

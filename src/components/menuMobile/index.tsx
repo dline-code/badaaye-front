@@ -15,19 +15,15 @@ const menuMobile: React.FC<MenuProps> = ({ onClick }) => {
         <IoClose size={45} onClick={onClick} />
       </S.Icon>
 
-      <S.Lista>
+      <S.List>
         <Link href="/">
           <S.Item className={currentRoute === '/' ? 'active' : 'non-active'}>
             Financiamentos
           </S.Item>
         </Link>
 
-        <Link href="/home">
-          <S.Item
-            className={currentRoute === '/home' ? 'active' : 'non-active'}
-          >
-            Descontos
-          </S.Item>
+        <Link href="">
+          <S.Item>Descontos</S.Item>
         </Link>
 
         <Link href="">
@@ -41,7 +37,7 @@ const menuMobile: React.FC<MenuProps> = ({ onClick }) => {
         <Link href="">
           <S.Item>Sobre nós</S.Item>
         </Link>
-      </S.Lista>
+      </S.List>
     </S.Container>
   )
 }

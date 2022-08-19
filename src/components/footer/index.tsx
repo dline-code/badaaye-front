@@ -8,9 +8,9 @@ const footer: React.FC = () => {
   return (
     <S.Footer>
       <S.BigFooter>
-        <S.Lista>
+        <S.List>
           <Image src="/logo-baadaye.svg" width={100} height={100} />
-          <S.IconList>
+          <S.ContainerIcons>
             <S.Icon>
               <BsFacebook />
             </S.Icon>
@@ -20,29 +20,29 @@ const footer: React.FC = () => {
             <S.Icon>
               <AiOutlineWhatsApp />
             </S.Icon>
-          </S.IconList>
+          </S.ContainerIcons>
 
           <S.Description>Baadaye © Todos os direitos reservados</S.Description>
-        </S.Lista>
+        </S.List>
 
-        <S.Lista>
+        <S.List>
           <S.Title>Navegação</S.Title>
-          <div>
+          <S.Box>
             <S.Item>Início</S.Item>
             <S.Item>Benefícios</S.Item>
             <S.Item>Bolsas</S.Item>
             <S.Item>Perguntas</S.Item>
             <S.Item>Contactos</S.Item>
-          </div>
-        </S.Lista>
+          </S.Box>
+        </S.List>
 
-        <S.Lista>
+        <S.List>
           <S.Title>Assine a newsletter para receber as novidades</S.Title>
           <S.ContainerInputs>
-            <S.Input placeholder="Digite o seu email" />
-            <S.Button>Enviar</S.Button>
+            <S.InputText placeholder="Digite o seu email" />
+            <S.InputButton>Enviar</S.InputButton>
           </S.ContainerInputs>
-        </S.Lista>
+        </S.List>
       </S.BigFooter>
 
       <S.MinFooter>

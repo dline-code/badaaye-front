@@ -37,7 +37,7 @@ export const Icon = styled.span`
   }
 `
 
-export const Lista = styled.ul`
+export const List = styled.ul`
   min-width: 100%;
   height: 100%;
   display: flex;

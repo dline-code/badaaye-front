@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Lista = styled.ul`
+export const List = styled.ul`
   min-width: 100%;
   height: 25rem;
   padding: 0 10rem;
@@ -29,14 +29,8 @@ export const Item = styled.li`
   }
 `
 
-export const TitleHead = styled.h2`
+export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.secondary.xxblue};
-`
-
-export const Title = styled.h3`
-  list-style: none;
-  display: flex;
-  flex-direction: column;
 `
 
 export const Step = styled.h3`

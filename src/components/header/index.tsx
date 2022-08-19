@@ -11,7 +11,7 @@ const header: React.FC = () => {
   const currentRoute = router.pathname
   const [visible, setVisible] = useState(false)
 
-  const Toogle = () => {
+  const togle = () => {
     if (visible) {
       setVisible(!visible)
       document.body.style.overflow = 'hidden'
@@ -27,17 +27,15 @@ const header: React.FC = () => {
           width={170}
           height={170}
         />
-        <S.Lista>
+        <S.List>
           <Link href="/">
             <S.Item className={currentRoute === '/' ? 'active' : 'non-active'}>
               Financiamentos
             </S.Item>
           </Link>
 
-          <Link href="/home">
-            <S.Item
-              className={currentRoute === '/home' ? 'active' : 'non-active'}
-            >
+          <Link href="">
+            <S.Item className={currentRoute === '/' ? 'active' : 'non-active'}>
               Descontos
             </S.Item>
           </Link>
@@ -53,22 +51,22 @@ const header: React.FC = () => {
           <Link href="">
             <S.Item>Sobre nós</S.Item>
           </Link>
-        </S.Lista>
+        </S.List>
 
-        <S.ContainerBtn>
-          <S.BtnEntrar>
+        <S.ContainerButton>
+          <S.ButtonLogin>
             <S.IconUser>
               <AiOutlineUser />
             </S.IconUser>
             Entrar
-          </S.BtnEntrar>
+          </S.ButtonLogin>
 
           <S.IconMenu onClick={() => setVisible(true)}>
             <AiOutlineMenu />
           </S.IconMenu>
-        </S.ContainerBtn>
+        </S.ContainerButton>
       </S.Header>
-      {visible ? <MenuMobile onClick={Toogle} /> : null}
+      {visible ? <MenuMobile onClick={togle} /> : null}
     </>
   )
 }

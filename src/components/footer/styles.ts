@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Footer = styled.footer`
   min-width: 100%;
@@ -19,28 +19,29 @@ export const BigFooter = styled.footer`
   border-bottom: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
 `
 
-export const Lista = styled.ul`
+export const List = styled.ul`
   width: 25%;
   height: 15rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 `
-export const IconList = styled.div`
+export const ContainerIcons = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
 `
 
 export const Icon = styled.span`
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 6rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-left: 1rem;
+  transition: 2s;
   border: 2px solid ${({ theme }) => theme.colors.tertiary.xxcinza};
   color: ${({ theme }) => theme.colors.primary.xblue};
 
@@ -49,24 +50,32 @@ export const Icon = styled.span`
   }
 
   :hover {
-    filter: brightness(0.8);
+    filter: brightness(0.7);
     cursor: pointer;
+    transition: 2s;
+    transform: scale(1.1, 1.1);
   }
 `
 
 export const Description = styled.p`
+  margin-top: 2rem;
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxblue};
-  margin-top: 2rem;
 `
 
 export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 `
 
+export const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 export const Item = styled.li`
   list-style: none;
   line-height: 2;
+  transition: 1s;
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
@@ -76,6 +85,8 @@ export const Item = styled.li`
 
   :hover {
     cursor: pointer;
+    transform: scaleX(1.1);
+    transition: 1s;
     color: ${({ theme }) => theme.colors.primary.xblue};
   }
 `
@@ -86,7 +97,7 @@ export const ContainerInputs = styled.div`
   margin-top: 1.5rem;
 `
 
-export const Input = styled.input`
+export const InputText = styled.input`
   width: 20rem;
   height: 4rem;
   padding: 0 1rem;
@@ -106,16 +117,17 @@ export const Input = styled.input`
   }
 `
 
-export const Button = styled.button`
+export const InputButton = styled.button`
   padding: 0 2rem;
   border: none;
+  transition: 2s;
   border-radius: 0 0.3rem 0.3rem 0;
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
   background: ${({ theme }) => theme.colors.primary.xblue};
 
   :hover {
-    filter: brightness(0.8);
-    transition: ${({ theme }) => theme.transition.slow};
+    filter: brightness(0.7);
+    transition: 2s;
   }
 `
 
@@ -128,14 +140,21 @@ export const MinFooter = styled.footer`
 `
 
 export const Ancora = styled.p`
-  font-size: ${({ theme }) => theme.font.sizes.midle};
-  color: ${({ theme }) => theme.colors.secondary.xxblue};
-  :hover {
-    cursor: pointer;
-    color: ${({ theme }) => theme.colors.primary.xblue};
-  }
+  transition: 2s;
 
-  :last-child {
-    color: ${({ theme }) => theme.colors.primary.xblue};
-  }
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.midle};
+    color: ${theme.colors.secondary.xxblue};
+
+    :hover {
+      cursor: pointer;
+      transition: 2s;
+      transform: scaleX(1.1);
+      color: ${theme.colors.primary.xblue};
+    }
+
+    :last-child {
+      color: ${theme.colors.primary.xblue};
+    }
+  `}
 `

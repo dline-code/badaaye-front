@@ -1,4 +1,4 @@
-export type ParceirosProps = {
+export type PartnersProps = {
   id: number
   instituicao: string
 }

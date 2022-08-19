@@ -13,6 +13,6 @@ export const Button = styled.button`
   :hover {
     cursor: pointer;
     filter: brightness(0.7);
-    transition: 1.5s;
+    transition: 2s;
   }
 `

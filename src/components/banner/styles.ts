@@ -22,12 +22,12 @@ export const Title = styled.h1`
   font-size: 3rem;
 `
 
-export const Resume = styled.p`
+export const Summary = styled.p`
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxblue};
   margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
 `
-export const Container = styled.div`
+export const Box = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -46,12 +46,12 @@ export const Description = styled.h2`
   margin-top: 3rem;
 `
 
-export const ContainerParceiros = styled.div`
+export const Partners = styled.div`
   margin-top: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   display: flex;
   flex-direction: row;
 `
-export const ItemParceiro = styled.li`
+export const PartnersItems = styled.li`
   margin-left: ${({ theme }) => theme.spacings.xxxmultipleeight};
 
   :first-child {

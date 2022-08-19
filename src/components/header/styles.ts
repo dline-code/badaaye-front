@@ -11,7 +11,7 @@ export const Header = styled.header`
   border-bottom: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
 `
 
-export const Lista = styled.ul`
+export const List = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -93,14 +93,14 @@ export const Item = styled.li`
   }
 `
 
-export const ContainerBtn = styled.div`
+export const ContainerButton = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 `
 
-export const BtnEntrar = styled.button`
+export const ButtonLogin = styled.button`
   padding: 1rem 3rem;
   border-radius: 0.5rem;
   border: none;
