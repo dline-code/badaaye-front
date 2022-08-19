@@ -43,7 +43,12 @@ const banner: React.FC = () => {
         </S.Partners>
       </S.ContainerItems>
 
-      <Image src="/assets/Ilustracao-Estudante.svg" width={570} height={570} />
+      <Image
+        src="/assets/Ilustracao-Estudante.svg"
+        alt="Ilustração do Estudante"
+        width={570}
+        height={570}
+      />
     </S.Banner>
   )
 }

@@ -5,9 +5,15 @@ export const Banner = styled.section`
   height: 60rem;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
   justify-content: space-between;
-  padding: 0 10rem;
+  align-items: flex-end;
+  padding: 0 6rem;
+
+  @media (max-width: 645px) {
+    height: 90rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `
 
 export const ContainerItems = styled.article`
@@ -16,10 +22,17 @@ export const ContainerItems = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 645px) {
+    width: 100%;
+  }
 `
 
 export const Title = styled.h1`
   font-size: 3rem;
+  @media (max-width: 645px) {
+    font-size: 2.5rem;
+  }
 `
 
 export const Summary = styled.p`

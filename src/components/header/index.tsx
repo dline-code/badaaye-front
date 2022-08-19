@@ -35,9 +35,7 @@ const header: React.FC = () => {
           </Link>
 
           <Link href="">
-            <S.Item className={currentRoute === '/' ? 'active' : 'non-active'}>
-              Descontos
-            </S.Item>
+            <S.Item>Descontos</S.Item>
           </Link>
 
           <Link href="">
