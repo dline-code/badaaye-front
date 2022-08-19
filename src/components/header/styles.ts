@@ -8,7 +8,7 @@ export const Header = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 3px solid ${({ theme }) => theme.colors.tertiary.xxwhite};
+  border-bottom: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
 `
 
 export const Lista = styled.ul`
@@ -28,7 +28,7 @@ export const Lista = styled.ul`
       display: block;
       margin: 0.5rem auto;
       transform: scale(1);
-      border: 1px solid ${({ theme }) => theme.colors.primary.xblue};
+      border: 0.1rem solid ${({ theme }) => theme.colors.primary.xblue};
     }
   }
 
@@ -47,7 +47,7 @@ export const Item = styled.li`
     font-weight: ${theme.font.medium};
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.midle};
-    border: 1px solid ${({ theme }) => theme.colors.tertiary.xwhite};
+    border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.xwhite};
   `}
 
   &:first-child {
@@ -60,7 +60,7 @@ export const Item = styled.li`
     transition: 1.5s;
     margin: 0.5rem auto;
     transform: scaleX(0);
-    border: 1px solid ${({ theme }) => theme.colors.tertiary.xwhite};
+    border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.xwhite};
   }
 
   &:after {
@@ -69,7 +69,7 @@ export const Item = styled.li`
     transition: 1.5s;
     margin: 0.5rem auto;
     transform: scaleX(0);
-    border: 1px solid ${({ theme }) => theme.colors.tertiary.xwhite};
+    border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.xwhite};
   }
 
   &:hover {
@@ -79,7 +79,7 @@ export const Item = styled.li`
       transition: 1s;
       margin: 0.5rem auto;
       transform: scaleY(1);
-      border: 1px solid ${({ theme }) => theme.colors.primary.xblue};
+      border: 0.1rem solid ${({ theme }) => theme.colors.primary.xblue};
     }
 
     &:after {

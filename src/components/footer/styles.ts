@@ -15,8 +15,8 @@ export const BigFooter = styled.footer`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-top: 3px solid ${({ theme }) => theme.colors.tertiary.xxwhite};
-  border-bottom: 3px solid ${({ theme }) => theme.colors.tertiary.xxwhite};
+  border-top: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
+  border-bottom: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
 `
 
 export const Lista = styled.ul`
@@ -91,7 +91,7 @@ export const Input = styled.input`
   height: 4rem;
   padding: 0 1rem;
   border-radius: 0.3rem 0 0rem 0.3rem;
-  border: 1px solid ${({ theme }) => theme.colors.tertiary.xxcinza};
+  border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.xxcinza};
 
   :focus {
     background-color: var(--cui-input-focus-bg, #fff);
