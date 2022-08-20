@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Card = styled.div`
-  width: 27%;
-  height: 40rem;
+  width: 30%;
+  height: 42rem;
   padding: 5rem 3rem;
   background: #f4f4f4;
   box-shadow: 0px 0.8rem 1rem rgba(93, 94, 122, 0.12);
@@ -13,6 +13,15 @@ export const Card = styled.div`
     transition: 2s;
     transform: scale(0.9);
     cursor: pointer;
+  }
+
+  @media (width: 645px) {
+    width: 100%;
+    margin-top: 4rem;
+
+    :first-child {
+      margin-top: 0;
+    }
   }
 `
 

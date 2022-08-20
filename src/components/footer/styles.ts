@@ -10,7 +10,7 @@ export const Footer = styled.footer`
 export const BigFooter = styled.footer`
   min-width: 100%;
   height: 30rem;
-  padding: 0 6rem;
+  padding: 0 10rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -151,7 +151,7 @@ export const InputButton = styled.button`
 export const MinFooter = styled.footer`
   display: flex;
   flex-direction: row;
-  padding: 2.5rem 6rem;
+  padding: 2.5rem 10rem;
   align-items: center;
   justify-content: space-between;
 
