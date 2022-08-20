@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { AiOutlineUser, AiOutlineMenu } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import * as S from './styles'
-import MenuMobile from '../menuMobile'
+import MenuMobile from '../menu-mobile'
 
 const header: React.FC = () => {
   const router = useRouter()
