@@ -3,9 +3,8 @@ import Card from 'src/components/card-benefits'
 import * as S from './styles'
 import { BenefitsProps } from 'src/components/card-benefits/type'
 import { benefits } from './mock'
-import Benefits from 'src/views/benefits'
 
-const vbenefits: React.FC = () => {
+const viewbenefits: React.FC = () => {
   return (
     <S.Container>
       <S.Box>
@@ -33,4 +32,4 @@ const vbenefits: React.FC = () => {
   )
 }
 
-export default vbenefits
+export default viewbenefits
