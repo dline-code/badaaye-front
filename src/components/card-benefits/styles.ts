@@ -15,7 +15,7 @@ export const Card = styled.div`
     cursor: pointer;
   }
 
-  @media (width: 645px) {
+  @media (max-width: 645px) {
     width: 100%;
     margin-top: 4rem;
 

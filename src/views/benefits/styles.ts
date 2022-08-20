@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 6rem 10rem;
 
-  @media (width: 645px) {
+  @media (max-width: 645px) {
     height: 140rem;
   }
 `
@@ -17,7 +17,7 @@ export const Box = styled.div`
   flex-direction: row;
   justify-content: space-between;
 
-  @media (width: 645px) {
+  @media (max-width: 645px) {
     flex-direction: column;
   }
 `
@@ -26,7 +26,7 @@ export const Title = styled.h2`
   width: 30%;
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
-  @media (width: 645px) {
+  @media (max-width: 645px) {
     width: 100%;
   }
 `
@@ -36,7 +36,7 @@ export const Description = styled.div`
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
-  @media (width: 645px) {
+  @media (max-width: 645px) {
     width: 100%;
     margin-top: 2rem;
   }
@@ -47,7 +47,7 @@ export const Benefits = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (width: 645px) {
+  @media (max-width: 645px) {
     flex-direction: column;
   }
 `
