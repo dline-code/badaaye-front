@@ -7,7 +7,6 @@ import Card from 'src/components/card-institution'
 const viewinstitution: React.FC = () => {
   const [index, setIndex] = React.useState(0)
   const timeoutRef = React.useRef(null)
-  const colors = ['#0088FE', '#00C49F', '#FFBB28']
   const delay = 2500
 
   function resetTimeout() {
@@ -21,7 +20,7 @@ const viewinstitution: React.FC = () => {
     window.setTimeout(
       () =>
         setIndex(prevIndex =>
-          prevIndex === colors.length - 1 ? 0 : prevIndex + 1
+          prevIndex === institution.length - 1 ? 0 : prevIndex + 1
         ),
       delay
     )
@@ -32,20 +31,29 @@ const viewinstitution: React.FC = () => {
   }, [index])
 
   return (
-    <>
-      {institution.map((item: InstitutionProps) => {
-        ;<div>
-          <Card
-            image={item.image}
-            title={item.title}
-            previousprice={item.previousprice}
-            nextprice={item.nextprice}
-          />
-        </div>
-      })}
+    <S.Container>
+      <S.Box>
+        <S.Title>Estude nas melhores instituições de ensino</S.Title>
+        <S.Description>
+          Aproveite os financiamentos académicos e os descontos em várias
+          instituições do país.
+        </S.Description>
+      </S.Box>
+      <S.ContainerInstitutions>
+        {institution.map((item: InstitutionProps) => {
+          return (
+            <Card
+              image={item.image}
+              title={item.title}
+              previousprice={item.previousprice}
+              nextprice={item.nextprice}
+            />
+          )
+        })}
+      </S.ContainerInstitutions>
 
       <S.SlideshowDots>
-        {colors.map((_, idx) => (
+        {institution.map((_, idx) => (
           <div
             key={idx}
             className={`slideshowDot${index === idx ? ' active' : ''}`}
@@ -55,7 +63,7 @@ const viewinstitution: React.FC = () => {
           ></div>
         ))}
       </S.SlideshowDots>
-    </>
+    </S.Container>
   )
 }
 
