@@ -10,7 +10,7 @@ export const List = styled.ul`
   align-items: center;
   background: ${({ theme }) => theme.colors.primary.xblue};
 
-  @media (max-width: 891px) {
+  @media (max-width: 1026px) {
     flex-direction: column;
     height: 70rem;
     padding: 5rem 5rem;
@@ -29,7 +29,7 @@ export const Container = styled.div`
     font-weight: ${({ theme }) => theme.font.medium};
   }
 
-  @media (max-width: 891px) {
+  @media (max-width: 1026px) {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -50,7 +50,7 @@ export const Item = styled.li`
     border: 0.2rem solid ${({ theme }) => theme.colors.tertiary.xwhite};
   }
 
-  @media (max-width: 891px) {
+  @media (max-width: 1026px) {
     width: 60%;
   }
 `
@@ -71,7 +71,7 @@ export const Description = styled.p`
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
   transition: 1s;
 
-  @media (max-width: 891px) {
+  @media (max-width: 1026px) {
     align-items: center;
   }
 `
