@@ -9,6 +9,10 @@ export const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   border-bottom: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
+
+  @media (max-width: 645px) {
+    padding: 0 5rem;
+  }
 `
 
 export const List = styled.ul`
