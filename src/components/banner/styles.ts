@@ -13,6 +13,7 @@ export const Banner = styled.section`
     height: 90rem;
     flex-direction: column;
     align-items: flex-start;
+    padding: 0 5rem;
   }
 `
 

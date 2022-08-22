@@ -13,7 +13,7 @@ export const List = styled.ul`
   @media (max-width: 645px) {
     flex-direction: column;
     height: 70rem;
-    padding: 5rem 10rem;
+    padding: 5rem 5rem;
   }
 `
 

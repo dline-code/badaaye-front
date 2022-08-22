@@ -9,17 +9,31 @@ export const Box = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 4rem 10rem 0 10rem;
+
+  @media (max-width: 645px) {
+    flex-direction: column;
+    padding: 4rem 7rem 0 7rem;
+  }
 `
 
 export const Title = styled.h2`
   width: 30%;
   color: ${({ theme }) => theme.colors.secondary.xxblue};
+
+  @media (max-width: 645px) {
+    width: 100%;
+  }
 `
 
 export const Description = styled.div`
   width: 35%;
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.secondary.xxblue};
+
+  @media (max-width: 645px) {
+    width: 100%;
+    margin-top: 2rem;
+  }
 `
 
 export const ContainerInstitutions = styled.div`

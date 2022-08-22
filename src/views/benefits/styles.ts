@@ -5,10 +5,10 @@ export const Container = styled.div`
   height: 66rem;
   display: flex;
   flex-direction: column;
-  padding: 6rem 10rem;
+  padding: 6rem 7rem;
 
   @media (max-width: 645px) {
-    height: 140rem;
+    height: 162rem;
   }
 `
 
@@ -49,5 +49,6 @@ export const Benefits = styled.div`
 
   @media (max-width: 645px) {
     flex-direction: column;
+    padding: 0 2rem;
   }
 `
