@@ -11,13 +11,14 @@ const header: React.FC = () => {
   const currentRoute = router.pathname
   const [visible, setVisible] = useState(false)
 
-  const togle = () => {
-    if (visible) {
-      setVisible(!visible)
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'visible'
-    }
+  const togle1 = () => {
+    setVisible(true)
+    document.body.style.overflow = 'hidden'
+  }
+
+  const togle2 = () => {
+    setVisible(false)
+    document.body.style.overflow = 'visible'
   }
 
   return (
@@ -61,12 +62,12 @@ const header: React.FC = () => {
             Entrar
           </S.ButtonLogin>
 
-          <S.IconMenu onClick={() => setVisible(true)}>
+          <S.IconMenu onClick={togle1}>
             <AiOutlineMenu />
           </S.IconMenu>
         </S.ContainerButton>
       </S.Header>
-      {visible ? <MenuMobile onClick={togle} /> : null}
+      {visible ? <MenuMobile onClick={togle2} /> : null}
     </>
   )
 }

@@ -32,7 +32,7 @@ export const List = styled.ul`
     }
   }
 
-  @media (max-width: 1036px) {
+  @media (max-width: 1142px) {
     display: none;
   }
 `
@@ -132,7 +132,7 @@ export const IconUser = styled.span`
 export const IconMenu = styled.span`
   display: none;
 
-  @media (max-width: 1036px) {
+  @media (max-width: 1142px) {
     height: 3rem;
     font-size: 3rem;
     display: block;

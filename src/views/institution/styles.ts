@@ -2,14 +2,13 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%auto;
-  height: 55rem;
-  padding: 0 3rem;
+  height: 50rem;
 `
 export const Box = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 6rem 10rem;
+  padding: 4rem 10rem 0 10rem;
 `
 
 export const Title = styled.h2`
@@ -31,6 +30,12 @@ export const ContainerInstitutions = styled.div`
   justify-content: space-between;
   transition: ease 1000ms;
   white-space: nowrap;
+  margin-top: 6rem;
+`
+
+export const ContainerCard = styled.div`
+  width: 19%;
+  height: 28rem;
 `
 
 export const SlideshowDots = styled.div`
