@@ -5,7 +5,7 @@ export const Container = styled.section`
   transform: translateY(0);
   transition: 0s;
 
-  @media (max-width: 1124px) {
+  @media (max-width: 1142px) {
     display: flex;
     min-width: 100%;
     height: 100%;

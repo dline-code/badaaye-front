@@ -15,6 +15,14 @@ export const Banner = styled.section`
     align-items: flex-start;
     padding: 0 5rem;
   }
+
+  @media (max-width: 1026px) and (min-width: 646px) {
+    height: 85rem;
+    padding: 0 10rem;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
 `
 
 export const ContainerItems = styled.article`
@@ -24,7 +32,7 @@ export const ContainerItems = styled.article`
   flex-direction: column;
   justify-content: center;
 
-  @media (max-width: 645px) {
+  @media (max-width: 1026px) {
     width: 100%;
   }
 `
