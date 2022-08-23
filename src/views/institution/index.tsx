@@ -14,6 +14,7 @@ const viewinstitution: React.FC = () => {
     autoplay: true,
     speed: 2000,
     autoplaySpeed: 1200,
+    adaptiveHeight: true,
     cssEase: 'linear',
     responsive: [
       {

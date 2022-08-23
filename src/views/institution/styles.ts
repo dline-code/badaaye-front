@@ -3,6 +3,14 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 100%auto;
   height: 50rem;
+
+  .slick-track {
+    display: flex !important;
+  }
+
+  .slick-slide {
+    height: 30rem;
+  }
 `
 export const Box = styled.div`
   display: flex;
