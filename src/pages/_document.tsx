@@ -47,6 +47,17 @@ export default class MyDocument extends React.Component<Document> {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
           />
           <link rel="shortcut icon" href="/logo-baadaye.svg" />
+
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+          />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+          />
         </Head>
         <body>
           <Main />

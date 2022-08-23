@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Card = styled.div`
-  width: 100%;
-  height: 28rem;
+  width: 75%;
+  height: 26rem;
   padding: 5rem 3rem;
   background: #f4f4f4;
   box-shadow: 0px 0.8rem 1rem rgba(93, 94, 122, 0.12);
