@@ -10,7 +10,7 @@ export const Box = styled.div`
   justify-content: space-between;
   padding: 4rem 10rem 0 10rem;
 
-  @media (max-width: 645px) {
+  @media (max-width: 1124px) {
     flex-direction: column;
     padding: 4rem 7rem 0 7rem;
   }
@@ -20,8 +20,9 @@ export const Title = styled.h2`
   width: 30%;
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
-  @media (max-width: 645px) {
+  @media (max-width: 1124px) {
     width: 100%;
+    text-align: center;
   }
 `
 
@@ -30,9 +31,10 @@ export const Description = styled.div`
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
-  @media (max-width: 645px) {
+  @media (max-width: 1124px) {
     width: 100%;
     margin-top: 2rem;
+    text-align: center;
   }
 `
 
