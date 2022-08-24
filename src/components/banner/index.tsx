@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as S from './styles'
 import { FiUsers } from 'react-icons/fi'
 import { PartnersProps } from './type'
 import { partners } from './mock'
 import Image from 'next/image'
 import Button from '../button'
+import Aos from 'aos'
 
 const banner: React.FC = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  })
   return (
     <S.Banner>
       <S.ContainerItems>
@@ -17,7 +21,7 @@ const banner: React.FC = () => {
           estudantes e parceiros capazes de financiar os seus estudos.
         </S.Summary>
 
-        <S.Box>
+        <S.Box data-aos="fade-right">
           <Button children="Fazer Parte" />
           <S.IconUsers>
             <FiUsers />

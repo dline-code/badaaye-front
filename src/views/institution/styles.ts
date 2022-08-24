@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100%auto;
-  height: 50rem;
-
-  .slick-track {
-    display: flex !important;
-  }
+  width: 100%;
+  height: 53rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .slick-slide {
+    width: 100%;
     height: 30rem;
   }
 `
@@ -16,12 +16,18 @@ export const Box = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 5rem 10rem;
+  padding: 4rem 10rem;
 
   @media (max-width: 1124px) {
     flex-direction: column;
     padding: 4rem 7rem;
   }
+`
+
+export const ContainerInstitution = styled.div`
+  width: 90%;
+  height: 35rem;
+  margin-top: 2rem;
 `
 
 export const Title = styled.h2`

@@ -3,40 +3,10 @@ import { institution } from './mock'
 import * as S from './styles'
 import { InstitutionProps } from 'src/components/card-institution/type'
 import Card from 'src/components/card-institution'
+import { settings } from './configuration-slick'
 import Slider from 'react-slick'
 
 const viewinstitution: React.FC = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 1200,
-    adaptiveHeight: true,
-    cssEase: 'linear',
-    responsive: [
-      {
-        breakpoint: 878,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 764,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      }
-    ]
-  }
   return (
     <S.Container>
       <S.Box>
@@ -47,19 +17,21 @@ const viewinstitution: React.FC = () => {
         </S.Description>
       </S.Box>
 
-      <Slider {...settings}>
-        {institution.map((item: InstitutionProps) => {
-          return (
-            <Card
-              key={item.id}
-              image={item.image}
-              title={item.title}
-              previousprice={item.previousprice}
-              nextprice={item.nextprice}
-            />
-          )
-        })}
-      </Slider>
+      <S.ContainerInstitution>
+        <Slider {...settings}>
+          {institution.map((item: InstitutionProps) => {
+            return (
+              <Card
+                key={item.id}
+                image={item.image}
+                title={item.title}
+                previousprice={item.previousprice}
+                nextprice={item.nextprice}
+              />
+            )
+          })}
+        </Slider>
+      </S.ContainerInstitution>
     </S.Container>
   )
 }
