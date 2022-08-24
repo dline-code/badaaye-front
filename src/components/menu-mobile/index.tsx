@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import * as S from './styles'
 import { IoClose } from 'react-icons/io5'
 import { BsFacebook, BsTwitter } from 'react-icons/bs'
 import { AiOutlineWhatsApp } from 'react-icons/ai'
-import { useRouter } from 'next/router'
 import { MenuProps } from './type'
-import Link from 'next/link'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const menuMobile: React.FC<MenuProps> = ({ onClick }) => {
-  const router = useRouter()
-  const currentRoute = router.pathname
-
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  })
   return (
-    <S.Container>
+    <S.Container data-aos="fade-right">
       <S.ContainerLogo>
         <Image src="/logo-baadaye.svg" width={170} height={170} />
 

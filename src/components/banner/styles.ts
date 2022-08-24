@@ -11,10 +11,11 @@ export const Banner = styled.section`
   margin-top: 8rem;
 
   @media (max-width: 645px) {
-    height: 90rem;
+    height: 75rem;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: space-between;
     padding: 0 5rem;
+    margin-top: 1rem;
   }
 
   @media (max-width: 1026px) and (min-width: 646px) {
@@ -23,6 +24,7 @@ export const Banner = styled.section`
     flex-direction: column;
     width: 100%;
     align-items: center;
+    margin-top: 2rem;
   }
 `
 
