@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Card from 'src/components/card-benefits'
 import * as S from './styles'
 import { BenefitsProps } from 'src/components/card-benefits/type'
 import { benefits } from './mock'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const viewbenefits: React.FC = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  })
   return (
-    <S.Container>
+    <S.Container data-aos="fade-up">
       <S.Box>
         <S.Title>Conheça os benefícios de estudar connosco</S.Title>
         <S.Description>
