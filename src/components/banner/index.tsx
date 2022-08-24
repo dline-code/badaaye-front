@@ -13,7 +13,7 @@ const banner: React.FC = () => {
   })
   return (
     <S.Banner>
-      <S.ContainerItems>
+      <S.ContainerItems data-aos="fade-left">
         <S.Title>Encontre o financimento para os seus estudos</S.Title>
 
         <S.Summary>
@@ -21,7 +21,7 @@ const banner: React.FC = () => {
           estudantes e parceiros capazes de financiar os seus estudos.
         </S.Summary>
 
-        <S.Box data-aos="fade-right">
+        <S.Box>
           <Button children="Fazer Parte" />
           <S.IconUsers>
             <FiUsers />

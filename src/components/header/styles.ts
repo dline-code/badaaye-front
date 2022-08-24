@@ -1,14 +1,25 @@
 import styled, { css } from 'styled-components'
 
+export const Wrapper = styled.main`
+  width: 100%;
+  height: 8.5rem;
+  .active-header {
+    box-shadow: rgba(100, 100, 111, 0.2) 0rem 0.438rem 1.813rem 0rem;
+  }
+`
+
 export const Header = styled.header`
-  min-width: 100%auto;
-  height: 7rem;
+  width: 100%;
+  height: 8.5rem;
   padding: 0 10rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  z-index: 100;
   border-bottom: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
+  background: ${({ theme }) => theme.colors.tertiary.xwhite};
 
   @media (max-width: 645px) {
     padding: 0 5rem;
