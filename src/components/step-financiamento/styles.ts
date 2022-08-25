@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Lista = styled.ul`
+export const List = styled.ul`
   min-width: 100%;
   height: 25rem;
   padding: 0 10rem;
@@ -11,7 +11,7 @@ export const Lista = styled.ul`
   background: ${({ theme }) => theme.colors.primary.xblue};
 `
 
-export const Container = styled.li`
+export const Container = styled.div`
   width: 20%;
   list-style: none;
 `
@@ -25,28 +25,22 @@ export const Item = styled.li`
   :before {
     content: '';
     display: block;
-    border: 2px solid ${({ theme }) => theme.colors.tertiary.xwhite};
+    border: 0.2rem solid ${({ theme }) => theme.colors.tertiary.xwhite};
   }
 `
 
-export const TitleHead = styled.h2`
+export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 `
 
-export const Title = styled.h3`
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-`
-
 export const Step = styled.h3`
-  margin-top: 2rem;
+  margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
 `
 
 export const Description = styled.p`
-  margin-top: 1rem;
   line-height: 1.5;
+  margin-top: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
 `

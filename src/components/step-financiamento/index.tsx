@@ -1,13 +1,11 @@
 import React from 'react'
 import * as S from './styles'
-import { Description } from '../banner/styles'
-import { Lista } from '../footer/styles'
 
 const step: React.FC = () => {
   return (
-    <S.Lista>
+    <S.List>
       <S.Container>
-        <S.TitleHead>Entenda como a Baadaye funciona</S.TitleHead>
+        <S.Title>Entenda como a Baadaye funciona</S.Title>
         <S.Description>▼ Baixar explicação completa</S.Description>
       </S.Container>
 
@@ -31,7 +29,7 @@ const step: React.FC = () => {
           Aguarde pelo processo de avaliação do pedido.
         </S.Description>
       </S.Item>
-    </S.Lista>
+    </S.List>
   )
 }
 
