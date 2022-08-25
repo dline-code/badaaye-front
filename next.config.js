@@ -5,7 +5,6 @@ const nextConfig = {
   reactStrictMode: true,
   esModule: true
 }
-
 module.exports = withImages({
   ...nextConfig
 })

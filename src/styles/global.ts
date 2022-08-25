@@ -40,15 +40,15 @@ export default createGlobalStyle`
       left: 0;
       padding-bottom: 1.875rem;
       font-family: ${theme.font.family};
-      background: ${theme.colors.tertiary.white};
-      color: ${theme.colors.secondary.text};
+      background: ${theme.colors.tertiary.xwhite};
+      color: ${theme.colors.secondary.xxblue};
     }
 
     body,
     input,
     select,
     button {
-      font-size: ${theme.font.sizes.xxtext};
+      font-size: ${theme.font.sizes.midle};
     }
 
     h1,
@@ -75,8 +75,8 @@ export default createGlobalStyle`
       list-style: none;
     }
 
-    scrollbar-color: ${theme.colors.primary.blue}
-      ${theme.colors.secondary.title};
+    scrollbar-color: ${theme.colors.primary.xblue}
+      ${theme.colors.secondary.xxblue};
     scrollbar-width: thin;
 
     ::-webkit-scrollbar {
@@ -84,7 +84,7 @@ export default createGlobalStyle`
     }
 
     ::-webkit-scrollbar-track {
-      background: ${theme.colors.secondary.title};
+      background: ${theme.colors.primary.xblue};
       border-radius: 0.25rem;
     }
 

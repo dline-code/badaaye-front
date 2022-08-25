@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Header = styled.header`
   min-width: 100%auto;
   height: 7rem;
-  padding: 0 7rem;
+  padding: 0 10rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,7 +24,7 @@ export const Lista = styled.ul`
   }
 
   .active {
-    color: ${({ theme }) => theme.colors.secondary.xxblue};
+    color: ${({ theme }) => theme.colors.primary.xblue};
     :after {
       content: '';
       border: 1px solid ${({ theme }) => theme.colors.primary.xblue};
@@ -53,7 +53,7 @@ export const BtnEntrar = styled.button`
   font-weight: ${({ theme }) => theme.font.medium};
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxblue};
-  background: ${({ theme }) => theme.colors.tertiary.cinza};
+  background: ${({ theme }) => theme.colors.tertiary.xcinza};
 
   :hover {
     transition: ${({ theme }) => theme.transition.slow};

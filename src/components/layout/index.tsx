@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../footer'
 import Header from '../header'
 import * as S from './styles'
 
@@ -12,6 +13,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <S.Content>
         <Header />
         <S.Main>{children}</S.Main>
+        <Footer />
       </S.Content>
     </S.Wrapper>
   )
