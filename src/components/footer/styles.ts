@@ -4,7 +4,6 @@ export const Footer = styled.footer`
   min-width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 30rem;
 `
 
 export const BigFooter = styled.footer`
@@ -18,7 +17,7 @@ export const BigFooter = styled.footer`
   border-top: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
   border-bottom: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
 
-  @media (max-width: 645px) {
+  @media (max-width: 916px) {
     width: 100%;
     height: 70rem;
     padding: 4rem 6rem;
@@ -28,13 +27,13 @@ export const BigFooter = styled.footer`
 `
 
 export const List = styled.ul`
-  width: 25%;
+  width: 30%;
   height: 15rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
-  @media (max-width: 645px) {
+  @media (max-width: 916px) {
     width: 100%;
     margin-top: 3rem;
 
@@ -155,7 +154,7 @@ export const MinFooter = styled.footer`
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 645px) {
+  @media (max-width: 916px) {
     flex-direction: column;
     line-height: 1.7;
   }

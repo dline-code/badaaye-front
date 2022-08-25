@@ -42,12 +42,18 @@ const viewinstitution: React.FC = () => {
       <S.ContainerInstitutions>
         {institution.map((item: InstitutionProps) => {
           return (
-            <Card
-              image={item.image}
-              title={item.title}
-              previousprice={item.previousprice}
-              nextprice={item.nextprice}
-            />
+            <S.ContainerCard
+              style={{
+                transform: `translate3d(${-index * 5}%, 0, 0)`
+              }}
+            >
+              <Card
+                image={item.image}
+                title={item.title}
+                previousprice={item.previousprice}
+                nextprice={item.nextprice}
+              />
+            </S.ContainerCard>
           )
         })}
       </S.ContainerInstitutions>
