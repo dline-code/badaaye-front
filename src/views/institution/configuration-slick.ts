@@ -7,6 +7,7 @@ export const settings = {
   speed: 2000,
   autoplaySpeed: 1200,
   adaptiveHeight: true,
+  dotsClass: 'slick-dots',
   cssEase: 'linear',
   responsive: [
     {

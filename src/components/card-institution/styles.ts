@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const Card = styled.div`
-  width: 75%;
+  width: 80%;
   height: 26rem;
   padding: 5rem 3rem;
   background: #f4f4f4;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0rem 0.438rem 1.813rem 0rem;
   border-radius: 0.4rem;
   transition: 2s;
   display: flex;

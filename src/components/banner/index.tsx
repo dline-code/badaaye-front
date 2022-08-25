@@ -6,6 +6,7 @@ import { partners } from './mock'
 import Image from 'next/image'
 import Button from '../button'
 import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const banner: React.FC = () => {
   useEffect(() => {
@@ -13,7 +14,7 @@ const banner: React.FC = () => {
   })
   return (
     <S.Banner>
-      <S.ContainerItems>
+      <S.ContainerItems data-aos="fade-right">
         <S.Title>Encontre o financimento para os seus estudos</S.Title>
 
         <S.Summary>
@@ -21,7 +22,7 @@ const banner: React.FC = () => {
           estudantes e parceiros capazes de financiar os seus estudos.
         </S.Summary>
 
-        <S.Box data-aos="fade-right">
+        <S.Box>
           <Button children="Fazer Parte" />
           <S.IconUsers>
             <FiUsers />
@@ -52,6 +53,7 @@ const banner: React.FC = () => {
         alt="Ilustração do Estudante"
         width={570}
         height={570}
+        data-aos="fade-left"
       />
     </S.Banner>
   )

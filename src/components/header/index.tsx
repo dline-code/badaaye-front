@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineUser, AiOutlineMenu } from 'react-icons/ai'
@@ -10,20 +10,32 @@ const header: React.FC = () => {
   const router = useRouter()
   const currentRoute = router.pathname
   const [visible, setVisible] = useState(false)
+  const [activeheader, setActiveheader] = useState(false)
 
-  const togle1 = () => {
+  const togleHidden = () => {
     setVisible(true)
     document.body.style.overflow = 'hidden'
   }
 
-  const togle2 = () => {
+  const togleVisible = () => {
     setVisible(false)
     document.body.style.overflow = 'visible'
   }
 
+  useEffect(function () {
+    function positionScroll() {
+      if (window.scrollY > 10) {
+        setActiveheader(true)
+      } else {
+        setActiveheader(false)
+      }
+    }
+    window.addEventListener('scroll', positionScroll)
+  }, [])
+
   return (
-    <>
-      <S.Header>
+    <S.Wrapper>
+      <S.Header className={activeheader ? 'active-header' : ''}>
         <Image
           src="/logo-baadaye.svg"
           alt="Picture of the author"
@@ -62,13 +74,13 @@ const header: React.FC = () => {
             Entrar
           </S.ButtonLogin>
 
-          <S.IconMenu onClick={togle1}>
+          <S.IconMenu onClick={togleHidden}>
             <AiOutlineMenu />
           </S.IconMenu>
         </S.ContainerButton>
       </S.Header>
-      {visible ? <MenuMobile onClick={togle2} /> : null}
-    </>
+      {visible ? <MenuMobile onClick={togleVisible} /> : null}
+    </S.Wrapper>
   )
 }
 

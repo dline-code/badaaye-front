@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as S from './styles'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const step: React.FC = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 })
+  })
   return (
-    <S.List>
+    <S.List data-aos="flip-left">
       <S.Container>
         <S.Title>Entenda como a Baadaye funciona</S.Title>
         <S.Description className="download">
