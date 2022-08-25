@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 export const Header = styled.header`
   min-width: 100%auto;
   height: 7rem;
-  padding: 0 6rem;
+  padding: 0 10rem;
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -7,7 +7,7 @@ export const Banner = styled.section`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 0 6rem;
+  padding: 0 10rem;
 
   @media (max-width: 645px) {
     height: 90rem;
