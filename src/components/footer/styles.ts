@@ -114,7 +114,7 @@ export const Button = styled.button`
   background: ${({ theme }) => theme.colors.primary.xblue};
 
   :hover {
-    filter: brightness(0.9);
+    filter: brightness(0.8);
     transition: ${({ theme }) => theme.transition.slow};
   }
 `

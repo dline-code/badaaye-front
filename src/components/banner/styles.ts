@@ -11,7 +11,7 @@ export const Banner = styled.section`
 `
 
 export const ContainerItems = styled.article`
-  width: 34%;
+  width: 40%;
   height: 60rem;
   display: flex;
   flex-direction: column;
@@ -30,6 +30,7 @@ export const Resume = styled.p`
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-top: 3rem;
 `
 export const Icon = styled.span`
