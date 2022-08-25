@@ -15,6 +15,8 @@ const header: React.FC = () => {
     if (visible) {
       setVisible(!visible)
       document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'visible'
     }
   }
 
