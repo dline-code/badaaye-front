@@ -6,7 +6,9 @@ const step: React.FC = () => {
     <S.List>
       <S.Container>
         <S.Title>Entenda como a Baadaye funciona</S.Title>
-        <S.Description>▼ Baixar explicação completa</S.Description>
+        <S.Description className="download">
+          ▼ Baixar explicação completa
+        </S.Description>
       </S.Container>
 
       <S.Item>
