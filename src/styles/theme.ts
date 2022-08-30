@@ -9,27 +9,32 @@ export const theme = {
     medium: 500,
     bold: 700,
     sizes: {
-      title: '2.25rem',
-      xsubtitle: '2rem',
-      xxsubtitle: '1.5rem',
-      xtext: '1.25rem',
-      xxtext: '1rem',
-      maxcontainer: '70rem'
+      xlarge: '70rem',
+      xxlarge: '2.25rem',
+      xxxlarge: '2rem',
+      midle: '1.5rem',
+      small: '1.25rem',
+      xsmall: '1rem'
     }
   },
   colors: {
     primary: {
-      blue: '#5c63ef'
+      xblue: '#5c63ef'
     },
     secondary: {
-      title: '#292b52',
-      text: '#5d5e7a'
+      xxblue: '#292b52',
+      xxxblue: '#5d5e7a'
     },
     tertiary: {
       background: '#f8f8f8',
       contrast: '#f4f4f4',
       white: '#fff',
-      gray: '#aaaaaa'
+      xwhite: '#fff',
+      gray: '#aaaaaa',
+      xxwhite: '#f1f1f1',
+      xcinza: '#dddddd',
+      xxcinza: '#aaaaaa',
+      xxxcinza: '#bbbbbb'
     },
     shades: {
       black: (opacity: number) => `rgba(0, 0, 0, ${opacity})`,

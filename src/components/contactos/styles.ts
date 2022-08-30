@@ -19,7 +19,7 @@ export const ContainerCampo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  color: ${({ theme }) => theme.colors.secondary.text};
+  color: ${({ theme }) => theme.colors.secondary.xxxblue};
   margin-top: 0.5rem;
   input {
     border: none;
@@ -29,7 +29,14 @@ export const ContainerCampo = styled.div`
     border-radius: 0.25rem;
     font-size: 1.5rem;
     letter-spacing: 0;
-    color: ${({ theme }) => theme.colors.secondary.text};
+    color: ${({ theme }) => theme.colors.secondary.xxxblue};
+    :focus {
+      background-color: var(--cui-input-focus-bg, #fff);
+      border-color: var(--cui-input-focus-border-color, #5c63ef);
+      box-shadow: 0 0 0 0.25rem rgb(50 31 219 / 25%);
+      color: var(--cui-input-focus-color, rgba(44, 56, 74, 0.95));
+      outline: 0;
+    }
   }
 
   span {
@@ -46,7 +53,7 @@ export const Button = styled.button`
   border: none;
   font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.tertiary.white};
-  background: ${({ theme }) => theme.colors.primary.blue};
+  background: ${({ theme }) => theme.colors.primary.xblue};
   width: 30rem;
   height: 3.5rem;
   border-radius: 0.25rem;

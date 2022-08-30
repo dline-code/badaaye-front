@@ -1,6 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Contactos from '../components/contactos'
+import Banner from 'src/components/banner'
+import Step from 'src/components/step-financiamento'
+import Benefits from 'src/views/benefits'
+import Institution from 'src/views/institution'
+import Contactos from 'src/components/contactos'
 
 const Home: NextPage = () => {
   return (
@@ -9,6 +13,10 @@ const Home: NextPage = () => {
         <title>Baadaye</title>
       </Head>
       <main>
+        <Banner />
+        <Step />
+        <Benefits />
+        <Institution />
         <Contactos />
       </main>
     </>
