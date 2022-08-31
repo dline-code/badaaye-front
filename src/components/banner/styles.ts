@@ -46,6 +46,7 @@ export const ContainerItems = styled.article`
 export const Title = styled.h1`
   width: 80%;
   font-size: 2.875rem;
+  font-weight: ${({ theme }) => theme.font.smallbold};
   @media (max-width: 645px) {
     font-size: ${({ theme }) => theme.font.sizes.xxxlarge};
   }
