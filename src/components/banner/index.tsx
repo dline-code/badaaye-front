@@ -51,8 +51,8 @@ const banner: React.FC = () => {
       <Image
         src="/assets/Ilustracao-Estudante.svg"
         alt="Ilustração do Estudante"
-        width={570}
-        height={570}
+        width={900}
+        height={690}
         data-aos="fade-left"
       />
     </S.Banner>
