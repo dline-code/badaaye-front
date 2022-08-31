@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 70rem;
   display: flex;
   flex-direction: column;
-  padding: 6rem 7rem;
+  padding: 6rem 10rem;
   transition: 2s;
 
   @media (max-width: 1270px) {
@@ -29,8 +29,8 @@ export const Box = styled.div`
 `
 
 export const Title = styled.h2`
-  width: 25%;
-  font-size: 2.875rem;
+  width: 23%;
+  font-size: 2.5rem;
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
   @media (max-width: 1270px) {
@@ -52,7 +52,7 @@ export const Description = styled.div`
 `
 
 export const Benefits = styled.div`
-  margin-top: 4.125rem;
+  margin-top: 5rem;
   display: flex;
   justify-content: space-between;
 

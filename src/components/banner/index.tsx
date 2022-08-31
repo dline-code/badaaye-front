@@ -35,13 +35,8 @@ const banner: React.FC = () => {
         <S.Partners>
           {partners.slice(0, 3).map((item: PartnersProps) => {
             return (
-              <S.PartnersItems>
-                <Image
-                  key={item.id}
-                  src={item.instituicao}
-                  width={80}
-                  height={80}
-                />
+              <S.PartnersItems key={item.id}>
+                <Image src={item.instituicao} width={80} height={80} />
               </S.PartnersItems>
             )
           })}
