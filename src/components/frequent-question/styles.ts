@@ -1,18 +1,16 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  min-width: 100%;
+  width: 100%;
   height: 54rem;
   display: flex;
+  align-items: center;
   background: ${({ theme }) => theme.colors.primary.xblue};
   flex-direction: column;
   margin-top: 20px;
-  align-items: center;
 
-  @media (max-width: 645px) {
-    height: 40rem;
-    flex-direction: column;
-    align-items: flex-start;
+  @media (max-width: 1026px) {
+    height: 60rem;
   }
 `
 
@@ -25,10 +23,13 @@ export const Title = styled.h2`
   margin:5rem 0;
 `
 export const AccordionList = styled.ul`
-  width: 70rem;
+  width: 50%;
+  @media (max-width: 1000px) {
+    width: 70%;
+  }
 `
 export const Item = styled.li`
-position: relative;
+  position: relative;
   &:first-child {
     button {
       border-top: 0.2rem solid ${({ theme }) => theme.colors.tertiary.xcinza};
@@ -44,6 +45,7 @@ position: relative;
     outline: none;
     transition: 0.3s;
     border-bottom: 0.2rem solid ${({ theme }) => theme.colors.tertiary.xcinza};
+
     span {
       color: ${({ theme }) => theme.colors.tertiary.xwhite};
       text-align: left;
@@ -76,6 +78,7 @@ export const ContactIndicate = styled.span`
   margin: 4rem 0;
   font-size: ${({ theme }) => theme.font.sizes.small};
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
+
 `
 
 
