@@ -28,6 +28,7 @@ export const AccordionList = styled.ul`
   width: 70rem;
 `
 export const Item = styled.li`
+position: relative;
   &:first-child {
     button {
       border-top: 0.2rem solid ${({ theme }) => theme.colors.tertiary.xcinza};
@@ -40,6 +41,8 @@ export const Item = styled.li`
     padding: 1.2rem 0;
     background: ${({ theme }) => theme.colors.primary.xblue};
     border: none;
+    outline: none;
+    transition: 0.3s;
     border-bottom: 0.2rem solid ${({ theme }) => theme.colors.tertiary.xcinza};
     span {
       color: ${({ theme }) => theme.colors.tertiary.xwhite};
@@ -47,25 +50,21 @@ export const Item = styled.li`
     }
     .fa-plus {
       font-size: ${({ theme }) => theme.font.sizes.small};
+      transition: 0.2s ease-out;
     }
-  }
-
-  div {
-    max-height: 200px;
   }
 
   .open {
     background-color: none;
-    max-height: 100%;
-    transition: max-height 0.1s ease-out;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
     background: ${({ theme }) => theme.colors.tertiary.xwhite};
-    will-change: height;
+    will-change: max-height;
   }
   .close {
-    max-height: 0;
     background-color: white;
     overflow: hidden;
-    transition: max-height 0.1s ease-out;
+    transition: 0.3s ease-out;
   }
 `
 
