@@ -3,7 +3,7 @@ export const questions = [
     id: 1,
     question: 'Quem nós somos',
     answer:
-      'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters, transforms, and sends data to hundreds of business tools with the flip of a switch. Historically,  built integrations with more than 250 different customer data tools ourselves(think Mixpanel'
+      'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores.'
   },
   {
     id: 2,

@@ -4,6 +4,7 @@ import Banner from 'src/components/banner'
 import Step from 'src/components/financing-steps'
 import Benefits from 'src/views/benefits'
 import Institution from 'src/views/institution'
+import FrequentQuestions from 'src/components/frequent-question'
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
         <Step />
         <Benefits />
         <Institution />
+        <FrequentQuestions />
       </main>
     </>
   )
