@@ -23,7 +23,7 @@ const viewbenefits: React.FC = () => {
         {benefits.map((item: BenefitsProps) => {
           return (
             <Card
-              id={item.id}
+              key={item.id}
               image={item.image}
               title={item.title}
               description={item.description}

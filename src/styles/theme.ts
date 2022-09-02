@@ -7,6 +7,7 @@ export const theme = {
       "Poppins, -apple-system, Roboto, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
     regular: 400,
     medium: 500,
+    smallbold: 600,
     bold: 700,
     sizes: {
       xlarge: '70rem',
