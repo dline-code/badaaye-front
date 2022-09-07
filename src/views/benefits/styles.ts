@@ -15,6 +15,12 @@ export const Container = styled.div`
   @media (max-width: 645px) {
     padding: 6rem 5rem;
   }
+
+  @media (max-width: 360px) {
+    padding: 6rem 2rem;
+    height: 150rem;
+    border: 1px solid red;
+  }
 `
 
 export const Box = styled.div`
@@ -26,6 +32,10 @@ export const Box = styled.div`
   @media (max-width: 1270px) {
     flex-direction: column;
   }
+
+  @media (max-width: 360px) {
+    margin-top: 0rem;
+  }
 `
 
 export const Title = styled.h2`
@@ -36,6 +46,10 @@ export const Title = styled.h2`
   @media (max-width: 1270px) {
     width: 100%;
     text-align: center;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 2.2rem;
   }
 `
 
@@ -60,5 +74,9 @@ export const Benefits = styled.div`
     height: 200rem;
     flex-direction: column;
     padding: 0 2rem;
+  }
+
+  @media (max-width: 360px) {
+    height: 120rem;
   }
 `

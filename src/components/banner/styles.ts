@@ -13,6 +13,15 @@ export const Banner = styled.section`
   background-repeat: no-repeat, no-repeat;
   background-position: right 12rem, left 0rem;
 
+  @media (max-width: 1026px) and (min-width: 646px) {
+    height: 85rem;
+    padding: 0 10rem;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
+  }
+
   @media (max-width: 645px) {
     height: 75rem;
     flex-direction: column;
@@ -21,13 +30,11 @@ export const Banner = styled.section`
     margin-top: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   }
 
-  @media (max-width: 1026px) and (min-width: 646px) {
-    height: 85rem;
-    padding: 0 10rem;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
+  @media (max-width: 360px) {
+    min-width: 100%;
+    height: 75rem;
+    padding: 0 2rem;
+    background-position: right 20rem, left 2rem;
   }
 `
 
@@ -40,6 +47,11 @@ export const ContainerItems = styled.article`
 
   @media (max-width: 1026px) {
     width: 100%;
+  }
+
+  @media (max-width: 360px) {
+    height: 40rem;
+    background-image: none;
   }
 `
 

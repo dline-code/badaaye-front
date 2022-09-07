@@ -24,6 +24,10 @@ export const Header = styled.header`
   @media (max-width: 645px) {
     padding: 0 5rem;
   }
+
+  @media (max-width: 360px) {
+    padding: 0 2rem;
+  }
 `
 
 export const List = styled.ul`

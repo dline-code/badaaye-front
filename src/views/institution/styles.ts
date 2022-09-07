@@ -9,7 +9,6 @@ export const Container = styled.div`
   padding: 0 0rem;
 
   .slick-slide {
-    width: 100%;
     height: 32rem;
   }
 `
@@ -26,7 +25,7 @@ export const Box = styled.div`
 `
 
 export const ContainerInstitution = styled.div`
-  width: 100%;
+  width: 96%;
   height: 35rem;
   margin-top: 5rem;
 `
