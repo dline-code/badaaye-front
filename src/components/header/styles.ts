@@ -55,13 +55,12 @@ export const List = styled.ul`
 export const Item = styled.li`
   list-style: none;
   cursor: pointer;
-  margin-left: 4rem;
+  margin-left: 2.5rem;
   transform: scale(1);
 
   ${({ theme }) => css`
     font-weight: ${theme.font.medium};
     font-family: ${theme.font.family};
-    font-size: ${theme.font.sizes.midle};
     border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.xwhite};
   `}
 
@@ -116,10 +115,11 @@ export const ContainerButton = styled.div`
 `
 
 export const ButtonLogin = styled.button`
-  padding: 1rem 3rem;
-  border-radius: 0.5rem;
+  width: 11rem;
+  height: 4rem;
+  border-radius: 0.3rem;
   border: none;
-  transition: 1.5s;
+  transition: 1s;
 
   ${({ theme }) => css`
     font-weight: ${theme.font.medium};
@@ -128,7 +128,7 @@ export const ButtonLogin = styled.button`
     background: ${theme.colors.tertiary.xcinza};
 
     :hover {
-      transition: 1.5s;
+      transition: 1s;
       transition: ${({ theme }) => theme.transition.slow};
       background: ${({ theme }) => theme.colors.primary.xblue};
       color: ${({ theme }) => theme.colors.tertiary.xwhite};
