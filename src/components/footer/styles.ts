@@ -4,6 +4,11 @@ export const Footer = styled.footer`
   min-width: 100%;
   display: flex;
   flex-direction: column;
+
+
+  @media screen and (max-width: 67rem) {
+     margin-top: 25rem;
+  }
 `
 
 export const BigFooter = styled.footer`
