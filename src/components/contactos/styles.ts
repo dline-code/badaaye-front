@@ -1,28 +1,49 @@
 import styled from 'styled-components'
 
 export const ContainerContactos = styled.section`
-  height: 30rem;
-  padding: 20rem;
+  height: 70rem;
   width: 100%;
   background-color: #e5e5e5 0% 0% no-repeat padding-box;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+`
+
+export const ContainerObject = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 110rem;
+
+  @media screen and (max-width: 67rem) {
+    flex-direction: column;
+    text-align: center;
+  }
 
   h1 {
-    font-size: 2rem;
-    width: 19.9rem;
+    font-size: 3rem;
+    width: 25.9rem;
+    margin-bottom: 3rem;
+
+    @media screen and (max-width: 67rem) {
+      width: 40rem;
+    }
   }
 `
 export const ContainerCampo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  color: #5d5e7a;
-  margin-top: 0.5rem;
+  color: ${({ theme }) => theme.colors.secondary.xxxblue};
+  margin-top: 2.5rem;
   input {
     border: none;
     background: #f4f4f4;
     padding: 0.7rem;
-    border: 0.109rem solid #aaaaaa;
+    width: 40rem;
+    height: 4.3rem;
+    border: 0.109rem solid ${({ theme }) => theme.colors.tertiary.gray};
     border-radius: 0.25rem;
     font-size: 1.5rem;
     letter-spacing: 0;
@@ -30,44 +51,57 @@ export const ContainerCampo = styled.div`
   }
 
   span {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   }
 
   .sms {
-    height: 9rem;
+    height: 12rem;
   }
 `
 
 export const Button = styled.button`
   border: none;
-  font-size: 1.5rem;
-  color: #fff;
-  background: #5c63ef;
-  width: 30rem;
-  height: 3.5rem;
+  font-size: 1.7rem;
+  color: ${({ theme }) => theme.colors.tertiary.white};
+  background: ${({ theme }) => theme.colors.primary.xblue};
+  width: 40rem;
+  height: 4.5rem;
   border-radius: 0.25rem;
   margin-top: 2rem;
 `
 
-export const Container1 = styled.div``
+export const Container1 = styled.div`
+  @media screen and (max-width: 67rem) {
+    margin-top: 5rem;
+  }
+`
 
 export const Container2 = styled.div`
   height: 30rem;
-  padding: 5rem 13rem;
-  background-color: #e5e5e5 0% 0% no-repeat padding-box;
-
+  background-color: ${({ theme }) => theme.colors.tertiary.contrast} 0% 0%
+    no-repeat padding-box;
   font-size: 1.5rem;
+
   div {
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 67rem) {
+      justify-content: center;
+    }
   }
 
   .icon {
     font-size: 2rem;
   }
   span {
-    margin-left: 1rem;
+    font-size: 1.5rem;
+    margin-left: ${({ theme }) => theme.spacings.xxxxmultipleeight};
+  }
+
+  i {
+    font-size: 1.5rem;
   }
   div {
     margin: 2rem 0;
