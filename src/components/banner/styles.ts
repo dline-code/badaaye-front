@@ -30,17 +30,16 @@ export const Banner = styled.section`
     margin-top: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   }
 
-  @media (max-width: 360px) {
-    min-width: 100%;
+  @media (max-width: 500px) {
+    width: 100%;
     height: 75rem;
-    padding: 0 2rem;
+    padding: 0 3rem;
     background-position: right 20rem, left 2rem;
   }
 `
 
 export const ContainerItems = styled.article`
   width: 50%;
-  height: 59rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,9 +48,9 @@ export const ContainerItems = styled.article`
     width: 100%;
   }
 
-  @media (max-width: 360px) {
-    height: 40rem;
+  @media (max-width: 500px) {
     background-image: none;
+    padding-top: 4rem;
   }
 `
 
@@ -59,8 +58,14 @@ export const Title = styled.h1`
   width: 80%;
   font-size: 2.875rem;
   font-weight: ${({ theme }) => theme.font.smallbold};
+
   @media (max-width: 645px) {
+    width: 100%;
     font-size: ${({ theme }) => theme.font.sizes.xxxlarge};
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
   }
 `
 
@@ -75,6 +80,16 @@ export const Box = styled.div`
   flex-direction: row;
   align-items: center;
   margin-top: 1.875rem;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+`
+export const Paragraph = styled.div`
+  @media (max-width: 500px) {
+    order: -1;
+    padding-bottom: 1rem;
+  }
 `
 export const IconUsers = styled.span`
   margin-left: 3rem;

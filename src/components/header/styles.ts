@@ -25,8 +25,8 @@ export const Header = styled.header`
     padding: 0 5rem;
   }
 
-  @media (max-width: 360px) {
-    padding: 0 2rem;
+  @media (max-width: 500px) {
+    padding: 0 3rem;
   }
 `
 

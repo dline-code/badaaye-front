@@ -24,10 +24,12 @@ const banner: React.FC = () => {
 
         <S.Box>
           <Button children="Fazer Parte" />
-          <S.IconUsers>
-            <FiUsers />
-          </S.IconUsers>
-          <S.Span>125 financiamentos já atribuidos</S.Span>
+          <S.Paragraph>
+            <S.IconUsers>
+              <FiUsers />
+            </S.IconUsers>
+            <S.Span>125 financiamentos já atribuidos</S.Span>
+          </S.Paragraph>
         </S.Box>
 
         <S.Description>Nossos principais parceiros</S.Description>

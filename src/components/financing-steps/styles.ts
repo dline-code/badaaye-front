@@ -16,8 +16,8 @@ export const List = styled.ul`
     padding: 5rem 5rem;
   }
 
-  @media (max-width: 360px) {
-    padding: 5rem 2rem;
+  @media (max-width: 500px) {
+    padding: 5rem 3rem;
   }
 `
 

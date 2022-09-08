@@ -11,7 +11,7 @@ export const settings = {
   cssEase: 'linear',
   responsive: [
     {
-      breakpoint: 878,
+      breakpoint: 800,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 3,
@@ -23,6 +23,15 @@ export const settings = {
       breakpoint: 764,
       settings: {
         slidesToShow: 2,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 1,
         slidesToScroll: 3,
         infinite: true,
         dots: true
