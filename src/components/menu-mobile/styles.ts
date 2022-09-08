@@ -25,6 +25,10 @@ export const Container = styled.section`
       rgba(17, 18, 17, 1) 95%
     );
   }
+
+  @media (max-width: 500px) {
+    padding: 2rem 3rem;
+  }
 `
 
 export const ContainerLogo = styled.div`

@@ -100,7 +100,7 @@ export const Item = styled.li`
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
   :first-child {
-    margin-top: 1rem;
+    margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
   }
 
   :hover {

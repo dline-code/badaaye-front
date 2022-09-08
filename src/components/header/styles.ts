@@ -59,7 +59,7 @@ export const List = styled.ul`
 export const Item = styled.li`
   list-style: none;
   cursor: pointer;
-  margin-left: 2.5rem;
+  margin-left: ${({ theme }) => theme.spacings.xxmultipleeight};
   transform: scale(1);
 
   ${({ theme }) => css`
@@ -76,7 +76,7 @@ export const Item = styled.li`
     content: '';
     display: block;
     transition: 1.5s;
-    margin: 0.5rem auto;
+    margin: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
     transform: scaleX(0);
     border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.xwhite};
   }
@@ -95,7 +95,7 @@ export const Item = styled.li`
       content: '';
       display: block;
       transition: 1s;
-      margin: 0.5rem auto;
+      margin: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
       transform: scaleY(1);
       border: 0.1rem solid ${({ theme }) => theme.colors.primary.xblue};
     }
@@ -104,7 +104,7 @@ export const Item = styled.li`
       content: '';
       border: 1px solid ${({ theme }) => theme.colors.primary.xblue};
       display: block;
-      margin: 0.5rem auto;
+      margin: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
       transform: scaleX(1);
       transition: 1s;
     }
@@ -145,7 +145,7 @@ export const ButtonLogin = styled.button`
 `
 
 export const IconUser = styled.span`
-  margin-right: 0.5rem;
+  margin-right: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
 `
 
 export const IconMenu = styled.span`

@@ -26,7 +26,7 @@ export const Box = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 5rem;
+  margin-top: ${({ theme }) => theme.spacings.xmultipleeight};
 
   @media (max-width: 1270px) {
     flex-direction: column;
@@ -60,12 +60,12 @@ export const Description = styled.div`
 
   @media (max-width: 1270px) {
     width: 100%;
-    margin-top: 2rem;
+    margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
   }
 `
 
 export const Benefits = styled.div`
-  margin-top: 5rem;
+  margin-top: ${({ theme }) => theme.spacings.xmultipleeight};
   display: flex;
   justify-content: space-between;
 

@@ -2,13 +2,12 @@ import styled from 'styled-components'
 
 export const Banner = styled.section`
   min-width: 100%;
-  height: 50rem;
+  height: 56rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
   padding: 0 10rem;
-  margin-top: 8rem;
+  margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
   background-image: url('/assets/patternMin.svg'), url('/assets/patternBig.svg');
   background-repeat: no-repeat, no-repeat;
   background-position: right 12rem, left 0rem;
@@ -88,7 +87,7 @@ export const Box = styled.div`
 export const Paragraph = styled.div`
   @media (max-width: 500px) {
     order: -1;
-    padding-bottom: 1rem;
+    padding-bottom: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   }
 `
 export const IconUsers = styled.span`

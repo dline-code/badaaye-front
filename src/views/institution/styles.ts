@@ -38,7 +38,7 @@ export const Box = styled.div`
 export const ContainerInstitution = styled.div`
   width: 100%;
   height: 35rem;
-  margin-top: 5rem;
+  margin-top: ${({ theme }) => theme.spacings.xmultipleeight};
 `
 
 export const Title = styled.h2`
