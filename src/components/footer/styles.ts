@@ -4,6 +4,11 @@ export const Footer = styled.footer`
   min-width: 100%;
   display: flex;
   flex-direction: column;
+
+
+  @media screen and (max-width: 67rem) {
+     margin-top: 25rem;
+  }
 `
 
 export const BigFooter = styled.footer`
@@ -138,7 +143,7 @@ export const InputButton = styled.button`
   border: none;
   transition: 2s;
   border-radius: 0 0.3rem 0.3rem 0;
-  color: ${({ theme }) => theme.colors.tertiary.xwhite};
+  color: ${({ theme }) => theme.colors.tertiary.white};
   background: ${({ theme }) => theme.colors.primary.xblue};
 
   :hover {

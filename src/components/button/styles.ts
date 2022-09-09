@@ -7,7 +7,7 @@ export const Button = styled.button`
   transition: 2s;
   border-radius: 0.3rem;
   background: ${({ theme }) => theme.colors.primary.xblue};
-  color: ${({ theme }) => theme.colors.tertiary.xwhite};
+  color: ${({ theme }) => theme.colors.tertiary.white};
   font-size: ${({ theme }) => theme.font.sizes.midle};
 
   :hover {
