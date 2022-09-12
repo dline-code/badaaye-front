@@ -1,4 +1,4 @@
 export type PartnersProps = {
-  id: number
+  id?: number
   instituicao: string
 }

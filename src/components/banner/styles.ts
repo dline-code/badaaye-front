@@ -9,13 +9,16 @@ export const Banner = styled.section`
   align-items: flex-end;
   padding: 0 10rem;
   margin-top: 8rem;
+  background-image: url('/assets/patternMin.svg'), url('/assets/patternBig.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 12rem, left 0rem;
 
   @media (max-width: 645px) {
     height: 75rem;
     flex-direction: column;
     align-items: space-between;
     padding: 0 5rem;
-    margin-top: 1rem;
+    margin-top: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   }
 
   @media (max-width: 1026px) and (min-width: 646px) {
@@ -24,13 +27,13 @@ export const Banner = styled.section`
     flex-direction: column;
     width: 100%;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
   }
 `
 
 export const ContainerItems = styled.article`
-  width: 40%;
-  height: 60rem;
+  width: 50%;
+  height: 59rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,38 +44,41 @@ export const ContainerItems = styled.article`
 `
 
 export const Title = styled.h1`
-  font-size: 3rem;
+  width: 80%;
+  font-size: 2.875rem;
+  font-weight: ${({ theme }) => theme.font.smallbold};
   @media (max-width: 645px) {
-    font-size: 2.5rem;
+    font-size: ${({ theme }) => theme.font.sizes.xxxlarge};
   }
 `
 
 export const Summary = styled.p`
+  line-height: ${({ theme }) => theme.spacings.xxmultipleeight};
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxblue};
-  margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
+  margin-top: 1.563rem;
 `
 export const Box = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 1.875rem;
 `
 export const IconUsers = styled.span`
   margin-left: 3rem;
 `
 export const Span = styled.span`
-  margin-left: 0.5rem;
+  margin-left: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
 `
 
 export const Description = styled.h2`
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.tertiary.xxxcinza};
-  margin-top: 3rem;
+  margin-top: 2.875rem;
 `
 
 export const Partners = styled.div`
-  margin-top: ${({ theme }) => theme.spacings.xxxxmultipleeight};
+  margin-top: 1.25rem;
   display: flex;
   flex-direction: row;
 `

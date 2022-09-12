@@ -39,8 +39,8 @@ const header: React.FC = () => {
         <Image
           src="/logo-baadaye.svg"
           alt="Picture of the author"
-          width={170}
-          height={170}
+          width={140}
+          height={48}
         />
         <S.List>
           <Link href="/">

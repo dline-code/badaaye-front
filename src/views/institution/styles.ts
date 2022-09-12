@@ -2,21 +2,22 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 53rem;
+  height: 60rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 0rem;
 
   .slick-slide {
     width: 100%;
-    height: 30rem;
+    height: 32rem;
   }
 `
 export const Box = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 4rem 10rem;
+  margin-top: 6rem;
 
   @media (max-width: 1124px) {
     flex-direction: column;
@@ -25,13 +26,14 @@ export const Box = styled.div`
 `
 
 export const ContainerInstitution = styled.div`
-  width: 90%;
+  width: 100%;
   height: 35rem;
-  margin-top: 2rem;
+  margin-top: 5rem;
 `
 
 export const Title = styled.h2`
   width: 30%;
+  font-size: 2.5rem;
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
   @media (max-width: 1124px) {
@@ -47,7 +49,7 @@ export const Description = styled.div`
 
   @media (max-width: 1124px) {
     width: 100%;
-    margin-top: 2rem;
+    margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
     text-align: center;
   }
 `
