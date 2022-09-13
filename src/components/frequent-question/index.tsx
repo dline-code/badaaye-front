@@ -25,7 +25,7 @@ const frequentQuestions: React.FC = () => {
         {questions.map((value: FrequentQuestionsProps)=>(
           <S.Item key={value.id}>
             <button ref={identifier} onClick={() => clicked !== undefined && clicked === value.id ? (setCliked(undefined) ): setCliked(value.id)}><span>{value.id}. {value.question}</span>  <span className="fa-plus">{clicked === value.id ? <FiMinus /> : <FiPlus />}</span></button>
-            <div className={clicked === value.id ? 'open' : 'close'} style={clicked === value.id ?{ maxHeight: panel?.scrollHeight + 'px' }: { maxHeight: 0}}>
+            <div className={clicked === value.id && clicked !== undefined ? 'open' : 'close'} style={clicked === value.id ?{ maxHeight: panel?.scrollHeight + 'px' }: { maxHeight: 0}}>
               <p>{value.answer}</p>
             </div>
           </S.Item>
