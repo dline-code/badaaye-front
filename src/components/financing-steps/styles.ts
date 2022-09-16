@@ -60,7 +60,7 @@ export const Item = styled.li`
 `
 
 export const Title = styled.h2`
-  color: ${({ theme }) => theme.colors.secondary.xxblue};
+  color: ${({ theme }) => theme.colors.tertiary.xwhite};
 `
 
 export const Step = styled.h3`
