@@ -8,15 +8,21 @@ export const ContainerContactos = styled.section`
   justify-content: center;
   align-items: center;
   padding: 5rem;
+  @media screen and (max-width: 500px) {
+    padding: 2rem;
+  }
 `
 
 export const ContainerObject = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-width: 110rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 110rem;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 
-@media screen and (max-width: 67rem) {
+  @media screen and (max-width: 67rem) {
     flex-direction: column;
     text-align: center;
   }
@@ -26,9 +32,12 @@ width: 110rem;
     width: 25.9rem;
     margin-bottom: 3rem;
 
-  @media screen and (max-width: 67rem) {
-     width: 40rem;
-  }
+    @media screen and (max-width: 67rem) {
+      width: 40rem;
+    }
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
   }
 `
 export const ContainerCampo = styled.div`
@@ -55,6 +64,10 @@ export const ContainerCampo = styled.div`
       color: var(--cui-input-focus-color, rgba(44, 56, 74, 0.95));
       outline: 0;
     }
+
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
   }
 
   span {
@@ -76,6 +89,10 @@ export const Button = styled.button`
   height: 4.5rem;
   border-radius: 0.25rem;
   margin-top: 2rem;
+
+  @media screen and (max-width: 500px) {
+    width: 90%;
+  }
 `
 
 export const Container1 = styled.div`

@@ -129,6 +129,10 @@ export const InputText = styled.input`
   border-radius: 0.3rem 0 0rem 0.3rem;
   border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.xxcinza};
 
+  @media screen and (max-width: 450px) {
+    width: 100%;
+  }
+
   :focus {
     background-color: var(--cui-input-focus-bg, #fff);
     border-color: var(--cui-input-focus-border-color, #5c63ef);
