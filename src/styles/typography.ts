@@ -26,15 +26,10 @@ export default {
   Subtitles: {
     Sub1: withColor(styled.span`
       display: block;
-      font-size: ${({ theme }) => theme.font.sizes.large};
+      font-size: ${({ theme }) => theme.font.sizes.xxxlarge};
       font-weight: ${({ theme }) => theme.font.medium};
       line-height: 2.4rem;
-    `),
-    Sub2: css`
-      font-size: ${({ theme }) => theme.font.sizes.small};
-      font-weight: ${({ theme }) => theme.font.medium};
-      line-height: ${({ theme }) => theme.spacings.small};
-    `
+    `)
   },
   Text: {
     Body2: withColor(styled.p`
@@ -45,15 +40,8 @@ export default {
   SmallText: {
     Caption1: css`
       font-size: ${({ theme }) => theme.font.sizes.xsmall};
-      line-height: ${({ theme }) => theme.font.sizes.medium};
+      line-height: ${({ theme }) => theme.font.sizes.midle};
       font-weight: ${({ theme }) => theme.font.regular};
-    `
-  },
-  Titles: {
-    H6: css`
-      font-size: ${({ theme }) => theme.font.sizes.large};
-      font-weight: ${({ theme }) => theme.font.medium};
-      line-height: ${({ theme }) => theme.spacings.small};
     `
   },
   Buttons: {
