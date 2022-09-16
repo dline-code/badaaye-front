@@ -19,8 +19,7 @@ const Home: NextPage = () => {
         <Step />
         <Benefits />
         <Institution />
-
-                <FrequentQuestions />
+        <FrequentQuestions />
         <Contactos />
 
       </main>
