@@ -29,6 +29,10 @@ export const BigFooter = styled.footer`
     flex-direction: column;
     align-items: flex-start;
   }
+
+  @media (max-width: 360px) {
+    padding: 4rem 3rem;
+  }
 `
 
 export const List = styled.ul`
@@ -101,7 +105,7 @@ export const Item = styled.li`
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
   :first-child {
-    margin-top: 1rem;
+    margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
   }
 
   :hover {
@@ -162,6 +166,7 @@ export const MinFooter = styled.footer`
   @media (max-width: 916px) {
     flex-direction: column;
     line-height: 1.7;
+    text-align: center;
   }
 `
 

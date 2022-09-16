@@ -15,6 +15,10 @@ export const List = styled.ul`
     height: 70rem;
     padding: 5rem 5rem;
   }
+
+  @media (max-width: 500px) {
+    padding: 5rem 3rem;
+  }
 `
 
 export const Container = styled.div`

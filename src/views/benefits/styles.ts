@@ -15,16 +15,25 @@ export const Container = styled.div`
   @media (max-width: 645px) {
     padding: 6rem 5rem;
   }
+
+  @media (max-width: 500px) {
+    padding: 6rem 3rem;
+    height: 150rem;
+  }
 `
 
 export const Box = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 5rem;
+  margin-top: ${({ theme }) => theme.spacings.xmultipleeight};
 
   @media (max-width: 1270px) {
     flex-direction: column;
+  }
+
+  @media (max-width: 500px) {
+    margin-top: 0rem;
   }
 `
 
@@ -37,6 +46,10 @@ export const Title = styled.h2`
     width: 100%;
     text-align: center;
   }
+
+  @media (max-width: 500px) {
+    font-size: 2.2rem;
+  }
 `
 
 export const Description = styled.div`
@@ -47,12 +60,12 @@ export const Description = styled.div`
 
   @media (max-width: 1270px) {
     width: 100%;
-    margin-top: 2rem;
+    margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
   }
 `
 
 export const Benefits = styled.div`
-  margin-top: 5rem;
+  margin-top: ${({ theme }) => theme.spacings.xmultipleeight};
   display: flex;
   justify-content: space-between;
 
@@ -60,5 +73,9 @@ export const Benefits = styled.div`
     height: 200rem;
     flex-direction: column;
     padding: 0 2rem;
+  }
+
+  @media (max-width: 500px) {
+    height: 125rem;
   }
 `

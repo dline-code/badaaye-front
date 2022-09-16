@@ -81,9 +81,10 @@ export default createGlobalStyle`
 
     ::-webkit-scrollbar {
       width: 0.5rem;
+      background: #dedede;
     }
 
-    ::-webkit-scrollbar-track {
+    ::-webkit-scrollbar-thumb {
       background: ${theme.colors.primary.xblue};
       border-radius: 0.25rem;
     }

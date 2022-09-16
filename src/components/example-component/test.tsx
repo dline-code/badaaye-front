@@ -10,7 +10,7 @@ describe('Example Component', () => {
     const { container, getByText } = render(<ExampleComponent type="button" />)
 
     expect(container.firstChild).toMatchSnapshot()
-    expect(getByText('My Button')).toBeInTheDocument()
+    expect(getByText('Click here')).toBeInTheDocument()
   })
 
   it("should render component with  button type 'reset' ", () => {
