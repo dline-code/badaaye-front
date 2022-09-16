@@ -36,12 +36,15 @@ const header: React.FC = () => {
   return (
     <S.Wrapper>
       <S.Header className={activeheader ? 'active-header' : ''}>
-        <Image
-          src="/logo-baadaye.svg"
-          alt="Picture of the author"
-          width={140}
-          height={48}
-        />
+        <Link href="/">
+          <Image
+            src="/logo-baadaye.svg"
+            alt="Picture of the author"
+            width={140}
+            height={48}
+          />
+        </Link>
+
         <S.List>
           <Link href="/">
             <S.Item className={currentRoute === '/' ? 'active' : 'non-active'}>
@@ -49,19 +52,19 @@ const header: React.FC = () => {
             </S.Item>
           </Link>
 
-          <Link href="">
+          <Link href="/descontos">
             <S.Item>Descontos</S.Item>
           </Link>
 
-          <Link href="">
+          <Link href="/ajudas">
             <S.Item>Outras Ajudas</S.Item>
           </Link>
 
-          <Link href="">
+          <Link href="/parceiro">
             <S.Item>Seja Parceiro</S.Item>
           </Link>
 
-          <Link href="">
+          <Link href="/sobre">
             <S.Item>Sobre nós</S.Item>
           </Link>
         </S.List>
