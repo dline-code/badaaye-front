@@ -143,7 +143,7 @@ export const InputButton = styled.button`
   border: none;
   transition: 2s;
   border-radius: 0 0.3rem 0.3rem 0;
-  color: ${({ theme }) => theme.colors.tertiary.xwhite};
+  color: ${({ theme }) => theme.colors.tertiary.white};
   background: ${({ theme }) => theme.colors.primary.xblue};
 
   :hover {

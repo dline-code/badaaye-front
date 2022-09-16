@@ -39,7 +39,7 @@ export const ContainerCampo = styled.div`
   margin-top: 2.5rem;
   input {
     border: none;
-    background: #f4f4f4;
+    background: ${({ theme }) => theme.colors.tertiary.contrast};
     padding: 0.7rem;
     width: 40rem;
     height: 4.3rem;
@@ -47,7 +47,14 @@ export const ContainerCampo = styled.div`
     border-radius: 0.25rem;
     font-size: 1.5rem;
     letter-spacing: 0;
-    color: #5d5e7a;
+    color: ${({ theme }) => theme.colors.secondary.xxxblue};
+    :focus {
+      background-color: var(--cui-input-focus-bg, #fff);
+      border-color: var(--cui-input-focus-border-color, #5c63ef);
+      box-shadow: 0 0 0 0.25rem rgb(50 31 219 / 25%);
+      color: var(--cui-input-focus-color, rgba(44, 56, 74, 0.95));
+      outline: 0;
+    }
   }
 
   span {
@@ -93,8 +100,9 @@ export const Container2 = styled.div`
   }
 
   .icon {
-    font-size: 2rem;
+    font-size: ${({ theme }) => theme.spacings.xxxmultipleeight};
   }
+
   span {
     font-size: 1.5rem;
     margin-left: ${({ theme }) => theme.spacings.xxxxmultipleeight};

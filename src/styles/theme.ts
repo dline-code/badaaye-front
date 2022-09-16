@@ -29,7 +29,9 @@ export const theme = {
     tertiary: {
       background: '#f8f8f8',
       contrast: '#f4f4f4',
+      white: '#fff',
       xwhite: '#fff',
+      gray: '#aaaaaa',
       xxwhite: '#f1f1f1',
       xcinza: '#dddddd',
       xxcinza: '#aaaaaa',
