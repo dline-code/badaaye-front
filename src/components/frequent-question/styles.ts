@@ -10,7 +10,7 @@ export const Container = styled.section`
   position: relative;
   margin: 60px 0;
   padding: 3rem 0;
-`;
+`
 
 export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
@@ -18,8 +18,8 @@ export const Title = styled.h2`
   font-weight: 700;
   line-height: 39px;
   position: relative;
-  margin:5rem 0;
-`;
+  margin: 5rem 0;
+`
 
 export const AccordionList = styled.ul`
   width: 50%;
@@ -57,7 +57,9 @@ export const Item = styled.li`
   }
   div {
     p {
-      padding: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
+      background: ${({ theme }) => theme.colors.primary.xblue};
+      color: ${({ theme }) => theme.colors.tertiary.xwhite};
+      padding: 2rem 0;
     }
   }
   .open {
@@ -83,7 +85,4 @@ export const ContactIndicate = styled.span`
   margin: 4rem 0;
   font-size: ${({ theme }) => theme.font.sizes.small};
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
-
-`;
-
-
+`
