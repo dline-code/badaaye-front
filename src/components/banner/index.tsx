@@ -51,6 +51,7 @@ const banner: React.FC = () => {
         width={900}
         height={690}
         data-aos="fade-left"
+        className="student"
       />
     </S.Banner>
   )
