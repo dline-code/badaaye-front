@@ -3,13 +3,13 @@ export const questions = [
     id: 1,
     question: 'Quem nós somos',
     answer:
-      'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores.'
+      'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores.At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores. send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores2.'
   },
   {
     id: 2,
     question: 'Tipos de financiamentos',
     answer:
-      'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters.'
+      'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters. At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with'
   },
   {
     id: 3,
@@ -34,5 +34,11 @@ export const questions = [
     question: 'Como tornar-me um parceiro e apoiador da Baadaye',
     answer:
       'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters.'
+  },
+  {
+    id: 7,
+    question: 'Como tornar-me um parceiro e apoiador da Baadaye',
+    answer:
+      'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters.  to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters.  to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters2.'
   }
 ]
