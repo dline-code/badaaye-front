@@ -13,10 +13,10 @@ const viewbenefits: React.FC = () => {
   return (
     <S.Container data-aos="fade-up">
       <S.Box>
-        <S.Title>Conheça os benefícios de estudar connosco</S.Title>
+        <S.Title>Conhece os benefícios de estar conectados a nós</S.Title>
         <S.Description>
-          Preocupamo-nos com o futuro dos estudantes, então oferecemos soluções
-          pensadas para cada realidade.
+          Com auxílio dos parceiros e apoiantes, ajudamos-te a obter bolsas de
+          estudos que visa reduzir as tuas despesas académicas.
         </S.Description>
       </S.Box>
       <S.Benefits>

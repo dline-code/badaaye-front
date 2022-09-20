@@ -3,10 +3,7 @@ import styled from 'styled-components'
 export const List = styled.ul`
   min-width: 100%;
   height: 284px;
-  padding: 0 10rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   background: ${({ theme }) => theme.colors.primary.xblue};
 
@@ -19,6 +16,14 @@ export const List = styled.ul`
   @media (max-width: 500px) {
     padding: 5rem 3rem;
   }
+`
+
+export const Box = styled.div`
+  min-width: 100%;
+  padding: 0 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `
 
 export const Container = styled.div`
@@ -43,7 +48,7 @@ export const Container = styled.div`
 `
 
 export const Item = styled.li`
-  width: 20%;
+  width: 16%;
   list-style: none;
   display: flex;
   flex-direction: column;

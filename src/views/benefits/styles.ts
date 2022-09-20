@@ -7,6 +7,13 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 6rem 10rem;
   transition: 2s;
+`
+
+export const Box = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: ${({ theme }) => theme.spacings.xmultipleeight};
 
   @media (max-width: 1270px) {
     height: 162rem;
@@ -19,21 +26,6 @@ export const Container = styled.div`
   @media (max-width: 500px) {
     padding: 6rem 3rem;
     height: 150rem;
-  }
-`
-
-export const Box = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: ${({ theme }) => theme.spacings.xmultipleeight};
-
-  @media (max-width: 1270px) {
-    flex-direction: column;
-  }
-
-  @media (max-width: 500px) {
-    margin-top: 0rem;
   }
 `
 
@@ -55,7 +47,6 @@ export const Title = styled.h2`
 export const Description = styled.div`
   width: 35%;
   line-height: 1.5;
-  text-align: center;
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
   @media (max-width: 1270px) {
