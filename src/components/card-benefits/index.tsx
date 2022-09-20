@@ -14,8 +14,10 @@ const benefits: React.FC<BenefitsProps> = ({
   return (
     <S.Card>
       <Image src={image} alt="image-benefits" width={50} height={50} />
-      <S.Title>{title}</S.Title>
-      <S.Description>{description}</S.Description>
+      <S.ContainerText>
+        <S.Title>{title}</S.Title>
+        <S.Description>{description}</S.Description>
+      </S.ContainerText>
       <S.Ancora>
         <Link href={link}>{children}</Link>
       </S.Ancora>
