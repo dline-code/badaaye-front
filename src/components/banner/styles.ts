@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Banner = styled.section`
   min-width: 100%;
-  height: 56rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -12,27 +11,9 @@ export const Banner = styled.section`
   background-repeat: no-repeat, no-repeat;
   background-position: right 12rem, left 0rem;
 
-  @media (max-width: 1026px) and (min-width: 646px) {
-    height: 85rem;
-    padding: 0 10rem;
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    padding: 0 4rem;
     flex-direction: column;
-    width: 100%;
-    align-items: center;
-    margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
-  }
-
-  @media (max-width: 645px) {
-    height: 75rem;
-    flex-direction: column;
-    align-items: space-between;
-    padding: 0 5rem;
-    margin-top: ${({ theme }) => theme.spacings.xxxxmultipleeight};
-  }
-
-  @media (max-width: 500px) {
-    width: 100%;
-    height: 75rem;
-    padding: 0 3rem;
     background-position: right 20rem, left 2rem;
   }
 `
@@ -43,13 +24,9 @@ export const ContainerItems = styled.article`
   flex-direction: column;
   justify-content: center;
 
-  @media (max-width: 1026px) {
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
     width: 100%;
-  }
-
-  @media (max-width: 500px) {
-    background-image: none;
-    padding-top: 4rem;
+    margin-bottom: 2rem;
   }
 `
 
@@ -57,15 +34,6 @@ export const Title = styled.h1`
   width: 80%;
   font-size: 2.875rem;
   font-weight: ${({ theme }) => theme.font.smallbold};
-
-  @media (max-width: 645px) {
-    width: 100%;
-    font-size: ${({ theme }) => theme.font.sizes.xxxlarge};
-  }
-
-  @media (max-width: 500px) {
-    width: 100%;
-  }
 `
 
 export const Summary = styled.p`
@@ -80,12 +48,13 @@ export const Box = styled.div`
   align-items: center;
   margin-top: 1.875rem;
 
-  @media (max-width: 500px) {
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
     flex-direction: column;
+    text-align: center;
   }
 `
 export const Paragraph = styled.div`
-  @media (max-width: 500px) {
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
     order: -1;
     padding-bottom: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   }
@@ -95,6 +64,10 @@ export const IconUsers = styled.span`
 `
 export const Span = styled.span`
   margin-left: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
+
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    margin-left: 0;
+  }
 `
 
 export const Description = styled.h2`

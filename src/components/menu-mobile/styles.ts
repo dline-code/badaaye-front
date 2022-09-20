@@ -5,7 +5,7 @@ export const Container = styled.section`
   transform: translateY(0);
   transition: 0s;
 
-  @media (max-width: 1142px) {
+  @media screen and (max-width: 280px) and (max-width: 1026px) {
     display: flex;
     min-width: 100%;
     height: 100%;
@@ -15,7 +15,7 @@ export const Container = styled.section`
     bottom: 0;
     position: fixed;
     z-index: 1000;
-    padding: 2rem 5rem;
+    padding: 2rem 4rem;
     flex-direction: column;
     align-items: flex-end;
     background: rgba(17, 18, 17, 0.95);
@@ -24,10 +24,6 @@ export const Container = styled.section`
       rgba(25, 90, 200, 1) 0%,
       rgba(17, 18, 17, 1) 95%
     );
-  }
-
-  @media (max-width: 500px) {
-    padding: 2rem 3rem;
   }
 `
 
