@@ -2,14 +2,12 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   min-width: 100%;
-  height: 70rem;
   display: flex;
   flex-direction: column;
   padding: 6rem 10rem;
   transition: 2s;
 
   @media screen and (min-width: 280px) and (max-width: 1026px) {
-    height: 160rem;
     padding: 3rem 4rem;
   }
 `
