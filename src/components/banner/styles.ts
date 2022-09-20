@@ -27,6 +27,7 @@ export const ContainerItems = styled.article`
   @media screen and (min-width: 280px) and (max-width: 1026px) {
     width: 100%;
     margin-bottom: 2rem;
+    align-items: center;
   }
 `
 
@@ -34,6 +35,11 @@ export const Title = styled.h1`
   width: 80%;
   font-size: 2.875rem;
   font-weight: ${({ theme }) => theme.font.smallbold};
+
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    width: 100%;
+    text-align: center;
+  }
 `
 
 export const Summary = styled.p`
@@ -41,6 +47,10 @@ export const Summary = styled.p`
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxblue};
   margin-top: 1.563rem;
+
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    text-align: center;
+  }
 `
 export const Box = styled.div`
   display: flex;
@@ -54,6 +64,9 @@ export const Box = styled.div`
   }
 `
 export const Paragraph = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   @media screen and (min-width: 280px) and (max-width: 1026px) {
     order: -1;
     padding-bottom: ${({ theme }) => theme.spacings.xxxxmultipleeight};
