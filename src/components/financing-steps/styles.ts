@@ -2,19 +2,13 @@ import styled from 'styled-components'
 
 export const List = styled.ul`
   min-width: 100%;
-  height: 284px;
+  height: 26rem;
   display: flex;
   align-items: center;
   background: ${({ theme }) => theme.colors.primary.xblue};
 
-  @media (max-width: 1026px) {
-    flex-direction: column;
-    height: 70rem;
-    padding: 5rem 5rem;
-  }
-
-  @media (max-width: 500px) {
-    padding: 5rem 3rem;
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    height: 85rem;
   }
 `
 
@@ -24,6 +18,12 @@ export const Box = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 4rem;
+  }
 `
 
 export const Container = styled.div`
@@ -38,12 +38,11 @@ export const Container = styled.div`
     font-weight: ${({ theme }) => theme.font.medium};
   }
 
-  @media (max-width: 1026px) {
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 `
 
@@ -59,13 +58,30 @@ export const Item = styled.li`
     border: 0.2rem solid ${({ theme }) => theme.colors.tertiary.xwhite};
   }
 
-  @media (max-width: 1026px) {
-    width: 60%;
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    width: 100%;
+    margin-top: 6rem;
   }
 `
 
 export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
+
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    text-align: center;
+  }
+`
+
+export const Download = styled.h3`
+  line-height: 1.5;
+  margin-top: ${({ theme }) => theme.spacings.xxxxmultipleeight};
+  font-size: ${({ theme }) => theme.font.sizes.midle};
+  color: ${({ theme }) => theme.colors.tertiary.xwhite};
+  transition: 1s;
+
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    text-align: center;
+  }
 `
 
 export const Step = styled.h3`
@@ -79,8 +95,4 @@ export const Description = styled.p`
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
   transition: 1s;
-
-  @media (max-width: 1026px) {
-    align-items: center;
-  }
 `
