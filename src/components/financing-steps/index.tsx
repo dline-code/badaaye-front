@@ -13,9 +13,9 @@ const step: React.FC = () => {
       <S.Box>
         <S.Container>
           <S.Title>Entenda como a Baadaye funciona</S.Title>
-          <S.Description className="download">
+          <S.Download className="download">
             ▼ Baixar explicação completa
-          </S.Description>
+          </S.Download>
         </S.Container>
 
         {steps.map(item => {

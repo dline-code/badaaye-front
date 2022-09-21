@@ -21,12 +21,8 @@ export const Header = styled.header`
   border-bottom: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
   background: ${({ theme }) => theme.colors.tertiary.xwhite};
 
-  @media (max-width: 645px) {
-    padding: 0 5rem;
-  }
-
-  @media (max-width: 500px) {
-    padding: 0 3rem;
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    padding: 0 4rem;
   }
 `
 
@@ -51,7 +47,7 @@ export const List = styled.ul`
     }
   }
 
-  @media (max-width: 1142px) {
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
     display: none;
   }
 `
@@ -139,7 +135,7 @@ export const ButtonLogin = styled.button`
     }
   `}
 
-  @media (max-width: 550px) {
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
     display: none;
   }
 `
@@ -151,13 +147,8 @@ export const IconUser = styled.span`
 export const IconMenu = styled.span`
   display: none;
 
-  @media (max-width: 1142px) {
-    height: 3rem;
-    font-size: 3rem;
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
     display: block;
-    cursor: pointer;
-    color: ${({ theme }) => theme.colors.primary.xblue};
-    margin-left: ${({ theme }) => theme.spacings.xxxmultipleeight};
   }
 `
 

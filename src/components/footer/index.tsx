@@ -15,6 +15,7 @@ const footer: React.FC = () => {
       <S.BigFooter>
         <S.List>
           <Image src="/logo-baadaye.svg" width={100} height={100} />
+
           <S.ContainerIcons>
             <S.Icon>
               <BsFacebook />

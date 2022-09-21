@@ -1,12 +1,15 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100%auto;
-  height: 70rem;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   padding: 6rem 10rem;
   transition: 2s;
+
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    padding: 3rem 4rem;
+  }
 `
 
 export const Box = styled.div`
@@ -15,17 +18,9 @@ export const Box = styled.div`
   justify-content: space-between;
   margin-top: ${({ theme }) => theme.spacings.xmultipleeight};
 
-  @media (max-width: 1270px) {
-    height: 162rem;
-  }
-
-  @media (max-width: 645px) {
-    padding: 6rem 5rem;
-  }
-
-  @media (max-width: 500px) {
-    padding: 6rem 3rem;
-    height: 150rem;
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
+    width: 100%;
+    flex-direction: column;
   }
 `
 
@@ -34,13 +29,9 @@ export const Title = styled.h2`
   font-size: 2.5rem;
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
-  @media (max-width: 1270px) {
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
     width: 100%;
     text-align: center;
-  }
-
-  @media (max-width: 500px) {
-    font-size: 2.2rem;
   }
 `
 
@@ -49,24 +40,21 @@ export const Description = styled.div`
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.secondary.xxblue};
 
-  @media (max-width: 1270px) {
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
     width: 100%;
-    margin-top: ${({ theme }) => theme.spacings.xxxmultipleeight};
+    text-align: center;
+    margin-top: 2rem;
   }
 `
 
 export const Benefits = styled.div`
   margin-top: ${({ theme }) => theme.spacings.xmultipleeight};
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 
-  @media (max-width: 1270px) {
-    height: 200rem;
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
     flex-direction: column;
-    padding: 0 2rem;
-  }
-
-  @media (max-width: 500px) {
-    height: 125rem;
+    align-items: space-between;
   }
 `
