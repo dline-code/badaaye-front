@@ -2,8 +2,9 @@ import React, { useEffect } from 'react'
 import Image from 'next/image'
 import * as S from './styles'
 import { IoClose } from 'react-icons/io5'
-import { BsFacebook, BsTwitter } from 'react-icons/bs'
-import { AiOutlineWhatsApp } from 'react-icons/ai'
+import { BsFacebook } from 'react-icons/bs'
+import { AiFillInstagram } from 'react-icons/ai'
+import { FaLinkedin } from 'react-icons/fa'
 import { MenuProps } from './type'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -50,19 +51,20 @@ const menuMobile: React.FC<MenuProps> = ({ onClick }) => {
 
       <S.Resume>
         O Baadaye é uma plataforma de ajuda direccionada aos estudantes
-        universitários, aonde irão criar vínculo com instituições comerciais
-        filantrópicas e padrinhos, com o intuito de seremfinanciados os estudos.
+        universitários, aonde criam vínculo com instituições comerciais,
+        filantrópicas e padrinhos, com o intuito de serem financiados os seus
+        estudos.
       </S.Resume>
 
       <S.ContainerIcons>
-        <S.Icon>
+        <S.Icon href="https://www.facebook.com/baadayeangola">
           <BsFacebook />
         </S.Icon>
-        <S.Icon>
-          <BsTwitter />
+        <S.Icon href="https://www.linkedin.com/company/baadayebolsas/?viewAsMember=true">
+          <FaLinkedin />
         </S.Icon>
-        <S.Icon>
-          <AiOutlineWhatsApp />
+        <S.Icon href="https://www.instagram.com/baadayebolsas/">
+          <AiFillInstagram />
         </S.Icon>
       </S.ContainerIcons>
     </S.Container>

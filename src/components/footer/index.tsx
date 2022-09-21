@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import React, { useEffect } from 'react'
-import { BsFacebook, BsTwitter } from 'react-icons/bs'
-import { AiOutlineWhatsApp } from 'react-icons/ai'
+import { BsFacebook } from 'react-icons/bs'
+import { AiFillInstagram } from 'react-icons/ai'
+import { FaLinkedin } from 'react-icons/fa'
 import * as S from './styles'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -17,14 +18,14 @@ const footer: React.FC = () => {
           <Image src="/logo-baadaye.svg" width={100} height={100} />
 
           <S.ContainerIcons>
-            <S.Icon>
+            <S.Icon href="https://www.facebook.com/baadayeangola">
               <BsFacebook />
             </S.Icon>
-            <S.Icon>
-              <BsTwitter />
+            <S.Icon href="https://www.linkedin.com/company/baadayebolsas/?viewAsMember=true">
+              <FaLinkedin />
             </S.Icon>
-            <S.Icon>
-              <AiOutlineWhatsApp />
+            <S.Icon href="https://www.instagram.com/baadayebolsas/">
+              <AiFillInstagram />
             </S.Icon>
           </S.ContainerIcons>
 
