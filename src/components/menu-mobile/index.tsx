@@ -5,6 +5,7 @@ import { IoClose } from 'react-icons/io5'
 import { BsFacebook } from 'react-icons/bs'
 import { AiFillInstagram } from 'react-icons/ai'
 import { FaLinkedin } from 'react-icons/fa'
+import { RiWhatsappFill } from 'react-icons/ri'
 import { MenuProps } from './type'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -65,6 +66,9 @@ const menuMobile: React.FC<MenuProps> = ({ onClick }) => {
         </S.Icon>
         <S.Icon href="https://www.instagram.com/baadayebolsas/">
           <AiFillInstagram />
+        </S.Icon>
+        <S.Icon href="https://api.whatsapp.com/send?phone=5524953068428">
+          <RiWhatsappFill />
         </S.Icon>
       </S.ContainerIcons>
     </S.Container>

@@ -6,6 +6,7 @@ import { FaLinkedin } from 'react-icons/fa'
 import * as S from './styles'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import { RiWhatsappFill } from 'react-icons/ri'
 
 const footer: React.FC = () => {
   useEffect(() => {
@@ -26,6 +27,9 @@ const footer: React.FC = () => {
             </S.Icon>
             <S.Icon href="https://www.instagram.com/baadayebolsas/">
               <AiFillInstagram />
+            </S.Icon>
+            <S.Icon href="https://api.whatsapp.com/send?phone=5524953068428">
+              <RiWhatsappFill />
             </S.Icon>
           </S.ContainerIcons>
 
