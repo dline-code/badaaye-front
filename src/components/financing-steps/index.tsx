@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import * as S from './styles'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import { steps } from './mock'
 
 const step: React.FC = () => {
   useEffect(() => {
@@ -9,33 +10,23 @@ const step: React.FC = () => {
   })
   return (
     <S.List data-aos="flip-left">
-      <S.Container>
-        <S.Title>Entenda como a Baadaye funciona</S.Title>
-        <S.Description className="download">
-          ▼ Baixar explicação completa
-        </S.Description>
-      </S.Container>
+      <S.Box>
+        <S.Container>
+          <S.Title>Entenda como a Baadaye funciona</S.Title>
+          <S.Description className="download">
+            ▼ Baixar explicação completa
+          </S.Description>
+        </S.Container>
 
-      <S.Item>
-        <S.Step>01.</S.Step>
-        <S.Description>
-          Inscreva-se e informe para nós os seus dados.
-        </S.Description>
-      </S.Item>
-
-      <S.Item>
-        <S.Step>02.</S.Step>
-        <S.Description>
-          Faça um vídeo sobre o motivo da sua inscrição.
-        </S.Description>
-      </S.Item>
-
-      <S.Item>
-        <S.Step>03.</S.Step>
-        <S.Description>
-          Aguarde pelo processo de avaliação do pedido.
-        </S.Description>
-      </S.Item>
+        {steps.map(item => {
+          return (
+            <S.Item key={item.id}>
+              <S.Step>{item.id}.</S.Step>
+              <S.Description>{item.description}</S.Description>
+            </S.Item>
+          )
+        })}
+      </S.Box>
     </S.List>
   )
 }
