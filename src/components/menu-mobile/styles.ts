@@ -5,7 +5,7 @@ export const Container = styled.section`
   transform: translateY(0);
   transition: 0s;
 
-  @media screen and (max-width: 280px) and (max-width: 1026px) {
+  @media screen and (min-width: 280px) and (max-width: 1026px) {
     display: flex;
     min-width: 100%;
     height: 100%;
@@ -48,11 +48,10 @@ export const IconClose = styled.span`
 
 export const List = styled.ul`
   min-width: 100%;
-  height: 62rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: ${({ theme }) => theme.spacings.xxmultipleeight};
+  margin-top: 3rem;
 `
 
 export const Item = styled.li`
@@ -80,17 +79,17 @@ export const Resume = styled.div`
   color: ${({ theme }) => theme.colors.tertiary.xwhite};
   font-size: 1.7rem;
   line-height: 2;
-  padding: 2rem 0;
+  margin-top: 3rem;
 `
 
 export const ContainerIcons = styled.div`
   width: 100%;
-  height: 4rem;
   display: flex;
   flex-direction: row;
+  margin-top: 3rem;
 `
 
-export const Icon = styled.span`
+export const Icon = styled.a`
   width: 3.5rem;
   height: 3.5rem;
   display: flex;

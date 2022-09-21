@@ -46,7 +46,7 @@ export const ContainerIcons = styled.div`
   margin-top: 1rem;
 `
 
-export const Icon = styled.span`
+export const Icon = styled.a`
   width: 4rem;
   height: 4rem;
   display: flex;
