@@ -1,5 +1,6 @@
 import React from 'react'
-import { fireEvent, render, screen } from '../../utils/tests/wrapper'
+import { render, screen } from '../../utils/tests/wrapper'
+import userEvent from '@testing-library/user-event'
 import Button from '.'
 
 describe('Button component tests', () => {
@@ -25,7 +26,7 @@ describe('Button component tests', () => {
     })
     render(<Button type="submit" children="Fazer Parte" onClick={() => url} />)
     const link = screen.getByText('Fazer Parte')
-    fireEvent.click(link)
+    userEvent.click(link)
     expect(window.location.href).toEqual(url)
   })
 })
