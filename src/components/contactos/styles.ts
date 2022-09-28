@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
 export const ContainerContactos = styled.section`
-  height: 70rem;
   width: 100%;
   background-color: #e5e5e5 0% 0% no-repeat padding-box;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5rem;
+
   @media screen and (max-width: 500px) {
     padding: 2rem;
   }
@@ -97,11 +97,9 @@ export const Button = styled.button`
 
 export const Container1 = styled.div`
   @media screen and (max-width: 67rem) {
-     margin-top: 5rem;
+    margin-top: 5rem;
   }
-
 `
-
 
 export const Container2 = styled.div`
   height: 30rem;
@@ -114,10 +112,9 @@ export const Container2 = styled.div`
     display: flex;
     align-items: center;
 
-
-  @media screen and (max-width: 67rem) {
-    justify-content: center;
-  }
+    @media screen and (max-width: 67rem) {
+      justify-content: center;
+    }
   }
 
   .icon {
@@ -135,6 +132,4 @@ export const Container2 = styled.div`
   div {
     margin: 2rem 0;
   }
-
-
 `

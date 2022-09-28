@@ -4,60 +4,49 @@ export const Footer = styled.footer`
   min-width: 100%;
   display: flex;
   flex-direction: column;
-
-
-  @media screen and (max-width: 67rem) {
-     margin-top: 25rem;
-  }
 `
 
 export const BigFooter = styled.footer`
   min-width: 100%;
-  height: 30rem;
-  padding: 0 10rem;
+  padding: 6rem 10rem;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
   border-top: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
   border-bottom: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
 
-  @media (max-width: 916px) {
-    width: 100%;
-    height: 70rem;
-    padding: 4rem 6rem;
+  @media screen and (min-width: 280px) and (max-width: 1000px) {
     flex-direction: column;
-    align-items: flex-start;
-  }
-
-  @media (max-width: 360px) {
-    padding: 4rem 3rem;
+    justify-content: flex-start;
+    align-items: space-between;
+    padding: 6rem 3rem;
   }
 `
 
 export const List = styled.ul`
   width: 30%;
-  height: 15rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
-  @media (max-width: 916px) {
+  @media screen and (min-width: 280px) and (max-width: 1000px) {
     width: 100%;
     margin-top: 3rem;
+    align-items: center;
 
     :first-child {
-      margin-left: 0;
+      margin-top: 0;
     }
   }
 `
+
 export const ContainerIcons = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
 `
 
-export const Icon = styled.span`
+export const Icon = styled.a`
   width: 4rem;
   height: 4rem;
   display: flex;
@@ -86,10 +75,18 @@ export const Description = styled.p`
   margin-top: 2rem;
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxblue};
+
+  @media screen and (min-width: 280px) and (max-width: 1000px) {
+    text-align: center;
+  }
 `
 
 export const Title = styled.h2`
   color: ${({ theme }) => theme.colors.secondary.xxblue};
+
+  @media screen and (min-width: 280px) and (max-width: 1000px) {
+    text-align: center;
+  }
 `
 
 export const Box = styled.div`
@@ -114,12 +111,25 @@ export const Item = styled.li`
     transition: 1s;
     color: ${({ theme }) => theme.colors.primary.xblue};
   }
+
+  @media screen and (min-width: 280px) and (max-width: 1000px) {
+    text-align: center;
+  }
 `
 
 export const ContainerInputs = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   margin-top: 1.5rem;
+
+  @media screen and (min-width: 280px) and (max-width: 400px) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 540px) and (max-width: 1024px) {
+    width: 60%;
+  }
 `
 
 export const InputText = styled.input`
@@ -128,10 +138,6 @@ export const InputText = styled.input`
   padding: 0 1rem;
   border-radius: 0.3rem 0 0rem 0.3rem;
   border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.xxcinza};
-
-  @media screen and (max-width: 450px) {
-    width: 100%;
-  }
 
   :focus {
     background-color: var(--cui-input-focus-bg, #fff);
@@ -143,6 +149,10 @@ export const InputText = styled.input`
 
   ::placeholder {
     font-size: ${({ theme }) => theme.font.sizes.midle};
+  }
+
+  @media screen and (min-width: 280px) and (max-width: 1000px) {
+    width: 65%;
   }
 `
 
@@ -158,19 +168,22 @@ export const InputButton = styled.button`
     filter: brightness(0.7);
     transition: 2s;
   }
+
+  @media screen and (min-width: 280px) and (max-width: 1000px) {
+    width: 35%;
+  }
 `
 
 export const MinFooter = styled.footer`
+  width: 100%;
   display: flex;
   flex-direction: row;
   padding: 2.5rem 10rem;
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 916px) {
+  @media screen and (min-width: 280px) and (max-width: 1000px) {
     flex-direction: column;
-    line-height: 1.7;
-    text-align: center;
   }
 `
 
@@ -192,4 +205,9 @@ export const Ancora = styled.p`
       color: ${theme.colors.primary.xblue};
     }
   `}
+
+  @media screen and (min-width: 280px) and (max-width: 1000px) {
+    margin-top: 2rem;
+    text-align: center;
+  }
 `

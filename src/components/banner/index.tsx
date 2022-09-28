@@ -15,11 +15,13 @@ const banner: React.FC = () => {
   return (
     <S.Banner>
       <S.ContainerItems data-aos="fade-right">
-        <S.Title>Encontre o financimento para os seus estudos</S.Title>
+        <S.Title>
+          Aqui encontras bolsas de estudo para melhorar a tua vida académica!
+        </S.Title>
 
         <S.Summary>
-          Somos uma plataforma angolana para bolsas de estudos que conecta
-          estudantes e parceiros capazes de financiar os seus estudos.
+          A startup angolana que cria parceria com empresas, padrinhos e escolas
+          com a finalidade de ceder bolsas de estudos aos estudantes.
         </S.Summary>
 
         <S.Box>
@@ -51,6 +53,7 @@ const banner: React.FC = () => {
         width={900}
         height={690}
         data-aos="fade-left"
+        className="student"
       />
     </S.Banner>
   )

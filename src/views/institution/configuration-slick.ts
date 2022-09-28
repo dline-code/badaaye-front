@@ -20,16 +20,34 @@ export const settings = {
       }
     },
     {
-      breakpoint: 764,
+      breakpoint: 280,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 3,
         infinite: true,
         dots: true
       }
     },
     {
-      breakpoint: 500,
+      breakpoint: 360,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 375,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 414,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 3,
