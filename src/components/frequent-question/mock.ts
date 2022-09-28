@@ -34,23 +34,5 @@ export const questions = [
     question: 'Como tornar-me um parceiro e apoiador da Baadaye',
     answer:
       'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters.'
-  },
-  {
-    id: 7,
-    question: 'Como tornar-me um parceiro e apoiador da Baadaye',
-    answer:
-      'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters. able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters.'
-  },
-  {
-    id: 8,
-    question: 'Como tornar-me um parceiro e apoiador da Baadaye',
-    answer:
-      'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters.'
-  },
-  {
-    id: 9,
-    question: 'Como tornar-me um parceiro e apoiador da Baadaye',
-    answer:
-      'At Segment, we believe companies should be able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters. able to send their customer data wherever they want, whenever they want, with no fuss. We make this easy with a single pipeline that collects, stores, filters.'
   }
 ]
