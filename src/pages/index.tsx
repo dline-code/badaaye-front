@@ -7,14 +7,13 @@ import Institution from 'src/views/institution'
 import Contactos from 'src/components/contactos'
 
 import FrequentQuestions from 'src/components/frequent-question'
-import  Input  from 'src/components/input'
 import { AiOutlineUser } from 'react-icons/ai'
 import Select from 'src/components/select'
 
 
 const Home: NextPage = () => {
 
-  const list =["1", "2", "3", "4", "5"]
+  const list =['1','2','3','4']
   return (
     <>
       <Head>
@@ -25,6 +24,7 @@ const Home: NextPage = () => {
         <Step />
         <Benefits />
         <Institution />
+        <Select icon={<AiOutlineUser/>} options={list}/>
         <FrequentQuestions />
         <Contactos />
 

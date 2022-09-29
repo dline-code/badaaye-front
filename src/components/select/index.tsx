@@ -1,24 +1,24 @@
 import React from 'react'
 import * as S from './styles';
 import * as SS from '../input/styles'
-import { InputContainerProps } from './type'
+import { SelectContainerProps } from './type'
 
 
 
-const select: React.FC<InputContainerProps> = ({
-  onClick,
-  child,
-  list,
+const select: React.FC<SelectContainerProps> = ({
+  icon,
+  options,
   ...rest
 }) => {
   return (
     <SS.Container >
       <>
-      <span>{child}</span>
-      <S.Select/>
-       {list.map((option, index)=>{
-        <option key={index} value={option}>{option}</option>
-      })}
+      <span>{icon}</span>
+      <S.Select>
+        {options.map((option,index)=>(
+          <option value={option} key={index}>{option}</option>
+        ))}
+        </S.Select >
       </>
     </SS.Container>
   )
