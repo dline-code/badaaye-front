@@ -3,5 +3,7 @@ import { InputHTMLAttributes } from 'react'
 type InputTypes = InputHTMLAttributes<HTMLInputElement>
 
 export type InputContainerProps = {
-  child: React.ReactNode,
+  icon: React.ReactNode,
+  type:string,
+  open?: boolean
 } & InputTypes

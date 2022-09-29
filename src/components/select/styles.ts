@@ -8,10 +8,20 @@ export const Select = styled.select`
   position: relative;
   margin-left: 1rem;
   border: none;
+  background: ${({ theme }) => theme.colors.tertiary.white};
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: ${({ theme }) => theme.font.sizes.small};
 
-  option{
+  option {
     width: 14rem;
     position: absolute;
     z-index: 10;
+    margin: 3px;
+    padding: 6px 8px;
+    text-shadow: none;
+    border-radius: 3px;
+    cursor: pointer;
   }
 `

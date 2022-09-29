@@ -2,6 +2,7 @@ import React from 'react'
 import * as S from './styles';
 import * as SS from '../input/styles'
 import { SelectContainerProps } from './type'
+import { FaCaretDown } from 'react-icons/fa';
 
 
 
@@ -20,6 +21,7 @@ const select: React.FC<SelectContainerProps> = ({
         ))}
         </S.Select >
       </>
+      <FaCaretDown/>
     </SS.Container>
   )
 }

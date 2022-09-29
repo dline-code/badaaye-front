@@ -1,17 +1,21 @@
 import React from 'react'
 import * as S from './styles';
 import { InputContainerProps } from './type'
+import { IoEye, IoEyeOff } from 'react-icons/io5'
 
 
 
 const input: React.FC<InputContainerProps> = ({
-  child,
+  icon,
+  type,
+  open,
   ...rest
 }) => {
   return (
     <S.Container >
-      <span>{child}</span>
+      <span>{icon}</span>
       <S.Input {...rest}/>
+      {type === 'password' && (open ? <IoEyeOff /> : <IoEye />)}
     </S.Container>
   )
 }
