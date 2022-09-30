@@ -3,7 +3,7 @@ export const questions = [
     id: 1,
     question: 'Quem nós somos',
     answer:
-      'Nascemos do pensamento das dificuldades da vida académica de cada estudante brilhante. Criamos conexões com instituições comerciais, filantrópicas e padrinhos, fazedores de boa vontade, para ceder bolsas de estudo para os que precisam de apoio. Queremos diminuir a desigualdade societária e construir um país melhor apostando na formação de quadros qualificados, diminuindo as dificuldades de acesso às Universidades.'
+      'Somos uma plataforma que ajuda estudantes mais necessitados encontrarem financiadores...'
   },
   {
     id: 2,
@@ -14,7 +14,10 @@ export const questions = [
   {
     id: 3,
     question: 'Como solicitar um financimento',
-    answer:['Existem dois principais financiamentos: Bolsa de estudos e descontos de propinas.','Para Bolsas de estudos,  primeiro deve inscrever-se na plataforma,  preencher o perfil com informações credíveis,  fazer um vídeo de apresentação apresentando os motivos que o levam a pedir bolsas de estudos, anexar a situação financeira em documento no perfil criado.','Para descontos de propinas: inscrever-se na plataforma, preencher o perfil, escolher a universidade parceira, escolher o curso e efectuar inscrição .'
+    answer: [
+      'Existem dois principais financiamentos: Bolsa de estudos e descontos de propinas.',
+      'Para Bolsas de estudos,  primeiro deve inscrever-se na plataforma,  preencher o perfil com informações credíveis,  fazer um vídeo de apresentação apresentando os motivos que o levam a pedir bolsas de estudos, anexar a situação financeira em documento no perfil criado.',
+      'Para descontos de propinas: inscrever-se na plataforma, preencher o perfil, escolher a universidade parceira, escolher o curso e efectuar inscrição .'
     ]
   },
   {
