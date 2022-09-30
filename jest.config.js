@@ -1,7 +1,7 @@
 const { defaults } = require('jest-config')
 module.exports = {
   verbose: true,
-  jsdom: 'node',
+  testEnvironment: 'jsdom',
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx'],
   setupFilesAfterEnv: ['./jest.setup.js'],
   moduleNameMapper: {
