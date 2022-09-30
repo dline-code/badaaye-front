@@ -9,8 +9,8 @@ const layoutAuthentication: React.FC<LayoutProps> = ({
   title,
   description,
   link,
-  children,
-  linkDescription
+  childrenContainerSelect,
+  childrenLink
 }) => {
   return (
     <S.Wrapper>
@@ -22,12 +22,11 @@ const layoutAuthentication: React.FC<LayoutProps> = ({
       />
       <S.Title>{title}</S.Title>
       <S.Description>{description}</S.Description>
-
-      <S.ContainerSelect>{children}</S.ContainerSelect>
-      <Link href="">
+      <S.ContainerSelect>{childrenContainerSelect}</S.ContainerSelect>
+      <Link href={link}>
         <S.Text>
           <HiArrowNarrowLeft />
-          <S.LinkDescription>{linkDescription}</S.LinkDescription>
+          <S.LinkDescription>{childrenLink}</S.LinkDescription>
         </S.Text>
       </Link>
     </S.Wrapper>
