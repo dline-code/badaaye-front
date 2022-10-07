@@ -7,8 +7,13 @@ import Institution from 'src/views/institution'
 import Contactos from 'src/components/contactos'
 
 import FrequentQuestions from 'src/components/frequent-question'
+import { AiOutlineUser } from 'react-icons/ai'
+import Select from 'src/components/select'
+import  Input  from 'src/components/input'
+
 
 const Home: NextPage = () => {
+
   return (
     <>
       <Head>
@@ -21,6 +26,7 @@ const Home: NextPage = () => {
         <Institution />
         <FrequentQuestions />
         <Contactos />
+
 
       </main>
     </>
