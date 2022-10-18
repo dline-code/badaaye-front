@@ -9,6 +9,7 @@ import Institution from 'src/views/institution'
 import FrequentQuestions from 'src/components/frequent-question'
 
 const Home: NextPage = () => {
+
   return (
     <>
       <Head>

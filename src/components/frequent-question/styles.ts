@@ -61,6 +61,9 @@ export const Item = styled.li`
       color: ${({ theme }) => theme.colors.tertiary.xwhite};
       padding: 2rem 0;
     }
+    .paragraph_array {
+      padding:.2rem 0;
+    }
   }
   .open {
     background-color: none;
