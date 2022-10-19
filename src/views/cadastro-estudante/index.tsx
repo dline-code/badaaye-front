@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import * as S from './styles'
 import LayoutAuthentication from '../../components/layout-authentication'
+import Select from '../../components/select'
 
 const cadastroEstudante: NextPage = () => {
   return (
