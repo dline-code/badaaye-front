@@ -47,7 +47,17 @@ const frequentQuestions: React.FC = () => {
                   : { maxHeight: 0 }
               }
             >
-              <p>{value.answer}</p>
+              {Array.isArray(value.answer) ? (
+                <>
+                  {value.answer.map((paragraph, index) => (
+                    <p className="paragraph_array" key={index}>
+                      {paragraph}
+                    </p>
+                  ))}
+                </>
+              ) : (
+                <p>{value.answer}</p>
+              )}
             </div>
           </S.Item>
         ))}
