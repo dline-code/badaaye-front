@@ -5,7 +5,6 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../styles/global'
 import { theme } from '../styles/theme'
 import { Layout } from '../components/layout'
-import 'aos/dist/aos.css'
 
 type NextPageWithLayout = NextPage & {
   Layout?: ComponentType

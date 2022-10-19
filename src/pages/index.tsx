@@ -21,7 +21,6 @@ const Home: NextPage = () => {
         <Institution />
         <FrequentQuestions />
         <Contactos />
-
       </main>
     </>
   )
