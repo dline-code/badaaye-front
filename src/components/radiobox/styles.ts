@@ -9,16 +9,16 @@ interface RadioboxProps {
   isActive: boolean
   activeColor: 'gray' | 'blue'
 }
-
-export const RadioBox = styled.div<RadioboxProps>`
+export const Label = styled.label<RadioboxProps>`
   width: 100%;
   height: 12.5rem;
   display: flex;
   flex-direction: row;
   cursor: pointer;
   padding: 1rem;
-  border: 0.2rem solid ${props => (props.isActive ? '#AAAAAA' : 'blue')};
+  border: 0.2rem solid ${props => (props.isActive ? 'blue' : '#AAAAAA')};
 `
+
 export const Image = styled.img`
   width: 3rem;
   height: 3rem;
@@ -43,5 +43,3 @@ export const Description = styled.p`
 `
 
 export const Input = styled.input``
-
-export const Label = styled.label``

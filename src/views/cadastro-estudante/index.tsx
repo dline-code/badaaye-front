@@ -4,8 +4,19 @@ import LayoutAuthentication from '../../components/layout-authentication'
 import RadioBox from 'src/components/radiobox'
 import { HiArrowNarrowLeft } from 'react-icons/hi'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const cadastroEstudante: NextPage = () => {
+  const [color, setColor] = useState('gray')
+
+  const changeColor = () => {
+    if (color === 'gray') {
+      setColor('blue')
+    } else {
+      setColor('gray')
+    }
+  }
+
   return (
     <S.Wrapper>
       <S.Form></S.Form>
@@ -20,6 +31,8 @@ const cadastroEstudante: NextPage = () => {
             title="Estudante"
             description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
             src="/assets/library-bolsas.svg"
+            isActive={color === 'gray'}
+            activeColor="gray"
           />
 
           <RadioBox
@@ -27,6 +40,8 @@ const cadastroEstudante: NextPage = () => {
             description="Entidades dispostas a contribuir para
             sucesso acádemico dos estudantes."
             src="/assets/parceiro.svg"
+            isActive={color === 'blue'}
+            activeColor="blue"
           />
         </S.ContainerRadios>
 
