@@ -63,6 +63,9 @@ export const Box = styled.div`
     text-align: center;
   }
 `
+export const ContainerButton = styled.div`
+  width: 12.5rem;
+`
 export const Paragraph = styled.div`
   display: flex;
   flex-direction: row;

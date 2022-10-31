@@ -8,7 +8,7 @@ const button: React.FC<ButtonProps> = ({
   children
 }) => {
   return (
-    <S.Button type={type} onClick={onClick}>
+    <S.Button type={type} onClick={onClick} className="button">
       {children}
     </S.Button>
   )

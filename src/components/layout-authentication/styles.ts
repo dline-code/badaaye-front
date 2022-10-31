@@ -18,6 +18,7 @@ export const Title = styled.h2`
 `
 
 export const Description = styled.p`
+  width: 84%;
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxxblue};
   text-align: center;
