@@ -4,7 +4,6 @@ import * as S from './styles'
 import { BenefitsProps } from 'src/components/card-benefits/type'
 import { benefits } from './mock'
 import Aos from 'aos'
-import 'aos/dist/aos.css'
 
 const viewbenefits: React.FC = () => {
   useEffect(() => {

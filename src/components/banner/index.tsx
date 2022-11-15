@@ -6,7 +6,6 @@ import { partners } from './mock'
 import Image from 'next/image'
 import Button from '../button'
 import Aos from 'aos'
-import 'aos/dist/aos.css'
 
 const banner: React.FC = () => {
   useEffect(() => {

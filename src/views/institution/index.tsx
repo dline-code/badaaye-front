@@ -6,7 +6,6 @@ import Card from 'src/components/card-institution'
 import { settings } from './configuration-slick'
 import Slider from 'react-slick'
 import Aos from 'aos'
-import 'aos/dist/aos.css'
 
 const viewinstitution: React.FC = () => {
   useEffect(() => {
