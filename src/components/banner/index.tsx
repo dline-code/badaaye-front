@@ -6,7 +6,6 @@ import { partners } from './mock'
 import Image from 'next/image'
 import Button from '../button'
 import Aos from 'aos'
-import 'aos/dist/aos.css'
 
 const banner: React.FC = () => {
   useEffect(() => {
@@ -25,7 +24,10 @@ const banner: React.FC = () => {
         </S.Summary>
 
         <S.Box>
-          <Button children="Fazer Parte" />
+          <S.ContainerButton>
+            <Button children="Fazer Parte" />
+          </S.ContainerButton>
+
           <S.Paragraph>
             <S.IconUsers>
               <FiUsers />

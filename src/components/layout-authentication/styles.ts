@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  width: 25%;
+  width: 100%;
   background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 7rem;
 `
 
 export const Title = styled.h2`
@@ -19,6 +18,7 @@ export const Title = styled.h2`
 `
 
 export const Description = styled.p`
+  width: 84%;
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxxblue};
   text-align: center;
@@ -29,22 +29,4 @@ export const Description = styled.p`
 export const ContainerSelect = styled.div`
   display: flex;
   flex-direction: column;
-`
-
-export const Text = styled.div`
-  font-size: ${({ theme }) => theme.font.sizes.midle};
-  color: ${({ theme }) => theme.colors.secondary.xxxblue};
-  font-weight: ${({ theme }) => theme.font.smallbold};
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  :hover {
-    cursor: pointer;
-  }
-`
-
-export const LinkDescription = styled.span`
-  margin-left: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
 `

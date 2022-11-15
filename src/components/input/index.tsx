@@ -1,9 +1,7 @@
 import React from 'react'
-import * as S from './styles';
+import * as S from './styles'
 import { InputContainerProps } from './type'
 import { IoEye, IoEyeOff } from 'react-icons/io5'
-
-
 
 const input: React.FC<InputContainerProps> = ({
   icon,
@@ -12,10 +10,10 @@ const input: React.FC<InputContainerProps> = ({
   ...rest
 }) => {
   return (
-    <S.Container >
+    <S.Container className="input">
       <span>{icon}</span>
-      <S.Input {...rest}/>
-      {type === 'password' && (open ? <IoEyeOff /> : <IoEye />)}
+      <S.Input {...rest} />
+      <span>{type === 'password' && (open ? <IoEyeOff /> : <IoEye />)}</span>
     </S.Container>
   )
 }
