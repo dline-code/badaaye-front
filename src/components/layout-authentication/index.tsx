@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import Image from 'next/image'
 import { LayoutProps } from './type'
@@ -6,8 +6,19 @@ import { LayoutProps } from './type'
 const layoutAuthentication: React.FC<LayoutProps> = ({
   title,
   description,
-  childrenContainerSelect
+  childrenContainerSelect,
+  RegistrationLink
 }) => {
+  const [option, setOption] = useState(true)
+
+  const Option = () => {
+    RegistrationLink ? setOption(false) : null
+  }
+
+  useEffect(() => {
+    Option()
+  }, [])
+
   return (
     <S.Wrapper>
       <Image
