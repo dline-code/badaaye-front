@@ -24,7 +24,10 @@ const banner: React.FC = () => {
         </S.Summary>
 
         <S.Box>
-          <Button children="Fazer Parte" />
+          <S.ContainerButton>
+            <Button children="Fazer Parte" />
+          </S.ContainerButton>
+
           <S.Paragraph>
             <S.IconUsers>
               <FiUsers />

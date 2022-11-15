@@ -3,8 +3,15 @@ import * as S from './styles'
 import LayoutAuthentication from '../../components/layout-authentication'
 import RadioBox from 'src/components/radiobox'
 import { HiArrowNarrowLeft } from 'react-icons/hi'
+import { MdEmail } from 'react-icons/md'
+import { HiUser } from 'react-icons/hi'
+import { RiLockPasswordFill } from 'react-icons/ri'
+import { BsFillTelephoneFill } from 'react-icons/bs'
 import Link from 'next/link'
 import { useState } from 'react'
+import Input from 'src/components/input'
+import Button from 'src/components/button'
+import Descontos from '../../pages/descontos/index'
 
 const cadastroEstudante: NextPage = () => {
   const [color, setColor] = useState('gray')
@@ -19,7 +26,39 @@ const cadastroEstudante: NextPage = () => {
 
   return (
     <S.Wrapper>
-      <S.Form></S.Form>
+      <S.Form>
+        <S.Title>Crie sua conta</S.Title>
+        <Input type="text" placeholder="Seu e-mail" icon={<MdEmail />} />
+        <Input type="text" placeholder="Nome completo" icon={<HiUser />} />
+        <Input
+          type="text"
+          placeholder="Número de telefone"
+          icon={<BsFillTelephoneFill />}
+        />
+        <Input
+          type="password"
+          placeholder="Sua senha"
+          icon={<RiLockPasswordFill />}
+        />
+        <Input
+          type="password"
+          placeholder="Confirme senha"
+          icon={<RiLockPasswordFill />}
+        />
+
+        <Button>Cadastrar</Button>
+
+        <S.Description>
+          Ao se cadastrar, você aceita nossos
+          <Link href="/">
+            <S.Ancora> termos de uso </S.Ancora>
+          </Link>
+          e a nossa{' '}
+          <Link href="/">
+            <S.Ancora>politica de privacidade</S.Ancora>
+          </Link>
+        </S.Description>
+      </S.Form>
       <S.Container>
         <LayoutAuthentication
           title="Encontre o financiamento para os seus estudos"

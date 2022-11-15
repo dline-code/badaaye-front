@@ -1,7 +1,6 @@
 import React from 'react'
 import { RadioboxProps } from './type'
 import * as S from './styles'
-import { useState } from 'react'
 
 const radiobox: React.FC<RadioboxProps> = ({
   title,

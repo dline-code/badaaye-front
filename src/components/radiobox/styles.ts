@@ -11,7 +11,7 @@ interface RadioboxProps {
 }
 export const Label = styled.label<RadioboxProps>`
   width: 100%;
-  height: 12.5rem;
+  height: 11rem;
   display: flex;
   flex-direction: row;
   cursor: pointer;
