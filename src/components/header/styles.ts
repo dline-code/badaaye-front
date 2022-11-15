@@ -149,7 +149,7 @@ export const IconMenu = styled.span`
 
   @media screen and (min-width: 280px) and (max-width: 1026px) {
     display: block;
-    font-size: 2rem;
+    color: ${({ theme }) => theme.colors.primary.xblue};
   }
 `
 

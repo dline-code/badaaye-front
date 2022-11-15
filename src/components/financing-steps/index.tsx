@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import * as S from './styles'
 import Aos from 'aos'
-import 'aos/dist/aos.css'
 import { steps } from './mock'
 
 const step: React.FC = () => {

@@ -77,8 +77,8 @@ const header: React.FC = () => {
             Entrar
           </S.ButtonLogin>
 
-          <S.IconMenu onClick={togleHidden}>
-            <AiOutlineMenu />
+          <S.IconMenu>
+            <AiOutlineMenu size={32} onClick={togleHidden} />
           </S.IconMenu>
         </S.ContainerButton>
       </S.Header>

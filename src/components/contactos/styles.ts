@@ -102,6 +102,8 @@ export const Container1 = styled.div`
 `
 
 export const Container2 = styled.div`
+  height: 30rem;
+  color: ${({ theme }) => theme.colors.tertiary.gray};
   background-color: ${({ theme }) => theme.colors.tertiary.contrast} 0% 0%
     no-repeat padding-box;
   font-size: 1.5rem;
