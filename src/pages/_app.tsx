@@ -27,11 +27,11 @@ function MyApp({ Component, pageProps, err }: AppPropsWithLayout) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Layout>
+      
         <ComponentLayout>
           <Component {...pageProps} err={err} />
         </ComponentLayout>
-      </Layout>
+
       <GlobalStyles />
     </ThemeProvider>
   )

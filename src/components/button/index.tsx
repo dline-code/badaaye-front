@@ -2,7 +2,7 @@ import React from 'react'
 import * as S from './styles'
 import { ButtonProps } from './type'
 
-const button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   type = 'submit',
   onClick,
   children
@@ -14,4 +14,4 @@ const button: React.FC<ButtonProps> = ({
   )
 }
 
-export default button
+export default Button

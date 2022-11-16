@@ -67,6 +67,7 @@ export const Paragraph = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
   @media screen and (min-width: 280px) and (max-width: 1026px) {
     order: -1;
     padding-bottom: ${({ theme }) => theme.spacings.xxxxmultipleeight};
@@ -96,7 +97,6 @@ export const Partners = styled.div`
 `
 export const PartnersItems = styled.li`
   margin-left: ${({ theme }) => theme.spacings.xxxmultipleeight};
-
   :first-child {
     margin-left: 0;
   }

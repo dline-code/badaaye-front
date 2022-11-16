@@ -1,13 +1,12 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  width: 25%;
+  max-width:36rem;
   background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 7rem;
 `
 
 export const Title = styled.h2`

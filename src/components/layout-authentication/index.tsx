@@ -3,12 +3,12 @@ import * as S from './styles'
 import Image from 'next/image'
 import Link from 'next/link'
 import { LayoutProps } from './type'
-import { HiArrowNarrowLeft } from 'react-icons/hi'
 
 const layoutAuthentication: React.FC<LayoutProps> = ({
   title,
   description,
   link,
+  ArrowIcon,
   childrenContainerSelect,
   childrenLink
 }) => {
@@ -25,7 +25,7 @@ const layoutAuthentication: React.FC<LayoutProps> = ({
       <S.ContainerSelect>{childrenContainerSelect}</S.ContainerSelect>
       <Link href={link}>
         <S.Text>
-          <HiArrowNarrowLeft />
+          {ArrowIcon &&  (<ArrowIcon/>)}
           <S.LinkDescription>{childrenLink}</S.LinkDescription>
         </S.Text>
       </Link>
