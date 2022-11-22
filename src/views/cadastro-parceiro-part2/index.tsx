@@ -1,19 +1,20 @@
 import type { NextPage } from 'next'
-import * as S from './styles'
+import * as S from './style'
 import LayoutAuthentication from '../../components/layout-authentication'
 import { FaGraduationCap } from 'react-icons/fa'
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import Input from 'src/components/input';
+import CadastroButton from 'src/components/cadastro-button'
 
-const CadastroEstudantePart2: NextPage = () => {
+const CadastroParceiroPart2: NextPage = () => {
   return (
     <S.Wrapper>
       <S.Container>
         <S.Form>
           <S.Title>Informações do Parceiro</S.Title>
-          <Input Icon={FaGraduationCap} placeholder='Sua especialidade'  type='text'></Input>
+          <Input Icon={FaGraduationCap} placeholder='Àrea de especialidade'  type='text'></Input>
           <S.TextArea placeholder='Fale sobre sí e seus objectivos'></S.TextArea>
-          <S.Button>Continuar<HiArrowNarrowRight/></S.Button>
+          <CadastroButton Icon={HiArrowNarrowRight} children='Continuar'></CadastroButton>
         </S.Form>
         <LayoutAuthentication
           title="Encontre o financiamento para os seus estudos"
@@ -25,4 +26,4 @@ const CadastroEstudantePart2: NextPage = () => {
     </S.Wrapper>
   )
 }
-export default CadastroEstudantePart2;
+export default CadastroParceiroPart2;

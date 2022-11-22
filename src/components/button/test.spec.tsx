@@ -22,7 +22,7 @@ describe('Button component tests', () => {
     Object.defineProperty(window, 'location', {
       value: {
         href: url
-      } 
+      }
     })
     render(<Button type="submit" children="Fazer Parte" onClick={() => url} />)
     const link = screen.getByText('Fazer Parte')

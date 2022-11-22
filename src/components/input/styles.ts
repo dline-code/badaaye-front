@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 4rem;
+  height: 4.8rem;
   margin-top:2rem;
   border:1px solid ${({ theme }) => theme.colors.tertiary.gray};
   border-radius: 0.25rem;
@@ -12,18 +12,12 @@ export const Container = styled.div`
   padding:1rem;
   font-size: ${({ theme }) => theme.font.sizes.small};
 
-  svg {
-    color: ${({ theme }) => theme.colors.secondary.xxxblue};
-  }
   span {
     height: 2.4rem;
     width: 2.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    margin: 0;
-    position: relative;
 
     svg {
       height: 100%;

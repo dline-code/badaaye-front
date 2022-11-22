@@ -1,4 +1,4 @@
-import { ComponentType } from 'react'
+import React, { ComponentType } from 'react'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
@@ -24,14 +24,15 @@ const EmptyLayout = ({ children }: EmptyLayoutProps) => <>{children}</>
 
 function MyApp({ Component, pageProps, err }: AppPropsWithLayout) {
   const ComponentLayout = Component.Layout || EmptyLayout
+  const CustomLayout = Component.Layout ? Component.Layout : React.Fragment;
 
   return (
     <ThemeProvider theme={theme}>
-      
-        <ComponentLayout>
+      <CustomLayout>
+        <>
           <Component {...pageProps} err={err} />
-        </ComponentLayout>
-
+        </>
+      </CustomLayout>
       <GlobalStyles />
     </ThemeProvider>
   )

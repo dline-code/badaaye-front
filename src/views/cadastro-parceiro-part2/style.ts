@@ -9,9 +9,9 @@ export const Wrapper = styled.main`
   @media screen and  (max-width: 768px) {
     flex-direction: column-reverse;
     align-items:flex-start;
-    padding-top:18rem;
+    padding-top:23rem;
   }
-  `
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -22,14 +22,16 @@ export const Container = styled.div`
   @media screen and  (max-width: 768px) {
     flex-direction:column-reverse;
     margin:auto;
-    gap:3rem;
+    gap:2rem;
   }
 `
 export const Form = styled.form`
-  width: 348px;
-  height: max-content;
+  width: 41rem;
   background: #F0F0F0;
   padding: ${({theme})=>theme.spacings.xxmultipleeight};
+  @media screen and  (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 export const Title = styled.h3`
@@ -46,7 +48,7 @@ export const InputContainer = styled.div`
   display: flex;
   margin-top:${({theme})=>theme.spacings.xxmultipleeight};
   padding: ${({theme})=>theme.spacings.xxxxmultipleeight};
-`
+`;
 
 export const Input = styled.input`
   flex:1;
@@ -57,22 +59,9 @@ export const Input = styled.input`
 
 export const TextArea = styled.textarea`
   width:100%;
-  height: 235px;
+  height: 33rem;
   resize: none;
   border: 1.75px solid #AAAAAA;
   margin-top:${({theme})=>theme.spacings.xxxmultipleeight};
   padding: ${({theme})=>theme.spacings.xxxxmultipleeight};
-`;
-
-export const Button = styled.button`
-  margin-top:${({theme})=>theme.spacings.xxxmultipleeight};
-  background: #5C63EF;
-  color: #FFF;
-  width: 100%;
-  height: 42px;
-  border:none;
-  display: flex;
-  align-items:center;
-  justify-content:center;
-  gap:.6rem;
 `;
