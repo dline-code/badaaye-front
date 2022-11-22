@@ -28,6 +28,7 @@ export const Container = styled.div`
 export const Form = styled.form`
   width: 41rem;
   background: #F0F0F0;
+  border-radius:8px;
   padding: ${({theme})=>theme.spacings.xxmultipleeight};
   @media screen and  (max-width: 768px) {
     width: 100%;
@@ -62,6 +63,7 @@ export const TextArea = styled.textarea`
   height: 33rem;
   resize: none;
   border: 1.75px solid #AAAAAA;
+  border-radius:4px;
   margin-top:${({theme})=>theme.spacings.xxxmultipleeight};
   padding: ${({theme})=>theme.spacings.xxxxmultipleeight};
 `;

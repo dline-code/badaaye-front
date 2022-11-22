@@ -11,6 +11,7 @@ export const Container = styled.div`
   align-items: center;
   padding:1rem;
   font-size: ${({ theme }) => theme.font.sizes.small};
+  border-radius:4px;
 
   span {
     height: 2.4rem;
