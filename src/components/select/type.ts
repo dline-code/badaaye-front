@@ -1,5 +1,6 @@
+import { IconType } from "react-icons";
 
 export type SelectContainerProps = {
-  icon: React.ReactNode,
+  Icon: IconType,
   options: string[],
 };

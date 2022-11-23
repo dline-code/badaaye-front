@@ -34,7 +34,7 @@ export const Text = styled.div`
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxxblue};
   font-weight: ${({ theme }) => theme.font.smallbold};
-  margin-top: 4rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;

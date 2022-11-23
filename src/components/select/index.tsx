@@ -4,17 +4,15 @@ import * as SS from '../input/styles'
 import { SelectContainerProps } from './type'
 import { FaCaretDown } from 'react-icons/fa';
 
-
-
-const select: React.FC<SelectContainerProps> = ({
-  icon,
+const Select: React.FC<SelectContainerProps> = ({
+  Icon,
   options,
   ...rest
 }) => {
   return (
     <SS.Container >
       <>
-      <span>{icon}</span>
+      <Icon/>
       <S.Select>
         {options.map((option,index)=>(
           <option value={option} key={index}>{option}</option>
@@ -26,4 +24,4 @@ const select: React.FC<SelectContainerProps> = ({
   )
 }
 
-export default select
+export default Select

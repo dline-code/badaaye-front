@@ -12,9 +12,7 @@ const Input: React.FC<InputContainerProps> = ({
 }) => {
   return (
     <S.Container >
-      <span>
-        <Icon/>
-      </span>
+        <Icon />
       <S.Input {...rest} placeholder={placeholder}/>
       {type === 'password' && (open ? <IoEyeOff /> : <IoEye />)}
     </S.Container>

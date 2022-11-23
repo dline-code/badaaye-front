@@ -9,7 +9,8 @@ export const Wrapper = styled.main`
   @media screen and  (max-width: 768px) {
     flex-direction: column-reverse;
     align-items:flex-start;
-    padding-top:23rem;
+    position:relative;
+    top:10rem;
   }
 `;
 
