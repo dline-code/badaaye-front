@@ -1,18 +1,24 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.main`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%auto;
   height: 70rem;
+  margin-top: -3rem;
+  padding: 0 10rem;
+  background: #ffffff;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0 10rem;
+  z-index: 1000;
 `
 
 export const Form = styled.form`
   width: 32%;
-  height: 60rem;
+  height: 58rem;
   padding: 5rem 4rem;
   background: #f0f0f0;
 
@@ -52,6 +58,7 @@ export const Ancora = styled.span`
 `
 
 export const Title = styled.h3`
+  margin-top: -15px;
   font-size: ${({ theme }) => theme.font.smallbold};
   line-height: 3rem;
   font-weight: ${({ theme }) => theme.font.smallbold};

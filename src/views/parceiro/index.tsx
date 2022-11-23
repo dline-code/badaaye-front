@@ -17,6 +17,8 @@ import { HiUser } from 'react-icons/hi'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { BsBriefcaseFill, BsFillTelephoneFill, BsPhoneFill } from 'react-icons/bs'
 
+import {Layout} from "src/components/layout"
+
 const Parceiro: NextPage = () => {
   const [color, setColor] = useState('blue')
 
@@ -26,12 +28,13 @@ const Parceiro: NextPage = () => {
   const changeColorBlue = () => {
     setColor('blue')
   }
+
   return (
     <S.Wrapper>
       <S.Form>
         <S.Title>Crie sua conta</S.Title>
         <Input type="text" placeholder="Nome da entidade" icon={<HiUser/>} />
-        <Input type="text" placeholder="Seu e-mail" icon={<MdEmail />} />
+        <Input type="email" placeholder="Seu e-mail" icon={<MdEmail />} />
         <div id='select'>
           <Select
             options={["Parceiro", "Parceiro1", "Parceiro2"]}
