@@ -8,7 +8,7 @@ export const Wrapper = styled.main`
   height: 70rem;
   margin-top: -3rem;
   padding: 0 10rem;
-  background: #ffffff;
+  background: ${({theme})=> theme.colors.tertiary.white};
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -27,7 +27,7 @@ export const Form = styled.form`
   }
   
   .button {
-    margin-top: 2.5rem;
+    margin-top: ${({theme})=> theme.spacings.xxmultipleeight};
   }
   div#select div{
     margin-top: 1.5rem;
@@ -44,7 +44,7 @@ export const Form = styled.form`
 
 export const Description = styled.div`
   width: 100%;
-  margin-top: 1.5rem;
+  margin-top: ${({theme})=> theme.spacings.xxxmultipleeight};
   text-align: center;
 `
 

@@ -11,16 +11,15 @@ import Select from 'src/components/select'
 import RadioBox from 'src/components/radiobox'
 import Descontos from '../../pages/descontos/index'
 
-import { HiArrowNarrowLeft } from 'react-icons/hi'
 import { MdEmail } from 'react-icons/md'
-import { HiUser } from 'react-icons/hi'
+import { HiUser, HiArrowNarrowLeft } from 'react-icons/hi'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { BsBriefcaseFill, BsFillTelephoneFill, BsPhoneFill } from 'react-icons/bs'
 
 import {Layout} from "src/components/layout"
 
 const Parceiro: NextPage = () => {
-  const [color, setColor] = useState('blue')
+  const [color, setColor] = useState<"gray" | "blue">('blue')
 
   const changeColorGray = () => {
       setColor('gray')
