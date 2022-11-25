@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.main`
 width: 100%;
+font-family: 'Inter',sans-serif;
 height: 100vh;
 background: ${({theme})=> theme.colors.tertiary.white};
 display: flex;
@@ -15,39 +16,28 @@ z-index: 1000;
     position:relative;
     top:10rem;
   }
-`;
+  `;
 
-export const Container = styled.div`
-  max-width:80;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap:9rem;
-
-  @media screen and  (max-width: 768px) {
-    flex-direction:column-reverse;
-    margin:auto;
-    gap:2rem;
-  }
-`
 export const Form = styled.form`
   width: 30%;
   background: #F0F0F0;
-  border-radius:8px;
-  padding: ${({theme})=>theme.spacings.xxmultipleeight};
+  border-radius:.8rem;
+  padding: 3.2rem;
   @media screen and  (max-width: 768px) {
+    margin-top:2rem;
     width: 100%;
   }
 `
 
 export const Title = styled.h3`
-  font-size:  ${({ theme }) => theme.font.sizes.xxlarge};
-  font-weight: ${({ theme }) => theme.font.smallbold};
+  font-size:  2.4rem;
+  font-weight: 700;
+  line-height:2.9rem;
   margin-bottom: ${({ theme }) => theme.spacings.xxxmultipleeight};
 `;
 
 export const BadayeInfo = styled.div`
-  width: 38rem;
+  width: 43rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,10 +48,11 @@ export const BadayeInfo = styled.div`
 
 export const TextArea = styled.textarea`
   width:100%;
-  height: 30rem;
+  height: 33rem;
   resize: none;
   border: 0.2rem solid ${({ theme }) => theme.colors.tertiary.gray};
   border-radius: 0.25rem;
+  font-size: 16px;
   background: ${({ theme }) => theme.colors.tertiary.white};
   margin:${({theme})=>theme.spacings.xxxmultipleeight} 0;
   padding: ${({theme})=>theme.spacings.xxxxmultipleeight};
