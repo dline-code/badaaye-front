@@ -72,6 +72,7 @@ export const Button = styled.button`
   height: 4.6rem;
   border: none;
   transition: 2s;
+  cursor: pointer;
   border-radius: 0.3rem;
   background: ${({ theme }) => theme.colors.primary.xblue};
   color: ${({ theme }) => theme.colors.tertiary.white};
@@ -83,7 +84,6 @@ export const Button = styled.button`
     margin-left: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
   }
   :hover {
-    cursor: pointer;
     filter: brightness(0.7);
     transition: 2s;
   }
