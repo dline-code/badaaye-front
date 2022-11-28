@@ -10,7 +10,7 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 z-index: 1000;
-  @media screen and  (max-width: 768px) {
+  @media screen and  (max-width: 568px) {
     flex-direction: column-reverse;
     align-items:flex-start;
     position:relative;
@@ -19,18 +19,18 @@ z-index: 1000;
   `;
 
 export const Form = styled.form`
-  width: 30%;
+  width: 44rem;
   background: #F0F0F0;
   border-radius:.8rem;
   padding: 3.2rem;
-  @media screen and  (max-width: 768px) {
+  @media screen and  (max-width: 568px) {
     margin-top:2rem;
     width: 100%;
   }
 `
 
 export const Title = styled.h3`
-  font-size:  2.4rem;
+  font-size:  2.1rem;
   font-weight: 700;
   line-height:2.9rem;
   margin-bottom: ${({ theme }) => theme.spacings.xxxmultipleeight};
@@ -48,11 +48,11 @@ export const BadayeInfo = styled.div`
 
 export const TextArea = styled.textarea`
   width:100%;
-  height: 33rem;
+  height: 34rem;
   resize: none;
   border: 0.2rem solid ${({ theme }) => theme.colors.tertiary.gray};
   border-radius: 0.25rem;
-  font-size: 16px;
+  font-size: 1.4rem;
   background: ${({ theme }) => theme.colors.tertiary.white};
   margin:${({theme})=>theme.spacings.xxxmultipleeight} 0;
   padding: ${({theme})=>theme.spacings.xxxxmultipleeight};
