@@ -1,12 +1,9 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.main`
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%auto;
   height: 70rem;
-  margin-top: -3rem;
+  margin-top: -4rem;
   padding: 0 10rem;
   background: ${({theme})=> theme.colors.tertiary.white};
   display: flex;
