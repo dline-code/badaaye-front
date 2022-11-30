@@ -7,14 +7,13 @@ const radiobox: React.FC<RadioboxProps> = ({
   description,
   src,
   isActive,
-  activeColor,
   onClick
 }) => {
   return (
     <S.Label
       htmlFor="radio"
       isActive={isActive}
-      activeColor={activeColor}
+      activeColor={isActive ? 'blue' : 'gray'}
       onClick={onClick}
     >
       <S.Image src={src} alt="image" />
@@ -22,7 +21,7 @@ const radiobox: React.FC<RadioboxProps> = ({
         <S.Title>{title}</S.Title>
         <S.Description>{description}</S.Description>
       </S.Container>
-      <S.Input type="radio" id="radio" name="radio" />
+      <S.Input type="radio" id="radio" name="radio" checked={isActive} />
     </S.Label>
   )
 }

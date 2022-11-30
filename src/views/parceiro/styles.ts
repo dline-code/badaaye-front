@@ -10,7 +10,6 @@ export const Wrapper = styled.main`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
 `
 
 export const Form = styled.form`

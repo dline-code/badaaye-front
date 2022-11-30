@@ -5,6 +5,7 @@ import Step from 'src/components/financing-steps'
 import Benefits from 'src/views/benefits'
 import Institution from 'src/views/institution'
 //import Contactos from 'src/components/contactos'
+import {Layout} from "../components/layout/index"
 
 import FrequentQuestions from 'src/components/frequent-question'
 
@@ -25,5 +26,7 @@ const Home: NextPage = () => {
     </>
   )
 }
-
+Object.assign(Home,{
+  Layout
+})
 export default Home
