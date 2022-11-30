@@ -74,6 +74,7 @@ const Parceiro: NextPage = () => {
             description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
             src="/assets/library-bolsas.svg"
             isActive={color === 'gray'}
+            activeColor={'gray'}
             onClick={changeColorGray}
           />
 
@@ -83,6 +84,7 @@ const Parceiro: NextPage = () => {
             sucesso acádemico dos estudantes."
             src="/assets/parceiro.svg"
             isActive={color === 'blue'}
+            activeColor={'blue'}
             onClick={changeColorBlue}
           />
         </S.ContainerRadios>
