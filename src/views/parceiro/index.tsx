@@ -9,7 +9,6 @@ import Input from 'src/components/input'
 import Button from 'src/components/button'
 import Select from 'src/components/select'
 import RadioBox from 'src/components/radiobox'
-import Descontos from '../../pages/descontos/index'
 
 import { MdEmail } from 'react-icons/md'
 import { HiUser, HiArrowNarrowLeft } from 'react-icons/hi'

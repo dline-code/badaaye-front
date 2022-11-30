@@ -14,7 +14,7 @@ export const Wrapper = styled.main`
 
 export const Form = styled.form`
   width: 32%;
-  height: 58rem;
+  height: 60rem;
   padding: 5rem 4rem;
   background: #f0f0f0;
 
@@ -54,7 +54,6 @@ export const Ancora = styled.span`
 `
 
 export const Title = styled.h3`
-  margin-top: -15px;
   font-size: ${({ theme }) => theme.font.smallbold};
   line-height: 3rem;
   font-weight: ${({ theme }) => theme.font.smallbold};
