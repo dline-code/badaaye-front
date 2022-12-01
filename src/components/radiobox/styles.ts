@@ -17,6 +17,7 @@ export const Label = styled.label<RadioboxProps>`
   cursor: pointer;
   padding: 1rem;
   border: 0.2rem solid ${props => (props.isActive ? 'blue' : '#AAAAAA')};
+  border-radius: 0.4rem;
 `
 
 export const Image = styled.img`

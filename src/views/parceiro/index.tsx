@@ -67,6 +67,12 @@ const Parceiro: NextPage = () => {
           title="Contribua para o sucesso dos nossos estudantes"
           description="Apoie com as despesas acádemicas dos nossos estudantes para criarmos um futuro melhor."
         />
+        <Link href="#">
+          <S.TextBack>
+            <HiArrowNarrowLeft />
+            <S.LinkDescription>Voltar para login</S.LinkDescription>
+          </S.TextBack>
+        </Link>
         <S.ContainerRadios>
           <RadioBox
             title="Estudante"
