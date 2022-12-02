@@ -15,8 +15,6 @@ import { HiUser, HiArrowNarrowLeft } from 'react-icons/hi'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { BsBriefcaseFill, BsFillTelephoneFill, BsPhoneFill } from 'react-icons/bs'
 
-import {Layout} from "src/components/layout"
-
 const Parceiro: NextPage = () => {
   const [color, setColor] = useState<"gray" | "blue">('blue')
 

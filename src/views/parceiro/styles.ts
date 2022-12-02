@@ -12,7 +12,7 @@ export const Wrapper = styled.main`
   align-items: center;
 
   @media screen and (max-width: 1280px){
-    padding: 5rem;
+    padding: ${({theme})=> theme.spacings.xmultipleeight};
   }
   @media screen and (max-width: 920px){
     height: 100%;
@@ -23,7 +23,7 @@ export const Wrapper = styled.main`
 export const Form = styled.form`
   width: 32%;
   height: 60rem;
-  padding: 5rem 4rem;
+  padding: ${({theme})=> theme.spacings.xmultipleeight} 4rem;
   background: #f0f0f0;
 
   .input {
@@ -95,7 +95,7 @@ export const Container = styled.div`
 
     label {
       height: 12rem;
-      margin-bottom: 1rem;
+      margin-bottom: ${({theme})=> theme.spacings.xxxxmultipleeight};
     }
   }
   @mediascreen and(max-width: 1000px){
@@ -109,7 +109,6 @@ export const Container = styled.div`
     width: 90%;
   }  
 `
-
 export const ContainerRadios = styled.div`
   width: 100%auto;
   height: 23.5rem;
@@ -122,7 +121,6 @@ export const ContainerRadios = styled.div`
     margin-bottom: 3.2rem;
   }
 `
-
 export const TextBack = styled.div`
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxxblue};
