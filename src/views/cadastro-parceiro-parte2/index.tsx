@@ -12,8 +12,16 @@ const CadastroParceiroPart2: NextPage = () => {
       <>
         <S.Form>
           <S.Title>Informações do Parceiro</S.Title>
-          <Input icon= {<FaGraduationCap />}placeholder='Àrea de interesse'  type='text'></Input>
-          <S.TextArea placeholder='Fale sobre sí e seus objectivos'></S.TextArea>
+          <Input
+            icon= {<FaGraduationCap />}
+            placeholder='Àrea de interesse'
+            type='text'
+            >
+          </Input>
+          <S.TextArea
+            placeholder='Fale sobre sí e seus objectivos'
+            >
+          </S.TextArea>
           <S.Button>Continuar <HiArrowNarrowRight/></S.Button>
         </S.Form>
         <S.BadayeInfo>
