@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.main`
   width: 100%auto;
-  height: 70rem;
-  margin-top: -4rem;
+  height: 100vh;
   padding: 0 10rem;
   background: ${({theme})=> theme.colors.tertiary.white};
   display: flex;
