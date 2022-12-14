@@ -8,8 +8,8 @@ import Button from 'src/components/button';
 
 const CadastroParceiroPart2: NextPage = () => {
   return (
-    <S.Wrapper>
-      <>
+    <S.Container>
+      <S.Wrapper>
         <S.Form>
           <S.Title>Informações do Parceiro</S.Title>
           <Input
@@ -32,8 +32,8 @@ const CadastroParceiroPart2: NextPage = () => {
             link="#"
           />
         </S.BadayeInfo>
-      </>
-    </S.Wrapper>
+      </S.Wrapper>
+    </S.Container>
   )
 }
 export default CadastroParceiroPart2;

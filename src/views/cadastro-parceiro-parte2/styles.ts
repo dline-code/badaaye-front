@@ -1,18 +1,22 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.main`
-  width: 100%;
+export const Container = styled.div`
+  width: 100vw;
+  height:100vh;
+  display: table-cell;
+  vertical-align: middle;
+`
+
+export const Wrapper = styled.div`
+  margin:auto;
   font-family: 'Inter',sans-serif;
-  height: 100vh;
   background: ${({theme})=> theme.colors.tertiary.white};
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and  (max-width: 568px) {
+  @media screen and  (max-width: 768px) {
     flex-direction: column-reverse;
     align-items:flex-start;
-    position:relative;
-    top:13rem;
   }
 `;
 
@@ -21,7 +25,7 @@ export const Form = styled.form`
   background: #F0F0F0;
   border-radius:.8rem;
   padding: 3.2rem;
-  @media screen and  (max-width: 568px) {
+  @media screen and  (max-width: 768px) {
     margin-top: ${({theme})=> theme.spacings.xxxmultipleeight};
     width: 100%;
   }
@@ -31,7 +35,7 @@ export const Title = styled.h3`
   font-size:  2.1rem;
   font-weight: 700;
   margin-bottom: ${({ theme }) => theme.spacings.xxxmultipleeight};
-  @media screen and  (max-width: 568px) {
+  @media screen and  (max-width: 768px) {
     text-align: center;
   }
 `;
@@ -41,7 +45,7 @@ export const BadayeInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 12rem;
+  margin-left: 9rem;
   @media screen and  (max-width: 768px) {
     margin:auto;
 `;
