@@ -8,8 +8,8 @@ import Select from 'src/components/select'
 
 const CadastroEstudantePart2: NextPage = () => {
   return (
-    <S.Wrapper>
-      <>
+    <S.Container>
+      <S.Wrapper>
         <S.Form>
           <S.Title>Informações Academicas</S.Title>
 
@@ -69,8 +69,8 @@ const CadastroEstudantePart2: NextPage = () => {
             link="#"
           />
         </S.BadayeInfo>
-      </>
-    </S.Wrapper>
+      </S.Wrapper>
+    </S.Container>
   )
 }
 export default CadastroEstudantePart2;

@@ -1,41 +1,42 @@
 
 import styled from 'styled-components'
 
-export const Wrapper = styled.main`
-width: 100%;
-font-family: 'Inter',sans-serif;
-height: 100vh;
-background: ${({theme})=> theme.colors.tertiary.white};
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-z-index: 1000;
+export const Container = styled.div`
+  width: 100vw;
+  height:100vh;
+  display: table-cell;
+  vertical-align: middle;
+`
+
+export const Wrapper = styled.div`
+  margin:auto;
+  font-family: 'Inter',sans-serif;
+  background: ${({theme})=> theme.colors.tertiary.white};
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media screen and  (max-width: 768px) {
-  @media screen and  (max-width: 568px) {
     flex-direction: column-reverse;
     align-items:flex-start;
-    position:relative;
-    top:10rem;
   }
-  `;
+`;
 
 export const Form = styled.form`
-  width: 42rem;
+  width: 41rem;
+  padding: 3.2rem;
   background: #F0F0F0;
   border-radius:.8rem;
-  padding: 3.2rem;
-  @media screen and  (max-width: 568px) {
-    margin-top:2rem;
+  @media screen and  (max-width: 768px) {
+    margin-top: ${({theme})=> theme.spacings.xxxmultipleeight};
     width: 100%;
   }
 
   div#input{
-    margin-top: 1.5rem;
+    margin-top: 1.6rem;
   }
 
   div#select div{
-    margin-top: 1.5rem;
+    margin-top: 1.6rem;
     select {
       width: 100%;
       color: ${({ theme }) => theme.colors.secondary.xxxblue};
@@ -44,28 +45,26 @@ export const Form = styled.form`
       }
     }
 `
-
 export const Title = styled.h3`
-  font-size:  2.1rem;
-  font-weight:  ${({ theme }) => theme.font.bold};
-  margin-bottom: ${({ theme }) => theme.spacings.xxxmultipleeight};
+  font-size: ${({ theme }) => theme.font.medium};
+  line-height: 3rem;
+  font-weight: ${({ theme }) => theme.font.smallbold};
 `;
 export const BadayeInfo = styled.div`
-  width: 46rem;
+  width: 45rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 12rem;
+  margin-left: 9rem;
   @media screen and  (max-width: 768px) {
     margin:auto;
 `;
 
 export const Button = styled.button`
-  margin-top: 1.5rem;
+  margin-top: 1.6rem;
   width: 100%;
   height: 4.6rem;
   border: none;
-  transition: 2s;
   cursor: pointer;
   border-radius: 0.3rem;
   background: ${({ theme }) => theme.colors.primary.xblue};
@@ -74,11 +73,11 @@ export const Button = styled.button`
   display: flex;
   align-items:center;
   justify-content: center;
+  transition: 2s;
   svg{
     margin-left: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
   }
   :hover {
     filter: brightness(0.7);
-    transition: 2s;
   }
 `
