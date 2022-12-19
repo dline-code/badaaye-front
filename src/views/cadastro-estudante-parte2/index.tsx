@@ -50,7 +50,6 @@ const CadastroEstudantePart2: NextPage = () => {
             />
           </div>
 
-
           <div id='input'>
             <Input
               icon={<HiLocationMarker/>}

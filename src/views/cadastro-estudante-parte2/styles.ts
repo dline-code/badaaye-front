@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
 
 export const Form = styled.form`
   width: 41rem;
-  padding: 3.2rem;
+  padding:3.8rem 3.2rem;
   background: #F0F0F0;
   border-radius:.8rem;
   @media screen and  (max-width: 768px) {
@@ -50,6 +50,7 @@ export const Title = styled.h3`
   line-height: 3rem;
   font-weight: ${({ theme }) => theme.font.smallbold};
 `;
+
 export const BadayeInfo = styled.div`
   width: 45rem;
   display: flex;
