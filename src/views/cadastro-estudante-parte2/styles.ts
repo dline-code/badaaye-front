@@ -7,7 +7,6 @@ export const Container = styled.div`
   display: table-cell;
   vertical-align: middle;
 `
-
 export const Wrapper = styled.div`
   margin:auto;
   font-family: 'Inter',sans-serif;
@@ -15,7 +14,8 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and  (max-width: 768px) {
+
+  @media screen and  (max-width: 880px) {
     flex-direction: column-reverse;
     align-items:flex-start;
   }
@@ -26,16 +26,21 @@ export const Form = styled.form`
   padding:3.8rem 3.2rem;
   background: #F0F0F0;
   border-radius:.8rem;
-  @media screen and  (max-width: 768px) {
-    margin-top: ${({theme})=> theme.spacings.xxxmultipleeight};
+
+  @media screen and  (max-width: 880px) {
+    margin: auto;
+  }
+
+  @media screen and  (max-width: 668px) {
     width: 100%;
   }
 
-  div#input{
+  div.input{
     margin-top: 1.6rem;
   }
-
-  div#select div{
+`
+export const SelectContainer = styled.div`
+  div{
     margin-top: 1.6rem;
     select {
       width: 100%;
@@ -44,7 +49,9 @@ export const Form = styled.form`
         font-size: ${({theme})=> theme.font.sizes.midle};
       }
     }
-`
+  }
+`;
+
 export const Title = styled.h3`
   font-size: ${({ theme }) => theme.font.medium};
   line-height: 3rem;
@@ -57,8 +64,10 @@ export const BadayeInfo = styled.div`
   flex-direction: column;
   align-items: center;
   margin-left: 9rem;
-  @media screen and  (max-width: 768px) {
+
+  @media screen and  (max-width: 880px) {
     margin:auto;
+    margin-bottom: ${({theme})=> theme.spacings.xxxmultipleeight};
 `;
 
 export const Button = styled.button`

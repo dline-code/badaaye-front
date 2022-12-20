@@ -13,50 +13,44 @@ const CadastroEstudantePart2: NextPage = () => {
         <S.Form>
           <S.Title>Informações Academicas</S.Title>
 
-          <div id='select'>
+          <S.SelectContainer>
             <Select
               options={["Grau academico", "1º ano", "3º ano"]}
               icon={<FaGraduationCap />}
             />
-          </div>
+          </S.SelectContainer>
 
-          <div id='input'>
-            <Input
-              icon={<FaBookOpen/>}
-              type='text'
-              placeholder='Seu curso'
-            />
-          </div>
+          <Input
+            icon={<FaBookOpen/>}
+            type='text'
+            placeholder='Seu curso'
+          />
 
-          <div id='select'>
+          <S.SelectContainer>
             <Select
               options={['Instituição de ensino','UNIA','UMA','UAN']}
               icon={<FaBuilding />}
             />
-          </div>
+          </S.SelectContainer>
 
-          <div id='select'>
+          <S.SelectContainer>
             <Select
               options={['Provincia','Bengo','Benguela','Huila','Zaire']}
               icon={<HiLocationMarker />}
             />
-          </div>
+          </S.SelectContainer>
 
-          <div id='input'>
-            <Input
-              icon={<HiLocationMarker/>}
-              type='text'
-              placeholder='Municipio'
-            />
-          </div>
+          <Input
+            icon={<HiLocationMarker/>}
+            type='text'
+            placeholder='Municipio'
+          />
 
-          <div id='input'>
-            <Input
-              icon={<HiLocationMarker/>}
-              type='text'
-              placeholder='Bairro'
-            />
-          </div>
+          <Input
+            icon={<HiLocationMarker/>}
+            type='text'
+            placeholder='Bairro'
+          />
 
           <S.Button>Continuar <HiArrowNarrowRight/></S.Button>
         </S.Form>
