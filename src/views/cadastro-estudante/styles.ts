@@ -15,6 +15,7 @@ export const Form = styled.form`
   height: 55rem;
   padding: 5rem 4rem;
   background: #f0f0f0;
+  border-radius: .8rem;
 
   .input {
     margin-top: 1.5rem;

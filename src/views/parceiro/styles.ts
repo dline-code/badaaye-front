@@ -24,6 +24,7 @@ export const Form = styled.form`
   height: 60rem;
   padding: ${({theme})=> theme.spacings.xmultipleeight} 4rem;
   background: #f0f0f0;
+  border-radius: .8rem;
 
   .input {
     margin-top: 1.5rem;
