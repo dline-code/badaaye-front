@@ -28,6 +28,11 @@ export const Form = styled.form`
   .input {
     margin-top: 1.5rem;
   }
+  .input:has(> input:focus){
+      border-color: ${({ theme }) => theme.colors.primary.xblue};
+      input:focus {
+      }
+  }
   
   .button {
     margin-top: ${({theme})=> theme.spacings.xxmultipleeight};
@@ -42,6 +47,11 @@ export const Form = styled.form`
         font-size: ${({theme})=> theme.font.sizes.midle};
       }
     }
+  }
+  #select div:has(> select:focus){
+        border-color: ${({ theme }) => theme.colors.primary.xblue};
+        select{
+        }
   }
   @media screen and (max-width: 1280px){
     width: 35%;

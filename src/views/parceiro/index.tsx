@@ -29,8 +29,16 @@ const Parceiro: NextPage = () => {
     <S.Wrapper>
       <S.Form>
         <S.Title>Crie sua conta</S.Title>
-        <Input type="text" placeholder="Nome da entidade" icon={<HiUser/>} />
-        <Input type="email" placeholder="Seu e-mail" icon={<MdEmail />} />
+        <Input
+          type="text"
+          placeholder="Nome da entidade"
+          icon={<HiUser />}
+        />
+        <Input
+          type="email"
+          placeholder="Seu e-mail"
+          icon={<MdEmail />}
+        />
         <div id='select'>
           <Select
             options={["Parceiro", "Parceiro1", "Parceiro2"]}
@@ -38,7 +46,7 @@ const Parceiro: NextPage = () => {
           />
         </div>
         <Input
-          type="tel"
+          type="number"
           placeholder="Número de telefone"
           icon={<BsPhoneFill />}
         />
