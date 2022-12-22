@@ -27,7 +27,7 @@ const Home: NextPage = () => {
   )
 }
 
-Object.assign(Home,{
+Object.assign(Home, {
   Layout
 })
 
