@@ -18,6 +18,10 @@ export const Form = styled.form`
 
   .input {
     margin-top: 1.5rem;
+    :has(> input:focus){
+      border-color: ${({ theme }) => theme.colors.primary.xblue};
+      input:focus {
+    }
   }
 
   .button {

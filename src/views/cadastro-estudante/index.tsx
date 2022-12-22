@@ -14,16 +14,6 @@ import Button from 'src/components/button'
 import Descontos from '../../pages/descontos/index'
 
 const cadastroEstudante: NextPage = () => {
-  const [color, setColor] = useState('gray')
-
-  const changeColor = () => {
-    if (color === 'gray') {
-      setColor('blue')
-    } else {
-      setColor('gray')
-    }
-  }
-
   return (
     <S.Wrapper>
       <S.Form>
@@ -66,25 +56,28 @@ const cadastroEstudante: NextPage = () => {
     que estão dispostos a financiar os seus estudos."
         />
         <S.ContainerRadios>
-          <RadioBox
-            title="Estudante"
-            description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
-            src="/assets/library-bolsas.svg"
-            isActive={color === 'gray'}
-            activeColor="gray"
-          />
-
-          <RadioBox
-            title="Parceiro"
-            description="Entidades dispostas a contribuir para
-            sucesso acádemico dos estudantes."
-            src="/assets/parceiro.svg"
-            isActive={color === 'blue'}
-            activeColor="blue"
-          />
+          <Link href="#">
+            <RadioBox
+              title="Estudante"
+              description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
+              src="/assets/library-bolsas.svg"
+              isActive={true}
+              activeColor="blue"
+            />
+          </Link>
+          <Link href="/parceiro">
+            <RadioBox
+              title="Parceiro"
+              description="Entidades dispostas a contribuir para
+              sucesso acádemico dos estudantes."
+              src="/assets/parceiro.svg"
+              isActive={false}
+              activeColor="gray"  
+            />
+          </Link>
         </S.ContainerRadios>
 
-        <Link href="#">
+        <Link href="/login">
           <S.Text>
             <HiArrowNarrowLeft />
             <S.LinkDescription>Voltar para login</S.LinkDescription>

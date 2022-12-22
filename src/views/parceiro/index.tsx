@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
-import { useState } from 'react'
 import * as S from './styles'
 
 import LayoutAuthentication from '../../components/layout-authentication'
@@ -16,15 +15,6 @@ import { RiLockPasswordFill } from 'react-icons/ri'
 import { BsBriefcaseFill, BsFillTelephoneFill, BsPhoneFill } from 'react-icons/bs'
 
 const Parceiro: NextPage = () => {
-  const [color, setColor] = useState<"gray" | "blue">('blue')
-
-  const changeColorGray = ():void => {
-      setColor('gray')
-  }
-  const changeColorBlue = ():void => {
-    setColor('blue')
-  }
-
   return (
     <S.Wrapper>
       <S.Form>
@@ -39,12 +29,12 @@ const Parceiro: NextPage = () => {
           placeholder="Seu e-mail"
           icon={<MdEmail />}
         />
-        <div id='select'>
+        <S.SelectContainer>
           <Select
             options={["Parceiro", "Parceiro1", "Parceiro2"]}
             icon={<BsBriefcaseFill />}
           />
-        </div>
+        </S.SelectContainer>
         <Input
           type="number"
           placeholder="Número de telefone"
@@ -80,27 +70,28 @@ const Parceiro: NextPage = () => {
           </S.TextBack>
         </Link>
         <S.ContainerRadios>
-          <RadioBox
-            title="Estudante"
-            description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
-            src="/assets/library-bolsas.svg"
-            isActive={color === 'gray'}
-            activeColor={'gray'}
-            onClick={changeColorGray}
-          />
-
-          <RadioBox
-            title="Parceiro"
-            description="Entidades dispostas a contribuir para
-            sucesso acádemico dos estudantes."
-            src="/assets/parceiro.svg"
-            isActive={color === 'blue'}
-            activeColor={'blue'}
-            onClick={changeColorBlue}
-          />
+          <Link href="/cadastro-estudante" >
+            <RadioBox
+              title="Estudante"
+              description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
+              src="/assets/library-bolsas.svg"
+              isActive={false}
+              activeColor={'gray'}
+            />
+          </Link>
+          <Link href="#">
+            <RadioBox
+              title="Parceiro"
+              description="Entidades dispostas a contribuir para
+              sucesso acádemico dos estudantes."
+              src="/assets/parceiro.svg"
+              isActive={true}
+              activeColor={'blue'}
+            />
+          </Link>
         </S.ContainerRadios>
 
-        <Link href="#">
+        <Link href="/login">
           <S.Text>
             <HiArrowNarrowLeft />
             <S.LinkDescription>Voltar para login</S.LinkDescription>

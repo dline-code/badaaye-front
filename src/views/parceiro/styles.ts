@@ -27,32 +27,15 @@ export const Form = styled.form`
 
   .input {
     margin-top: 1.5rem;
-  }
-  .input:has(> input:focus){
+    :has(> input:focus){
       border-color: ${({ theme }) => theme.colors.primary.xblue};
-      input:focus {
-      }
+    }
   }
   
   .button {
     margin-top: ${({theme})=> theme.spacings.xxmultipleeight};
   }
-  div#select div{
-    margin-top: 1.5rem;
-
-    select {
-      width: 100%;
-      color: ${({ theme }) => theme.colors.secondary.xxxblue};
-      option {
-        font-size: ${({theme})=> theme.font.sizes.midle};
-      }
-    }
-  }
-  #select div:has(> select:focus){
-        border-color: ${({ theme }) => theme.colors.primary.xblue};
-        select{
-        }
-  }
+  
   @media screen and (max-width: 1280px){
     width: 35%;
   }
@@ -67,7 +50,23 @@ export const Form = styled.form`
     width: 90%;
   }  
 `
+export const SelectContainer = styled.div`
+   div{
+    margin-top: 1.5rem;
 
+    select {
+      font-size: ${({theme})=> theme.font.sizes.midle};
+      width: 100%;
+      color: ${({ theme }) => theme.colors.secondary.xxxblue};
+      option {
+        font-size: ${({theme})=> theme.font.sizes.midle};
+      }
+    }
+    :has(> select:focus){
+      border-color: ${({ theme }) => theme.colors.primary.xblue};
+    }
+  }
+`
 export const Description = styled.div`
   width: 100%;
   margin-top: ${({theme})=> theme.spacings.xxxmultipleeight};
