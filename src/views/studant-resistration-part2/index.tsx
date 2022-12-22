@@ -1,12 +1,12 @@
 import type { NextPage } from 'next'
 import * as S from './styles'
 import LayoutAuthentication from '../../components/layout-authentication'
-import { FaBookOpen, FaBuilding, FaClosedCaptioning, FaGraduationCap} from 'react-icons/fa'
+import { FaBookOpen, FaBuilding, FaGraduationCap} from 'react-icons/fa'
 import { HiArrowNarrowRight, HiLocationMarker } from 'react-icons/hi'
 import Input from 'src/components/input';
 import Select from 'src/components/select'
 
-const CadastroEstudantePart2: NextPage = () => {
+const StudantResistrationPart2: NextPage = () => {
   return (
     <S.Container>
       <S.Wrapper>
@@ -66,4 +66,4 @@ const CadastroEstudantePart2: NextPage = () => {
     </S.Container>
   )
 }
-export default CadastroEstudantePart2;
+export default StudantResistrationPart2;
