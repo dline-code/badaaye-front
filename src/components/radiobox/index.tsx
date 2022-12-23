@@ -13,7 +13,6 @@ const radiobox: React.FC<RadioboxProps> = ({
     <S.Label
       htmlFor="radio"
       isActive={isActive}
-      activeColor={isActive ? 'blue' : 'gray'}
       onClick={onClick}
     >
       <S.Image src={src} alt="image" />

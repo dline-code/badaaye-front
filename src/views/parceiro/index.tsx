@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
@@ -76,7 +78,6 @@ const Parceiro: NextPage = () => {
               description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
               src="/assets/library-bolsas.svg"
               isActive={false}
-              activeColor={'gray'}
             />
           </Link>
           <Link href="#">
@@ -86,7 +87,6 @@ const Parceiro: NextPage = () => {
               sucesso acádemico dos estudantes."
               src="/assets/parceiro.svg"
               isActive={true}
-              activeColor={'blue'}
             />
           </Link>
         </S.ContainerRadios>

@@ -7,7 +7,6 @@ const colors = {
 
 interface RadioboxProps {
   isActive: boolean
-  activeColor: 'gray' | 'blue'
 }
 export const Label = styled.label<RadioboxProps>`
   width: 100%;
