@@ -62,7 +62,6 @@ const cadastroEstudante: NextPage = () => {
               description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
               src="/assets/library-bolsas.svg"
               isActive={true}
-              activeColor="blue"
             />
           </Link>
           <Link href="/parceiro">
@@ -72,7 +71,6 @@ const cadastroEstudante: NextPage = () => {
               sucesso acádemico dos estudantes."
               src="/assets/parceiro.svg"
               isActive={false}
-              activeColor="gray"  
             />
           </Link>
         </S.ContainerRadios>
