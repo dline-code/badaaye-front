@@ -11,7 +11,9 @@ export const Container = styled.div`
   padding: 2rem 1rem;
   font-size: ${({ theme }) => theme.font.sizes.small};
   position: relative;
-
+  :has(> input:focus){
+      border-color: ${({ theme }) => theme.colors.primary.xblue};
+    }
   svg {
     color: ${({ theme }) => theme.colors.secondary.xxxblue};
   }
@@ -24,13 +26,15 @@ export const Container = styled.div`
     padding: 0;
     margin: 0;
     position: relative;
-
     svg {
       height: 100%;
       width: 100%;
       object-fit: contain;
       color: ${({ theme }) => theme.colors.secondary.xxxblue};
     }
+  }
+  > span {
+    cursor: pointer;
   }
 `
 export const Input = styled.input`
