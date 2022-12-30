@@ -6,7 +6,7 @@ export const ContainerContactos = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem;
+  margin-bottom:4rem;
 
   @media screen and (max-width: 500px) {
     padding: 2rem;
