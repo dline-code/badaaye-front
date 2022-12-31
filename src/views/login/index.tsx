@@ -6,6 +6,7 @@ import Input from 'src/components/input'
 import Button from 'src/components/button'
 import { MdEmail } from 'react-icons/md'
 import { FaArrowRight, FaFacebook, FaGoogle, FaInstagram } from 'react-icons/fa'
+import { RiLockPasswordFill } from 'react-icons/ri'
 
 const cadastroEstudante: NextPage = () => {
   return (
@@ -29,7 +30,7 @@ const cadastroEstudante: NextPage = () => {
         <Input
           type='password'
           placeholder='Sua senha'
-          icon={<MdEmail/>}
+          icon={<RiLockPasswordFill/>}
         />
         <S.ForgetPasswordLink>
           <Link href="#">
