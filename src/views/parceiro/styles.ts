@@ -146,8 +146,11 @@ export const TextBack = styled.div`
   }
 `
 export const Text = styled(TextBack)`
-  display: block;
-    @media screen and (max-width: 920px){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  @media screen and (max-width: 920px){
     display: none;
   }
 `
