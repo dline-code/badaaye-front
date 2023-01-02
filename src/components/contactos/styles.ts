@@ -10,6 +10,7 @@ export const ContainerContactos = styled.section`
 
   @media screen and (max-width: 500px) {
     padding: 2rem;
+    margin-bottom:12rem;
   }
 `
 
@@ -99,7 +100,7 @@ export const Container1 = styled.div`
   @media screen and (max-width: 67rem) {
     margin-top: 5rem;
   }
-`
+  `
 
 export const Container2 = styled.div`
   height: 30rem;
@@ -131,5 +132,14 @@ export const Container2 = styled.div`
   }
   div {
     margin: 2rem 0;
+  }
+  iframe{
+    width:54rem;
+    height:26.5rem;
+    border: 0;
+
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
   }
 `
