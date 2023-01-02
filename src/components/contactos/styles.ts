@@ -41,7 +41,7 @@ export const ContainerObject = styled.div`
     }
   }
 `
-export const ContainerCampo = styled.div`
+export const ContainerField = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -96,13 +96,13 @@ export const Button = styled.button`
   }
 `
 
-export const Container1 = styled.div`
+export const FirstContainer = styled.div`
   @media screen and (max-width: 67rem) {
     margin-top: 5rem;
   }
   `
 
-export const Container2 = styled.div`
+export const SecondContainer = styled.div`
   height: 30rem;
   color: ${({ theme }) => theme.colors.tertiary.gray};
   background-color: ${({ theme }) => theme.colors.tertiary.contrast} 0% 0%
