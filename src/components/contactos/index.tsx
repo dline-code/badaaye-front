@@ -13,7 +13,7 @@ const Contactos = () => {
   return (
     <S.ContainerContactos>
       <S.ContainerObject>
-        <S.FirstContainer data-aos="fade-right">
+        <S.FirstContainer >
           <h1>Em caso de dúvida entre em contacto</h1>
           <S.ContainerField>
             <span>Nome Completo</span>
@@ -29,7 +29,7 @@ const Contactos = () => {
           </S.ContainerField>
           <S.Button>Enviar Mensagem</S.Button>
         </S.FirstContainer>
-        <S.SecondContainer data-aos="fade-left">
+        <S.SecondContainer>
           <div>
             <TiLocationOutline className="icon" />
             <span>Luanda</span>
