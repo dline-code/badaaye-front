@@ -11,13 +11,13 @@ const Contactos = () => {
     Aos.init({ duration: 2000 })
   })
   return (
-    <S.ContainerContactos>
+    <S.ContainerContacts>
       <S.ContainerObject>
         <S.FirstContainer >
           <h1>Em caso de dúvida entre em contacto</h1>
           <S.ContainerField>
             <span>Nome Completo</span>
-            <input type="text" />
+            <input type="text"/>
           </S.ContainerField>
           <S.ContainerField>
             <span>Sem e-mail</span>
@@ -52,7 +52,7 @@ const Contactos = () => {
           ></iframe>
         </S.SecondContainer>
       </S.ContainerObject>
-    </S.ContainerContactos>
+    </S.ContainerContacts>
   )
 }
 
