@@ -2,24 +2,29 @@ import type { NextPage } from 'next'
 import * as S from './styles'
 import LayoutAuthentication from '../../components/layout-authentication'
 import RadioBox from 'src/components/radiobox'
-import { HiArrowNarrowLeft } from 'react-icons/hi'
+import { HiArrowNarrowLeft,HiUser } from 'react-icons/hi'
 import { MdEmail } from 'react-icons/md'
-import { HiUser } from 'react-icons/hi'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import Link from 'next/link'
-import { useState } from 'react'
 import Input from 'src/components/input'
 import Button from 'src/components/button'
-import Descontos from '../../pages/descontos/index'
 
 const cadastroEstudante: NextPage = () => {
   return (
     <S.Wrapper>
       <S.Form>
         <S.Title>Crie sua conta</S.Title>
-        <Input type="text" placeholder="Seu e-mail" icon={<MdEmail />} />
-        <Input type="text" placeholder="Nome completo" icon={<HiUser />} />
+        <Input
+          type="text"
+          placeholder="Seu e-mail"
+          icon={<MdEmail />}
+        />
+        <Input
+          type="text"
+          placeholder="Nome completo"
+          icon={<HiUser />}
+        />
         <Input
           type="text"
           placeholder="Número de telefone"
@@ -53,7 +58,7 @@ const cadastroEstudante: NextPage = () => {
         <LayoutAuthentication
           title="Encontre o financiamento para os seus estudos"
           description="Conectamos você com os nossos parceiros
-    que estão dispostos a financiar os seus estudos."
+            que estão dispostos a financiar os seus estudos."
         />
         <S.ContainerRadios>
           <Link href="#">
