@@ -13,7 +13,7 @@ const step: React.FC = () => {
       <S.Box>
         <S.Container>
           <S.Title>Entenda como a Baadaye funciona</S.Title>
-          <Link href="/playstore.com/download-baadaye">
+          <Link href="https://play.google.com/">
             <a target="_blank">
               <S.Download className="download">
                 ▼ Baixar explicação completa
