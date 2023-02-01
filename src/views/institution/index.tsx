@@ -26,15 +26,17 @@ const viewinstitution: React.FC = () => {
         <Slider {...settings}>
           {institution.map((item: InstitutionProps) => {
             return (
-              <Link href={`institution/${item.title}`}>
-                <Card
-                  key={item.id}
-                  image={item.image}
-                  title={item.title}
-                  previousprice={item.previousprice}
-                  nextprice={item.nextprice}
-                  />
-              </Link>
+                <Link href={`/instituitions/${item.title}`}>
+                  <a>
+                    <Card
+                      key={item.id}
+                      image={item.image}
+                      title={item.title}
+                      previousprice={item.previousprice}
+                      nextprice={item.nextprice}
+                    />
+                  </a>
+                </Link>
             )
           })}
         </Slider>
