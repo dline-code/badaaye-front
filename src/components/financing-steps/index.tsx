@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Link from "next/link"
 import * as S from './styles'
 import Aos from 'aos'
 import { steps } from './mock'
@@ -12,9 +13,13 @@ const step: React.FC = () => {
       <S.Box>
         <S.Container>
           <S.Title>Entenda como a Baadaye funciona</S.Title>
-          <S.Download className="download">
-            ▼ Baixar explicação completa
-          </S.Download>
+          <Link href="/playstore.com/download-baadaye">
+            <a target="_blank">
+              <S.Download className="download">
+                ▼ Baixar explicação completa
+              </S.Download>
+            </a>
+          </Link>
         </S.Container>
 
         {steps.map(item => {
