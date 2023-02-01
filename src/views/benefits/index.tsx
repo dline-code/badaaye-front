@@ -22,7 +22,6 @@ const viewbenefits: React.FC = () => {
       <S.Benefits>
         {benefits.map((item: BenefitsProps) => {
           return (
-            <Link href={`ajudas/${item.title}`}>
                 <Card
                   key={item.id}
                   image={item.image}
@@ -31,7 +30,6 @@ const viewbenefits: React.FC = () => {
                   children={item.children}
                   link={item.link}
                 />
-            </Link>
           )
         })}
       </S.Benefits>

@@ -6,7 +6,7 @@ export const benefits = [
     description:
       'Obtem descontos de propinas,  transportes públicos,  descontos lojas e outros serviços da vida de um estudante...',
     children: '⟶ Saber mais',
-    link: '/'
+    link: 'ajudas/auxilio-academico'
   },
 
   {
@@ -16,7 +16,7 @@ export const benefits = [
     description:
       'Faça parceria com a Baadaye para ajudar os alunos necessitados.',
     children: '⟶ Saber mais',
-    link: '/'
+    link: 'ajudas/parceiro'
   },
   {
     id: 2,
@@ -25,6 +25,6 @@ export const benefits = [
     description:
       'Junte-se a nós e ajudemos estudantes a ganhar bolsas de estudo para obtenção do sucesso escolar.',
     children: '⟶ Saber mais',
-    link: '/'
+    link: 'ajudas/bolsas-de-estudos'
   }
 ]
