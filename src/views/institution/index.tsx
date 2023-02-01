@@ -13,7 +13,7 @@ const viewinstitution: React.FC = () => {
     Aos.init({ duration: 2000 })
   })
   return (
-    <S.Container data-aos="fade-up">
+    <S.Container id='instituition' data-aos="fade-up">
       <S.Box>
         <S.Title>Estude nas melhores instituições de ensino</S.Title>
         <S.Description>

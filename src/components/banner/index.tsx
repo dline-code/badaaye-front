@@ -13,7 +13,7 @@ const banner: React.FC = () => {
     Aos.init({ duration: 2000 })
   })
   return (
-    <S.Banner>
+    <S.Banner id='banner'>
       <S.ContainerItems data-aos="fade-right">
         <S.Title>
           Aqui encontras bolsas de estudo para melhorar a tua vida académica!

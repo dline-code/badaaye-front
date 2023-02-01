@@ -11,7 +11,7 @@ const viewbenefits: React.FC = () => {
     Aos.init({ duration: 2000 })
   })
   return (
-    <S.Container data-aos="fade-up">
+    <S.Container id='benefits' data-aos="fade-up">
       <S.Box>
         <S.Title>Conhece os benefícios de estar conectados a nós</S.Title>
         <S.Description>
