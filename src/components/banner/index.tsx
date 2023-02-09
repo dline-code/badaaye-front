@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Link from "next/link"
 import * as S from './styles'
 import { FiUsers } from 'react-icons/fi'
 import { PartnersProps } from './type'
@@ -12,7 +13,7 @@ const banner: React.FC = () => {
     Aos.init({ duration: 2000 })
   })
   return (
-    <S.Banner>
+    <S.Banner id='banner'>
       <S.ContainerItems data-aos="fade-right">
         <S.Title>
           Aqui encontras bolsas de estudo para melhorar a tua vida académica!
@@ -25,7 +26,9 @@ const banner: React.FC = () => {
 
         <S.Box>
           <S.ContainerButton>
-            <Button children="Fazer Parte" />
+            <Link href="cadastro-estudante">
+              <Button children="Fazer Parte" />
+            </Link>
           </S.ContainerButton>
 
           <S.Paragraph>

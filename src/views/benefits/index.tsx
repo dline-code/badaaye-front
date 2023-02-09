@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Link from "next/link"
 import Card from 'src/components/card-benefits'
 import * as S from './styles'
 import { BenefitsProps } from 'src/components/card-benefits/type'
@@ -10,7 +11,7 @@ const viewbenefits: React.FC = () => {
     Aos.init({ duration: 2000 })
   })
   return (
-    <S.Container data-aos="fade-up">
+    <S.Container id='benefits' data-aos="fade-up">
       <S.Box>
         <S.Title>Conhece os benefícios de estar conectados a nós</S.Title>
         <S.Description>
@@ -21,14 +22,14 @@ const viewbenefits: React.FC = () => {
       <S.Benefits>
         {benefits.map((item: BenefitsProps) => {
           return (
-            <Card
-              key={item.id}
-              image={item.image}
-              title={item.title}
-              description={item.description}
-              children={item.children}
-              link={item.link}
-            />
+                <Card
+                  key={item.id}
+                  image={item.image}
+                  title={item.title}
+                  description={item.description}
+                  children={item.children}
+                  link={item.link}
+                />
           )
         })}
       </S.Benefits>

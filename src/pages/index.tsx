@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Banner from 'src/components/banner'
 import Step from 'src/components/financing-steps'
 import Benefits from 'src/views/benefits'
-import Institution from 'src/views/institution'
+import Instituition from 'src/views/institution'
 import { Layout } from 'src/components/layout'
 //import Contactos from 'src/components/contactos'
 
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         <Banner />
         <Step />
         <Benefits />
-        <Institution />
+        <Instituition />
         <FrequentQuestions />
         {/* <Contactos /> */}
       </main>
