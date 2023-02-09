@@ -30,6 +30,7 @@ export default createGlobalStyle`
     html,
     body {
       min-height: 100%;
+      scroll-behavior: smooth;
     }
 
     body {
