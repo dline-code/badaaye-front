@@ -15,7 +15,7 @@ describe('Button component tests', () => {
     const button = screen.getByText('Fazer Parte')
     expect(button).toBeInTheDocument()
   })
-
+ 
   it('should render component with link and click to redirect', () => {
     const url = '/example.com'
     global.window = Object.create(window)

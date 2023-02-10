@@ -5,7 +5,7 @@ import Step from 'src/components/financing-steps'
 import Benefits from 'src/views/benefits'
 import Instituition from 'src/views/institution'
 import { Layout } from 'src/components/layout'
-//import Contactos from 'src/components/contactos'
+import Contactos from 'src/components/contactos'
 
 import FrequentQuestions from 'src/components/frequent-question'
 
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         <Benefits />
         <Instituition />
         <FrequentQuestions />
-        {/* <Contactos /> */}
+        <Contactos />
       </main>
     </>
   )
