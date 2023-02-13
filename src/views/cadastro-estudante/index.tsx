@@ -11,7 +11,6 @@ import Link from 'next/link'
 import { useState } from 'react'
 import Input from 'src/components/input'
 import Button from 'src/components/button'
-import Descontos from '../../pages/descontos/index'
 
 const cadastroEstudante: NextPage = () => {
   return (
