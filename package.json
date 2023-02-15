@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-google-maps/api": "^2.12.2",
     "babel-plugin-inline-react-svg": "^2.0.1",
+    "formik": "^2.2.9",
     "google-map-react": "^2.2.0",
     "moment": "^2.29.3",
     "next": "12.1.5",
@@ -20,7 +21,8 @@
     "react-dom": "18.0.0",
     "react-icons": "^4.4.0",
     "react-moment": "^1.1.2",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "yup": "^1.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
