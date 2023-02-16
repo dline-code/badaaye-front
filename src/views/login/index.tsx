@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import {History} from "history"
+import {setCookie, getCookie} from "react-use-cookie"
 import Link from 'next/link'
 import type { NextPage } from 'next'
 import * as S from './styles'
@@ -12,14 +14,33 @@ import { RiLockPasswordFill } from 'react-icons/ri'
 import {useFormik} from "formik"
 import * as yup from "yup"
 
+import {api} from "../../services/api"
+
+import ErrorMassage from "../../components/error-massage"
+
+
 interface LoginProps {
   email: string
   password: string
 }
 
 const cadastroEstudante: NextPage<LoginProps> = ({ email, password }) => {
-  const [userEmail, setUserEmail] = useState<string>("")
-  const [userPassword, setUserPassword] = useState<string>("")
+
+  async function SignRequest() {
+    try {
+      const response = await api.post("/sessao", {
+        "email": formik.values.email,
+        "senha": formik.values.password,
+      }).then((response) => {
+        setCookie('baadaye-token', response.data.token)
+        console.log('Usuário logado:', response.data.usuario)
+      })
+    } catch (error: any) {
+      const status = await error.request.status
+      if (status === 400)
+        alert("Email ou palavra-passa errada")
+    }
+  }
 
   const formik = useFormik({
     initialValues:{
@@ -37,13 +58,9 @@ const cadastroEstudante: NextPage<LoginProps> = ({ email, password }) => {
       .required("Este campo é obrigatório"),
     }),
     onSubmit: ()=>{
-      show()
+      SignRequest()
     }
   })
-
-  function show(){
-    alert(formik.values.email)
-  }
 
   return (
     <S.Wrapper>
@@ -68,7 +85,9 @@ const cadastroEstudante: NextPage<LoginProps> = ({ email, password }) => {
           value={formik.values.email}
         />
         {formik.touched.email && formik.errors.email ? (
-          <div>{formik.errors.email} </div>
+          <ErrorMassage 
+            error={formik.errors.email}
+          />
         ): null}
         <Input
           type='password'
@@ -80,7 +99,9 @@ const cadastroEstudante: NextPage<LoginProps> = ({ email, password }) => {
           value={formik.values.password}
         />
           {formik.touched.password && formik.errors.password ? (
-          <div>{formik.errors.password} </div>
+          <ErrorMassage 
+            error={formik.errors.password}
+          />
         ): null}
         <S.ForgetPasswordLink>
           <Link href="#">
