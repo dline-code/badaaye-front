@@ -54,6 +54,12 @@ const cadastroEstudante: NextPage = () => {
           description="Conectamos você com os nossos parceiros
     que estão dispostos a financiar os seus estudos."
         />
+        <Link href="#">
+          <S.TextBack>
+            <HiArrowNarrowLeft />
+            <S.LinkDescription>Voltar para login</S.LinkDescription>
+          </S.TextBack>
+        </Link>
         <S.ContainerRadios>
           <Link href="#">
             <RadioBox

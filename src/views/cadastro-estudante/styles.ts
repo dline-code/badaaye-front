@@ -85,7 +85,7 @@ export const Container = styled.div`
       margin-bottom: ${({theme})=> theme.spacings.xxxxmultipleeight};
     }
   }
-  @mediascreen and(max-width: 1000px){
+  @media screen and (max-width: 1000px){
     width: 50%;
   }
   @media screen and (max-width: 920px){
@@ -118,9 +118,32 @@ export const Text = styled.div`
   flex-direction: row;
   align-items: center;
 
+  @media screen and (max-width: 920px){
+    display: none;
+  }
+
   :hover {
     cursor: pointer;
     color: ${({ theme }) => theme.colors.primary.xblue};
+  }
+`
+
+export const TextBack = styled.div`
+  font-size: ${({ theme }) => theme.font.sizes.midle};
+  color: ${({ theme }) => theme.colors.secondary.xxxblue};
+  font-weight: ${({ theme }) => theme.font.smallbold};
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  display: none;
+
+  :hover {
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.primary.xblue};
+  }
+  @media screen and (max-width: 920px){
+    display: block;
   }
 `
 
