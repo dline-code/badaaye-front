@@ -24,7 +24,7 @@ interface LoginProps {
   password: string
 }
 
-const cadastroEstudante: NextPage<LoginProps> = ({ email, password }) => {
+const cadastroEstudante: NextPage<LoginProps> = () => {
 
   async function SignRequest() {
     try {
@@ -33,12 +33,13 @@ const cadastroEstudante: NextPage<LoginProps> = ({ email, password }) => {
         "senha": formik.values.password,
       }).then((response) => {
         setCookie('baadaye-token', response.data.token)
+        alert("Usuário logado")
         console.log('Usuário logado:', response.data.usuario)
       })
     } catch (error: any) {
       const status = await error.request.status
       if (status === 400)
-        alert("Email ou palavra-passa errada")
+        alert("Email ou senha inválido")
     }
   }
 
@@ -51,11 +52,11 @@ const cadastroEstudante: NextPage<LoginProps> = ({ email, password }) => {
       email: yup
       .string()
       .email('Email inválido')
-      .required("Este campo deve é obrigatório"),
+      .required("Campo obrigatório"),
       
       password: yup
       .string()
-      .required("Este campo é obrigatório"),
+      .required("Campo obrigatório"),
     }),
     onSubmit: ()=>{
       SignRequest()
