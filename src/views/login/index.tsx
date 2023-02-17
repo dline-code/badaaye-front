@@ -18,13 +18,7 @@ import {api} from "../../services/api"
 
 import ErrorMassage from "../../components/error-massage"
 
-
-interface LoginProps {
-  email: string
-  password: string
-}
-
-const cadastroEstudante: NextPage<LoginProps> = () => {
+const cadastroEstudante: NextPage = () => {
 
   async function SignRequest() {
     try {
