@@ -37,7 +37,7 @@ const cadastroEstudante: NextPage<LoginProps> = () => {
         console.log('Usuário logado:', response.data.usuario)
       })
     } catch (error: any) {
-      const status = await error.request.status
+      const status = await error.request.status 
       if (status === 400)
         alert("Email ou senha inválido")
     }
