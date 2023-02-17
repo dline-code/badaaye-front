@@ -18,7 +18,7 @@ import {api} from "../../services/api"
 
 import ErrorMassage from "../../components/error-massage"
 
-const cadastroEstudante: NextPage = () => {
+const Login: NextPage = () => {
 
   async function SignRequest() {
     try {
@@ -103,7 +103,7 @@ const cadastroEstudante: NextPage = () => {
             <a>Esqueceu a sua senha?</a>
           </Link>
         </S.ForgetPasswordLink>
-        <Button>Cadastrar</Button>
+        <Button>Entrar</Button>
         <S.CreateAccountLink>
           <Link href='parceiro'><a>Não tenho uma conta? Criar conta</a></Link>
         </S.CreateAccountLink>
@@ -132,4 +132,4 @@ const cadastroEstudante: NextPage = () => {
   )
 }
 
-export default cadastroEstudante
+export default Login
