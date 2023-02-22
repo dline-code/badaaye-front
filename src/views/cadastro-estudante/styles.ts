@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.main`
-  width: 100%auto;
+  width: 100% auto;
   height: 100vh;
   display: flex;
   flex-direction: row;
@@ -12,7 +12,7 @@ export const Wrapper = styled.main`
 
 export const Form = styled.form`
   width: 32%;
-  height: 55rem;
+  height: auto;
   padding: 5rem 4rem;
   background: #f0f0f0;
   border-radius: .8rem;
@@ -56,7 +56,7 @@ export const Container = styled.div`
 `
 
 export const ContainerRadios = styled.div`
-  width: 100%auto;
+  width: 100% auto;
   height: 23.5rem;
   margin-top: 3rem;
   display: flex;
@@ -81,4 +81,13 @@ export const Text = styled.div`
 
 export const LinkDescription = styled.span`
   margin-left: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
+`
+
+export const ErrorMessage = styled.label`
+  color: #c70606;
+  position: relative;
+  margin-left: 0.2rem;
+  top: 0.3rem;
+  font-weight: 400;
+  font-size: ${({ theme }) => theme.font.sizes.midle};
 `
