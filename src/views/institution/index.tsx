@@ -22,6 +22,7 @@ const viewinstitution: React.FC = () => {
         </S.Description>
       </S.Box>
 
+
       <S.ContainerInstitution>
         <Slider {...settings}>
           {institution.map((item: InstitutionProps) => {
@@ -44,5 +45,5 @@ const viewinstitution: React.FC = () => {
     </S.Container>
   )
 }
-
+                           
 export default viewinstitution
