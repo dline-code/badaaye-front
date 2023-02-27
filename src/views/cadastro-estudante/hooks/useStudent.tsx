@@ -30,7 +30,8 @@ const UseStudent = () => {
         validationSchema: yup.object({
           nome: yup.string().required("O nome é obrigatorio"),
           sobrenome: yup.string().required("O Sobrenome é obrigatorio"),
-          telefone: yup.string().required("O número de telefone é obrigatorio"),
+          telefone: yup.string()
+          .matches(/^\9[1-9]\d{7}$/, 'Por favor, digite um número de telefone válido de Angola').required("número de telefone é obrigatório"),
           dataNascimento: yup.string().required("A data de Nascimento é obrigatoria"),
           email: yup.string().email("digite um email valido").required("O email é obrigatorio"),
           senha: yup.string().min(8, "a senha deve ter pelo menos 8 digitos").required("a senha é obrigatoria"),
