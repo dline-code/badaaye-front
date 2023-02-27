@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Link from "next/link"
 import { institution } from './mock'
 import * as S from './styles'
 import { InstitutionProps } from 'src/components/card-institution/type'
@@ -12,7 +13,7 @@ const viewinstitution: React.FC = () => {
     Aos.init({ duration: 2000 })
   })
   return (
-    <S.Container data-aos="fade-up">
+    <S.Container id='instituition' data-aos="fade-up">
       <S.Box>
         <S.Title>Estude nas melhores instituições de ensino</S.Title>
         <S.Description>
@@ -21,17 +22,22 @@ const viewinstitution: React.FC = () => {
         </S.Description>
       </S.Box>
 
+
       <S.ContainerInstitution>
         <Slider {...settings}>
           {institution.map((item: InstitutionProps) => {
             return (
-              <Card
-                key={item.id}
-                image={item.image}
-                title={item.title}
-                previousprice={item.previousprice}
-                nextprice={item.nextprice}
-              />
+                <Link href={`/instituitions/${item.title}`}>
+                  <a>
+                    <Card
+                      key={item.id}
+                      image={item.image}
+                      title={item.title}
+                      previousprice={item.previousprice}
+                      nextprice={item.nextprice}
+                    />
+                  </a>
+                </Link>
             )
           })}
         </Slider>
@@ -39,5 +45,5 @@ const viewinstitution: React.FC = () => {
     </S.Container>
   )
 }
-
+                           
 export default viewinstitution

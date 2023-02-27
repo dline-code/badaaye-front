@@ -1,3 +1,4 @@
+
 import type { NextPage } from 'next'
 import CadastroEstudanteView from '../../views/cadastro-estudante'
 

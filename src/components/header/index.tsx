@@ -37,12 +37,14 @@ const header: React.FC = () => {
     <S.Wrapper>
       <S.Header className={activeheader ? 'active-header' : ''}>
         <Link href="/">
-          <Image
-            src="/logo-baadaye.svg"
-            alt="Picture of the author"
-            width={140}
-            height={48}
-          />
+          <a>
+            <Image
+              src="/logo-baadaye.svg"
+              alt="Picture of the author"
+              width={140}
+              height={48}
+              />
+          </a>
         </Link>
 
         <S.List>
@@ -70,12 +72,14 @@ const header: React.FC = () => {
         </S.List>
 
         <S.ContainerButton>
-          <S.ButtonLogin>
-            <S.IconUser>
-              <AiOutlineUser />
-            </S.IconUser>
-            Entrar
-          </S.ButtonLogin>
+          <Link href="/login">
+            <S.ButtonLogin>
+              <S.IconUser>
+                <AiOutlineUser />
+              </S.IconUser>
+              Entrar
+            </S.ButtonLogin>
+          </Link>
 
           <S.IconMenu>
             <AiOutlineMenu size={32} onClick={togleHidden} />

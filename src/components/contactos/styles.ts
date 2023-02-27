@@ -1,15 +1,16 @@
 import styled from 'styled-components'
 
-export const ContainerContactos = styled.section`
+export const ContainerContacts = styled.section`
   width: 100%;
   background-color: #e5e5e5 0% 0% no-repeat padding-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem;
+  margin-bottom:${({theme})=>theme.spacings.xmultipleeight};
 
   @media screen and (max-width: 500px) {
-    padding: 2rem;
+    padding: ${({theme})=>theme.spacings.xxxmultipleeight};
+    margin-bottom:12rem;
   }
 `
 
@@ -40,12 +41,12 @@ export const ContainerObject = styled.div`
     }
   }
 `
-export const ContainerCampo = styled.div`
+export const ContainerField = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   color: ${({ theme }) => theme.colors.secondary.xxxblue};
-  margin-top: 2.5rem;
+  margin-top: ${({ theme }) => theme.spacings.xxmultipleeight};
   input {
     border: none;
     background: ${({ theme }) => theme.colors.tertiary.contrast};
@@ -54,7 +55,7 @@ export const ContainerCampo = styled.div`
     height: 4.3rem;
     border: 0.109rem solid ${({ theme }) => theme.colors.tertiary.gray};
     border-radius: 0.25rem;
-    font-size: 1.5rem;
+    font-size ${({ theme }) => theme.font.sizes.midle};
     letter-spacing: 0;
     color: ${({ theme }) => theme.colors.secondary.xxxblue};
     :focus {
@@ -71,7 +72,7 @@ export const ContainerCampo = styled.div`
   }
 
   span {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.font.sizes.midle};
     margin-bottom: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   }
 
@@ -88,25 +89,25 @@ export const Button = styled.button`
   width: 40rem;
   height: 4.5rem;
   border-radius: 0.25rem;
-  margin-top: 2rem;
+  margin-top: ${({theme}) => theme.spacings.xxxmultipleeight};
 
   @media screen and (max-width: 500px) {
-    width: 90%;
+    width: 100%;
   }
 `
 
-export const Container1 = styled.div`
+export const FirstContainer = styled.div`
   @media screen and (max-width: 67rem) {
-    margin-top: 5rem;
+    margin-top: ${({theme})=>theme.spacings.xmultipleeight};
   }
-`
+  `
 
-export const Container2 = styled.div`
+export const SecondContainer = styled.div`
   height: 30rem;
   color: ${({ theme }) => theme.colors.tertiary.gray};
   background-color: ${({ theme }) => theme.colors.tertiary.contrast} 0% 0%
     no-repeat padding-box;
-  font-size: 1.5rem;
+  font-size: ${({ theme }) => theme.font.sizes.midle};
 
   div {
     display: flex;
@@ -122,14 +123,23 @@ export const Container2 = styled.div`
   }
 
   span {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.font.sizes.midle };
     margin-left: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   }
 
   i {
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.font.sizes.midle};
   }
   div {
-    margin: 2rem 0;
+    margin: ${({theme}) => theme.spacings.xxxmultipleeight} 0;
+  }
+  iframe{
+    width:54rem;
+    height:26.5rem;
+    border: 0;
+
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
   }
 `

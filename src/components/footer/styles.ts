@@ -15,7 +15,7 @@ export const BigFooter = styled.footer`
   border-top: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
   border-bottom: 0.3rem solid ${({ theme }) => theme.colors.tertiary.xxwhite};
 
-  @media screen and (min-width: 280px) and (max-width: 1000px) {
+  @media screen and (max-width: 1000px) {
     flex-direction: column;
     justify-content: flex-start;
     align-items: space-between;
