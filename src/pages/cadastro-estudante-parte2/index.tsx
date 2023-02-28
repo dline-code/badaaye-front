@@ -1,10 +1,10 @@
 
 import type { NextPage } from "next";
-import StudantResistrationPart2 from "src/views/studant-resistration-part2";
+import CadastroEstudanteParte2 from "src/views/cadastro-estudante-parte2";
 
-const StudantResistrationPart2Page:NextPage= () => {
+const StudentResistrationPart2Page:NextPage= () => {
   return(
-    <StudantResistrationPart2/>
+    <CadastroEstudanteParte2/>
   )
 }
-export default StudantResistrationPart2Page;
+export default StudentResistrationPart2Page;
