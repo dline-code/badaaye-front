@@ -27,14 +27,14 @@ const UseValidateData = () => {
           bairro: "",
           estudanteId: "54c8e1bf-9139-4a50-b655-f4738a5a0227",
         },
-        /*validationSchema: yup.object({
-          grauId: yup.string().required("O grau é obrigatório"),
-          cursoId: yup.string().required("O curso é obrigatório"),
-          universidadeId: yup.string().required("a universidade é obrigatório"),
-          municipioId: yup.string().required("O municipio é obrigatório"),
+        validationSchema: yup.object({
+          grauId: yup.string().min(1,"selecione o campo").required("O grau é obrigatório"),
+          cursoId: yup.string().min(1,"selecione o campo").required("O curso é obrigatório"),
+          universidadeId: yup.string().min(1,"selecione o campo").required("a universidade é obrigatório"),
+          municipioId: yup.string().min(1,"selecione o campo").required("O municipio é obrigatório"),
           bairro: yup.string().required("O bairro é obrigatório"),
-          estudanteId: yup.string().required("o estudante é obrigatório"),
-        }),*/
+          //estudanteId: yup.string().required("o estudante é obrigatório"),
+        }),
         onSubmit: data => {
        StudentregistrationPart2(data);
      },

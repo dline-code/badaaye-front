@@ -40,6 +40,11 @@ const CadastroEstudanteParte2: NextPage = () => {
               icon={<FaGraduationCap />}
             />
           </S.SelectContainer>
+          {formik.touched.grauId && formik.errors.grauId ? (
+              <S.ErrorMessage>
+                {formik.errors.grauId}
+              </S.ErrorMessage>
+          ): null}
 
           <S.SelectContainer>
             <Select
@@ -50,6 +55,11 @@ const CadastroEstudanteParte2: NextPage = () => {
               icon={<FaBookOpen />}
             />
           </S.SelectContainer>
+          {formik.touched.cursoId && formik.errors.cursoId ? (
+              <S.ErrorMessage>
+                {formik.errors.cursoId}
+              </S.ErrorMessage>
+          ): null}
 
           <S.SelectContainer>
             <Select
@@ -60,6 +70,11 @@ const CadastroEstudanteParte2: NextPage = () => {
               icon={<FaBuilding />}
             />
           </S.SelectContainer>
+          {formik.touched.universidadeId && formik.errors.universidadeId ? (
+              <S.ErrorMessage>
+                {formik.errors.universidadeId}
+              </S.ErrorMessage>
+          ): null}
 
           <S.SelectContainer>
             <Select
@@ -70,6 +85,11 @@ const CadastroEstudanteParte2: NextPage = () => {
               icon={<HiLocationMarker />}
             />
           </S.SelectContainer>
+          {formik.touched.provinciaId && formik.errors.provinciaId ? (
+              <S.ErrorMessage>
+                {formik.errors.provinciaId}
+              </S.ErrorMessage>
+          ): null}
 
           <S.SelectContainer>
             <Select
@@ -80,6 +100,11 @@ const CadastroEstudanteParte2: NextPage = () => {
               icon={<HiLocationMarker />}
             />
           </S.SelectContainer>
+          {formik.touched.municipioId && formik.errors.municipioId ? (
+              <S.ErrorMessage>
+                {formik.errors.municipioId}
+              </S.ErrorMessage>
+          ): null}
 
           <Input
             icon={<HiLocationMarker/>}
