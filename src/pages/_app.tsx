@@ -6,6 +6,9 @@ import GlobalStyles from '../styles/global'
 import { theme } from '../styles/theme'
 import { Layout } from '../components/layout'
 import 'aos/dist/aos.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 
 type NextPageWithLayout = NextPage & {
   Layout?: ComponentType
@@ -29,6 +32,7 @@ function MyApp({ Component, pageProps, err }: AppPropsWithLayout) {
     <ThemeProvider theme={theme}>
       <ComponentLayout>
         <Component {...pageProps} err={err} />
+        <ToastContainer/>
       </ComponentLayout>
       <GlobalStyles />
     </ThemeProvider>
