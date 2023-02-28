@@ -5,14 +5,17 @@ import { RiUser3Fill } from "react-icons/ri"
 import { HiAcademicCap } from "react-icons/hi"
 import { IoMdBusiness } from "react-icons/io"
 import { FaBookOpen } from "react-icons/fa"
+import React from "react"
 
 interface PageProps {
     hideFooter?: boolean;
+    isLogged?: boolean;
+
 }
 
-const TelaPrincipalEstudanteView = (props: PageProps) =>{
+const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
     return(
-        <Layout {...Object.assign({}, props, {hideFooter: true})}>
+        <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
             <S.Container>
                 <S.Content>
                     <S.ContentLeft>
@@ -88,7 +91,6 @@ const TelaPrincipalEstudanteView = (props: PageProps) =>{
                                 </Button>
                             </div>
                         </S.CardContentRightBottom>
-
                     </S.ContentRight>
                 </S.Content>
             </S.Container>
