@@ -72,7 +72,7 @@ export const CardContentLeft = styled.div`
 
 export const InfoSections = styled.div`
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     color: ${({ theme }) => theme.colors.linear.darkBlue};
 `
 export const InfoContainer = styled.div`
@@ -100,6 +100,7 @@ export const CardContentRight = styled.div`
         width: 90%;
         color: ${({ theme }) => theme.colors.linear.darkBlue};
         text-align: left;
+        font-size: 1.6rem;
     }
 
     div{
@@ -130,6 +131,7 @@ export const CardContentRightBottom = styled.div`
         width: 90%;
         color: ${({ theme }) => theme.colors.linear.darkBlue};
         text-align: left;
+        font-size: 1.6rem;
     }
 
     div{

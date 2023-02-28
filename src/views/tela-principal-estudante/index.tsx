@@ -1,6 +1,10 @@
 import { Layout } from "src/components/layout"
 import * as S from "./styles"
 import Button from "../../components/button"
+import { RiUser3Fill } from "react-icons/ri"
+import { HiAcademicCap } from "react-icons/hi"
+import { IoMdBusiness } from "react-icons/io"
+import { FaBookOpen } from "react-icons/fa"
 
 interface PageProps {
     hideFooter?: boolean;
@@ -26,18 +30,18 @@ const TelaPrincipalEstudanteView = (props: PageProps) =>{
                             <S.Separator/>
                             <S.InfoContainer>
                                 <S.InfoSections>
-                                    <span>1</span>
+                                    <RiUser3Fill/>
                                     <span>Osvaldo Sousa</span>
                                 </S.InfoSections>
                                 <S.InfoSections>
-                                    <span>1</span>
-                                    <span>Osvaldo Sousa</span>
+                                    <HiAcademicCap/>
+                                    <span>Ensino Superior</span>
                                 </S.InfoSections><S.InfoSections>
-                                    <span>1</span>
-                                    <span>Osvaldo Sousa</span>
+                                    <IoMdBusiness/>
+                                    <span>Univ. Agostinho Neto</span>
                                 </S.InfoSections><S.InfoSections>
-                                    <span>1</span>
-                                    <span>Osvaldo Sousa</span>
+                                    <FaBookOpen/>
+                                    <span>Engenharia Informática</span>
                                 </S.InfoSections>
                             </S.InfoContainer>
                             <Button type="button">
