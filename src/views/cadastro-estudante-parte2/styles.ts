@@ -1,3 +1,4 @@
+
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -6,7 +7,6 @@ export const Container = styled.div`
   display: table-cell;
   vertical-align: middle;
 `
-
 export const Wrapper = styled.div`
   margin:auto;
   font-family: 'Inter',sans-serif;
@@ -14,60 +14,68 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and  (max-width: 768px) {
+
+  @media screen and  (max-width: 880px) {
     flex-direction: column-reverse;
     align-items:flex-start;
   }
 `;
 
 export const Form = styled.form`
-  width: 43rem;
+  width: 41rem;
+  padding:3.8rem 3.2rem;
   background: #F0F0F0;
   border-radius:.8rem;
-  padding: 3.2rem;
-  @media screen and  (max-width: 768px) {
-    margin-top: ${({theme})=> theme.spacings.xxxmultipleeight};
+
+  @media screen and  (max-width: 880px) {
+    margin: auto;
+  }
+
+  @media screen and  (max-width: 668px) {
     width: 100%;
   }
-`
 
-export const Title = styled.h3`
-  font-size:  2.1rem;
-  font-weight: 700;
-  margin-bottom: ${({ theme }) => theme.spacings.xxxmultipleeight};
-  @media screen and  (max-width: 768px) {
-    text-align: center;
+  div.input{
+    margin-top: 1.6rem;
+  }
+`
+export const SelectContainer = styled.div`
+  div{
+    margin-top: 1.6rem;
+    select {
+      width: 100%;
+      color: ${({ theme }) => theme.colors.secondary.xxxblue};
+      option {
+        font-size: ${({theme})=> theme.font.sizes.midle};
+      }
+    }
   }
 `;
 
+export const Title = styled.h3`
+  font-size: ${({ theme }) => theme.font.medium};
+  line-height: 3rem;
+  font-weight: ${({ theme }) => theme.font.smallbold};
+`;
+
 export const BadayeInfo = styled.div`
-  width: 43rem;
+  width: 45rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: 9rem;
-  @media screen and  (max-width: 768px) {
-    margin:auto;
-  }
-`;
 
-export const TextArea = styled.textarea`
-  width:100%;
-  height: 34rem;
-  resize: none;
-  border-radius: 0.25rem;
-  font-size: 1.4rem;
-  border: 0.2rem solid ${({ theme }) => theme.colors.tertiary.gray};
-  background: ${({ theme }) => theme.colors.tertiary.white};
-  margin:${({theme})=>theme.spacings.xxxmultipleeight} 0;
-  padding: ${({theme})=>theme.spacings.xxxxmultipleeight};
+  @media screen and  (max-width: 880px) {
+    margin:auto;
+    margin-bottom: ${({theme})=> theme.spacings.xxxmultipleeight};
+    }
 `;
 
 export const Button = styled.button`
+  margin-top: 1.6rem;
   width: 100%;
   height: 4.6rem;
   border: none;
-  transition: 2s;
   cursor: pointer;
   border-radius: 0.3rem;
   background: ${({ theme }) => theme.colors.primary.xblue};
@@ -76,10 +84,21 @@ export const Button = styled.button`
   display: flex;
   align-items:center;
   justify-content: center;
+  transition: 2s;
   svg{
     margin-left: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
   }
   :hover {
-    filter: brightness(0.9);
+    filter: brightness(0.7);
   }
+`
+
+
+export const ErrorMessage = styled.label`
+  color: #c70606;
+  position: relative;
+  margin-left: 0.2rem;
+  top: 0.3rem;
+  font-weight: 400;
+  font-size: ${({ theme }) => theme.font.sizes.midle};
 `

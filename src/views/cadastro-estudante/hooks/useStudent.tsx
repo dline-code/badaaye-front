@@ -1,16 +1,27 @@
 import { useFormik } from "formik"
+import Router from "next/router";
 import { toast } from "react-toastify";
 import * as yup from "yup";
 import { postFecthStudent1 } from "../services";
 import { IErrorInterface, IStudent } from "../type";
 
+interface StudentProps{
+    usuario:IStudent
+}
 
 const UseStudent = () => {    
     async function Studentregistration1(data: IStudent){
         try{
-            const student = await postFecthStudent1(data)
-            if(student) toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
-    
+            const student = await postFecthStudent1(data)  
+            if(student){
+                toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
+
+                Router.push({
+                    pathname: '/cadastro-estudante-parte2',
+                    query: { estudanteId: student.usuario.id},
+                })
+            } 
+            
         } catch(err){
             const error = err as IErrorInterface
             toast(error.response?.data?.error, {autoClose: 2000, type: "error"})
