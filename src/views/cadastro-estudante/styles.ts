@@ -4,25 +4,27 @@ export const Wrapper = styled.main`
   width: 100%;
   height: 100vh;
   padding: 0 10rem;
-  background: ${({theme})=> theme.colors.tertiary.white};
+  background: ${({ theme }) => theme.colors.tertiary.white};
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 
   @media screen and (max-width: 1280px){
-    padding: ${({theme})=> theme.spacings.xmultipleeight};
+    padding: ${({ theme }) => theme.spacings.xmultipleeight};
   }
   @media screen and (max-width: 920px){
     height: 100%;
-    padding: ${({theme})=> theme.spacings.xxmultipleeight} 0;
+    padding: ${({ theme }) => theme.spacings.xxmultipleeight} 0;
     flex-direction: column-reverse;
   }
 `
 export const Form = styled.form`
   width: 32%;
+  height: auto;
+  padding: 5rem 4rem;
   height: max-height;
-  padding: ${({theme})=> theme.spacings.xmultipleeight} 4rem;
+  padding: ${({ theme }) => theme.spacings.xmultipleeight} 4rem;
   background: #f0f0f0;
   border-radius: .8rem;
 
@@ -31,7 +33,7 @@ export const Form = styled.form`
   }
 
   .button {
-    margin-top: ${({theme})=> theme.spacings.xxmultipleeight};
+    margin-top: ${({ theme }) => theme.spacings.xxmultipleeight};
   }
 
   @media screen and (max-width: 1280px){
@@ -82,7 +84,7 @@ export const Container = styled.div`
 
     label {
       height: 12rem;
-      margin-bottom: ${({theme})=> theme.spacings.xxxxmultipleeight};
+      margin-bottom: ${({ theme }) => theme.spacings.xxxxmultipleeight};
     }
   }
   @media screen and (max-width: 1000px){
@@ -149,4 +151,13 @@ export const TextBack = styled.div`
 
 export const LinkDescription = styled.span`
   margin-left: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
+`
+
+export const ErrorMessage = styled.label`
+  color: #c70606;
+  position: relative;
+  margin-left: 0.2rem;
+  top: 0.3rem;
+  font-weight: 400;
+  font-size: ${({ theme }) => theme.font.sizes.midle};
 `
