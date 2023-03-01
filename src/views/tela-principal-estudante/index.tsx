@@ -53,14 +53,15 @@ const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
                         </S.CardContentLeft>
                     </S.ContentLeft>
                     <S.ContentRight>
-                        <S.Title>
-                            Bolsas
-                        </S.Title>
-                        <S.Description>
-                            Encontre o financiamento que precisa
-                            para os seus estudos
-                        </S.Description>
-
+                        <S.FirstSection>
+                            <S.Title>
+                                Bolsas
+                            </S.Title>
+                            <S.Description>
+                                Encontre o financiamento que precisa
+                                para os seus estudos
+                            </S.Description>
+                        </S.FirstSection>
                         <S.CardContentRight>
                             <h2>
                                 Financiamento

@@ -14,6 +14,23 @@ export const Content = styled.div`
     gap: 4rem;
     padding-left: 10rem;
     background: ${({ theme }) => theme.colors.primary.xblue};
+    @media screen and (max-width: 1060px) {
+        padding-left: 5rem;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 1010px) {
+        padding-left: 5rem;
+        padding-right: 5rem;
+        flex-direction: column;
+    }
+
+
+    @media screen and (max-width: 768px) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        flex-direction: column;
+    }
 `
 
 export const Title = styled.h2`
@@ -44,9 +61,35 @@ export const ContentRight = styled.div`
         margin-top: 1.5rem;
         line-height: 2.2rem;
         width: 28rem;
+        @media screen and (max-width: 1010px) {
+            color: ${({ theme }) => theme.colors.linear.black}; 
+        }
     }
     h2{
-        color: ${({ theme }) => theme.colors.linear.darkBlue};
+        color: ${({ theme }) => theme.colors.linear.darkBlue};  
+        @media screen and (max-width: 1010px) {
+            color: ${({ theme }) => theme.colors.linear.black}; 
+        }
+    }
+
+    @media screen and (max-width: 1010px) {
+        width: 100%;
+        position: relative;
+        top: 20rem;
+    }
+`
+export const FirstSection = styled.div`
+    width: 100%;
+    @media screen and (max-width: 1010px) {        
+        position: absolute;
+        top: 15rem;
+        h2{
+            color: black;
+        }
+        p{
+            color: black;
+        }
+
     }
 `
 
@@ -114,6 +157,28 @@ export const CardContentRight = styled.div`
             height: 5rem;
         }
     }
+
+    @media screen and (max-width: 500px) {
+        padding: 2rem 3rem;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+        top: 28rem; 
+        padding: 2rem 2rem;
+        width: 100%;
+        
+        button{
+            width: 90%;
+            height: 3rem;
+        }
+    }
+
+    @media screen and (max-width: 1010px) {
+        top: 28rem; 
+        width: 100%;
+        padding: 2rem 2rem;
+    }
 `
 
 export const CardContentRightBottom = styled.div`
@@ -132,6 +197,28 @@ export const CardContentRightBottom = styled.div`
         color: ${({ theme }) => theme.colors.linear.darkBlue};
         text-align: left;
         font-size: 1.6rem;
+    }
+
+    @media screen and (max-width: 1010px) {
+        top: 60rem; 
+        padding: 2rem 3rem;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 2rem 3rem;
+        width: 100%;
+
+        button{
+            width: 90%;
+            height: 3rem;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        padding: 2rem 3rem;
+        width: 100%;
+        
     }
 
     div{
