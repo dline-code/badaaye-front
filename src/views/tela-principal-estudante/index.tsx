@@ -10,7 +10,6 @@ import React from "react"
 interface PageProps {
     hideFooter?: boolean;
     isLogged?: boolean;
-
 }
 
 const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
