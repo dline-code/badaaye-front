@@ -1,5 +1,6 @@
 
 interface IStudent {
+    id?:string;
     nome: string;
     sobrenome: string;
     dataNascimento: string;
