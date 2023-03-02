@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         <Contactos />
       </main>
     </>
-  )
+    )
 }
 
 Object.assign(Home, {
