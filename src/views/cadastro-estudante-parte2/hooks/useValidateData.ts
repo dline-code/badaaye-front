@@ -19,7 +19,7 @@ const UseValidateData = () => {
             if(student) toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
         } catch(err){
             const error = err as IErrorInterface
-            toast(error.response?.data?.error, {autoClose: 2000, type: "error"})
+            toast(error.response?.data?.error, {autoClose: 2000, type: "error"});
         }   
     }
 

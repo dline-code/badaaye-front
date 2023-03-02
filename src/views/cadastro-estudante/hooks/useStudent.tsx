@@ -50,11 +50,10 @@ const UseStudent = () => {
         }),
         onSubmit: (data) => Studentregistration1(data)
     })
-    
+
     return{
         formik,
     }
-
 }
 
 export { UseStudent }

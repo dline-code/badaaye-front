@@ -8,7 +8,7 @@ export const Select = styled.select`
   position: relative;
   margin-left: 1rem;
   border: none;
-  background: ${({ theme }) => theme.colors.tertiary.white};
+  background: ${({theme}) => theme.colors.tertiary.white};
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;

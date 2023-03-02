@@ -9,7 +9,7 @@ export type SelectContainerProps = {
   options: IOption[],
 }& SelectTypes;
 
-export type IOption={
+export type IOption = {
   id:string,
   nome?:string,
   designacao?:string

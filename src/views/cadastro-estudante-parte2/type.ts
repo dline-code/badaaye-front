@@ -15,7 +15,6 @@ interface IResponse {
         status: number;
     }
 }
-
 interface IErrorInterface {
     message: string;
     name: string;

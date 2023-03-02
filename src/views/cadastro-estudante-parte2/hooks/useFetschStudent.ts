@@ -40,7 +40,7 @@ export function useFetchEstudantes() {
     getDataDegree()
     getDataCourse()
     getDataUniversity()
-  }, [])
+  }, []);
 
   useEffect(() => {
     handleFecthDatas()

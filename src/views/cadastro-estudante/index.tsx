@@ -175,4 +175,4 @@ const cadastroEstudante: NextPage = () => {
   )
 }
 
-export default cadastroEstudante
+export default cadastroEstudante;

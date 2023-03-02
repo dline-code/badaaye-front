@@ -1,6 +1,6 @@
 
-import { api } from "src/services/api"
-import { IStudent } from "../type"
+import {api} from "src/services/api"
+import {IStudent} from "../type"
 
 export const putFetchStudentPart2 = async (data: IStudent) => {
     const student = await api.put("/cadastro/estudante/2", data);

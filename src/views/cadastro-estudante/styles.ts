@@ -13,7 +13,7 @@ export const Wrapper = styled.main`
   @media screen and (max-width: 1280px){
     padding: ${({ theme }) => theme.spacings.xmultipleeight};
   }
-  
+
   @media screen and (max-width: 920px){
     height: 100%;
     padding: ${({ theme }) => theme.spacings.xxmultipleeight} 0;
@@ -51,7 +51,6 @@ export const Form = styled.form`
     width: 90%;
   }
 `
-
 export const Description = styled.div`
   width: 100%;
   margin-top: 1.5rem;

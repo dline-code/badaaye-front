@@ -25,5 +25,4 @@ interface IErrorInterface {
     stack: string;
     response: IResponse
 }
-
 export type { IStudent, IErrorInterface }

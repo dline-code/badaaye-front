@@ -98,5 +98,5 @@ export const ErrorMessage = styled.label`
   margin-left: 0.2rem;
   top: 0.3rem;
   font-weight: 400;
-  font-size: ${({ theme }) => theme.font.sizes.midle};
+  font-size: ${({theme}) => theme.font.sizes.midle};
 `
