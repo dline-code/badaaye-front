@@ -26,5 +26,4 @@ interface IErrorInterface {
     response: IResponse
 }
 
-
 export type { IStudent, IErrorInterface }

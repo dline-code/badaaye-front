@@ -92,8 +92,6 @@ export const Button = styled.button`
     filter: brightness(0.7);
   }
 `
-
-
 export const ErrorMessage = styled.label`
   color: #c70606;
   position: relative;

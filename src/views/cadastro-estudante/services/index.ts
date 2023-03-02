@@ -7,5 +7,4 @@ const postFecthStudent1 = async (data: IStudent) => {
     return student.data
 }
 
-
 export { postFecthStudent1 }

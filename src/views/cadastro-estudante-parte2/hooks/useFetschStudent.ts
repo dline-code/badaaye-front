@@ -1,3 +1,4 @@
+
 import { useCallback, useEffect, useState } from 'react'
 import { getFetchCourse, getFetchDegree, getFetchProvince, getFetchUniversity, getFetchMuninicipality } from '../services'
 import { ICourse, IDegree, IMunicipality, IProvinces, IUniversity } from '../type'

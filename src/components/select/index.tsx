@@ -15,12 +15,12 @@ const select: React.FC<SelectContainerProps> = ({
   return (
     <SS.Container >
       <>
-      <span>{icon}</span>
-      <S.Select name={name} onChange={onChange}>
-        <option value={""} key={null}>{title}</option>
-        {options?.map(({nome,designacao,id}:IOption)=>(
-          <option value={id} key={id}>{designacao || nome}</option>
-        ))}
+        <span>{icon}</span>
+        <S.Select name={name} onChange={onChange}>
+          <option value={""} key={null}>{title}</option>
+          {options?.map(({nome,designacao,id}:IOption)=>(
+            <option value={id} key={id}>{designacao || nome}</option>
+          ))}
         </S.Select >
       </>
       <FaCaretDown/>

@@ -57,5 +57,4 @@ const UseStudent = () => {
 
 }
 
-
 export { UseStudent }

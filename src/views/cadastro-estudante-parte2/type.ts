@@ -55,7 +55,6 @@ interface IUniversity{
     createdAt: string,
     updatedAt: string
 }
-
 interface IMunicipality{
     id:string,
     designacao:string,

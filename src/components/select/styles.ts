@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 
+import styled from 'styled-components'
 
 export const Select = styled.select`
   height: 2rem;

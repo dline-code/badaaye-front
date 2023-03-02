@@ -30,7 +30,6 @@ const CadastroEstudanteParte2:NextPage =() => {
       <S.Wrapper>
         <S.Form onSubmit={formik.handleSubmit}>
           <S.Title>Informações Academicas</S.Title>
-
           <S.SelectContainer>
             <Select
               title="Grau academico"
