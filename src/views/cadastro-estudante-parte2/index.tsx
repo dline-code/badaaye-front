@@ -1,3 +1,4 @@
+
 import type { NextPage } from 'next'
 import * as S from './styles'
 import LayoutAuthentication from '../../components/layout-authentication'

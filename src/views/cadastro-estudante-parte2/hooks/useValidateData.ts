@@ -12,7 +12,7 @@ const UseValidateData = () => {
       query:{estudanteId}
     }=router;
 
-    async function StudentregistrationPart2(data: IStudent){
+    async function studentRegistrationPart2(data: IStudent){
         try{
             const student = await putFetchStudentPart2(data)
             if(student) toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
@@ -42,7 +42,7 @@ const UseValidateData = () => {
             Object.assign(data,
                 {estudanteId}
             )
-            StudentregistrationPart2(data);
+            studentRegistrationPart2(data);
         },
     })
     return{

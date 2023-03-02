@@ -10,7 +10,7 @@ interface StudentProps{
 }
 
 const UseStudent = () => {    
-    async function Studentregistration1(data: IStudent){
+    async function studentRegistration1(data: IStudent){
         try{
             const student = await postFecthStudent1(data)  
             if(student){
@@ -48,7 +48,7 @@ const UseStudent = () => {
           senha: yup.string().min(8, "a senha deve ter pelo menos 8 digitos").required("a senha é obrigatoria"),
           confirmarSenha: yup.string().required("A confirmação de senha é obrigatoria").oneOf([yup.ref("senha")], "As senhas não correspondem"),
         }),
-        onSubmit: (data) => Studentregistration1(data)
+        onSubmit: (data) => studentRegistration1(data)
     })
     
     return{
