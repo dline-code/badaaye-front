@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineUser } from 'react-icons/ai'
+import { MdEdit, MdEmail } from 'react-icons/md'
+import { FormControl } from 'src/components/FormControl'
 import * as S from './styles'
 
 export function DadosEstudante() {
@@ -35,9 +37,64 @@ export function DadosEstudante() {
             </p>
           </S.ContentHeader>
 
-          <S.ContentBody>m</S.ContentBody>
+          <S.ContentBody>
+            <form>
+              <FormControl
+                id="emal"
+                name="email"
+                inputTitle="Email"
+                StarIcon={<MdEmail />}
+                EndIcon={<MdEdit />}
+              />
+
+              <FormControl
+                id="emal"
+                name="email"
+                inputTitle="Email"
+                StarIcon={<MdEmail />}
+                EndIcon={<MdEdit />}
+              />
+
+              <FormControl
+                id="emal"
+                name="email"
+                inputTitle="Email"
+                StarIcon={<MdEmail />}
+                EndIcon={<MdEdit />}
+              />
+
+              <FormControl
+                id="emal"
+                name="email"
+                inputTitle="Email"
+                StarIcon={<MdEmail />}
+                EndIcon={<MdEdit />}
+              />
+
+              <FormControl
+                id="emal"
+                name="email"
+                inputTitle="Email"
+                StarIcon={<MdEmail />}
+                EndIcon={<MdEdit />}
+              />
+
+              <FormControl
+                id="emal"
+                name="email"
+                inputTitle="Email"
+                StarIcon={<MdEmail />}
+                EndIcon={<MdEdit />}
+              />
+            </form>
+          </S.ContentBody>
         </S.Content>
       </S.Main>
     </div>
   )
 }
+
+//
+// HiUser
+// BsFillTelephoneFill
+// RiLockPasswordFill

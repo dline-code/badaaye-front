@@ -27,8 +27,8 @@ export const Main = styled.main`
   min-height: 100vh;
   background: linear-gradient(
     180deg,
-    ${({ theme }) => theme.colors.primary.xblue} 200px,
-    #fff 200px
+    ${({ theme }) => theme.colors.primary.xblue} 240px,
+    #fff 240px
   );
 `
 
@@ -48,7 +48,7 @@ export const ContentHeader = styled.div`
 
 export const ContentBody = styled.div`
   margin-top: ${({ theme }) => theme.spacings.xxmultipleeight};
-  padding: 1rem 2rem;
+  padding: 2.5rem 2rem 1rem;
   border-radius: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
   background: ${({ theme }) => theme.colors.tertiary.xcinza};
 `
