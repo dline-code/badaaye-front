@@ -1,61 +1,26 @@
 import { useState } from 'react'
 import {History} from "history"
-import {setCookie, getCookie} from "react-use-cookie"
+
 import Link from 'next/link'
 import type { NextPage } from 'next'
 import * as S from './styles'
+
 import LayoutAuthentication from '../../components/layout-authentication'
 import Input from 'src/components/input'
 import Button from 'src/components/button'
+import ErrorMassage from 'src/components/error-massage'
+
 import { MdEmail } from 'react-icons/md'
 import { FaArrowRight, FaFacebook, FaGoogle, FaInstagram } from 'react-icons/fa'
 import { RiLockPasswordFill } from 'react-icons/ri'
 
-import {useFormik} from "formik"
-import * as yup from "yup"
 
-import {api} from "../../services/api"
+import { UseUser } from './hooks/useUser'
 
-import ErrorMassage from "../../components/error-massage"
 
 const Login: NextPage = () => {
 
-  async function SignRequest() {
-    try {
-      const response = await api.post("/sessao", {
-        "email": formik.values.email,
-        "senha": formik.values.password,
-      }).then((response) => {
-        setCookie('baadaye-token', response.data.token)
-        alert("Usuário logado")
-        console.log('Usuário logado:', response.data.usuario)
-      })
-    } catch (error: any) {
-      const status = await error.request.status 
-      if (status === 400)
-        alert("Email ou senha inválido")
-    }
-  }
-
-  const formik = useFormik({
-    initialValues:{
-      email: '',
-      password: '',
-    },
-    validationSchema: yup.object({
-      email: yup
-      .string()
-      .email('Email inválido')
-      .required("Campo obrigatório"),
-      
-      password: yup
-      .string()
-      .required("Campo obrigatório"),
-    }),
-    onSubmit: ()=>{
-      SignRequest()
-    }
-  })
+  const { formik } = UseUser();
 
   return (
     <S.Wrapper>
@@ -86,16 +51,16 @@ const Login: NextPage = () => {
         ): null}
         <Input
           type='password'
-          id="password"
-          name='password'
+          id="senha"
+          name='senha'
           placeholder='Sua senha'
           icon={<RiLockPasswordFill />}
           onChange={formik.handleChange}
-          value={formik.values.password}
+          value={formik.values.senha}
         />
-          {formik.touched.password && formik.errors.password ? (
+          {formik.touched.senha && formik.errors.senha ? (
           <ErrorMassage 
-            error={formik.errors.password}
+            error={formik.errors.senha}
           />
         ): null}
         <S.ForgetPasswordLink>

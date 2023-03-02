@@ -1,6 +1,6 @@
 export interface IUser {
     email: string;
-    password: string;
+    senha: string;
 }
 
 interface IResponse {
@@ -13,7 +13,7 @@ interface IResponse {
 }
 
 export interface IError {
-    massage: string;
+    message: string;
     name: string;
     stack: string;
     response: IResponse;
