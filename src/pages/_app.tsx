@@ -6,9 +6,10 @@ import GlobalStyles from '../styles/global'
 import { theme } from '../styles/theme'
 import { Layout } from '../components/layout'
 import 'aos/dist/aos.css'
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
-
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
+import { QueryClientProvider } from 'react-query'
+import { queryclient } from 'src/services/queryclient'
 
 type NextPageWithLayout = NextPage & {
   Layout?: ComponentType
@@ -26,15 +27,17 @@ type EmptyLayoutProps = {
 const EmptyLayout = ({ children }: EmptyLayoutProps) => <>{children}</>
 
 function MyApp({ Component, pageProps, err }: AppPropsWithLayout) {
-  const ComponentLayout = Component.Layout?Component.Layout:React.Fragment;
+  const ComponentLayout = Component.Layout ? Component.Layout : React.Fragment
 
   return (
     <ThemeProvider theme={theme}>
-      <ComponentLayout>
-        <Component {...pageProps} err={err} />
-        <ToastContainer/>
-      </ComponentLayout>
-      <GlobalStyles />
+      <QueryClientProvider client={queryclient}>
+        <ComponentLayout>
+          <Component {...pageProps} err={err} />
+          <ToastContainer />
+        </ComponentLayout>
+        <GlobalStyles />
+      </QueryClientProvider>
     </ThemeProvider>
   )
 }

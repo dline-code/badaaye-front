@@ -1,4 +1,4 @@
-export type Values = {
+export type StudentData = {
   email: string
   nome: string
   telefone: string

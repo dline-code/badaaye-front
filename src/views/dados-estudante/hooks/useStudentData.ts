@@ -1,32 +1,25 @@
 import { FormikHelpers } from 'formik'
+import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
-import { Values } from '../type'
+import { getFetchStudentData } from '../service'
+import { StudentData } from '../type'
 
 const UseStudentData = () => {
-  async function getUsetDate() {
-    try {
-      // const student = await getFecthStudent1(data)
-      // if(student) toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
-    } catch (err) {
-      // const error = err as IErrorInterface
-      // toast(error.response?.data?.error, {autoClose: 2000, type: "error"})
-    }
-  }
+  const { data } = useQuery('getStudentDate', async () => {
+    // try {
+    //   // const student = await getFecthStudent1(data)
+    //   // if(student) toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
+    // } catch (err) {
+    //   // const error = err as IErrorInterface
+    //   // toast(error.response?.data?.error, {autoClose: 2000, type: "error"})
+    // }
+    const initialValues = await getFetchStudentData('id')
+    return initialValues
+  })
 
   return {
-    initialValues: {
-      email: 'eduardo@gmail.com',
-      nome: 'Eduardo',
-      telefone: '934345345',
-      senha: 'Somethings',
-      grade: 'Bacherel Uni',
-      course: 'Tech Machine',
-      school: 'Uni Tech Scholl',
-      prov: 'Luanda',
-      muni: 'Viana',
-      street: 'Caop B'
-    },
+    initialValues: data!,
     validationShema: Yup.object({
       email: Yup.string()
         .email('E-mail inválido')
@@ -63,8 +56,8 @@ const UseStudentData = () => {
         .required('O Campo é Obrigatório')
     }),
     handleSubmit: (
-      values: Values,
-      { setSubmitting }: FormikHelpers<Values>
+      values: StudentData,
+      { setSubmitting }: FormikHelpers<StudentData>
     ) => {
       setTimeout(() => {
         console.table(values)

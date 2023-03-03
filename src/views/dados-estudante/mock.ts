@@ -10,3 +10,7 @@ export const userData = {
   muni: 'Cacuaco',
   street: 'Paraiso'
 }
+
+export function timeout(delay: number) {
+  return new Promise(res => setTimeout(res, delay))
+}
