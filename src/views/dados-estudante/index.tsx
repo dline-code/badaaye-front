@@ -9,7 +9,12 @@ import * as S from './styles'
 import { UseStudentData } from './hooks/useStudentData'
 
 export function DadosEstudante() {
-  const { handleSubmit, initialValues, validationShema } = UseStudentData()
+  const { isFetching, handleSubmit, initialValues, validationShema } =
+    UseStudentData()
+
+  if (isFetching) {
+    return <>Loading...</>
+  }
 
   return (
     <div>
@@ -45,7 +50,7 @@ export function DadosEstudante() {
           <S.ContentBody>
             <Formik
               onSubmit={handleSubmit}
-              initialValues={initialValues}
+              initialValues={initialValues!}
               validationSchema={validationShema}
             >
               {({ isSubmitting }) => (

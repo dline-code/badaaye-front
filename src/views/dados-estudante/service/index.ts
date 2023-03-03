@@ -8,8 +8,6 @@ const getFetchStudentData = async (id: string): Promise<StudentData> => {
   //Não temos uma routa na API que resolve este problema
   await timeout(0)
 
-  console.log(userData)
-
   return userData
 }
 

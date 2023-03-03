@@ -1,4 +1,5 @@
 import { FormikHelpers } from 'formik'
+import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
@@ -6,20 +7,25 @@ import { getFetchStudentData } from '../service'
 import { StudentData } from '../type'
 
 const UseStudentData = () => {
-  const { data } = useQuery('getStudentDate', async () => {
-    // try {
-    //   // const student = await getFecthStudent1(data)
-    //   // if(student) toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
-    // } catch (err) {
-    //   // const error = err as IErrorInterface
-    //   // toast(error.response?.data?.error, {autoClose: 2000, type: "error"})
-    // }
-    const initialValues = await getFetchStudentData('id')
-    return initialValues
-  })
+  const { data, isFetching, isFetched } = useQuery(
+    'getStudentDate',
+    async () => {
+      // try {
+      //   // const student = await getFecthStudent1(data)
+      //   // if(student) toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
+      // } catch (err) {
+      //   // const error = err as IErrorInterface
+      //   // toast(error.response?.data?.error, {autoClose: 2000, type: "error"})
+      // }
+      const data = await getFetchStudentData('id')
+
+      return data
+    }
+  )
 
   return {
-    initialValues: data!,
+    isFetching,
+    initialValues: data,
     validationShema: Yup.object({
       email: Yup.string()
         .email('E-mail inválido')
