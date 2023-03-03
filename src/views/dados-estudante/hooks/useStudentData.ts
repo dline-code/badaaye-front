@@ -1,5 +1,7 @@
+import { FormikHelpers } from 'formik'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
+import { Values } from '../type'
 
 const UseStudentData = () => {
   async function getUsetDate() {
@@ -60,8 +62,14 @@ const UseStudentData = () => {
         .min(5, 'O campo deve ter no mínimo 5 caracteres')
         .required('O Campo é Obrigatório')
     }),
-    handleSubmit: () => {
-      console.log('submit')
+    handleSubmit: (
+      values: Values,
+      { setSubmitting }: FormikHelpers<Values>
+    ) => {
+      setTimeout(() => {
+        console.table(values)
+        setSubmitting(false)
+      }, 500)
     }
   }
 }
