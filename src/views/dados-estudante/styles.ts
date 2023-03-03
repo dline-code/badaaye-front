@@ -48,7 +48,19 @@ export const ContentHeader = styled.div`
 
 export const ContentBody = styled.div`
   margin-top: ${({ theme }) => theme.spacings.xxmultipleeight};
-  padding: 2.5rem 2rem 1rem;
+  padding-top: 2.5rem;
   border-radius: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
-  background: ${({ theme }) => theme.colors.tertiary.xcinza};
+  background: ${({ theme }) => theme.colors.tertiary.xxwhite};
+
+  > form {
+    > div {
+      padding: 0 2.5rem;
+
+      &:last-child {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        background: ${({ theme }) => theme.colors.tertiary.xcinza};
+      }
+    }
+  }
 `

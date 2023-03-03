@@ -1,10 +1,12 @@
 import { FormControlProps } from './type'
 import * as S from './styles'
 import { useState } from 'react'
+import { ErrorMessage, Field } from 'formik'
 
 export function FormControl({
-  id,
+  name = '',
   type,
+  id,
   inputTitle,
   StarIcon,
   EndIcon,
@@ -21,9 +23,10 @@ export function FormControl({
       <label htmlFor={id}>{inputTitle}</label>
       <S.ControlInput>
         <span>{StarIcon}</span>
-        <input type={type} disabled={disabled} id={id} {...rest} />
+        <Field type={type} name={name} disabled={disabled} id={id} {...rest} />
         <span onClick={handleToggleDisabled}>{EndIcon}</span>
       </S.ControlInput>
+      <ErrorMessage name={name} component={S.ErrorMessage} />
     </S.ControlContent>
   )
 }

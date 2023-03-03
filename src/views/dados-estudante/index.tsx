@@ -1,14 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineUser } from 'react-icons/ai'
-import { BsFillTelephoneFill } from 'react-icons/bs'
-import { HiUser } from 'react-icons/hi'
-import { MdEdit, MdEmail } from 'react-icons/md'
-import { RiLockPasswordFill } from 'react-icons/ri'
+import { Form, Formik } from 'formik'
 import { FormControl } from 'src/components/FormControl'
+import Button from 'src/components/button'
+import { formControls } from './elementsData'
 import * as S from './styles'
+import { UseStudentData } from './hooks/useStudentData'
 
 export function DadosEstudante() {
+  const { handleSubmit, initialValues, validationShema } = UseStudentData()
+
   return (
     <div>
       <S.Header>
@@ -41,47 +43,40 @@ export function DadosEstudante() {
           </S.ContentHeader>
 
           <S.ContentBody>
-            <form>
-              <FormControl
-                id="emal"
-                name="email"
-                inputTitle="Email"
-                StarIcon={<MdEmail />}
-                EndIcon={<MdEdit />}
-              />
+            <Formik
+              onSubmit={handleSubmit}
+              initialValues={initialValues}
+              validationSchema={validationShema}
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <div>
+                    {formControls.map(
+                      ({ id, name, inputTitle, StarIcon, EndIcon }) => (
+                        <FormControl
+                          key={id}
+                          id={id}
+                          name={name}
+                          inputTitle={inputTitle}
+                          StarIcon={<StarIcon />}
+                          EndIcon={<EndIcon />}
+                          required
+                        />
+                      )
+                    )}
+                  </div>
 
-              <FormControl
-                id="fullname"
-                name="fullname"
-                inputTitle="Nome Completo"
-                StarIcon={<HiUser />}
-                EndIcon={<MdEdit />}
-              />
-
-              <FormControl
-                id="phone"
-                name="phone"
-                inputTitle="Telefone"
-                StarIcon={<BsFillTelephoneFill />}
-                EndIcon={<MdEdit />}
-              />
-
-              <FormControl
-                id="password"
-                name="password"
-                inputTitle="Senha"
-                StarIcon={<RiLockPasswordFill />}
-                EndIcon={<MdEdit />}
-              />
-            </form>
+                  <div>
+                    <Button type="submit" disabled={isSubmitting}>
+                      Modificar Dados
+                    </Button>
+                  </div>
+                </Form>
+              )}
+            </Formik>
           </S.ContentBody>
         </S.Content>
       </S.Main>
     </div>
   )
 }
-
-//
-//
-//
-//

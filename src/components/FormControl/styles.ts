@@ -54,3 +54,13 @@ export const ControlInput = styled.div`
     border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.gray};
   }
 `
+
+export const ErrorMessage = styled.span`
+  color: #c70606;
+  position: relative;
+  margin-left: 0.2rem;
+  top: 0.3rem;
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: ${({ theme }) => theme.font.sizes.midle};
+`
