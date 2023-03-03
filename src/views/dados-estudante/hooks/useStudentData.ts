@@ -1,29 +1,28 @@
 import { FormikHelpers } from 'formik'
-import { useState } from 'react'
 import { useQuery } from 'react-query'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
-import { getFetchStudentData } from '../service'
-import { StudentData } from '../type'
+import { getFetchStudentData, putFetchStudentData } from '../service'
+import { IErrorInterface, RecevedStudentData, SendDATA } from '../type'
 
 const UseStudentData = () => {
-  const { data, isFetching, isFetched } = useQuery(
-    'getStudentDate',
-    async () => {
-      // try {
-      //   // const student = await getFecthStudent1(data)
-      //   // if(student) toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
-      // } catch (err) {
-      //   // const error = err as IErrorInterface
-      //   // toast(error.response?.data?.error, {autoClose: 2000, type: "error"})
-      // }
-      const data = await getFetchStudentData('id')
-
+  const { data, isFetching } = useQuery('getStudentDate', async () => {
+    try {
+      const data = await getFetchStudentData()
+      if (data)
+        toast('Estudante Encotrado com sucesso', {
+          autoClose: 2000,
+          type: 'success'
+        })
       return data
+    } catch (err) {
+      const error = err as IErrorInterface
+      toast(error.response?.data?.error, { autoClose: 2000, type: 'error' })
     }
-  )
+  })
 
   return {
+    data,
     isFetching,
     initialValues: data,
     validationShema: Yup.object({
@@ -42,33 +41,32 @@ const UseStudentData = () => {
       senha: Yup.string()
         .min(8, 'a senha deve ter pelo menos 8 digitos')
         .required('a senha é obrigatoria'),
-      grade: Yup.string()
+      grau: Yup.string()
         .min(5, 'O campo deve ter no mínimo 5 caracteres')
         .required('O Campo é Obrigatório'),
-      course: Yup.string()
+      curso: Yup.string()
         .min(5, 'O campo deve ter no mínimo 5 caracteres')
         .required('O Campo é Obrigatório'),
-      school: Yup.string()
+      universidade: Yup.string()
         .min(5, 'O campo deve ter no mínimo 5 caracteres')
         .required('O Campo é Obrigatório'),
-      prov: Yup.string()
+      provinvia: Yup.string()
         .min(5, 'O campo deve ter no mínimo 5 caracteres')
         .required('O Campo é Obrigatório'),
-      muni: Yup.string()
+      municipio: Yup.string()
         .min(5, 'O campo deve ter no mínimo 5 caracteres')
         .required('O Campo é Obrigatório'),
-      street: Yup.string()
+      bairro: Yup.string()
         .min(5, 'O campo deve ter no mínimo 5 caracteres')
         .required('O Campo é Obrigatório')
     }),
-    handleSubmit: (
-      values: StudentData,
-      { setSubmitting }: FormikHelpers<StudentData>
+    handleSubmit: async (
+      values: RecevedStudentData,
+      { setSubmitting }: FormikHelpers<RecevedStudentData>
     ) => {
-      setTimeout(() => {
-        console.table(values)
-        setSubmitting(false)
-      }, 500)
+      await putFetchStudentData(values.id, values)
+
+      setSubmitting(false)
     }
   }
 }

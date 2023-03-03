@@ -40,43 +40,43 @@ export const formControls = [
     EndIcon: MdEdit
   },
   {
-    id: 'grade',
-    name: 'grade',
+    id: 'grau',
+    name: 'grau',
     inputTitle: 'Grau académico',
     StarIcon: MdSchool,
     EndIcon: MdEdit
   },
   {
-    id: 'course',
-    name: 'course',
+    id: 'curso',
+    name: 'curso',
     inputTitle: 'Curso',
     StarIcon: MdBook,
     EndIcon: MdEdit
   },
   {
-    id: 'school',
-    name: 'school',
+    id: 'universidade',
+    name: 'universidade',
     inputTitle: 'Instituição de ensino',
     StarIcon: MdDomain,
     EndIcon: MdEdit
   },
   {
-    id: 'prov',
-    name: 'prov',
+    id: 'provinvia',
+    name: 'provinvia',
     inputTitle: 'Província',
     StarIcon: MdPlace,
     EndIcon: MdEdit
   },
   {
-    id: 'muni',
-    name: 'muni',
+    id: 'municipio',
+    name: 'municipio',
     inputTitle: 'Munícipio',
     StarIcon: MdPlace,
     EndIcon: MdEdit
   },
   {
-    id: 'street',
-    name: 'street',
+    id: 'bairro',
+    name: 'bairro',
     inputTitle: 'Bairro',
     StarIcon: MdPlace,
     EndIcon: MdEdit

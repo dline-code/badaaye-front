@@ -1,19 +1,37 @@
 import { api } from 'src/services/api'
-import { userData, timeout } from '../mock'
-import { SendDATA, StudentData } from '../type'
+import { RecevedStudentData, SendDATA } from '../type'
 
-const getFetchStudentData = async (id: string): Promise<StudentData> => {
-  //   const student = await api.get(`${id}`)
-  //   return student.data
-  //Não temos uma routa na API que resolve este problema
-  await timeout(0)
+const getFetchStudentData = async (): Promise<RecevedStudentData> => {
+  const {
+    data: { estudante, telefone, email }
+  } = await api.get(`/estudante/dados`)
 
-  return userData
+  const recevedData = {
+    id: estudante.id,
+    nome: estudante.nome,
+    sobrenome: estudante.sobrenome,
+    curso: estudante.curso || 'Engenharia Informática',
+    cursoId: estudante.cursoId,
+    dataNascimento: estudante.dataNascimento,
+    endereco: estudante.endereco,
+    enderecoId: estudante.enderecoId,
+    grau: estudante.grau || 'Ensino Superior',
+    grauId: estudante.grauId,
+    universidade: estudante.universidade || 'Universidade Agostinho Neto',
+    universidadeId: estudante.universidadeId,
+    emailId: email.id,
+    email: email.designacao,
+    telefoneId: telefone.id,
+    telefone: telefone.designacao,
+    senha: estudante.login.senha
+  }
+
+  return recevedData
 }
 
-const putFetchStudentData = async (id: string, data: SendDATA) => {
-  const student = await api.put(`estudante/${id}`, data)
-  return student.data
+const putFetchStudentData = async (id: string, data: RecevedStudentData) => {
+  const response = await api.put(`estudante/${id}`, data)
+  return response.data
 }
 
 export { getFetchStudentData, putFetchStudentData }
