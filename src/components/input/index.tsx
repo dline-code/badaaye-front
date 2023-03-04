@@ -7,6 +7,7 @@ const Input: React.FC<InputContainerProps> = ({
   icon,
   type,
   open,
+  label,
   ...rest
 }) => {
   const [passwordType, setPasswordType] = useState<'password'|'text'>('password');
@@ -16,6 +17,7 @@ const Input: React.FC<InputContainerProps> = ({
   }
   return (
     <S.Container className="input">
+      {label ? (<span>{label}</span>) : null}
       {icon ? (<span>{icon}</span>) : null}
       <S.Input type={type === 'password' ? passwordType: type} {...rest} required/>
       <span onClick={ShowHidePassword}>
