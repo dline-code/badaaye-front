@@ -1,49 +1,38 @@
-import { useCallback, useEffect, useState } from 'react'
+import useSWR from 'swr'
+import { useState } from 'react'
 import { getFetchCourse, getFetchDegree, getFetchProvince, getFetchUniversity, getFetchMuninicipality } from '../services'
-import { ICourse, IDegree, IMunicipality, IProvinces, IUniversity } from '../type'
 
 export function useFetchEstudantes() {
-  const [provinces, setProvinces] = useState([])
-  const [degree, setDegree] = useState([])
-  const [municipalities, setMunicipalities] = useState([])
-  const [university, setUniversity] = useState([])
-  const [course, setCourse] = useState([])
+  const [municipalities,setMunicipalities]=useState([]);
 
-  const getDataProvince= async () => {
-    const data = await getFetchProvince();
-    setProvinces(data);
-  }
-
-  const getDataDegree = async () => {
+  const { data:degree, error:degreeError } = useSWR("degree", async ()=> {
     const data = await getFetchDegree();
-    setDegree(data);
-  }
 
-  const getDataCourse = async () => {
+    return data;
+  });
+
+  const { data:provinces, error:procincesError } = useSWR("provinces", async ()=> {
+    const data = await getFetchProvince();
+
+    return data;
+  });
+
+  const { data:course, error:courseError } = useSWR("courses", async ()=> {
     const data = await getFetchCourse();
-    setCourse(data)
-  }
+
+    return data;
+  });
+
+  const { data:university, error:universityError } = useSWR("university", async ()=> {
+    const data = await getFetchUniversity();
+
+    return data;
+  });
 
   const getDataMunicipalities= async (provinceId:string) =>{
     const data = await getFetchMuninicipality(provinceId);
     setMunicipalities(data)
   }
-
-  const getDataUniversity = async () =>{
-    const data = await getFetchUniversity();
-    setUniversity(data);
-  } 
-
-  const handleFecthDatas = useCallback(() => {
-    getDataProvince()
-    getDataDegree()
-    getDataCourse()
-    getDataUniversity()
-  }, [])
-
-  useEffect(() => {
-    handleFecthDatas()
-  }, [handleFecthDatas])
 
   return {
     provinces,
@@ -51,7 +40,6 @@ export function useFetchEstudantes() {
     course,
     university,
     municipalities,
-    getDataMunicipalities,
-    handleFecthDatas
+    getDataMunicipalities
   }
 }
