@@ -146,6 +146,7 @@ export const ContainerInput = styled.div`
         top: 1rem;
         z-index: 0.1;
         font-size: 3rem;
+        color: ${({ theme }) => theme.colors.tertiary.xxcinza};
     }
 
     div{
