@@ -6,14 +6,20 @@ import { HiAcademicCap } from "react-icons/hi"
 import { IoMdBusiness } from "react-icons/io"
 import { FaBookOpen } from "react-icons/fa"
 import React from "react"
+import { useRouter } from "next/router"
 
 interface PageProps {
     hideFooter?: boolean;
     isLogged?: boolean;
-
 }
 
 const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
+    const router=useRouter();
+
+    const {
+      query:{estudanteId}
+    }=router;
+    
     return(
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
             <S.Container>

@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import * as yup from "yup";
 import { putFetchStudentPart2 } from "../services";
 import { IErrorInterface, IStudent } from "../type";
+import Router from "next/router";
 
 const UseValidateData = () => {
     const router=useRouter();
@@ -14,8 +15,15 @@ const UseValidateData = () => {
 
     async function studentRegistrationPart2(data: IStudent){
         try{
-            const student = await putFetchStudentPart2(data)
-            if(student) toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
+            const student = await putFetchStudentPart2(data);
+            if(student){
+                toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"});
+
+                Router.push({
+                    pathname:"/tela-principal-estudante",
+                    query:{estudanteId}
+                })
+            } 
         } catch(err){
             const error = err as IErrorInterface
             toast(error.response?.data?.error, {autoClose: 2000, type: "error"})
@@ -39,9 +47,7 @@ const UseValidateData = () => {
           bairro: yup.string().required("O bairro é obrigatório"),
         }),
         onSubmit: data => {
-            Object.assign(data,
-                {estudanteId}
-            )
+            Object.assign(data,{estudanteId});
             studentRegistrationPart2(data);
         },
     })
