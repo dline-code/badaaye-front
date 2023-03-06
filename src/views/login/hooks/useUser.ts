@@ -14,6 +14,7 @@ const UseUser = () => {
             if (response) {
                 toast("Login feito com sucesso", { autoClose: 2000, type: "success" })
                 setCookie("baadaye-token", response.token)
+                window.location.href = "/tela-principal-estudante";
             }
 
     
