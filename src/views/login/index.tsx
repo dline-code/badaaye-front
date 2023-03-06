@@ -8,7 +8,7 @@ import * as S from './styles'
 import LayoutAuthentication from '../../components/layout-authentication'
 import Input from 'src/components/input'
 import Button from 'src/components/button'
-import ErrorMassage from 'src/components/error-massage'
+import ErrorMassage from 'src/components/error-validation-massage'
 
 import { MdEmail } from 'react-icons/md'
 import { FaArrowRight, FaFacebook, FaGoogle, FaInstagram } from 'react-icons/fa'
@@ -46,7 +46,7 @@ const Login: NextPage = () => {
         />
         {formik.touched.email && formik.errors.email ? (
           <ErrorMassage 
-            error={formik.errors.email}
+            errorMessage={formik.errors.email}
           />
         ): null}
         <Input
@@ -60,7 +60,7 @@ const Login: NextPage = () => {
         />
           {formik.touched.senha && formik.errors.senha ? (
           <ErrorMassage 
-            error={formik.errors.senha}
+            errorMessage={formik.errors.senha}
           />
         ): null}
         <S.ForgetPasswordLink>
