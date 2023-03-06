@@ -37,7 +37,6 @@ const UseUser = () => {
             
             senha: yup
                 .string()
-                .min(8, "A palavra-passe deve conter pelo menos 8 caracteres")
                 .required("Campo obrigatório"),
         }),
         onSubmit: (data) => LoginRequest(data)
