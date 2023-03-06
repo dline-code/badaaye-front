@@ -19,7 +19,7 @@ import { UseUser } from './hooks/useUser'
 
 
 const Login: NextPage = () => {
-
+  const [isDisabled, setIsdisabled] = useState(false)
   const { formik } = UseUser();
 
   return (
@@ -68,7 +68,7 @@ const Login: NextPage = () => {
             <a>Esqueceu a sua senha?</a>
           </Link>
         </S.ForgetPasswordLink>
-        <Button>Entrar</Button>
+        <Button disabled={true}>Entrar</Button>
         <S.CreateAccountLink>
           <Link href='parceiro'><a>Não tenho uma conta? Criar conta</a></Link>
         </S.CreateAccountLink>
