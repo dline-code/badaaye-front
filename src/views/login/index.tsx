@@ -1,6 +1,5 @@
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import {History} from "history"
-
 import Link from 'next/link'
 import type { NextPage } from 'next'
 import * as S from './styles'
@@ -17,10 +16,18 @@ import { RiLockPasswordFill } from 'react-icons/ri'
 
 import { UseUser } from './hooks/useUser'
 
-
 const Login: NextPage = () => {
-  const [isDisabled, setIsdisabled] = useState(false)
+  const [isBtnDisabled, setIsBtnDisabled] = useState(false)
+
+  console.log("isDisabled ", isBtnDisabled)
+
   const { formik } = UseUser();
+
+  function DisableButton(e: any) {
+    setIsBtnDisabled(true);
+    formik.handleSubmit(e);
+    console.log("second d ", isBtnDisabled)
+  }
 
   return (
     <S.Wrapper>
@@ -33,7 +40,7 @@ const Login: NextPage = () => {
         />
         <Link href='/parceiro'><a>Ainda não tenho conta <i><FaArrowRight/></i></a></Link>
       </S.LayoutAuthContainer>
-      <S.Form onSubmit={formik.handleSubmit}>
+      <S.Form>
         <S.Title>Entrar na plataforma</S.Title>
         <Input
           type='email'
@@ -68,7 +75,12 @@ const Login: NextPage = () => {
             <a>Esqueceu a sua senha?</a>
           </Link>
         </S.ForgetPasswordLink>
-        <Button disabled={true}>Entrar</Button>
+        <Button
+          isDisabled={isBtnDisabled}
+          onClick={(e) => DisableButton(e)}
+        >
+          Entrar
+        </Button>
         <S.CreateAccountLink>
           <Link href='parceiro'><a>Não tenho uma conta? Criar conta</a></Link>
         </S.CreateAccountLink>

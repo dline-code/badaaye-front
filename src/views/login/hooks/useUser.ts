@@ -6,6 +6,7 @@ import { postFetchUser } from "../services";
 import { IError, IUser } from "../type";
 import {getCookie, setCookie} from "react-use-cookie"
 
+import LoginView from "../index"
 
 const UseUser = () => {    
     async function LoginRequest(data: IUser){
@@ -16,11 +17,10 @@ const UseUser = () => {
                 setCookie("baadaye-token", response.token)
                 window.location.href = "/tela-principal-estudante";
             }
-
-    
         } catch(err){
             const error = err as IError
             toast(error.response?.data?.error, { autoClose: 2000, type: "error" })
+            window.location.reload()
         }   
     }
     
