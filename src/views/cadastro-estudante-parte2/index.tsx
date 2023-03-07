@@ -8,7 +8,7 @@ import Input from 'src/components/input';
 import Select from 'src/components/select'
 import { UseValidateData } from './hooks/useValidateData'
 import { useFetchEstudantes } from './hooks/useFetschStudent'
-import { useEffect} from 'react'
+import { useEffect } from 'react'
 
 const CadastroEstudanteParte2:NextPage =() => {
   const { formik } = UseValidateData();
@@ -19,7 +19,7 @@ const CadastroEstudanteParte2:NextPage =() => {
     course,
     university,
     municipalities,
-    getDataMunicipalities
+    getDataMunicipalities,
   }=useFetchEstudantes();
   
   useEffect(()=>{
