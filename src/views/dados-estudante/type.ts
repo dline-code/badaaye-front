@@ -1,3 +1,11 @@
+export type FormDataType = {
+  graus: GrauType[]
+  cursos: CursoType[]
+  universidades: UniversidadeType[]
+  provincias: ProvinciaType[]
+  municipios: MunicipioType[]
+}
+
 export type ProvinciaType = {
   id: string
   designacao: string
@@ -44,35 +52,40 @@ export type AreaType = {
   createdAt: string
   updatedAt: string
 }
-export interface SendDATA {
+export interface SendStudentDATA {
+  id: string
   nome: string
   sobrenome: string
-  dataNascimento: string
-  loginId: string
-  universidadeId: string
-  enderecoId: string
-  grauId: string
   cursoId: string
+  grauId: string
+  universidadeId: string
+  municipioId: string
+  bairro: string
+  email: string
+  telefone: string
 }
 
 export type RecevedStudentData = {
   id: string
   nome: string
   sobrenome: string
-  email: string
-  emailId: string
-  telefone: string
-  telefoneId: string
-  curso: string
-  cursoId: string
   dataNascimento: string
-  endereco: string
-  enderecoId: string
-  grau: string
+  cursoId: string
   grauId: string
-  universidade: string
   universidadeId: string
-  senha: string
+  emailId: string
+  email: string
+  telefoneId: string
+  telefone: string
+  provinciaId: string
+  municipioId: string
+  bairro: string
+}
+
+export type OptionType = {
+  nome: string
+  id: string
+  designacao: string
 }
 
 export interface IResponse {

@@ -3,7 +3,6 @@ import {
   MdDomain,
   MdEdit,
   MdEmail,
-  MdLock,
   MdPerson,
   MdPhone,
   MdPlace,
@@ -23,7 +22,15 @@ export const inputControls = [
   {
     id: 'nome',
     name: 'nome',
-    labelName: 'Nome completo',
+    labelName: 'Nome',
+    as: 'input',
+    StarIcon: MdPerson,
+    EndIcon: MdEdit
+  },
+  {
+    id: 'sobrenome',
+    name: 'sobrenome',
+    labelName: 'SobreNome',
     as: 'input',
     StarIcon: MdPerson,
     EndIcon: MdEdit
@@ -35,14 +42,6 @@ export const inputControls = [
     as: 'input',
     StarIcon: MdPhone,
     EndIcon: MdEdit
-  },
-  {
-    id: 'senha',
-    name: 'senha',
-    labelName: 'Senha',
-    as: 'input',
-    StarIcon: MdLock,
-    EndIcon: MdEdit
   }
 ]
 
@@ -52,7 +51,6 @@ export const selectControls = [
     name: 'grau',
     labelName: 'Grau académico',
     as: 'select',
-    options: [],
     StarIcon: MdSchool,
     EndIcon: MdEdit
   },
@@ -61,64 +59,31 @@ export const selectControls = [
     name: 'curso',
     labelName: 'Curso',
     as: 'select',
-    options: [],
     StarIcon: MdBook,
     EndIcon: MdEdit
   },
   {
     id: 'universidade',
     name: 'universidade',
-    labelName: 'Instituição de ensino',
+    labelName: 'Universidade',
     as: 'select',
-    options: [],
     StarIcon: MdDomain,
     EndIcon: MdEdit
   },
   {
-    id: 'provinvia',
-    name: 'provinvia',
-    labelName: 'Província',
+    id: 'provincia',
+    name: 'provincia',
+    labelName: 'Provincia',
     as: 'select',
-    options: [
-      {
-        desc: 'Luanda',
-        value: 'luanda',
-        selected: false
-      },
-      {
-        desc: 'Uíge',
-        value: 'uige',
-        selected: true
-      }
-    ],
     StarIcon: MdPlace,
     EndIcon: MdEdit
   },
   {
     id: 'municipio',
     name: 'municipio',
-    labelName: 'Munícipio',
+    labelName: 'Municipio',
     as: 'select',
-    options: [],
     StarIcon: MdPlace,
-    EndIcon: MdEdit
-  },
-  {
-    id: 'bairro',
-    name: 'bairro',
-    labelName: 'Bairro',
-    as: 'select',
-    options: [],
-    StarIcon: MdPlace,
-    EndIcon: MdEdit
-  },
-  {
-    id: 'color',
-    name: 'color',
-    labelName: 'Color',
-    as: 'select',
-    options: [],
-    StarIcon: MdColorize,
     EndIcon: MdEdit
   }
 ]

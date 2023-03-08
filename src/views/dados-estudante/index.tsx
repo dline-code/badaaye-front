@@ -4,15 +4,19 @@ import { AiOutlineUser } from 'react-icons/ai'
 import { Form, Formik } from 'formik'
 import { FormControl } from 'src/components/FormControl'
 import Button from 'src/components/button'
-import { inputControls, selectControls } from './formDatas'
+import { inputControls, selectControls } from './utils/formFrame'
 import * as S from './styles'
 import { UseStudentData } from './hooks/useStudentData'
-import { useFormData } from './hooks/useFormData'
+import { MdEdit, MdPlace } from 'react-icons/md'
 
 export function DadosEstudante() {
-  const { isFetching, handleSubmit, initialValues, validationShema } =
-    UseStudentData()
-  const data = useFormData()
+  const {
+    isFetching,
+    optionsSelects,
+    handleSubmit,
+    initialValues,
+    validationShema
+  } = UseStudentData()
 
   if (isFetching) {
     return <>Loading...</>
@@ -75,13 +79,13 @@ export function DadosEstudante() {
                     )}
 
                     {selectControls.map(
-                      ({ id, labelName, name, options, StarIcon, EndIcon }) => (
+                      ({ id, labelName, name, StarIcon, EndIcon }) => (
                         <FormControl
                           key={id}
                           labelName={labelName}
                           as="select"
                           name={name}
-                          options={options}
+                          options={optionsSelects[name]}
                           StarIcon={<StarIcon />}
                           EndIcon={<EndIcon />}
                           required
@@ -89,6 +93,15 @@ export function DadosEstudante() {
                         />
                       )
                     )}
+
+                    <FormControl
+                      labelName="Bairro"
+                      name="bairro"
+                      StarIcon={<MdPlace />}
+                      EndIcon={<MdEdit />}
+                      required
+                      blocked
+                    />
                   </div>
 
                   <div>

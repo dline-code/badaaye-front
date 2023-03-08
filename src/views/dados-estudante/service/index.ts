@@ -1,5 +1,5 @@
 import { api } from 'src/services/api'
-import { RecevedStudentData, SendDATA } from '../type'
+import { FormDataType, RecevedStudentData } from '../type'
 
 const getFetchStudentData = async (): Promise<RecevedStudentData> => {
   const {
@@ -10,21 +10,14 @@ const getFetchStudentData = async (): Promise<RecevedStudentData> => {
     id: estudante.id,
     nome: estudante.nome,
     sobrenome: estudante.sobrenome,
-    curso: estudante.curso || 'Engenharia Informática',
-    cursoId: estudante.cursoId,
     dataNascimento: estudante.dataNascimento,
-    endereco: estudante.endereco,
-    enderecoId: estudante.enderecoId,
-    grau: estudante.grau || 'Ensino Superior',
+    cursoId: estudante.cursoId,
     grauId: estudante.grauId,
-    universidade: estudante.universidade || 'Universidade Agostinho Neto',
     universidadeId: estudante.universidadeId,
     emailId: email.id,
     email: email.designacao,
     telefoneId: telefone.id,
-    telefone: telefone.designacao,
-    senha: estudante.login.senha,
-    color: ['red', 'blue', 'green', 'yellow']
+    telefone: telefone.designacao
   }
 
   return recevedData
@@ -35,4 +28,24 @@ const putFetchStudentData = async (id: string, data: RecevedStudentData) => {
   return response.data
 }
 
-export { getFetchStudentData, putFetchStudentData }
+const getFetchFormData = async () => {
+  const [resp1, resp2, resp3, resp4, resp5] = await Promise.all([
+    api.get('/grau'),
+    api.get('/curso'),
+    api.get('/universidade'),
+    api.get('/provincia'),
+    api.get('/municipio/124ab94e-a8c8-4f52-bfd8-06f4141b5347')
+  ])
+
+  const data: FormDataType = {
+    graus: resp1.data,
+    cursos: resp2.data,
+    universidades: resp3.data,
+    provincias: resp4.data,
+    municipios: resp5.data
+  }
+
+  return data
+}
+
+export { getFetchStudentData, getFetchFormData, putFetchStudentData }
