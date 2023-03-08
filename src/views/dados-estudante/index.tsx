@@ -4,13 +4,15 @@ import { AiOutlineUser } from 'react-icons/ai'
 import { Form, Formik } from 'formik'
 import { FormControl } from 'src/components/FormControl'
 import Button from 'src/components/button'
-import { formControls } from './elementsData'
+import { inputControls, selectControls } from './formDatas'
 import * as S from './styles'
 import { UseStudentData } from './hooks/useStudentData'
+import { useFormData } from './hooks/useFormData'
 
 export function DadosEstudante() {
   const { isFetching, handleSubmit, initialValues, validationShema } =
     UseStudentData()
+  const data = useFormData()
 
   if (isFetching) {
     return <>Loading...</>
@@ -56,16 +58,34 @@ export function DadosEstudante() {
               {({ isSubmitting }) => (
                 <Form>
                   <div>
-                    {formControls.map(
-                      ({ id, name, inputTitle, StarIcon, EndIcon }) => (
+                    {inputControls.map(
+                      ({ id, name, labelName, as, StarIcon, EndIcon }) => (
                         <FormControl
                           key={id}
-                          id={id}
+                          labelName={labelName}
+                          as={as}
                           name={name}
-                          inputTitle={inputTitle}
+                          id={id}
                           StarIcon={<StarIcon />}
                           EndIcon={<EndIcon />}
                           required
+                          blocked
+                        />
+                      )
+                    )}
+
+                    {selectControls.map(
+                      ({ id, labelName, name, options, StarIcon, EndIcon }) => (
+                        <FormControl
+                          key={id}
+                          labelName={labelName}
+                          as="select"
+                          name={name}
+                          options={options}
+                          StarIcon={<StarIcon />}
+                          EndIcon={<EndIcon />}
+                          required
+                          blocked
                         />
                       )
                     )}

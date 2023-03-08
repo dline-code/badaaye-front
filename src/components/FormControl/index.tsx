@@ -7,24 +7,43 @@ export function FormControl({
   name = '',
   type,
   id,
-  inputTitle,
+  labelName,
+  as,
+  blocked,
   StarIcon,
   EndIcon,
+  options,
+  value,
   ...rest
 }: FormControlProps) {
-  const [disabled, setDisabled] = useState(true)
-
-  const handleToggleDisabled = () => {
-    setDisabled(!disabled)
-  }
+  const [disabled, setDisabled] = useState(blocked)
 
   return (
     <S.ControlContent>
-      <label htmlFor={id}>{inputTitle}</label>
+      <label htmlFor={id}>{labelName}</label>
       <S.ControlInput>
         <span>{StarIcon}</span>
-        <Field type={type} name={name} disabled={disabled} id={id} {...rest} />
-        <span onClick={handleToggleDisabled}>{EndIcon}</span>
+        {as === 'select' ? (
+          <Field name={name} as={as} disabled={disabled} id={id} {...rest}>
+            <option value="">--- Select ---</option>
+            {options &&
+              options.map(({ desc, value, selected }) => (
+                <option value={value} selected={selected} key={value}>
+                  {desc}
+                </option>
+              ))}
+          </Field>
+        ) : (
+          <Field
+            type={type}
+            name={name}
+            as={as}
+            disabled={disabled}
+            id={id}
+            {...rest}
+          />
+        )}
+        <span onClick={() => setDisabled(!disabled)}>{EndIcon}</span>
       </S.ControlInput>
       <ErrorMessage name={name} component={S.ErrorMessage} />
     </S.ControlContent>

@@ -1,9 +1,29 @@
-import { InputHTMLAttributes, ReactNode } from 'react'
+import { FieldProps } from 'formik'
+import {
+  InputHTMLAttributes,
+  SelectHTMLAttributes,
+  TextareaHTMLAttributes,
+  ReactNode,
+  ComponentType
+} from 'react'
 
 type InputTypes = InputHTMLAttributes<HTMLInputElement>
+type SelectTypes = SelectHTMLAttributes<HTMLSelectElement>
+type TextAreaTypes = TextareaHTMLAttributes<HTMLTextAreaElement>
+
+type Options = {
+  desc: string
+  value: string
+  selected: boolean
+}
 
 export type FormControlProps = {
-  inputTitle: string
+  labelName: string
   StarIcon?: ReactNode
   EndIcon?: ReactNode
-} & InputTypes
+  blocked?: boolean
+  options?: Options[]
+  as?: string | ComponentType<FieldProps['field']>
+} & InputTypes &
+  SelectTypes &
+  TextAreaTypes

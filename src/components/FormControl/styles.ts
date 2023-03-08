@@ -7,7 +7,7 @@ export const ControlContent = styled.div`
   padding-bottom: ${({ theme }) => theme.spacings.xxmultipleeight};
 
   label {
-    font-weight: lighter;
+    font-weight: normal;
   }
 `
 
@@ -40,17 +40,26 @@ export const ControlInput = styled.div`
     }
   }
 
-  input {
+  input,
+  select,
+  textarea {
     flex: 1;
     height: 3rem;
     border: none;
   }
 
-  &:has(input:focus) {
+  select,
+  textarea {
+    background: transparent;
+  }
+
+  &:has(input:focus),
+  &:has(select:focus) {
     border-color: ${({ theme }) => theme.colors.primary.xblue};
   }
 
-  &:has(input:disabled) {
+  &:has(input:disabled),
+  &:has(select:disabled) {
     border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.gray};
   }
 `

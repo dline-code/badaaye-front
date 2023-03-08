@@ -7,78 +7,118 @@ import {
   MdPerson,
   MdPhone,
   MdPlace,
-  MdSchool
+  MdSchool,
+  MdColorize
 } from 'react-icons/md'
 
-export const formControls = [
+export const inputControls = [
   {
     id: 'email',
     name: 'email',
-    inputTitle: 'E-mail',
+    labelName: 'E-mail',
+    as: 'input',
     StarIcon: MdEmail,
     EndIcon: MdEdit
   },
   {
     id: 'nome',
     name: 'nome',
-    inputTitle: 'Nome completo',
+    labelName: 'Nome completo',
+    as: 'input',
     StarIcon: MdPerson,
     EndIcon: MdEdit
   },
   {
     id: 'telefone',
     name: 'telefone',
-    inputTitle: 'Número de telefone',
+    labelName: 'Número de telefone',
+    as: 'input',
     StarIcon: MdPhone,
     EndIcon: MdEdit
   },
   {
     id: 'senha',
     name: 'senha',
-    inputTitle: 'Senha',
+    labelName: 'Senha',
+    as: 'input',
     StarIcon: MdLock,
     EndIcon: MdEdit
-  },
+  }
+]
+
+export const selectControls = [
   {
     id: 'grau',
     name: 'grau',
-    inputTitle: 'Grau académico',
+    labelName: 'Grau académico',
+    as: 'select',
+    options: [],
     StarIcon: MdSchool,
     EndIcon: MdEdit
   },
   {
     id: 'curso',
     name: 'curso',
-    inputTitle: 'Curso',
+    labelName: 'Curso',
+    as: 'select',
+    options: [],
     StarIcon: MdBook,
     EndIcon: MdEdit
   },
   {
     id: 'universidade',
     name: 'universidade',
-    inputTitle: 'Instituição de ensino',
+    labelName: 'Instituição de ensino',
+    as: 'select',
+    options: [],
     StarIcon: MdDomain,
     EndIcon: MdEdit
   },
   {
     id: 'provinvia',
     name: 'provinvia',
-    inputTitle: 'Província',
+    labelName: 'Província',
+    as: 'select',
+    options: [
+      {
+        desc: 'Luanda',
+        value: 'luanda',
+        selected: false
+      },
+      {
+        desc: 'Uíge',
+        value: 'uige',
+        selected: true
+      }
+    ],
     StarIcon: MdPlace,
     EndIcon: MdEdit
   },
   {
     id: 'municipio',
     name: 'municipio',
-    inputTitle: 'Munícipio',
+    labelName: 'Munícipio',
+    as: 'select',
+    options: [],
     StarIcon: MdPlace,
     EndIcon: MdEdit
   },
   {
     id: 'bairro',
     name: 'bairro',
-    inputTitle: 'Bairro',
+    labelName: 'Bairro',
+    as: 'select',
+    options: [],
     StarIcon: MdPlace,
+    EndIcon: MdEdit
+  },
+  {
+    id: 'color',
+    name: 'color',
+    labelName: 'Color',
+    as: 'select',
+    options: [],
+    StarIcon: MdColorize,
     EndIcon: MdEdit
   }
 ]

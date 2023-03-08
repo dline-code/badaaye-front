@@ -23,7 +23,8 @@ const getFetchStudentData = async (): Promise<RecevedStudentData> => {
     email: email.designacao,
     telefoneId: telefone.id,
     telefone: telefone.designacao,
-    senha: estudante.login.senha
+    senha: estudante.login.senha,
+    color: ['red', 'blue', 'green', 'yellow']
   }
 
   return recevedData
