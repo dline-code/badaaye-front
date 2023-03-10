@@ -33,7 +33,8 @@ const Parceiro: NextPage = () => {
         />
         <S.SelectContainer>
           <Select
-            options={["Parceiro", "Parceiro1", "Parceiro2"]}
+            title="parceiro"
+            options={[{nome:"parceiro1",id:"1"}, {nome:"Parceiro2",id:"2"}]}
             icon={<BsBriefcaseFill />}
           />
         </S.SelectContainer>

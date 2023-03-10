@@ -158,3 +158,23 @@ export const ContainerMenu = styled.div`
   height: 20rem;
   display: block;
 `
+
+export const ContainerUserLogged = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: end;
+
+  @media screen and (max-width: 1060px){
+    margin-right: 2rem;
+  }
+`
+
+export const CardUserLogged = styled.div`
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid ${({ theme }) => theme.colors.tertiary.gray};
+`

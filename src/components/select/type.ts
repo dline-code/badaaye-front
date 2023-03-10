@@ -1,5 +1,15 @@
+import { SelectHTMLAttributes } from 'react'
+
+type SelectTypes = SelectHTMLAttributes<HTMLSelectElement>
 
 export type SelectContainerProps = {
   icon: React.ReactNode,
-  options: string[],
-};
+  title :string,
+  options: IOption[],
+}& SelectTypes;
+
+export type IOption={
+  id:string,
+  nome?:string,
+  designacao?:string
+}
