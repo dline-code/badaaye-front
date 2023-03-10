@@ -35,6 +35,7 @@ export const Main = styled.main`
 export const Content = styled.div`
   max-width: 540px;
   margin: 0 auto;
+  margin-bottom: 2rem;
 `
 
 export const ContentHeader = styled.div`
