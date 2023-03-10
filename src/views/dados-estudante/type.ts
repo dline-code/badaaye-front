@@ -52,34 +52,20 @@ export type AreaType = {
   createdAt: string
   updatedAt: string
 }
-export interface SendStudentDATA {
-  id: string
-  nome: string
-  sobrenome: string
-  cursoId: string
-  grauId: string
-  universidadeId: string
-  municipioId: string
-  bairro: string
-  email: string
-  telefone: string
-}
 
 export type RecevedStudentData = {
   id: string
   nome: string
   sobrenome: string
-  dataNascimento: string
   cursoId: string
   grauId: string
   universidadeId: string
-  emailId: string
   email: string
-  telefoneId: string
   telefone: string
   provinciaId: string
   municipioId: string
   bairro: string
+  enderecoId: string
 }
 
 export type OptionType = {

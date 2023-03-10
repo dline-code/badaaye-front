@@ -11,7 +11,13 @@ import { IErrorInterface, RecevedStudentData } from '../type'
 import { generateFrameOptions } from '../utils'
 
 export const UseStudentData = () => {
-  let optionsSelects: any
+  let optionsSelects: any = {
+    grauId: [],
+    cursoId: [],
+    universidadeId: [],
+    provinciaId: [],
+    municipioId: []
+  }
 
   const { data, isFetching } = useQuery(
     'getStudentDate',
@@ -24,6 +30,7 @@ export const UseStudentData = () => {
             autoClose: 2000,
             type: 'success'
           })
+
         return { studentData, formsData }
       } catch (err) {
         const error = err as IErrorInterface
@@ -36,17 +43,17 @@ export const UseStudentData = () => {
   if (data) {
     const { studentData, formsData } = data
     optionsSelects = {
-      curso: generateFrameOptions(studentData.cursoId, formsData.cursos),
-      grau: generateFrameOptions(studentData.grauId, formsData.graus),
-      universidade: generateFrameOptions(
+      grauId: generateFrameOptions(studentData.grauId, formsData.graus),
+      cursoId: generateFrameOptions(studentData.cursoId, formsData.cursos),
+      universidadeId: generateFrameOptions(
         studentData.universidadeId,
         formsData.universidades
       ),
-      provincia: generateFrameOptions(
+      provinciaId: generateFrameOptions(
         studentData.provinciaId,
         formsData.provincias
       ),
-      municipio: generateFrameOptions(
+      municipioId: generateFrameOptions(
         studentData.municipioId,
         formsData.municipios
       )
@@ -74,18 +81,29 @@ export const UseStudentData = () => {
           'Por favor, digite um número de telefone válido de Angola'
         )
         .required('número de telefone é obrigatório'),
-      grau: Yup.string().required('Selecione uma das opções'),
-      curso: Yup.string().required('Selecione uma das opções'),
-      universidade: Yup.string().required('Selecione uma das opções'),
-      provincia: Yup.string().required('Selecione uma das opções'),
-      municipio: Yup.string().required('Selecione uma das opções'),
+      grauId: Yup.string().required('Selecione uma das opções'),
+      cursoId: Yup.string().required('Selecione uma das opções'),
+      universidadeId: Yup.string(),
+      provinciaId: Yup.string().required('Selecione uma das opções'),
+      municipioId: Yup.string().required('Selecione uma das opções'),
       bairro: Yup.string().required('Especifique O bairro que moras')
     }),
     handleSubmit: async (
       values: RecevedStudentData,
       { setSubmitting }: FormikHelpers<RecevedStudentData>
     ) => {
-      await putFetchStudentData(values.id, values)
+      try {
+        const data = await putFetchStudentData(values)
+
+        if (data)
+          toast('Dados atualizado com sucesso', {
+            autoClose: 2000,
+            type: 'success'
+          })
+      } catch (err) {
+        const error = err as IErrorInterface
+        toast(error.response?.data?.error, { autoClose: 2000, type: 'error' })
+      }
 
       setSubmitting(false)
     }

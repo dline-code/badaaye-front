@@ -6,8 +6,7 @@ import {
   MdPerson,
   MdPhone,
   MdPlace,
-  MdSchool,
-  MdColorize
+  MdSchool
 } from 'react-icons/md'
 
 export const inputControls = [
@@ -47,40 +46,40 @@ export const inputControls = [
 
 export const selectControls = [
   {
-    id: 'grau',
-    name: 'grau',
+    id: 'grauId',
+    name: 'grauId',
     labelName: 'Grau académico',
     as: 'select',
     StarIcon: MdSchool,
     EndIcon: MdEdit
   },
   {
-    id: 'curso',
-    name: 'curso',
+    id: 'cursoId',
+    name: 'cursoId',
     labelName: 'Curso',
     as: 'select',
     StarIcon: MdBook,
     EndIcon: MdEdit
   },
   {
-    id: 'universidade',
-    name: 'universidade',
+    id: 'universidadeId',
+    name: 'universidadeId',
     labelName: 'Universidade',
     as: 'select',
     StarIcon: MdDomain,
     EndIcon: MdEdit
   },
   {
-    id: 'provincia',
-    name: 'provincia',
+    id: 'provinciaId',
+    name: 'provinciaId',
     labelName: 'Provincia',
     as: 'select',
     StarIcon: MdPlace,
     EndIcon: MdEdit
   },
   {
-    id: 'municipio',
-    name: 'municipio',
+    id: 'municipioId',
+    name: 'municipioId',
     labelName: 'Municipio',
     as: 'select',
     StarIcon: MdPlace,

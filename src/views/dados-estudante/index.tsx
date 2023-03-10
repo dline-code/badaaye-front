@@ -88,7 +88,6 @@ export function DadosEstudante() {
                           options={optionsSelects[name]}
                           StarIcon={<StarIcon />}
                           EndIcon={<EndIcon />}
-                          required
                           blocked
                         />
                       )
