@@ -9,7 +9,7 @@ import 'aos/dist/aos.css'
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify'
 import { QueryClientProvider } from 'react-query'
-import { queryclient } from 'src/services/queryclient'
+import { queryClient } from 'src/services/queryClient'
 
 type NextPageWithLayout = NextPage & {
   Layout?: ComponentType
@@ -30,15 +30,15 @@ function MyApp({ Component, pageProps, err }: AppPropsWithLayout) {
   const ComponentLayout = Component.Layout ? Component.Layout : React.Fragment
 
   return (
-    <ThemeProvider theme={theme}>
-      <QueryClientProvider client={queryclient}>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
         <ComponentLayout>
           <Component {...pageProps} err={err} />
           <ToastContainer />
         </ComponentLayout>
         <GlobalStyles />
-      </QueryClientProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }
 
