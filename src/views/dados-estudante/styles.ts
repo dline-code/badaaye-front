@@ -33,7 +33,7 @@ export const Main = styled.main`
 `
 
 export const Content = styled.div`
-  max-width: 540px;
+  max-width: 54rem;
   margin: 0 auto;
   margin-bottom: 2rem;
 `

@@ -74,6 +74,22 @@ export type OptionType = {
   designacao: string
 }
 
+export type OptionsSelects =
+  | {
+      grauId: [Select]
+      cursoId: Select[]
+      universidadeId: [Select]
+      provinciaId: Select[]
+      municipioId: Select[]
+    }
+  | any
+
+export type Select = {
+  desc: any
+  value: any
+  selected: boolean
+}
+
 export interface IResponse {
   status: number
   statusText: string
