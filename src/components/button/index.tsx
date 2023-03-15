@@ -11,7 +11,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <S.Button
       type={type}
-      className={`button ${isDisabled ? "btn-disabled" : ""}`}
+      className={`button btn-submit`}
       onClick={onClick}
       disabled={isDisabled}
     >

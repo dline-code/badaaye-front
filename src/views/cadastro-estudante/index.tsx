@@ -15,8 +15,7 @@ import { UseStudent } from './hooks/useStudent'
 
 const cadastroEstudante: NextPage = () => {
   
-  const { formik } = UseStudent()
-  
+  const { formik } = UseStudent();
 
   return (
     <S.Wrapper>

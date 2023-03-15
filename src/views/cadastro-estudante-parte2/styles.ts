@@ -68,6 +68,7 @@ export const BadayeInfo = styled.div`
   @media screen and  (max-width: 880px) {
     margin:auto;
     margin-bottom: ${({theme})=> theme.spacings.xxxmultipleeight};
+    }
 `;
 
 export const Button = styled.button`
@@ -90,4 +91,14 @@ export const Button = styled.button`
   :hover {
     filter: brightness(0.7);
   }
+`
+
+
+export const ErrorMessage = styled.label`
+  color: #c70606;
+  position: relative;
+  margin-left: 0.2rem;
+  top: 0.3rem;
+  font-weight: 400;
+  font-size: ${({ theme }) => theme.font.sizes.midle};
 `

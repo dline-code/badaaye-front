@@ -1,5 +1,5 @@
-import { ReactNode, useState } from 'react'
-import {History} from "history"
+import { ReactNode, useEffect, useState } from 'react'
+import {setCookie, getCookie} from "react-use-cookie"
 import Link from 'next/link'
 import type { NextPage } from 'next'
 import * as S from './styles'
@@ -19,15 +19,11 @@ import { UseUser } from './hooks/useUser'
 const Login: NextPage = () => {
   const [isBtnDisabled, setIsBtnDisabled] = useState(false)
 
-  console.log("isDisabled ", isBtnDisabled)
-
   const { formik } = UseUser();
 
-  function DisableButton(e: any) {
-    setIsBtnDisabled(true);
-    formik.handleSubmit(e);
-    console.log("second d ", isBtnDisabled)
-  }
+  useEffect(() => {
+    setCookie("badaaye", "")
+  }, [])
 
   return (
     <S.Wrapper>
@@ -40,7 +36,7 @@ const Login: NextPage = () => {
         />
         <Link href='/parceiro'><a>Ainda não tenho conta <i><FaArrowRight/></i></a></Link>
       </S.LayoutAuthContainer>
-      <S.Form>
+      <S.Form onSubmit={formik.handleSubmit}>
         <S.Title>Entrar na plataforma</S.Title>
         <Input
           type='email'
@@ -75,12 +71,7 @@ const Login: NextPage = () => {
             <a>Esqueceu a sua senha?</a>
           </Link>
         </S.ForgetPasswordLink>
-        <Button
-          isDisabled={isBtnDisabled}
-          onClick={(e) => DisableButton(e)}
-        >
-          Entrar
-        </Button>
+        <Button>Entrar</Button>
         <S.CreateAccountLink>
           <Link href='parceiro'><a>Não tenho uma conta? Criar conta</a></Link>
         </S.CreateAccountLink>
