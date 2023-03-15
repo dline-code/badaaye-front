@@ -6,8 +6,9 @@ import GlobalStyles from '../styles/global'
 import { theme } from '../styles/theme'
 import { Layout } from '../components/layout'
 import 'aos/dist/aos.css'
-import 'react-toastify/dist/ReactToastify.css'
-import { ToastContainer } from 'react-toastify'
+
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import { QueryClientProvider } from 'react-query'
 import { queryClient } from 'src/services/queryClient'
 
@@ -27,14 +28,15 @@ type EmptyLayoutProps = {
 const EmptyLayout = ({ children }: EmptyLayoutProps) => <>{children}</>
 
 function MyApp({ Component, pageProps, err }: AppPropsWithLayout) {
-  const ComponentLayout = Component.Layout ? Component.Layout : React.Fragment
 
+  const ComponentLayout = Component.Layout?Component.Layout:React.Fragment;
+  
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient} >
       <ThemeProvider theme={theme}>
         <ComponentLayout>
           <Component {...pageProps} err={err} />
-          <ToastContainer />
+          <ToastContainer/>
         </ComponentLayout>
         <GlobalStyles />
       </ThemeProvider>

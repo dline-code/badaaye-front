@@ -1,16 +1,27 @@
 import { useFormik } from "formik"
+import Router from "next/router";
 import { toast } from "react-toastify";
 import * as yup from "yup";
 import { postFecthStudent1 } from "../services";
 import { IErrorInterface, IStudent } from "../type";
 
+interface StudentProps{
+    usuario:IStudent
+}
 
 const UseStudent = () => {    
-    async function Studentregistration1(data: IStudent){
+    async function studentRegistration1(data: IStudent){
         try{
-            const student = await postFecthStudent1(data)
-            if(student) toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
-    
+            const student = await postFecthStudent1(data)  
+            if(student){
+                toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
+
+                Router.push({
+                    pathname: '/cadastro-estudante-parte2',
+                    query: { estudanteId: student.usuario.id},
+                })
+            } 
+            
         } catch(err){
             const error = err as IErrorInterface
             toast(error.response?.data?.error, {autoClose: 2000, type: "error"})
@@ -37,7 +48,7 @@ const UseStudent = () => {
           senha: yup.string().min(8, "a senha deve ter pelo menos 8 digitos").required("a senha é obrigatoria"),
           confirmarSenha: yup.string().required("A confirmação de senha é obrigatoria").oneOf([yup.ref("senha")], "As senhas não correspondem"),
         }),
-        onSubmit: (data) => Studentregistration1(data)
+        onSubmit: (data) => studentRegistration1(data)
     })
     
     return{
