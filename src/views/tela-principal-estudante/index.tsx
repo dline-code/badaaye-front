@@ -7,19 +7,18 @@ import { IoMdBusiness } from "react-icons/io"
 import { FaBookOpen } from "react-icons/fa"
 import React from "react"
 import { useRouter } from "next/router"
-
-interface PageProps {
-    hideFooter?: boolean;
-    isLogged?: boolean;
-}
+import { useFetchData } from "./hooks/useFetchData"
+import { IStudent, PageProps } from "./types"
 
 const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
-    const router=useRouter();
+    const {students}=useFetchData();
 
     const {
       query:{estudanteId}
-    }=router;
-    
+    }=useRouter();
+
+    const student=students?.find((item:IStudent)=> item?.id === estudanteId);
+
     return(
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
             <S.Container>
@@ -40,17 +39,17 @@ const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
                             <S.InfoContainer>
                                 <S.InfoSections>
                                     <RiUser3Fill/>
-                                    <span>Osvaldo Sousa</span>
+                                    <span>{student?.nome+" "+student?.sobrenome}</span>
                                 </S.InfoSections>
                                 <S.InfoSections>
                                     <HiAcademicCap/>
-                                    <span>Ensino Superior</span>
+                                    <span>{student?.grau?.designacao}</span>
                                 </S.InfoSections><S.InfoSections>
                                     <IoMdBusiness/>
-                                    <span>Univ. Agostinho Neto</span>
+                                    <span>Univ. {student?.universidade?.nome}</span>
                                 </S.InfoSections><S.InfoSections>
                                     <FaBookOpen/>
-                                    <span>Engenharia Informática</span>
+                                    <span>{student?.curso?.nome}</span>
                                 </S.InfoSections>
                             </S.InfoContainer>
                             <Button type="button">
