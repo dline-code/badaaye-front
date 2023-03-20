@@ -1,7 +1,7 @@
 import { api } from "src/services/api"
 
-export const getFetchUsers= async () => {
-    const user= await api.get(`/estudante`);
+export const getFetchStudent= async () => {
+    const student= await api.get(`/estudante/dados`);
 
-    return user.data;
+    return student.data;
 }

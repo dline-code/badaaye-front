@@ -11,14 +11,13 @@ import { useFetchData } from "./hooks/useFetchData"
 import { IStudent, PageProps } from "./types"
 
 const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
-    const {students}=useFetchData();
+    const {student}=useFetchData();
 
     const {
       query:{estudanteId}
     }=useRouter();
 
-    const student=students?.find((item:IStudent)=> item?.id === estudanteId);
-
+    console.log(student);
     return(
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
             <S.Container>
@@ -39,17 +38,17 @@ const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
                             <S.InfoContainer>
                                 <S.InfoSections>
                                     <RiUser3Fill/>
-                                    <span>{student?.nome+" "+student?.sobrenome}</span>
+                                    <span>{student?.estudante?.nome+" "+student?.estudante?.sobrenome}</span>
                                 </S.InfoSections>
                                 <S.InfoSections>
                                     <HiAcademicCap/>
-                                    <span>{student?.grau?.designacao}</span>
+                                    <span>{student?.estudante?.grau?.designacao}</span>
                                 </S.InfoSections><S.InfoSections>
                                     <IoMdBusiness/>
-                                    <span>Univ. {student?.universidade?.nome}</span>
+                                    <span>Univ. {student?.estudante?.universidade?.nome}</span>
                                 </S.InfoSections><S.InfoSections>
                                     <FaBookOpen/>
-                                    <span>{student?.curso?.nome}</span>
+                                    <span>{student?.estudante?.curso?.nome}</span>
                                 </S.InfoSections>
                             </S.InfoContainer>
                             <Button type="button">

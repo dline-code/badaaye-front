@@ -1,7 +1,8 @@
 import { useQuery } from "react-query"
-import { getFetchUsers } from "../services"
+import { getFetchStudent } from "../services"
 
 export const useFetchData = () => {
-    const {data:students}=useQuery("students", () => getFetchUsers());
-    return{students}
+    const {data:student}=useQuery("students", () => getFetchStudent());
+    
+    return{student}
 }
