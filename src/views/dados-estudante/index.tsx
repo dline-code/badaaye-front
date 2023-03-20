@@ -4,18 +4,20 @@ import { AiOutlineUser } from 'react-icons/ai'
 import { Form, Formik } from 'formik'
 import { FormControl } from 'src/components/FormControl'
 import Button from 'src/components/button'
-import { inputControls, selectControls } from './utils/formFrame'
+import { inputControls } from './utils/formFrame'
 import * as S from './styles'
 import { UseStudentData } from './hooks/useStudentData'
-import { MdEdit, MdPlace } from 'react-icons/md'
+import * as Md from 'react-icons/md'
 
 export function DadosEstudante() {
   const {
     isFetching,
-    optionsSelects,
-    handleSubmit,
     initialValues,
-    validationShema
+    validationSchema,
+    optionSelects,
+    optionMunicipio,
+    handleChangeTheProvice,
+    handleSubmit
   } = UseStudentData()
 
   if (isFetching) {
@@ -56,10 +58,10 @@ export function DadosEstudante() {
           <S.ContentBody>
             <Formik
               onSubmit={handleSubmit}
-              initialValues={initialValues!}
-              validationSchema={validationShema}
+              initialValues={initialValues}
+              validationSchema={validationSchema}
             >
-              {({ isSubmitting }) => (
+              {({ isSubmitting, handleChange }) => (
                 <Form>
                   <div>
                     {inputControls.map(
@@ -78,26 +80,65 @@ export function DadosEstudante() {
                       )
                     )}
 
-                    {selectControls.map(
-                      ({ id, labelName, name, StarIcon, EndIcon }) => (
-                        <FormControl
-                          key={id}
-                          labelName={labelName}
-                          as="select"
-                          name={name}
-                          options={optionsSelects[name]}
-                          StarIcon={<StarIcon />}
-                          EndIcon={<EndIcon />}
-                          blocked
-                        />
-                      )
-                    )}
+                    <FormControl
+                      labelName={'Grau académico'}
+                      as="select"
+                      name={'grauId'}
+                      options={optionSelects['grauId']}
+                      StarIcon={<Md.MdSchool />}
+                      EndIcon={<Md.MdEdit />}
+                      blocked
+                    />
+
+                    <FormControl
+                      labelName={'Curso'}
+                      as="select"
+                      name={'cursoId'}
+                      options={optionSelects['cursoId']}
+                      StarIcon={<Md.MdBook />}
+                      EndIcon={<Md.MdEdit />}
+                      blocked
+                    />
+
+                    <FormControl
+                      labelName={'Universidade'}
+                      as="select"
+                      name={'universidadeId'}
+                      options={optionSelects['universidadeId']}
+                      StarIcon={<Md.MdDomain />}
+                      EndIcon={<Md.MdEdit />}
+                      blocked
+                    />
+
+                    <FormControl
+                      labelName={'Provincia'}
+                      as="select"
+                      name={'provinciaId'}
+                      options={optionSelects['provinciaId']}
+                      onChange={e => {
+                        handleChange(e)
+                        handleChangeTheProvice(e.target.value)
+                      }}
+                      StarIcon={<Md.MdPlace />}
+                      EndIcon={<Md.MdEdit />}
+                      blocked
+                    />
+
+                    <FormControl
+                      labelName={'Municipio'}
+                      as="select"
+                      name={'municipioId'}
+                      options={optionMunicipio}
+                      StarIcon={<Md.MdPlace />}
+                      EndIcon={<Md.MdEdit />}
+                      blocked
+                    />
 
                     <FormControl
                       labelName="Bairro"
                       name="bairro"
-                      StarIcon={<MdPlace />}
-                      EndIcon={<MdEdit />}
+                      StarIcon={<Md.MdPlace />}
+                      EndIcon={<Md.MdEdit />}
                       required
                       blocked
                     />

@@ -1,11 +1,3 @@
-export type FormDataType = {
-  graus: GrauType[]
-  cursos: CursoType[]
-  universidades: UniversidadeType[]
-  provincias: ProvinciaType[]
-  municipios: MunicipioType[]
-}
-
 export type ProvinciaType = {
   id: string
   designacao: string
@@ -68,23 +60,14 @@ export type RecevedStudentData = {
   enderecoId: string
 }
 
-export type OptionType = {
-  nome: string
-  id: string
-  designacao: string
+export type SelectsType = {
+  grauId: OptionType[]
+  cursoId: OptionType[]
+  universidadeId: OptionType[]
+  provinciaId: OptionType[]
 }
 
-export type OptionsSelects =
-  | {
-      grauId: [Select]
-      cursoId: Select[]
-      universidadeId: [Select]
-      provinciaId: Select[]
-      municipioId: Select[]
-    }
-  | any
-
-export type Select = {
+export type OptionType = {
   desc: any
   value: any
   selected: boolean
