@@ -19,14 +19,15 @@ const getFetchStudentData = async (): Promise<RecevedStudentData> => {
     nome: estudante.nome,
     sobrenome: estudante.sobrenome,
     telefone: telefone.designacao,
-    grauId: estudante.grauId,
-    cursoId: estudante.cursoId,
-    universidadeId: estudante.universidadeId,
-    provinciaId: estudante.endereco?.municipio.provinciaId,
-    municipioId: estudante.endereco?.municipioId,
+    grauId: estudante.grauId || '',
+    cursoId: estudante.cursoId || '',
+    universidadeId: estudante.universidadeId || '',
+    provinciaId: estudante.endereco?.municipio.provinciaId || '',
+    municipioId: estudante.endereco?.municipioId || '',
     bairro: estudante.endereco?.bairro,
     enderecoId: estudante.endereco?.id
   }
+
   return recevedData
 }
 

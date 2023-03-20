@@ -25,7 +25,7 @@ export function FormControl({
         <span>{StarIcon}</span>
         {as === 'select' ? (
           <Field name={name} as={as} disabled={disabled} id={id} {...rest}>
-            <option value="">--- Select ---</option>
+            <option value="">Selecione uma opção</option>
             {options &&
               options.map(({ desc, value, selected }) => (
                 <option value={value} selected={selected} key={value}>
