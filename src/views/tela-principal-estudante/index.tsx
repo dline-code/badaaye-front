@@ -17,11 +17,8 @@ const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
       query:{estudanteId}
     }=useRouter();
 
+    if (isLoading) return <>Loading...</>
     
-    if (isLoading) {
-        return <>Loading...</>
-    }
-    console.log(student);
     return(
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
             <S.Container>
