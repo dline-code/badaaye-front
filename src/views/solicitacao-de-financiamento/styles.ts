@@ -128,7 +128,7 @@ export const ContainerInput = styled.div`
     gap: ${({ theme }) => theme.spacings.xxxxmultipleeight};
     flex: 1;
     .input{
-        border-radius: 0.5rem;
+        /* border-radius: 0.5rem; */
         background: ${({ theme }) => theme.colors.tertiary.xxwhite};
         input{
             background: ${({ theme }) => theme.colors.tertiary.xxwhite};
@@ -197,7 +197,7 @@ export const Select = styled.select`
     background: ${({ theme }) => theme.colors.tertiary.xxwhite};
     padding: 0 ${({ theme }) => theme.spacings.xxxmultipleeight};
     outline: none;
-    border: 0.2rem solid ${({ theme }) => theme.colors.tertiary.gray};
+    border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.gray};
     border-radius: 0.5rem;
     color: ${({ theme }) => theme.colors.tertiary.gray};
     appearance: none;

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 100%;
   height: 4rem;
-  border: 0.2rem solid ${({ theme }) => theme.colors.tertiary.gray};
+  border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.gray};
   border-radius: 0.25rem;
   background: ${({ theme }) => theme.colors.tertiary.white};
   display: flex;
