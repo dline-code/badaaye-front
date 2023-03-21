@@ -11,12 +11,16 @@ import { useFetchData } from "./hooks/useFetchData"
 import { IStudent, PageProps } from "./types"
 
 const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
-    const {student}=useFetchData();
+    const {student,isLoading}=useFetchData();
 
     const {
       query:{estudanteId}
     }=useRouter();
 
+    
+    if (isLoading) {
+        return <>Loading...</>
+    }
     console.log(student);
     return(
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
