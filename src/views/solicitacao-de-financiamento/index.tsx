@@ -61,26 +61,6 @@ const SolicitacaoDeFinanciamentoView:React.FC<PageProps> = (props) => {
                                 />
                             </S.ContainerInput>
                         </S.SectionInput>
-                        <S.SectionInput>
-                            <S.ContainerInput>
-                                <S.Label>Sexo</S.Label>
-                                <div>
-                                <S.Select>
-                                    <S.Option value={""}>Selecione o sexo</S.Option>
-                                </S.Select>
-                                    <IoMdArrowDropdown className="icon2"/>
-                                </div>
-                            </S.ContainerInput>
-                            <S.ContainerInput>
-                                <S.Label>Estado cívil</S.Label>
-                                <div>
-                                <S.Select>                                
-                                    <S.Option value={""}>Ex: Solteiro</S.Option>
-                                </S.Select>
-                                <IoMdArrowDropdown className="icon2"/>
-                                </div>
-                            </S.ContainerInput>
-                        </S.SectionInput>
                         <h2>Dados académicos</h2>
                         <S.Separator/>
                         <S.SectionInput>
