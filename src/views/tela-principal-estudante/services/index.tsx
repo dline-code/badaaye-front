@@ -1,7 +1,7 @@
 import { api } from "src/services/api"
 
-export const getFetchStudent= async () => {
-    const student= await api.get(`/estudante/dados`);
-
+export const getFetchStudent= async (url:string) => {
+    const student= await api.get(url);
+    
     return student.data;
 }
