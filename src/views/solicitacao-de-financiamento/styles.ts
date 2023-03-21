@@ -5,7 +5,7 @@ export const Container = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 230rem;
+    height: 220rem;
 `;
 
 export const Content = styled.div`
@@ -58,7 +58,7 @@ export const FirstSection = styled.div`
 
 export const SecondSection = styled.div`
     width: 60rem;
-    height: 190rem;
+    height: 185rem;
     background: ${({ theme }) => theme.colors.tertiary.xxwhite};
     position: absolute;
     top: 17rem;
@@ -215,7 +215,7 @@ export const LastSection = styled.div`
     background: ${({ theme }) => theme.colors.tertiary.xcinza};
     margin-top: 4rem;
     position: absolute;
-    top: 202rem;
+    top: 190rem;
     border-radius: 0.2rem 0.2rem 0.5rem 0.5rem;
 
     button{
