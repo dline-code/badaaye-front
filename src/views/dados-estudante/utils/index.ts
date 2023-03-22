@@ -18,7 +18,7 @@ const validationSchema = Yup.object({
     .required('número de telefone é obrigatório'),
   grauId: Yup.string().required('Selecione uma das opções'),
   cursoId: Yup.string().required('Selecione uma das opções'),
-  universidadeId: Yup.string(),
+  universidadeId: Yup.string().required('Selecione uma das opções'),
   provinciaId: Yup.string().required('Selecione uma das opções'),
   municipioId: Yup.string().required('Selecione uma das opções'),
   bairro: Yup.string().required('Especifique O bairro que moras')
