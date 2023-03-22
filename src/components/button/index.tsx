@@ -4,7 +4,7 @@ import { ButtonProps } from './type'
 
 const Button: React.FC<ButtonProps> = ({
   type = 'submit',
-  isDisabled = false,
+  disabled,
   onClick,
   children
 }) => {
@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       className={`button btn-submit`}
       onClick={onClick}
-      disabled={isDisabled}
+      disabled={disabled}
     >
       {children}
     </S.Button>

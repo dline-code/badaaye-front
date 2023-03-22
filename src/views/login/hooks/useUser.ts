@@ -4,33 +4,38 @@ import { toast } from "react-toastify";
 import * as yup from "yup";
 import { postFetchUser } from "../services";
 import { IError, IUser } from "../type";
-import {getCookie, setCookie} from "react-use-cookie"
+import { getCookie, setCookie } from "react-use-cookie"
+import { useRouter } from "next/router"
 
 import LoginView from "../index"
+import { useState } from "react";
 
-const UseUser = () => {    
-    
+const UseUser = () => {
+
+    const router = useRouter()
+    const [isSubmitting, setIsSubmitting] = useState(false)
+
     async function LoginRequest(data: IUser) {
-        var btn_submit = document.querySelector(".btn-submit");
-        try{
+        setIsSubmitting(true)
+        try {
             const response = await postFetchUser(data)
             if (response) {
-                btn_submit?.setAttribute("disabled", `${true}`)
-                btn_submit?.classList.add("btn-disabled")
-                
                 toast("Login feito com sucesso", { autoClose: 2000, type: "success" })
                 setCookie("baadaye-token", response.token)
-                console.log(btn_submit)
-                window.location.href = "/tela-principal-estudante";
+                router.push("/tela-principal-estudante");
             }
-        } catch(err){
+        } catch (err) {
             const error = err as IError
             toast(error.response?.data?.error, { autoClose: 2000, type: "error" })
-        }   
+        } finally {
+            setTimeout(() => {
+                setIsSubmitting(false)
+            }, 5000);
+        }
     }
-    
+
     const formik = useFormik({
-        initialValues:{
+        initialValues: {
             email: '',
             senha: '',
         },
@@ -39,16 +44,17 @@ const UseUser = () => {
                 .string()
                 .email("Email não válido")
                 .required("Campo obrigatório"),
-            
+
             senha: yup
                 .string()
                 .required("Campo obrigatório"),
         }),
-        onSubmit: (data) => LoginRequest(data)
+        onSubmit: (data) => { LoginRequest(data) }
     })
-    
-    return{
+
+    return {
         formik,
+        isSubmitting
     }
 
 }

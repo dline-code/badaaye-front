@@ -19,7 +19,7 @@ import { UseUser } from './hooks/useUser'
 const Login: NextPage = () => {
   const [isBtnDisabled, setIsBtnDisabled] = useState(false)
 
-  const { formik } = UseUser();
+  const { formik, isSubmitting } = UseUser();
 
   useEffect(() => {
     setCookie("badaaye", "")
@@ -71,7 +71,9 @@ const Login: NextPage = () => {
             <a>Esqueceu a sua senha?</a>
           </Link>
         </S.ForgetPasswordLink>
-        <Button>Entrar</Button>
+        <Button disabled={isSubmitting}>
+          {isSubmitting ? 'Enviando': 'Enviar'}
+        </Button>
         <S.CreateAccountLink>
           <Link href='parceiro'><a>Não tenho uma conta? Criar conta</a></Link>
         </S.CreateAccountLink>
