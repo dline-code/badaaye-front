@@ -3,10 +3,11 @@ import * as S from './styles'
 import { InputContainerProps } from './type'
 import { IoEye, IoEyeOff } from 'react-icons/io5'
 
-const input: React.FC<InputContainerProps> = ({
+const Input: React.FC<InputContainerProps> = ({
   icon,
   type,
   open,
+  label,
   ...rest
 }) => {
   const [passwordType, setPasswordType] = useState<'password'|'text'>('password');
@@ -16,7 +17,8 @@ const input: React.FC<InputContainerProps> = ({
   }
   return (
     <S.Container className="input">
-      <span>{icon}</span>
+      {label ? (<span>{label}</span>) : null}
+      {icon ? (<span>{icon}</span>) : null}
       <S.Input type={type === 'password' ? passwordType: type} {...rest} required/>
       <span onClick={ShowHidePassword}>
         {type === 'password' ? (passwordType === 'password' ? <IoEyeOff /> : <IoEye />) : null} 
@@ -25,4 +27,4 @@ const input: React.FC<InputContainerProps> = ({
   )
 }
 
-export default input
+export default Input
