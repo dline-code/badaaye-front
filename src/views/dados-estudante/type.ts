@@ -58,13 +58,9 @@ export type RecevedStudentData = {
   municipioId: string
   bairro: string
   enderecoId: string
-  // dataNascimento:string
-  // loginId:string
 }
 
 export type SendStudentData = {
-  // dataNascimento:string
-  // loginId:string
   enderecoId: string
   nome: string
   sobrenome: string

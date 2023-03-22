@@ -6,7 +6,6 @@ import {
   AddressSend,
   ProvinciaType,
   RecevedStudentData,
-  SendStudentData,
   UniversidadeType,
   UpdateStudentData
 } from '../type'
@@ -43,8 +42,6 @@ const putFetchStudentData = async (data: RecevedStudentData) => {
   }
 
   const studentData = {
-    // dataNascimento:data.da,
-    // loginId:data.l,
     enderecoId: data.enderecoId,
     nome: data.nome,
     sobrenome: data.sobrenome,
