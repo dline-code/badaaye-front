@@ -6,11 +6,11 @@ import GlobalStyles from '../styles/global'
 import { theme } from '../styles/theme'
 import { Layout } from '../components/layout'
 import 'aos/dist/aos.css'
+
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { QueryClientProvider } from 'react-query'
 import { queryClient } from 'src/services/queryClient'
-
 
 type NextPageWithLayout = NextPage & {
   Layout?: ComponentType
@@ -28,6 +28,7 @@ type EmptyLayoutProps = {
 const EmptyLayout = ({ children }: EmptyLayoutProps) => <>{children}</>
 
 function MyApp({ Component, pageProps, err }: AppPropsWithLayout) {
+
   const ComponentLayout = Component.Layout?Component.Layout:React.Fragment;
   
   return (
