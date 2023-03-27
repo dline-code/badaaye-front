@@ -4,11 +4,17 @@ import { ButtonProps } from './type'
 
 const Button: React.FC<ButtonProps> = ({
   type = 'submit',
+  disabled,
   onClick,
   children
 }) => {
   return (
-    <S.Button type={type} onClick={onClick} className="button">
+    <S.Button
+      type={type}
+      className={`button btn-submit`}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </S.Button>
   )
