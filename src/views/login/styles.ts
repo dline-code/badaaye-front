@@ -55,7 +55,6 @@ export const Form = styled.form`
   .button{
     margin: 3.2rem 0;
   }
-
   @media screen and (max-width: 511px){
     width: 100%;
     margin-bottom: 0;

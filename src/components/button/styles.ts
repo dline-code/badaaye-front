@@ -9,7 +9,11 @@ export const Button = styled.button`
   background: ${({ theme }) => theme.colors.primary.xblue};
   color: ${({ theme }) => theme.colors.tertiary.white};
   font-size: ${({ theme }) => theme.font.sizes.midle};
+  &.btn-disabled{
+    cursor: default !important;
+    filter: brightness(0.7);
 
+  }
   :hover {
     cursor: pointer;
     filter: brightness(0.7);
