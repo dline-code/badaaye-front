@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from 'react'
-import {setCookie, getCookie} from "react-use-cookie"
+import { setCookie, getCookie } from "react-use-cookie"
 import Link from 'next/link'
 import type { NextPage } from 'next'
 import * as S from './styles'
@@ -22,7 +22,7 @@ const Login: NextPage = () => {
   const { formik, isSubmitting } = UseUser();
 
   useEffect(() => {
-    setCookie("badaaye", "")
+    setCookie("badaaye-token", "")
   }, [])
 
   return (

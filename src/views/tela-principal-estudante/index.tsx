@@ -1,3 +1,6 @@
+import React from "react"
+import { ReactNode, useEffect, useState, useLayoutEffect } from 'react'
+import { setCookie, getCookie } from "react-use-cookie"
 import { Layout } from "src/components/layout"
 import * as S from "./styles"
 import Button from "../../components/button"
@@ -5,8 +8,9 @@ import { RiUser3Fill } from "react-icons/ri"
 import { HiAcademicCap } from "react-icons/hi"
 import { IoMdBusiness } from "react-icons/io"
 import { FaBookOpen } from "react-icons/fa"
-import React from "react"
 import { useRouter } from "next/router"
+
+import {AuthContext, AuthProvider} from "../../context/auth-content"
 
 interface PageProps {
     hideFooter?: boolean;
@@ -14,7 +18,17 @@ interface PageProps {
 }
 
 const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
-    const router=useRouter();
+  const router = useRouter();
+  const authContext = React.useContext(AuthContext);
+
+  useLayoutEffect(() => {
+    const token = getCookie("baadaye-token");
+
+    //authContext.isUserAuthenticated()
+    token
+    ? router.push("/tela-principal-estudante")
+    : router.push("/login");
+  }, []);
 
     const {
       query:{estudanteId}
