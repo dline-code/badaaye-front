@@ -24,7 +24,6 @@ const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
   useLayoutEffect(() => {
     const token = getCookie("baadaye-token");
 
-    //authContext.isUserAuthenticated()
     token
     ? router.push("/tela-principal-estudante")
     : router.push("/login");
