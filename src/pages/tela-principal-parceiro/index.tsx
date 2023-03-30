@@ -1,12 +1,12 @@
 import { NextPage } from "next"
-import { TelaPrincipalEstudanteView } from "src/views/tela-principal-estudante"
+import { TelaPrincipalParceiroView } from "src/views/tela-principal-parceiro"
 import { Layout } from "../../components/layout"
 
 
-const TelaPrincipalEstudante: NextPage = () => {
+const TelaPrincipalParceiro: NextPage = () => {
 
-    return(<TelaPrincipalEstudanteView/>)
+    return(<TelaPrincipalParceiroView/>)
 }
 
 
-export default TelaPrincipalEstudante 
+export default TelaPrincipalParceiro 

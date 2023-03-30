@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    height: 80rem;
+    height: auto;
 `;
 
 export const Content = styled.div`
@@ -75,7 +75,7 @@ export const ContentRight = styled.div`
     @media screen and (max-width: 1010px) {
         width: 100%;
         position: relative;
-        top: 20rem;
+        top: 10rem;
     }
 `
 export const FirstSection = styled.div`
@@ -182,6 +182,60 @@ export const CardContentRight = styled.div`
 `
 
 export const CardContentRightBottom = styled.div`
+    width: 60rem;
+    height: 28rem;
+    border-radius: 1rem;
+    background: ${({ theme }) => theme.colors.tertiary.xxwhite};
+    position: absolute;
+    top: 82rem;
+    padding: 3rem 6rem;
+    display: flex;
+    flex-direction: column;
+    p{
+        margin-top: 2rem;
+        width: 90%;
+        color: ${({ theme }) => theme.colors.linear.darkBlue};
+        text-align: left;
+        font-size: 1.6rem;
+    }
+
+    @media screen and (max-width: 1010px) {
+        top: 92rem; 
+        padding: 2rem 3rem;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 2rem 3rem;
+        width: 100%;
+
+        button{
+            width: 90%;
+            height: 3rem;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        padding: 2rem 3rem;
+        width: 100%;
+        
+    }
+
+    div{
+        width: 25rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+
+        button{
+            height: 5rem;
+        }
+    }
+`
+
+
+export const CardContentRightMiddle = styled.div`
     width: 60rem;
     height: 28rem;
     border-radius: 1rem;

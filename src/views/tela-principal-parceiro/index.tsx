@@ -20,8 +20,8 @@ const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
                             Bem-vindo
                         </S.Title>
                         <S.Description>
-                            Somos uma plataforma de bolsas
-                            que conecta você com financiadores
+                            Contribua para a garantia do sucesso
+                            académico dos estudantes angolanos
                         </S.Description>
                         <S.CardContentLeft>
                             <h2>
@@ -31,61 +31,67 @@ const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
                             <S.InfoContainer>
                                 <S.InfoSections>
                                     <RiUser3Fill/>
-                                    <span></span>
+                                    <span>Nome do parceiro</span>
                                 </S.InfoSections>
                                 <S.InfoSections>
                                     <HiAcademicCap/>
-                                    <span></span>
+                                    <span>Tipo de parceiro</span>
                                 </S.InfoSections><S.InfoSections>
                                     <IoMdBusiness/>
-                                    <span></span>
+                                    <span>Área de interesse</span>
                                 </S.InfoSections><S.InfoSections>
                                     <FaBookOpen/>
-                                    <span></span>
+                                    <span>Número de telefone</span>
                                 </S.InfoSections>
                             </S.InfoContainer>
                             <Button type="button">
-                                ver dados completos
+                                Meus dados
                             </Button>
                         </S.CardContentLeft>
                     </S.ContentLeft>
                     <S.ContentRight>
-                        <S.FirstSection>
-                            <S.Title>
-                                Bolsas
-                            </S.Title>
-                            <S.Description>
-                                Encontre o financiamento que precisa
-                                para os seus estudos
-                            </S.Description>
-                        </S.FirstSection>
                         <S.CardContentRight>
                             <h2>
-                                Financiamento
+                                Lista de estudantes
                             </h2>
                             <S.Separator/>
                             <p>
-                                Com auxilo dos parceiros e apoiadores ajudamos você
-                                a obter a bolsa de estudo que vai reduzir as despesas académicas.
+                                Com auxílio dos parceiros e apoiadores ajudamos
+                                você a obter a bolsa de estudo que vai reduzir as suas despesas académicas.
                             </p>
                             <div>
                                 <Button type="button">
-                                    ver dados completos
+                                    Saber mais
                                 </Button>
                             </div>
-                            </S.CardContentRight>
-                        <S.CardContentRightBottom>
+                        </S.CardContentRight>
+                        <S.CardContentRightMiddle>
                             <h2>
-                                Auxilio académico
+                                Lista de Solicitações
                             </h2>
                             <S.Separator/>
                             <p>
-                                Com auxilo dos parceiros e apoiadores ajudamos você
-                                a obter a bolsa de estudo que vai reduzir as despesas académicas.
+                                Com auxílio dos parceiros e apoiadores ajudamos
+                                você a obter a bolsa de estudo que vai reduzir as suas despesas académicas.
                             </p>
                             <div>
                                 <Button type="button">
-                                    ver dados completos
+                                    Saber mais
+                                </Button>
+                            </div>
+                        </S.CardContentRightMiddle>
+                        <S.CardContentRightBottom>
+                            <h2>
+                                Área de pagamento
+                            </h2>
+                            <S.Separator/>
+                            <p>
+                                Com auxílio dos parceiros e apoiadores ajudamos
+                                você a obter a bolsa de estudo que vai reduzir as suas despesas académicas.
+                            </p>
+                            <div>
+                                <Button type="button">
+                                    Saber mais
                                 </Button>
                             </div>
                         </S.CardContentRightBottom>
