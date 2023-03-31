@@ -1,5 +1,5 @@
 import React from "react"
-import { ReactNode, useEffect, useState, useLayoutEffect } from 'react'
+import { ReactNode, useEffect, useState} from 'react'
 import { setCookie, getCookie } from "react-use-cookie"
 import { Layout } from "src/components/layout"
 import * as S from "./styles"
@@ -22,8 +22,8 @@ interface PageProp {
 const TelaPrincipalEstudanteView:React.FC<PageProp> = (props) =>{
   const router = useRouter();
   const authContext = React.useContext(AuthContext);
-
-  useLayoutEffect(() => {
+   
+  useEffect(() => {
     const token = getCookie("baadaye-token");
 
     token
