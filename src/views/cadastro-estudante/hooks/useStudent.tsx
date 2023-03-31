@@ -14,7 +14,7 @@ const UseStudent = () => {
         try{
             const student = await postFecthStudent1(data)  
             if(student){
-                toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"})
+                toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"});
 
                 Router.push({
                     pathname: '/cadastro-estudante-parte2',

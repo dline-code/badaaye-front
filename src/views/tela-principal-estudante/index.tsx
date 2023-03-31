@@ -8,16 +8,18 @@ import { RiUser3Fill } from "react-icons/ri"
 import { HiAcademicCap } from "react-icons/hi"
 import { IoMdBusiness } from "react-icons/io"
 import { FaBookOpen } from "react-icons/fa"
+import { useFetchData } from "./hooks/useFetchData"
+import { IStudent, PageProps } from "./types"
 import { useRouter } from "next/router"
 
 import {AuthContext, AuthProvider} from "../../context/auth-content"
 
-interface PageProps {
+interface PageProp {
     hideFooter?: boolean;
     isLogged?: boolean;
 }
 
-const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
+const TelaPrincipalEstudanteView:React.FC<PageProp> = (props) =>{
   const router = useRouter();
   const authContext = React.useContext(AuthContext);
 
@@ -29,10 +31,14 @@ const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
     : router.push("/login");
   }, []);
 
+    const {student,isLoading}=useFetchData();
+
     const {
       query:{estudanteId}
-    }=router;
-    
+    }=useRouter();
+
+    if (isLoading) return <>Carregando...</>
+
     return(
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
             <S.Container>
@@ -53,17 +59,17 @@ const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
                             <S.InfoContainer>
                                 <S.InfoSections>
                                     <RiUser3Fill/>
-                                    <span>Osvaldo Sousa</span>
+                                    <span>{student?.estudante?.nome+" "+student?.estudante?.sobrenome}</span>
                                 </S.InfoSections>
                                 <S.InfoSections>
                                     <HiAcademicCap/>
-                                    <span>Ensino Superior</span>
+                                    <span>{student?.estudante?.grau?.designacao}</span>
                                 </S.InfoSections><S.InfoSections>
                                     <IoMdBusiness/>
-                                    <span>Univ. Agostinho Neto</span>
+                                    <span>Univ. {student?.estudante?.universidade?.nome}</span>
                                 </S.InfoSections><S.InfoSections>
                                     <FaBookOpen/>
-                                    <span>Engenharia Informática</span>
+                                    <span>{student?.estudante?.curso?.nome}</span>
                                 </S.InfoSections>
                             </S.InfoContainer>
                             <Button type="button">
