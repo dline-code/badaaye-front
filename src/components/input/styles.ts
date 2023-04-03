@@ -16,6 +16,7 @@ export const Container = styled.div`
       border-color: var(--cui-input-focus-border-color, ${({ theme }) => theme.colors.primary.xblue});
       box-shadow: 0 0 0 0.25rem rgb(20 31 255 / 25%);
       color: var(--cui-input-focus-color, rgba(44, 56, 74, 0.95));
+      background-color: var(--cui-input-focus-bg, #fff);
     }
   svg {
     color: ${({ theme }) => theme.colors.secondary.xxxblue};
