@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 4rem;
   border: 0.2rem solid ${({ theme }) => theme.colors.tertiary.gray};
   border-radius: 0.25rem;
-  background: ${({ theme }) => theme.colors.tertiary.white};
+  background: ${({ theme }) => theme.colors.tertiary.contrast};
   display: flex;
   align-items: center;
   padding: 2rem 1rem;
@@ -13,12 +13,14 @@ export const Container = styled.div`
   position: relative;
   :has(> input:focus){
       border-color: ${({ theme }) => theme.colors.primary.xblue};
+      border-color: var(--cui-input-focus-border-color, ${({ theme }) => theme.colors.primary.xblue});
+      box-shadow: 0 0 0 0.25rem rgb(20 31 255 / 25%);
+      color: var(--cui-input-focus-color, rgba(44, 56, 74, 0.95));
     }
   svg {
     color: ${({ theme }) => theme.colors.secondary.xxxblue};
   }
   span {
-    width: 10%;
     height: 2rem;
     display: flex;
     align-items: center;
@@ -38,8 +40,9 @@ export const Container = styled.div`
   }
 `
 export const Input = styled.input`
-  width: 80%;
+  flex: 1;
   height: 2rem;
   margin-left: 1rem;
   border: none;
+  background: transparent;
 `

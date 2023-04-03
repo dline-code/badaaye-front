@@ -47,11 +47,11 @@ export const ContainerField = styled.div`
   justify-content: flex-start;
   color: ${({ theme }) => theme.colors.secondary.xxxblue};
   margin-top: ${({ theme }) => theme.spacings.xxmultipleeight};
-  input {
+  /*input {
     border: none;
     background: ${({ theme }) => theme.colors.tertiary.contrast};
     padding: 0.7rem;
-    width: 40rem;
+    width: 100%;
     height: 4.3rem;
     border: 0.109rem solid ${({ theme }) => theme.colors.tertiary.gray};
     border-radius: 0.25rem;
@@ -60,12 +60,12 @@ export const ContainerField = styled.div`
     color: ${({ theme }) => theme.colors.secondary.xxxblue};
     :focus {
       background-color: var(--cui-input-focus-bg, #fff);
-      border-color: var(--cui-input-focus-border-color, #5c63ef);
-      box-shadow: 0 0 0 0.25rem rgb(50 31 219 / 25%);
+      border-color: var(--cui-input-focus-border-color, ${({ theme }) => theme.colors.primary.xblue});
+      box-shadow: 0 0 0 0.25rem rgb(20 31 255 / 25%);
       color: var(--cui-input-focus-color, rgba(44, 56, 74, 0.95));
       outline: 0;
     }
-
+    */
     @media screen and (max-width: 500px) {
       width: 100%;
     }
@@ -76,8 +76,19 @@ export const ContainerField = styled.div`
     margin-bottom: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   }
 
-  .sms {
+  textarea{
     height: 12rem;
+    resize:none;
+    border: 0.2rem solid ${({ theme }) => theme.colors.tertiary.gray};
+    border-radius: 0.25rem;
+    padding: 1rem;
+    font-size ${({ theme }) => theme.font.sizes.midle};
+    background: ${({ theme }) => theme.colors.tertiary.contrast};
+    :focus{
+      border-color: var(--cui-input-focus-border-color, ${({ theme }) => theme.colors.primary.xblue});
+      box-shadow: 0 0 0 0.25rem rgb(20 31 255 / 25%);
+      color: var(--cui-input-focus-color, rgba(44, 56, 74, 0.95));
+    }
   }
 `
 
