@@ -24,7 +24,12 @@ const UseUser = () => {
                 setCookie("baadaye-token", response.token)
 
                 if (response?.tipo_usuario == "parceiro") {
-                    router.push("/tela-principal-parceiro");
+                    router.push({
+                        pathname: "/tela-principal-parceiro",
+                        query: {
+                            parceiroId: response?.usuario?.id
+                        }
+                    });
                 } else if (response?.tipo_usuario == "parceiro") {
                     router.push("/tela-principal-estudante");
                 } else {
