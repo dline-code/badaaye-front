@@ -11,23 +11,6 @@ import { useRouter } from "next/router"
 import { useFetch } from "src/hooks/useFetch"
 
 const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
-    const router = useRouter()
-
-    const { parceiroId } = router.query
-
-    const { data:parceiro, isLoading, error } = useFetch(`/parceiro/${parceiroId}`)
-    const { data:areaInteresse } = useFetch(`/areaInteresse/${parceiroId}`)
-    const { data:contacto } = useFetch(`/contacto/${parceiroId}`)
-
-    if(isLoading) return <h1 style={{
-        textAlign: 'center',
-        marginTop: "50vh"
-    }}>Loading...</h1>
-    if(error) return <h1>Error</h1>
-
-    
-
-    
     
     return(
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
@@ -49,17 +32,17 @@ const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
                             <S.InfoContainer>
                                 <S.InfoSections>
                                     <RiUser3Fill/>
-                                    <span>{parceiro?.nome}</span>
+                                    <span>{}</span>
                                 </S.InfoSections>
                                 <S.InfoSections>
                                     <HiAcademicCap/>
-                                    <span>{parceiro?.tipoParceiro?.designacao}</span>
+                                    <span>{}</span>
                                 </S.InfoSections><S.InfoSections>
                                     <IoMdBusiness/>
-                                    <span>{areaInteresse ? areaInteresse[0]?.area?.designacao : null}</span>
+                                    <span>{}</span>
                                 </S.InfoSections><S.InfoSections>
                                     <FaBookOpen/>
-                                    <span>{contacto ? contacto[1]?.designacao : null}</span>
+                                    <span>{}</span>
                                 </S.InfoSections>
                             </S.InfoContainer>
                             <Button type="button">
