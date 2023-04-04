@@ -25,10 +25,8 @@ const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
     }}>Loading...</h1>
     if(error) return <h1>Error</h1>
 
-    console.log(parceiro);
     
 
-    console.log(parceiroId);
     
     
     return(
@@ -61,7 +59,7 @@ const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
                                     <span>{areaInteresse ? areaInteresse[0]?.area?.designacao : null}</span>
                                 </S.InfoSections><S.InfoSections>
                                     <FaBookOpen/>
-                                    <span>{contacto ? contacto[1].designacao : null}</span>
+                                    <span>{contacto ? contacto[1]?.designacao : null}</span>
                                 </S.InfoSections>
                             </S.InfoContainer>
                             <Button type="button">
