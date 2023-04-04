@@ -30,7 +30,7 @@ const UseUser = () => {
                             parceiroId: response?.usuario?.id
                         }
                     });
-                } else if (response?.tipo_usuario == "parceiro") {
+                } else if (response?.tipo_usuario == "estudante") {
                     router.push("/tela-principal-estudante");
                 } else {
                     toast.error("Erro inesperado!")
