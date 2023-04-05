@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
@@ -14,7 +12,7 @@ import RadioBox from 'src/components/radiobox'
 import { MdEmail } from 'react-icons/md'
 import { HiUser, HiArrowNarrowLeft } from 'react-icons/hi'
 import { RiLockPasswordFill } from 'react-icons/ri'
-import { BsBriefcaseFill, BsFillTelephoneFill, BsPhoneFill } from 'react-icons/bs'
+import { BsBriefcaseFill, BsPhoneFill } from 'react-icons/bs'
 
 const Parceiro: NextPage = () => {
   return (
