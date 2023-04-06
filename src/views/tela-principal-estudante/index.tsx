@@ -1,16 +1,23 @@
 import React from "react"
 import { ReactNode, useEffect, useState} from 'react'
+import Link from "next/link"
+
 import { setCookie, getCookie } from "react-use-cookie"
-import { Layout } from "src/components/layout"
+
 import * as S from "./styles"
+
+import { Layout } from "src/components/layout"
 import Button from "../../components/button"
+
+
 import { RiUser3Fill } from "react-icons/ri"
 import { HiAcademicCap } from "react-icons/hi"
 import { IoMdBusiness } from "react-icons/io"
 import { FaBookOpen } from "react-icons/fa"
+
 import { useFetchData } from "./hooks/useFetchData"
 import { IStudent, PageProps } from "./types"
-import { useRouter } from "next/router"
+import { useRouter} from "next/router"
 
 import {AuthContext, AuthProvider} from "../../context/auth-content"
 
@@ -32,10 +39,6 @@ const TelaPrincipalEstudanteView:React.FC<PageProp> = (props) =>{
   }, []);
 
     const {student,isLoading}=useFetchData();
-
-    const {
-      query:{estudanteId}
-    }=useRouter();
 
     if (isLoading) return <>Carregando...</>
 
@@ -72,7 +75,7 @@ const TelaPrincipalEstudanteView:React.FC<PageProp> = (props) =>{
                                     <span>{student?.estudante?.curso?.nome}</span>
                                 </S.InfoSections>
                             </S.InfoContainer>
-                            <Button type="button">
+                            <Button type="button" onClick={()=>router.push({pathname: '/dados-do-estudante'})}>
                                 ver dados completos
                             </Button>
                         </S.CardContentLeft>

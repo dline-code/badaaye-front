@@ -22,6 +22,8 @@ const UseUser = () => {
             if (response) {
                 toast("Login feito com sucesso", { autoClose: 2000, type: "success" })
                 setCookie("baadaye-token", response.token)
+                const token = getCookie("baadaye-token")
+                console.log(token)
                 router.push("/tela-principal-estudante");
             }
         } catch (err) {
