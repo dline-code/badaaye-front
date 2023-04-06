@@ -157,3 +157,11 @@ export const Text = styled(TextBack)`
 export const LinkDescription = styled.span`
   margin-left: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
 `
+export const ErrorMessage = styled.label`
+  color: #c70606;
+  position: relative;
+  margin-left: 0.2rem;
+  top: 0.3rem;
+  font-weight: 400;
+  font-size: ${({ theme }) => theme.font.sizes.midle};
+`
