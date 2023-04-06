@@ -13,8 +13,15 @@ import { MdEmail } from 'react-icons/md'
 import { HiUser, HiArrowNarrowLeft } from 'react-icons/hi'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { BsBriefcaseFill, BsPhoneFill } from 'react-icons/bs'
+import { useFetchData } from './hook/useFetchData'
 
 const Parceiro: NextPage = () => {
+  const {partnerType,isLoading}=useFetchData();
+
+
+  if(isLoading)
+    return <>Carregando</>
+
   return (
     <S.Wrapper>
       <S.Form>
@@ -32,7 +39,7 @@ const Parceiro: NextPage = () => {
         <S.SelectContainer>
           <Select
             title="parceiro"
-            options={[{nome:"parceiro1",id:"1"}, {nome:"Parceiro2",id:"2"}]}
+            options={partnerType}
             icon={<BsBriefcaseFill />}
           />
         </S.SelectContainer>
