@@ -12,15 +12,9 @@ import { useFetch } from "src/hooks/useFetch"
 import { usePartner } from "./hooks/usePartner"
 
 const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
-
     const { options } = usePartner()
-
     const { data: Partner, isLoading } = useFetch("/parceiro/dados", options);
-
-    console.log(Partner, "logadooo");
-
-    if(isLoading) return <h2>Loading...</h2>
-    
+    if(isLoading) return <h2>Loading...</h2>    
     
     return(
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
