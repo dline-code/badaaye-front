@@ -10,15 +10,13 @@ import { PageProps } from "./types"
 import { useRouter } from "next/router"
 import { useFetch } from "src/hooks/useFetch"
 import { getCookie } from "react-use-cookie"
+import { usePartner } from "./hooks/usePartner"
 
 const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
 
-    const token = getCookie("baadaye-token");
-    const { data: Partner, isLoading } = useFetch("/parceiro/dados", {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    });
+    const { options } = usePartner()
+
+    const { data: Partner, isLoading } = useFetch("/parceiro/dados", options);
 
     console.log(Partner, "logadoo");
 
