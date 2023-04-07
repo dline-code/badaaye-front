@@ -6,16 +6,13 @@ import { HiAcademicCap } from "react-icons/hi"
 import { IoMdBusiness } from "react-icons/io"
 import { FaBookOpen } from "react-icons/fa"
 import React from "react"
-import { useRouter } from "next/router"
 import { useFetchData } from "./hooks/useFetchData"
-import { IStudent, PageProps } from "./types"
+import { PageProps } from "./types"
+import Link from "next/link"
+import Router from "next/router"
 
 const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
     const {student,isLoading}=useFetchData();
-
-    const {
-      query:{estudanteId}
-    }=useRouter();
 
     if (isLoading) return <>Carregando...</>
 
@@ -52,7 +49,7 @@ const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
                                     <span>{student?.estudante?.curso?.nome}</span>
                                 </S.InfoSections>
                             </S.InfoContainer>
-                            <Button type="button">
+                            <Button type="button" onClick={()=>Router.push({pathname: '/dados-do-estudante'})}>
                                 ver dados completos
                             </Button>
                         </S.CardContentLeft>

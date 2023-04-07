@@ -9,8 +9,21 @@ import React from "react"
 import { PageProps } from "./types"
 import { useRouter } from "next/router"
 import { useFetch } from "src/hooks/useFetch"
+import { getCookie } from "react-use-cookie"
 
 const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
+
+    const token = getCookie("baadaye-token");
+    const { data: Partner, isLoading } = useFetch("/parceiro/dados", {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
+    console.log(Partner, "logadoo");
+
+    if(isLoading) return <h2>Loading...</h2>
+    
     
     return(
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
