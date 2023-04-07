@@ -293,3 +293,7 @@ export const Separator = styled.hr`
     margin-top: 2rem;
     color: ${({ theme }) => theme.colors.tertiary.xwhite};
 `
+
+export const Loading = styled.h2`
+    color: black;
+`

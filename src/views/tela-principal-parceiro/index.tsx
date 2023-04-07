@@ -1,15 +1,14 @@
 import { Layout } from "src/components/layout"
 import * as S from "./styles"
 import Button from "../../components/button"
-import { RiUser3Fill } from "react-icons/ri"
-import { HiAcademicCap } from "react-icons/hi"
-import { IoMdBusiness } from "react-icons/io"
+import { BsFillTelephoneFill } from "react-icons/bs"
+import { HiUsers } from "react-icons/hi"
 import { FaBookOpen } from "react-icons/fa"
+import { IoMdSchool } from "react-icons/io"
+import { BsBagDashFill } from "react-icons/bs"
 import React from "react"
 import { PageProps } from "./types"
-import { useRouter } from "next/router"
 import { useFetch } from "src/hooks/useFetch"
-import { getCookie } from "react-use-cookie"
 import { usePartner } from "./hooks/usePartner"
 
 const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
@@ -18,7 +17,7 @@ const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
 
     const { data: Partner, isLoading } = useFetch("/parceiro/dados", options);
 
-    console.log(Partner, "logadoo");
+    console.log(Partner, "logadooo");
 
     if(isLoading) return <h2>Loading...</h2>
     
@@ -42,18 +41,18 @@ const TelaPrincipalParceiroView:React.FC<PageProps> = (props) =>{
                             <S.Separator/>
                             <S.InfoContainer>
                                 <S.InfoSections>
-                                    <RiUser3Fill/>
-                                    <span>{}</span>
+                                    <HiUsers/>
+                                    <span>{Partner?.parceiro?.nome}</span>
                                 </S.InfoSections>
                                 <S.InfoSections>
-                                    <HiAcademicCap/>
-                                    <span>{}</span>
+                                    <BsBagDashFill/>
+                                    <span>{Partner?.parceiro?.tipoParceiro?.designacao}</span>
                                 </S.InfoSections><S.InfoSections>
-                                    <IoMdBusiness/>
-                                    <span>{}</span>
+                                    <IoMdSchool/>
+                                    <span>{Partner?.email?.designacao}</span>
                                 </S.InfoSections><S.InfoSections>
-                                    <FaBookOpen/>
-                                    <span>{}</span>
+                                    <BsFillTelephoneFill/>
+                                    <span>{Partner?.telefone?.designacao}</span>
                                 </S.InfoSections>
                             </S.InfoContainer>
                             <Button type="button">
