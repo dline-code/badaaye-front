@@ -6,7 +6,7 @@ export const getPartnerType = async () => {
     return partnerType.data;
 }
 
-export const postPartner = async (data:IPartner) => {
-    const partner = await api.post(`/cadastro/parceiro/1`,data);
+export const postPartner = async (url:string,data:IPartner) => {
+    const partner = await api.post(url,data);
     return partner.data;
 }
