@@ -17,8 +17,8 @@ import { useFetchData } from './hook/useFetchData'
 import { usePartner } from './hook/usePartner'
 
 const Parceiro: NextPage = () => {
-  const {partnerType,isLoading}=useFetchData();
-  const {formik}=usePartner('/cadastro/parceiro/1');
+  const {partnerType,isLoading}=useFetchData(`/tipoParceiro`);
+  const {formik}=usePartner();
 
   if(isLoading)
     return <>Carregando...</>

@@ -5,11 +5,11 @@ import * as yup from "yup";
 import { postPartner } from "../services";
 import Router from "next/router";
 
-export const usePartner=(url:string)=>{
+export const usePartner=()=>{
 
     const partnerResistration = async (data:IPartner) => {
         try{
-            const partner = await postPartner(url,data);
+            const partner = await postPartner(data);
 
             if(partner){
                 toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"});
