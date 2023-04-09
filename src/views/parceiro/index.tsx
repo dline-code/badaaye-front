@@ -21,7 +21,7 @@ const Parceiro: NextPage = () => {
   const {formik}=usePartner();
 
   if(isLoading)
-    return <>Carregando</>
+    return <>Carregando...</>
 
   return (
     <S.Wrapper>

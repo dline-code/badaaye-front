@@ -3,12 +3,22 @@ import { IErrorInterface, IPartner } from "../type"
 import { toast } from "react-toastify"
 import * as yup from "yup";
 import { postPartner } from "../services";
+import Router from "next/router";
 
 export const usePartner=()=>{
 
     const partnerResistration = async (data:IPartner) => {
         try{
             const partner = await postPartner(data);
+
+            if(partner){
+                toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"});
+
+                Router.push({
+                    pathname: '/cadastro-parceiro-parte2',
+                    query: { estudanteId: partner.usuario.id},
+                });
+            }            
         }catch(err){
             const error = err as IErrorInterface
             toast(error.response?.data?.error, {autoClose: 2000, type: "error"})
