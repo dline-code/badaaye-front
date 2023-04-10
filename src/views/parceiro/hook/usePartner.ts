@@ -16,7 +16,7 @@ export const usePartner=()=>{
 
                 Router.push({
                     pathname: '/cadastro-parceiro-parte2',
-                    query: { estudanteId: partner.usuario.id},
+                    query: { parceiroId: partner.usuario.id},
                 });
             }            
         }catch(err){

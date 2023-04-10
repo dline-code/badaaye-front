@@ -48,6 +48,7 @@ export const BadayeInfo = styled.div`
   margin-left: 9rem;
   @media screen and  (max-width: 768px) {
     margin:auto;
+  }
 `;
 
 export const TextArea = styled.textarea`
@@ -58,7 +59,7 @@ export const TextArea = styled.textarea`
   font-size: 1.4rem;
   border: 0.2rem solid ${({ theme }) => theme.colors.tertiary.gray};
   background: ${({ theme }) => theme.colors.tertiary.white};
-  margin:${({theme})=>theme.spacings.xxxmultipleeight} 0;
+  margin-top:${({theme})=>theme.spacings.xxxmultipleeight}; 
   padding: ${({theme})=>theme.spacings.xxxxmultipleeight};
 `;
 
@@ -68,6 +69,7 @@ export const Button = styled.button`
   border: none;
   transition: 2s;
   cursor: pointer;
+  margin-top:${({theme})=>theme.spacings.xxxmultipleeight};
   border-radius: 0.3rem;
   background: ${({ theme }) => theme.colors.primary.xblue};
   color: ${({ theme }) => theme.colors.tertiary.white};
@@ -81,4 +83,29 @@ export const Button = styled.button`
   :hover {
     filter: brightness(0.9);
   }
+`
+
+export const SelectContainer = styled.div`
+   div{
+    margin-top: 1.5rem;
+
+    select {
+      font-size: ${({theme})=> theme.font.sizes.midle};
+      width: 100%;
+      color: ${({ theme }) => theme.colors.secondary.xxxblue};
+      option {
+        font-size: ${({theme})=> theme.font.sizes.midle};
+      }
+    }
+    :has(> select:focus){
+      border-color: ${({ theme }) => theme.colors.primary.xblue};
+    }
+  }
+`
+export const ErrorMessage = styled.label`
+  color: #c70606;
+  position:relative;
+  top:.3rem;
+  font-weight: 400;
+  font-size: ${({ theme }) => theme.font.sizes.midle};
 `
