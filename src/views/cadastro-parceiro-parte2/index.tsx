@@ -3,12 +3,12 @@ import * as S from './styles'
 import LayoutAuthentication from '../../components/layout-authentication'
 import { FaGraduationCap } from 'react-icons/fa'
 import { HiArrowNarrowRight } from 'react-icons/hi'
-import { useFetchData } from './hooks/useFetchData'
 import Select from 'src/components/select'
 import { UseValidatePartnerData } from './hooks/useValidatePartnerData'
+import { useFetch } from 'src/hooks/useFetch'
 
 const CadastroParceiroPart2: NextPage = () => {
-  const {area,isLoading}=useFetchData('/area');
+  const {data:area,isLoading}=useFetch('/area');
   const { formik } = UseValidatePartnerData();
 
   if(isLoading)

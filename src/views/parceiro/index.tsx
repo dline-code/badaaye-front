@@ -13,11 +13,11 @@ import { MdEmail } from 'react-icons/md'
 import { HiUser, HiArrowNarrowLeft } from 'react-icons/hi'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { BsBriefcaseFill, BsPhoneFill } from 'react-icons/bs'
-import { useFetchData } from './hook/useFetchData'
 import { usePartner } from './hook/usePartner'
+import { useFetch } from 'src/hooks/useFetch'
 
 const Parceiro: NextPage = () => {
-  const {partnerType,isLoading}=useFetchData(`/tipoParceiro`);
+  const {data: partnerType, isLoading}=useFetch(`/tipoParceiro`);
   const {formik}=usePartner();
 
   if(isLoading)
