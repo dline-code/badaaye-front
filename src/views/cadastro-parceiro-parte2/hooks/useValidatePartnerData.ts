@@ -4,13 +4,12 @@ import { postFetchPartner } from "../services"
 import { toast } from "react-toastify"
 import * as yup from "yup";
 import { useRouter } from "next/router";
+import { getCookie } from "react-use-cookie"
+import Router from "next/router"
 
 const UseValidatePartnerData = () => {
-    const router=useRouter();
 
-    const {
-      query:{parceiroId}
-    }=router;
+    const parceiroId = getCookie("parceiroId")
 
     async function partnerResistration(data: IPartnerPart2){
         try{
@@ -18,10 +17,9 @@ const UseValidatePartnerData = () => {
             if(partner){
                 toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"});
 
-                //Router.push({
-                //    pathname:"/tela-principal-parceiro",
-                //    query:{parceiroId}
-                //})
+                Router.push({
+                    pathname:"/tela-principal-parceiro",
+                })
             } 
         } catch(err){
             const error = err as IErrorInterface

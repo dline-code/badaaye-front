@@ -4,6 +4,7 @@ import { toast } from "react-toastify"
 import * as yup from "yup";
 import { postPartner } from "../services";
 import Router from "next/router";
+import { setCookie } from "react-use-cookie"
 
 export const usePartner=()=>{
 
@@ -13,10 +14,10 @@ export const usePartner=()=>{
 
             if(partner){
                 toast("Cadastro feito com sucesso", {autoClose: 2000, type: "success"});
+                setCookie("parceiroId", partner.usuario.id);
 
                 Router.push({
                     pathname: '/cadastro-parceiro-parte2',
-                    query: { parceiroId: partner.usuario.id},
                 });
             }            
         }catch(err){
