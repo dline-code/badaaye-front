@@ -3,7 +3,6 @@ import { IErrorInterface, IPartnerPart2 } from "../type"
 import { postFetchPartner } from "../services"
 import { toast } from "react-toastify"
 import * as yup from "yup";
-import { useRouter } from "next/router";
 import { getCookie } from "react-use-cookie"
 import Router from "next/router"
 
@@ -34,7 +33,7 @@ const UseValidatePartnerData = () => {
         },
         validationSchema: yup.object({
             areaId: yup.string().min(1, "seleccione a area de interesse").required("a area de interece é obrigatoria"),
-            descricao: yup.string().max(255, "o máximo é até 255 caracteres").required("a descricao é obrigatoria")
+            descricao: yup.string().max(255, "máximo de 255 caracteres").required("a descricao é obrigatoria")
         }),
         onSubmit: data => {
             Object.assign(data,{parceiroId});

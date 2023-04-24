@@ -6,6 +6,7 @@ import { HiArrowNarrowRight } from 'react-icons/hi'
 import Select from 'src/components/select'
 import { UseValidatePartnerData } from './hooks/useValidatePartnerData'
 import { useFetch } from 'src/hooks/useFetch'
+import { charCounterWarn } from 'src/functions/charCounterWarn'
 
 const CadastroParceiroPart2: NextPage = () => {
   const {data:area,isLoading}=useFetch('/area');
@@ -39,6 +40,11 @@ const CadastroParceiroPart2: NextPage = () => {
             onChange={formik.handleChange}
             >
           </S.TextArea>
+          { charCounterWarn(formik.values.descricao) <=10 && (
+            <S.ErrorMessage>
+              falta apenas {charCounterWarn(formik.values.descricao)} caracteres 
+            </S.ErrorMessage>
+          )}
           {formik.touched.descricao && formik.errors.descricao ? (
               <S.ErrorMessage>
                 {formik.errors.descricao}
