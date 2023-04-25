@@ -22,9 +22,18 @@ const UseUser = () => {
             if (response) {
                 toast("Login feito com sucesso", { autoClose: 2000, type: "success" })
                 setCookie("baadaye-token", response.token)
-                const token = getCookie("baadaye-token")
-                console.log(token)
-                router.push("/tela-principal-estudante");
+
+                if (response?.tipo_usuario === "parceiro") {
+                    router.push({
+                        pathname: "/tela-principal-parceiro",
+                    });
+                } else if (response?.tipo_usuario === "estudante") {
+                    router.push("/tela-principal-estudante");
+                } else {
+                    toast.error("Erro inesperado!")
+                }
+
+
             }
         } catch (err) {
             const error = err as IError
