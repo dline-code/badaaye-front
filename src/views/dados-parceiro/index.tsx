@@ -2,106 +2,16 @@ import Link from 'next/link'
 import * as S from './styles'
 import Image from 'next/image'
 import { AiOutlineUser } from 'react-icons/ai'
-import { usePartner } from 'src/hooks/usePartner'
-import { useFetch } from 'src/hooks/useFetch'
 import { FormControl } from 'src/components/FormControl'
 import Button from 'src/components/button'
 import * as Md from 'react-icons/md'
 import { HiUsers } from 'react-icons/hi'
 import { Form, Formik } from 'formik'
-import { useState } from 'react'
-import * as Yup from 'yup'
-import { api } from 'src/services/api'
-import { toast } from 'react-toastify'
-import { NextApiResponse } from 'next'
-import { useMutation } from 'react-query'
+import { validationSchema } from './utils'
+import { usePartnerhook } from './hooks/usePartner'
 
 export const DadosParceiro = () => {
-  const { options } = usePartner()
-  const { data: Partner, isLoading } = useFetch('/parceiro/dados', options)
-  const [PartnerData, setPartnerData] = useState(Partner)
-
-  interface ApiResponse {
-    response: {
-      data: {
-        message: string
-      }
-    }
-  }
-
-  console.log(PartnerData)
-
-  const initialValues = {
-    nome: PartnerData?.parceiro?.nome,
-    descricao: PartnerData?.parceiro?.descricao,
-    tipoParceiro: PartnerData?.parceiro?.tipoParceiro?.designacao,
-    telefone: PartnerData?.telefone?.designacao
-  }
-  const validationSchema = Yup.object({
-    nome: Yup.string().required('O campo nome não pode estar vázio'),
-    descricao: Yup.string().required('O campo descrição não pode estar vázio'),
-    tipoParceiro: Yup.string().required(
-      'O campo tipo de Parceiro não pode estar vázio'
-    ),
-    telefone: Yup.string().required(
-      'O campo numero de telefone não pode estar vázio'
-    )
-  })
-
-  const updatePartner = useMutation(
-    async (data: {
-      nome: string
-      descricao: string
-      tipoParceiro: string
-      telefone: string
-    }) => {
-      const typePartner = {
-        designacao: data?.tipoParceiro
-      }
-      const contact = {
-        designacao: data?.telefone
-      }
-
-      const partnerResult: { id: string } = await api.put(
-        `/tipoParceiro/${PartnerData?.parceiro?.tipoParceiroId}`,
-        typePartner
-      )
-
-      const contactResult = await api.put(
-        `/contacto/${PartnerData?.telefone?.id}`,
-        contact
-      )
-
-      const partner = {
-        nome: data?.nome,
-        descricao: data?.descricao,
-        tipoParceiroId: partnerResult?.id
-      }
-
-      const result = await api.put(
-        `/parceiro/${PartnerData?.parceiro?.id}`,
-        partner
-      )
-
-      return result
-    }
-  )
-
-  async function handleSubmit(data: {
-    nome: string
-    descricao: string
-    tipoParceiro: string
-    telefone: string
-  }) {
-    try {
-      await updatePartner.mutateAsync(data)
-      toast.success('Parceiro actualizado com sucesso')
-    } catch (e) {
-      const err = e as ApiResponse
-      toast.error(err?.response?.data?.message)
-    }
-  }
-
+  const { PartnerData, handleSubmit, initialValues } = usePartnerhook()
   return (
     <>
       <div>
