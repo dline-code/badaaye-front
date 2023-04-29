@@ -2,14 +2,14 @@ import {setCookie, getCookie} from "react-use-cookie"
 import { NextFetchEvent, NextRequest, NextResponse } from "next/server";
 
 
-export function middleware(req:any) {
+export function middleware(Request:NextRequest) {
     const verifyToken = getCookie("baadaye-token");
-    const url = req.url
+    const url = Request.url
 
-    if (!verifyToken){
+    if (verifyToken){
         return NextResponse.redirect(`${url}/login`)
     }
-    if (!verifyToken && url === "http://localhost:3000") {
+    if (verifyToken && url === "http://localhost:3000") {
         return NextResponse.redirect(`${url}/tela-principal-estudante`)
     }
 }
