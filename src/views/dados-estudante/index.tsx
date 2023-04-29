@@ -1,6 +1,3 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { AiOutlineUser } from 'react-icons/ai'
 import { Form, Formik } from 'formik'
 import { FormControl } from 'src/components/FormControl'
 import Button from 'src/components/button'
