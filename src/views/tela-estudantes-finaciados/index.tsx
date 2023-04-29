@@ -42,6 +42,10 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
             </p>
           </S.ContentHeader>
           <S.ContentBody>
+            <S.SearchFilterSide>
+              <input type="search" name="filter" id="filter" />
+              <Button>Procurar</Button>
+            </S.SearchFilterSide>
             <table>
               <S.THead>
                 <tr>
@@ -69,6 +73,8 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
                 ))}
               </S.TBody>
             </table>
+
+            <Button>Ver mais</Button>
           </S.ContentBody>
         </S.Content>
       </S.Main>
