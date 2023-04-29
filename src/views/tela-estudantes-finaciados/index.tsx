@@ -28,7 +28,7 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
       <S.Main>
         <S.Content>
           <S.ContentHeader>
-            <Link href={'../'}>
+            <Link href={'/tela-principal-parceiro'}>
               <a>
                 <AiOutlineArrowLeft />
               </a>
@@ -43,7 +43,12 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
           </S.ContentHeader>
           <S.ContentBody>
             <S.SearchFilterSide>
-              <input type="search" name="filter" id="filter" />
+              <input
+                type="search"
+                name="filter"
+                id="filter"
+                placeholder="Procurar por nome, curso, grau...."
+              />
               <Button>Procurar</Button>
             </S.SearchFilterSide>
             <table>
