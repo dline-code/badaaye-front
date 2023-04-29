@@ -15,6 +15,4 @@ export const Content = styled.div`
   width: 100%;
 `
 
-export const Main = styled.main`
-  margin-bottom: 3rem;
-`
+export const Main = styled.main``
