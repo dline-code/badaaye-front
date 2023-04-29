@@ -8,8 +8,6 @@ import * as Md from 'react-icons/md'
 import { PageProps } from './type'
 import { Layout } from 'src/components/layout'
 
-import { AuthContext, AuthProvider } from 'src/context/auth-content'
-
 export function DadosEstudante(props: PageProps) {
   const {
     isFetching,
