@@ -6,7 +6,7 @@ export const Main = styled.main`
 `
 
 export const Content = styled.div`
-  max-width: 58rem;
+  width: 928px;
   margin: 0 auto;
   margin-bottom: 2rem;
 `
@@ -35,10 +35,54 @@ export const ContentHeader = styled.div`
 `
 
 export const ContentBody = styled.div`
-  padding: 35px 96px;
+  padding: 2.25rem 5.5rem;
   border-radius: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
-  background: ${({ theme }) => theme.colors.tertiary.xxwhite};
+  background: ${({ theme }) => theme.colors.tertiary.white};
 
   > table {
+    width: 100%;
+    border-top: ${({ theme }) => theme.border.solid('#E6E6F0;')};
+    font-size: ${({ theme }) => theme.font.sizes.midle};
+    font-weight: ${({ theme }) => theme.font.regular};
+    border-spacing: 0 ${({ theme }) => theme.spacings.xxxxmultipleeight};
+  }
+`
+
+export const THead = styled.thead`
+  th {
+    padding: ${({ theme }) => theme.spacings.xxxxmultipleeight};
+    font-weight: ${({ theme }) => theme.font.regular};
+    text-align: left;
+  }
+`
+
+export const TBody = styled.tbody`
+  tr {
+    background: #fafafc;
+    padding: 0 ${({ theme }) => theme.spacings.xxxxmultipleeight};
+  }
+
+  td {
+    border: ${({ theme }) => theme.border.solid('#E6E6F0')};
+    padding: 1.5rem;
+    border-style: solid none solid none;
+    text-align: left;
+    vertical-align: middle;
+
+    &:first-child {
+      border-top-left-radius: ${({ theme }) =>
+        theme.spacings.xxxxxmultipleeight};
+      border-bottom-left-radius: ${({ theme }) =>
+        theme.spacings.xxxxxmultipleeight};
+      border-style: solid none solid solid;
+    }
+
+    &:last-child {
+      border-top-right-radius: ${({ theme }) =>
+        theme.spacings.xxxxxmultipleeight};
+      border-bottom-right-radius: ${({ theme }) =>
+        theme.spacings.xxxxxmultipleeight};
+      border-style: solid solid solid none;
+    }
   }
 `
