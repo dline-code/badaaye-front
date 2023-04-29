@@ -48,8 +48,9 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
                 name="filter"
                 id="filter"
                 placeholder="Procurar por nome, curso, grau...."
+                onChange={e => setSeached(e.target.value)}
               />
-              <Button>Procurar</Button>
+              <Button onClick={handleFilterFinancigData}>Procurar</Button>
             </S.SearchFilterSide>
             <table>
               <S.THead>
@@ -63,7 +64,7 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
               </S.THead>
 
               <S.TBody>
-                {financingData.map(item => (
+                {data.map(item => (
                   <tr key={item.id}>
                     <td>{item.nome}</td>
                     <td>{item.grau}</td>
