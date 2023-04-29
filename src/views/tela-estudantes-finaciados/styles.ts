@@ -6,9 +6,9 @@ export const Main = styled.main`
 `
 
 export const Content = styled.div`
-  width: 928px;
-  margin: 0 auto;
-  padding-bottom: 2rem;
+  max-width: 58rem;
+  margin: 0 auto; 
+  margin-bottom: 2rem;
 `
 
 export const ContentHeader = styled.div`
@@ -35,85 +35,10 @@ export const ContentHeader = styled.div`
 `
 
 export const ContentBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 2.25rem 5.5rem;
+  padding: 35px 96px;
   border-radius: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
-  background: ${({ theme }) => theme.colors.tertiary.white};
+  background: ${({ theme }) => theme.colors.tertiary.xxwhite};
 
   > table {
-    width: 100%;
-    border-top: ${({ theme }) => theme.border.solid('#E6E6F0;')};
-    font-size: ${({ theme }) => theme.font.sizes.midle};
-    font-weight: ${({ theme }) => theme.font.regular};
-    border-spacing: 0 ${({ theme }) => theme.spacings.xxxxmultipleeight};
-  }
-
-  > button {
-    width: 224px;
-    height: 56px;
-    margin-top: ${({ theme }) => theme.spacings.xxmultipleeight};
-    align-self: center;
-  }
-`
-
-export const SearchFilterSide = styled.div`
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: ${({ theme }) => theme.spacings.xxxxmultipleeight};
-  margin-bottom: ${({ theme }) => theme.spacings.xxxmultipleeight};
-
-  input {
-    flex: 1;
-    height: 100%;
-    padding: 13px 33px;
-    border: ${({ theme }) => theme.border.solid('#E6E6F0')};
-    border-radius: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
-  }
-
-  button {
-    width: 144px;
-    height: 100%;
-  }
-`
-
-export const THead = styled.thead`
-  th {
-    padding: ${({ theme }) => theme.spacings.xxxxmultipleeight};
-    font-weight: ${({ theme }) => theme.font.regular};
-    text-align: left;
-  }
-`
-
-export const TBody = styled.tbody`
-  tr {
-    background: #fafafc;
-    padding: 0 ${({ theme }) => theme.spacings.xxxxmultipleeight};
-  }
-
-  td {
-    border: ${({ theme }) => theme.border.solid('#E6E6F0')};
-    padding: 1.5rem;
-    border-style: solid none solid none;
-    text-align: left;
-    vertical-align: middle;
-
-    &:first-child {
-      border-top-left-radius: ${({ theme }) =>
-        theme.spacings.xxxxxmultipleeight};
-      border-bottom-left-radius: ${({ theme }) =>
-        theme.spacings.xxxxxmultipleeight};
-      border-style: solid none solid solid;
-    }
-
-    &:last-child {
-      border-top-right-radius: ${({ theme }) =>
-        theme.spacings.xxxxxmultipleeight};
-      border-bottom-right-radius: ${({ theme }) =>
-        theme.spacings.xxxxxmultipleeight};
-      border-style: solid solid solid none;
-    }
   }
 `

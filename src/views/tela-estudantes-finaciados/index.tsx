@@ -28,7 +28,7 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
       <S.Main>
         <S.Content>
           <S.ContentHeader>
-            <Link href={'/tela-principal-parceiro'}>
+            <Link href={'../'}>
               <a>
                 <AiOutlineArrowLeft />
               </a>
@@ -41,47 +41,8 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
               financiados ou já foram financiados por si
             </p>
           </S.ContentHeader>
-          <S.ContentBody>
-            <S.SearchFilterSide>
-              <input
-                type="search"
-                name="filter"
-                id="filter"
-                placeholder="Procurar por nome, curso, grau...."
-                onChange={e => setSeached(e.target.value)}
-              />
-              <Button onClick={handleFilterFinancigData}>Procurar</Button>
-            </S.SearchFilterSide>
-            <table>
-              <S.THead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Grau</th>
-                  <th>Curso</th>
-                  <th>Instituição</th>
-                  <th>Estado</th>
-                </tr>
-              </S.THead>
 
-              <S.TBody>
-                {data.map(item => (
-                  <tr key={item.id}>
-                    <td>{item.nome}</td>
-                    <td>{item.grau}</td>
-                    <td>{item.curso}</td>
-                    <td>{item.instituicao}</td>
-                    {item.estado === 'Finaciando' ? (
-                      <td style={{ color: '#00B37E' }}>{item.estado}</td>
-                    ) : (
-                      <td style={{ color: '#F12929' }}>{item.estado}</td>
-                    )}
-                  </tr>
-                ))}
-              </S.TBody>
-            </table>
-
-            <Button>Ver mais</Button>
-          </S.ContentBody>
+          <S.ContentBody></S.ContentBody>
         </S.Content>
       </S.Main>
     </Layout>
