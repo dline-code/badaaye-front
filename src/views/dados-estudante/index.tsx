@@ -1,6 +1,3 @@
-import { useLayoutEffect, useContext } from 'react'
-import { useRouter } from 'next/router'
-import { setCookie, getCookie } from 'react-use-cookie'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineUser } from 'react-icons/ai'
@@ -11,22 +8,10 @@ import { inputControls } from './utils/formFrame'
 import * as S from './styles'
 import { UseStudentData } from './hooks/useStudentData'
 import * as Md from 'react-icons/md'
+import { PageProps } from './type'
+import { Layout } from 'src/components/layout'
 
-import { AuthContext, AuthProvider } from 'src/context/auth-content'
-
-export function DadosEstudante() {
-  const router = useRouter();
-  const authContext = useContext(AuthContext);
-
-  useLayoutEffect(() => {
-    const token = getCookie("baadaye-token");
-
-    //authContext.isUserAuthenticated()
-    token
-      ? router.push("/dados-do-estudante")
-      : router.push("/login");
-  }, []);
-
+export function DadosEstudante(props: PageProps) {
   const {
     isFetching,
     initialValues,
@@ -42,26 +27,7 @@ export function DadosEstudante() {
   }
 
   return (
-      <div>
-      <S.Header>
-        <S.HeaderInner>
-          <Link href="/">
-            <a>
-              <Image
-                src="/logo-baadaye.svg"
-                alt="Picture of the author"
-                width={140}
-                height={48}
-              />
-            </a>
-          </Link>
-
-          <div>
-            <AiOutlineUser />
-          </div>
-        </S.HeaderInner>
-      </S.Header>
-
+    <Layout {...Object.assign({}, props, { hideFooter: true, isLogged: true })}>
       <S.Main>
         <S.Content>
           <S.ContentHeader>
@@ -172,6 +138,6 @@ export function DadosEstudante() {
           </S.ContentBody>
         </S.Content>
       </S.Main>
-      </div>
+    </Layout>
   )
 }
