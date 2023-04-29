@@ -8,8 +8,10 @@ import { inputControls } from './utils/formFrame'
 import * as S from './styles'
 import { UseStudentData } from './hooks/useStudentData'
 import * as Md from 'react-icons/md'
+import { PageProps } from './type'
+import { Layout } from 'src/components/layout'
 
-export function DadosEstudante() {
+export function DadosEstudante(props: PageProps) {
   const {
     isFetching,
     initialValues,
@@ -25,26 +27,7 @@ export function DadosEstudante() {
   }
 
   return (
-    <div>
-      <S.Header>
-        <S.HeaderInner>
-          <Link href="/">
-            <a>
-              <Image
-                src="/logo-baadaye.svg"
-                alt="Picture of the author"
-                width={140}
-                height={48}
-              />
-            </a>
-          </Link>
-
-          <div>
-            <AiOutlineUser />
-          </div>
-        </S.HeaderInner>
-      </S.Header>
-
+    <Layout {...Object.assign({}, props, { hideFooter: true, isLogged: true })}>
       <S.Main>
         <S.Content>
           <S.ContentHeader>
@@ -155,6 +138,6 @@ export function DadosEstudante() {
           </S.ContentBody>
         </S.Content>
       </S.Main>
-    </div>
+    </Layout>
   )
 }
