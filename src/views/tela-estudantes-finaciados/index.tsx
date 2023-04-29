@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useState } from 'react'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 import Button from 'src/components/button'
 import { Layout } from 'src/components/layout'
@@ -7,6 +8,21 @@ import * as S from './styles'
 import { PageProps } from './types'
 
 export default function TelaEstudantesFinaciadosView(props: PageProps) {
+  const [data, setData] = useState(financingData)
+  const [seached, setSeached] = useState('')
+
+  const handleFilterFinancigData = () => {
+    const text = seached.trim()
+    const newData = financingData.filter(
+      ({ nome, curso, instituicao, grau }) =>
+        nome.includes(text) ||
+        curso.includes(text) ||
+        instituicao.includes(text) ||
+        grau.includes(text)
+    )
+
+    setData(newData)
+  }
   return (
     <Layout {...Object.assign({}, props, { hideFooter: true, isLogged: true })}>
       <S.Main>
@@ -32,8 +48,9 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
                 name="filter"
                 id="filter"
                 placeholder="Procurar por nome, curso, grau...."
+                onChange={e => setSeached(e.target.value)}
               />
-              <Button>Procurar</Button>
+              <Button onClick={handleFilterFinancigData}>Procurar</Button>
             </S.SearchFilterSide>
             <table>
               <S.THead>
@@ -47,7 +64,7 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
               </S.THead>
 
               <S.TBody>
-                {financingData.map(item => (
+                {data.map(item => (
                   <tr key={item.id}>
                     <td>{item.nome}</td>
                     <td>{item.grau}</td>
