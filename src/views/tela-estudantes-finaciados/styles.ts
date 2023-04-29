@@ -8,7 +8,7 @@ export const Main = styled.main`
 export const Content = styled.div`
   width: 928px;
   margin: 0 auto;
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
 `
 
 export const ContentHeader = styled.div`
@@ -35,6 +35,8 @@ export const ContentHeader = styled.div`
 `
 
 export const ContentBody = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 2.25rem 5.5rem;
   border-radius: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
   background: ${({ theme }) => theme.colors.tertiary.white};
@@ -45,6 +47,35 @@ export const ContentBody = styled.div`
     font-size: ${({ theme }) => theme.font.sizes.midle};
     font-weight: ${({ theme }) => theme.font.regular};
     border-spacing: 0 ${({ theme }) => theme.spacings.xxxxmultipleeight};
+  }
+
+  > button {
+    width: 224px;
+    height: 56px;
+    margin-top: ${({ theme }) => theme.spacings.xxmultipleeight};
+    align-self: center;
+  }
+`
+
+export const SearchFilterSide = styled.div`
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${({ theme }) => theme.spacings.xxxxmultipleeight};
+  margin-bottom: ${({ theme }) => theme.spacings.xxxmultipleeight};
+
+  input {
+    flex: 1;
+    height: 100%;
+    padding: 13px 33px;
+    border: ${({ theme }) => theme.border.solid('#E6E6F0')};
+    border-radius: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
+  }
+
+  button {
+    width: 144px;
+    height: 100%;
   }
 `
 
