@@ -1,44 +1,44 @@
 import styled from 'styled-components'
 
-export const Header = styled.header`
-  box-shadow: 0 0 10px ${({ theme }) => theme.colors.tertiary.gray};
-`
-
-export const HeaderInner = styled.header`
-  max-width: 1039px;
-  height: 85px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  > div {
-    padding: 1rem;
-    border: ${({ theme }) => theme.border.solid(theme.colors.tertiary.gray)};
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: ${({ theme }) => theme.font.sizes.xxxlarge};
-  }
-`
-
 export const Main = styled.main`
   min-height: 100vh;
-  background: ${({ theme }) => theme.colors.linear.darkBlue};
+  background: ${({ theme }) => theme.colors.linear.blue};
 `
 
 export const Content = styled.div`
-  max-width: 54rem;
+  max-width: 58rem;
   margin: 0 auto;
   margin-bottom: 2rem;
 `
 
 export const ContentHeader = styled.div`
+  max-width: 30rem;
+  height: 19.46rem;
   padding-top: ${({ theme }) => theme.spacings.xmultipleeight};
+  padding-bottom: ${({ theme }) => theme.spacings.xxmultipleeight};
   color: ${({ theme }) => theme.colors.tertiary.white};
 
-  > p {
-    margin-top: ${({ theme }) => theme.spacings.xxxxmultipleeight};
+  a {
+    display: block;
+    font-size: ${({ theme }) => theme.font.sizes.xxlarge};
+    margin-bottom: ${({ theme }) => theme.spacings.xxxmultipleeight};
+  }
+
+  h2 {
+    margin-bottom: ${({ theme }) => theme.spacings.xxxxmultipleeight};
+  }
+
+  p {
+    line-height: 1.5;
+    font-size: ${({ theme }) => theme.font.sizes.small};
+  }
+`
+
+export const ContentBody = styled.div`
+  padding: 35px 96px;
+  border-radius: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
+  background: ${({ theme }) => theme.colors.tertiary.xxwhite};
+
+  > table {
   }
 `
