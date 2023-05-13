@@ -1,4 +1,4 @@
-import { useFormik } from "formik"
+import { useFormik } from "formik";
 import { IErrorInterface, IPartnerPart2 } from "../type"
 import { postFetchPartner } from "../services"
 import { toast } from "react-toastify"
