@@ -3,6 +3,7 @@ export interface IPartner{
     email:string;
     tipoParceiroId:string;
     telefone:string;
+    bi:string;
     senha:string;
     confirmeSenha:string;
 }
