@@ -22,7 +22,7 @@ const Login: NextPage = () => {
   const { formik, isSubmitting } = UseUser();
 
   useEffect(() => {
-    setCookie("badaaye-token", "")
+    setCookie("baadaye-token", "")
   }, [])
 
   return (
