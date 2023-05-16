@@ -49,20 +49,7 @@ const cadastroEstudante: NextPage = () => {
                 {formik.errors.nome}
               </S.ErrorMessage>
           ): null}
-        <Input 
-          id="sobrenome"
-          name="sobrenome"
-          type="text"
-          placeholder="Sobrenome"
-          icon={<HiUser />} 
-          onChange={formik.handleChange}
-          value={formik.values.sobrenome}
-          />
-          {formik.touched.sobrenome && formik.errors.sobrenome ? (
-              <S.ErrorMessage>
-                {formik.errors.sobrenome}
-              </S.ErrorMessage>
-          ): null}
+        
         <Input 
           id="dataNascimento"
           name="dataNascimento"
@@ -90,6 +77,22 @@ const cadastroEstudante: NextPage = () => {
               {formik.errors.telefone}
             </S.ErrorMessage>
           ): null}
+
+        <Input
+          id="bi"
+          name="bi"
+          type="text"
+          placeholder="Número do bi"
+          icon={<BsFillTelephoneFill />}
+          onChange={formik.handleChange}
+          value={formik.values.bi}
+        />
+        {formik.touched.bi && formik.errors.bi ? (
+            <S.ErrorMessage>
+              {formik.errors.bi}
+            </S.ErrorMessage>
+          ): null}
+
         <Input
           id="senha"
           name="senha"

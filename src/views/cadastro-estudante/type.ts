@@ -2,10 +2,10 @@
 interface IStudent {
     id?:string;
     nome: string;
-    sobrenome: string;
     dataNascimento: string;
     email: string;
     telefone: string;
+    bi:string;
     senha: string;
     confirmarSenha: string
 }
