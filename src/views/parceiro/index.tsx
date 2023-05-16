@@ -81,19 +81,6 @@ const Parceiro: NextPage = () => {
               </S.ErrorMessage>
           ): null}
 
-        <Input
-          type="text"
-          placeholder="numero do bi"
-          name='bi'
-          onChange={formik.handleChange}
-          icon={<HiUser />}
-        />
-        {formik.touched.bi && formik.errors.bi ? (
-              <S.ErrorMessage>
-                {formik.errors.bi}
-              </S.ErrorMessage>
-          ): null}
-
 
         <Input
           type="password"
