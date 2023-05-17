@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import * as yup from "yup";
 import { postFetchUser } from "../services";
 import { IError, IUser } from "../type";
-import { getCookie, setCookie } from "react-use-cookie"
+import { getCookie, setCookie } from "cookies-next"
 import { useRouter } from "next/router"
 
 import LoginView from "../index"
@@ -32,8 +32,6 @@ const UseUser = () => {
                 } else {
                     toast.error("Erro inesperado!")
                 }
-
-
             }
         } catch (err) {
             const error = err as IError
