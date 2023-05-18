@@ -32,6 +32,8 @@ export const Main = styled.main`
   );
 `
 
+
+
 export const Content = styled.div`
   max-width: 54rem;
   margin: 0 auto;
@@ -65,3 +67,32 @@ export const ContentBody = styled.div`
     }
   }
 `
+
+export const MiniModal = styled.div`
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex: 1;
+  justify-content: end;
+  top: -2.5rem;
+`
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  height: auto;
+  position: absolute;
+  background: #fff;
+  transition: opacity 0.5s ease-in-out;
+
+  span{
+    border: 1px solid #ddd;
+    padding: 0.2rem;
+    cursor: pointer;
+  }
+
+`
+
+

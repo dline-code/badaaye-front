@@ -5,8 +5,9 @@ import { BsFillTelephoneFill } from 'react-icons/bs'
 import { HiUsers } from 'react-icons/hi'
 import { FaBookOpen } from 'react-icons/fa'
 import { IoMdSchool } from 'react-icons/io'
+import { AiOutlineMail } from 'react-icons/ai'
 import { BsBagDashFill } from 'react-icons/bs'
-import React from 'react'
+import React, { useState } from 'react'
 import { PageProps } from './types'
 import { useFetch } from 'src/hooks/useFetch'
 import { usePartner } from './hooks/usePartner'
@@ -16,6 +17,7 @@ const TelaPrincipalParceiroView: React.FC<PageProps> = props => {
   const { options } = usePartner()
   const router = useRouter()
   const { data: Partner, isLoading } = useFetch('/parceiro/dados', options)
+
   if (isLoading) return <h2>Loading...</h2>
 
   return (
@@ -37,12 +39,12 @@ const TelaPrincipalParceiroView: React.FC<PageProps> = props => {
                   <span>{Partner?.parceiro?.nome}</span>
                 </S.InfoSections>
                 <S.InfoSections>
-                  <BsBagDashFill />
+                  <IoMdSchool />
                   <span>{Partner?.parceiro?.tipoParceiro?.designacao}</span>
                 </S.InfoSections>
                 <S.InfoSections>
-                  <IoMdSchool />
-                  <span>{Partner?.email?.designacao}</span>
+                  <AiOutlineMail />
+                  <span>{Partner?.parceiro?.login?.email}</span>
                 </S.InfoSections>
                 <S.InfoSections>
                   <BsFillTelephoneFill />

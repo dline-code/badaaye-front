@@ -19,6 +19,8 @@ const UseUser = () => {
         setIsSubmitting(true)
         try {
             const response = await postFetchUser(data)
+            console.log(response);
+
             if (response) {
                 toast("Login feito com sucesso", { autoClose: 2000, type: "success" })
                 setCookie("baadaye-token", response.token)

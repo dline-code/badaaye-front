@@ -13,11 +13,17 @@ export const usePartnerhook = () => {
     const { data: Partner, isLoading } = useFetch('/parceiro/dados', options)
     const [PartnerData, setPartnerData] = useState(Partner)
 
+    console.log(PartnerData);
+
+
+
     const initialValues = {
         nome: PartnerData?.parceiro?.nome,
         descricao: PartnerData?.parceiro?.descricao,
         tipoParceiro: PartnerData?.parceiro?.tipoParceiro?.designacao,
-        telefone: PartnerData?.telefone?.designacao
+        telefone: PartnerData?.telefone?.designacao,
+        areasInteresse: PartnerData?.areasInteresse,
+        areaId: ""
     }
 
     const updatePartner = useMutation(
@@ -26,6 +32,8 @@ export const usePartnerhook = () => {
             descricao: string
             tipoParceiro: string
             telefone: string
+            areasInteresse: object[]
+            areaId: string
         }) => {
             const typePartner = {
                 designacao: data?.tipoParceiro
@@ -33,6 +41,12 @@ export const usePartnerhook = () => {
             const contact = {
                 designacao: data?.telefone
             }
+            const areaInteresse = {
+                parceiroId: PartnerData?.parceiro?.id,
+                areaId: data?.areaId
+            }
+
+            const areaInteresseResult = await api.post(`/areaInteresse`, areaInteresse)
 
             const partnerResult: { id: string } = await api.put(
                 `/tipoParceiro/${PartnerData?.parceiro?.tipoParceiroId}`,
@@ -64,8 +78,12 @@ export const usePartnerhook = () => {
         descricao: string
         tipoParceiro: string
         telefone: string
+        areasInteresse: object[]
+        areaId: string
     }) {
         try {
+            console.log(data, "meu");
+
             await updatePartner.mutateAsync(data)
             toast.success('Parceiro actualizado com sucesso')
         } catch (e) {

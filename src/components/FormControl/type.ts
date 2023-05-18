@@ -12,8 +12,8 @@ type SelectTypes = SelectHTMLAttributes<HTMLSelectElement>
 type TextAreaTypes = TextareaHTMLAttributes<HTMLTextAreaElement>
 
 type Options = {
-  desc: string
-  value: string
+  designacao: string
+  id: string
   selected: boolean
 }
 
@@ -21,6 +21,8 @@ export type FormControlProps = {
   labelName: string
   StarIcon?: ReactNode
   EndIcon?: ReactNode
+  handleOptions?: () => void,
+  LastIcon?: ReactNode,
   blocked?: boolean
   options?: Options[]
   as?: string | ComponentType<FieldProps['field']>

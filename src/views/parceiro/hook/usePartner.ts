@@ -22,7 +22,7 @@ export const usePartner=()=>{
             }            
         }catch(err){
             const error = err as IErrorInterface
-            toast(error.response?.data?.error, {autoClose: 2000, type: "error"})
+            toast(error?.response?.data?.error, {autoClose: 2000, type: "error"})
         }   
     }
 
