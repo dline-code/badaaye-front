@@ -1,3 +1,6 @@
+import { useLayoutEffect, useContext } from 'react'
+import { useRouter } from 'next/router'
+import { setCookie, getCookie } from 'react-use-cookie'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineUser } from 'react-icons/ai'
@@ -9,7 +12,21 @@ import * as S from './styles'
 import { UseStudentData } from './hooks/useStudentData'
 import * as Md from 'react-icons/md'
 
+import { AuthContext, AuthProvider } from 'src/context/auth-content'
+
 export function DadosEstudante() {
+  const router = useRouter();
+  const authContext = useContext(AuthContext);
+
+  useLayoutEffect(() => {
+    const token = getCookie("baadaye-token");
+
+    //authContext.isUserAuthenticated()
+    token
+      ? router.push("/dados-do-estudante")
+      : router.push("/login");
+  }, []);
+
   const {
     isFetching,
     initialValues,
@@ -25,7 +42,7 @@ export function DadosEstudante() {
   }
 
   return (
-    <div>
+      <div>
       <S.Header>
         <S.HeaderInner>
           <Link href="/">
@@ -155,6 +172,6 @@ export function DadosEstudante() {
           </S.ContentBody>
         </S.Content>
       </S.Main>
-    </div>
+      </div>
   )
 }

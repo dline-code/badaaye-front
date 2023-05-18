@@ -1,17 +1,43 @@
-import { Layout } from "src/components/layout"
+import React from "react"
+import { ReactNode, useEffect, useState} from 'react'
+import Link from "next/link"
+
+import { setCookie, getCookie } from "react-use-cookie"
+
 import * as S from "./styles"
+
+import { Layout } from "src/components/layout"
 import Button from "../../components/button"
+
+
 import { RiUser3Fill } from "react-icons/ri"
 import { HiAcademicCap } from "react-icons/hi"
 import { IoMdBusiness } from "react-icons/io"
 import { FaBookOpen } from "react-icons/fa"
-import React from "react"
-import { useFetchData } from "./hooks/useFetchData"
-import { PageProps } from "./types"
-import Link from "next/link"
-import Router from "next/router"
 
-const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
+import { useFetchData } from "./hooks/useFetchData"
+import { IStudent, PageProps } from "./types"
+import { useRouter} from "next/router"
+
+import {AuthContext, AuthProvider} from "../../context/auth-content"
+
+interface PageProp {
+    hideFooter?: boolean;
+    isLogged?: boolean;
+}
+
+const TelaPrincipalEstudanteView:React.FC<PageProp> = (props) =>{
+  const router = useRouter();
+  const authContext = React.useContext(AuthContext);
+   
+  useEffect(() => {
+    const token = getCookie("baadaye-token");
+
+    token
+    ? router.push("/tela-principal-estudante")
+    : router.push("/login");
+  }, []);
+
     const {student,isLoading}=useFetchData();
 
     if (isLoading) return <>Carregando...</>
@@ -49,7 +75,7 @@ const TelaPrincipalEstudanteView:React.FC<PageProps> = (props) =>{
                                     <span>{student?.estudante?.curso?.nome}</span>
                                 </S.InfoSections>
                             </S.InfoContainer>
-                            <Button type="button" onClick={()=>Router.push({pathname: '/dados-do-estudante'})}>
+                            <Button type="button" onClick={()=>router.push({pathname: '/dados-do-estudante'})}>
                                 ver dados completos
                             </Button>
                         </S.CardContentLeft>
