@@ -14,6 +14,8 @@ export function FormControl({
   EndIcon,
   options,
   value,
+  handleOptions,
+  LastIcon,
   ...rest
 }: FormControlProps) {
   const [disabled, setDisabled] = useState(blocked)
@@ -27,9 +29,9 @@ export function FormControl({
           <Field name={name} as={as} disabled={disabled} id={id} {...rest}>
             <option value="">Selecione uma opção</option>
             {options &&
-              options.map(({ desc, value, selected }) => (
-                <option value={value} selected={selected} key={value}>
-                  {desc}
+              options.map(({ designacao, id, selected }) => (
+                <option value={id} selected={selected} key={id}>
+                  {designacao}
                 </option>
               ))}
           </Field>
@@ -44,6 +46,7 @@ export function FormControl({
           />
         )}
         <span onClick={() => setDisabled(!disabled)}>{EndIcon}</span>
+        <span onClick={() => handleOptions()}>{LastIcon}</span>
       </S.ControlInput>
       <ErrorMessage name={name} component={S.ErrorMessage} />
     </S.ControlContent>
