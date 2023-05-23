@@ -14,27 +14,26 @@ import RadioBox from 'src/components/radiobox'
 import { MdEmail } from 'react-icons/md'
 import { HiUser, HiArrowNarrowLeft } from 'react-icons/hi'
 import { RiLockPasswordFill } from 'react-icons/ri'
-import { BsBriefcaseFill, BsFillTelephoneFill, BsPhoneFill } from 'react-icons/bs'
+import {
+  BsBriefcaseFill,
+  BsFillTelephoneFill,
+  BsPhoneFill
+} from 'react-icons/bs'
 
 const Parceiro: NextPage = () => {
   return (
     <S.Wrapper>
       <S.Form>
         <S.Title>Crie sua conta</S.Title>
-        <Input
-          type="text"
-          placeholder="Nome da entidade"
-          icon={<HiUser />}
-        />
-        <Input
-          type="email"
-          placeholder="Seu e-mail"
-          icon={<MdEmail />}
-        />
+        <Input type="text" placeholder="Nome da entidade" icon={<HiUser />} />
+        <Input type="email" placeholder="Seu e-mail" icon={<MdEmail />} />
         <S.SelectContainer>
           <Select
             title="parceiro"
-            options={[{nome:"parceiro1",id:"1"}, {nome:"Parceiro2",id:"2"}]}
+            options={[
+              { nome: 'parceiro1', id: '1' },
+              { nome: 'Parceiro2', id: '2' }
+            ]}
             icon={<BsBriefcaseFill />}
           />
         </S.SelectContainer>
@@ -46,17 +45,18 @@ const Parceiro: NextPage = () => {
         <Input
           type="password"
           placeholder="Sua senha"
-          icon={<RiLockPasswordFill />
-          }
+          icon={<RiLockPasswordFill />}
         />
-        <Input type="password" 
+        <Input
+          type="password"
           placeholder="Comfirme sua senha"
           icon={<RiLockPasswordFill />}
         />
         <Button>Cadastrar</Button>
 
         <S.Description>
-          Ao se cadastrar, você aceita todos nossos <Link href="/">
+          Ao se cadastrar, você aceita todos nossos{' '}
+          <Link href="/">
             <S.Ancora>política de privacidade</S.Ancora>
           </Link>
         </S.Description>
@@ -73,7 +73,7 @@ const Parceiro: NextPage = () => {
           </S.TextBack>
         </Link>
         <S.ContainerRadios>
-          <Link href="/cadastro-estudante" >
+          <Link href="/cadastro-estudante">
             <RadioBox
               title="Estudante"
               description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
@@ -81,7 +81,7 @@ const Parceiro: NextPage = () => {
               isActive={false}
             />
           </Link>
-          <Link href="#">
+          <Link href="/cadastro-parceiro">
             <RadioBox
               title="Parceiro"
               description="Entidades dispostas a contribuir para
