@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.main`
-  width: 100% auto;
+  width: 100%auto;
   height: 100vh;
   padding: 0 10rem;
   background: ${({ theme }) => theme.colors.tertiary.white};
@@ -56,13 +56,11 @@ export const SelectContainer = styled.div`
       font-size: ${({ theme }) => theme.font.sizes.midle};
       width: 100%;
       color: ${({ theme }) => theme.colors.secondary.xxxblue};
-
       option {
         font-size: ${({ theme }) => theme.font.sizes.midle};
       }
     }
-
-    &:has(select:focus) {
+    :has(> select:focus) {
       border-color: ${({ theme }) => theme.colors.primary.xblue};
     }
   }
@@ -106,7 +104,6 @@ export const Container = styled.div`
       margin-bottom: ${({ theme }) => theme.spacings.xxxxmultipleeight};
     }
   }
-
   @media screen and(max-width: 1000px) {
     width: 50%;
   }
@@ -119,7 +116,7 @@ export const Container = styled.div`
   }
 `
 export const ContainerRadios = styled.div`
-  width: 100% auto;
+  width: 100%auto;
   height: 23.5rem;
   margin-top: 3rem;
   display: flex;
@@ -159,4 +156,12 @@ export const Text = styled(TextBack)`
 
 export const LinkDescription = styled.span`
   margin-left: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
+`
+export const ErrorMessage = styled.label`
+  color: #c70606;
+  position: relative;
+  margin-left: 0.2rem;
+  top: 0.3rem;
+  font-weight: 400;
+  font-size: ${({ theme }) => theme.font.sizes.midle};
 `
