@@ -44,18 +44,7 @@ const cadastroEstudante: NextPage = () => {
         {formik.touched.nome && formik.errors.nome ? (
           <S.ErrorMessage>{formik.errors.nome}</S.ErrorMessage>
         ) : null}
-        <Input
-          id="sobrenome"
-          name="sobrenome"
-          type="text"
-          placeholder="Sobrenome"
-          icon={<HiUser />}
-          onChange={formik.handleChange}
-          value={formik.values.sobrenome}
-        />
-        {formik.touched.sobrenome && formik.errors.sobrenome ? (
-          <S.ErrorMessage>{formik.errors.sobrenome}</S.ErrorMessage>
-        ) : null}
+
         <Input
           id="dataNascimento"
           name="dataNascimento"
@@ -79,6 +68,20 @@ const cadastroEstudante: NextPage = () => {
         {formik.touched.telefone && formik.errors.telefone ? (
           <S.ErrorMessage>{formik.errors.telefone}</S.ErrorMessage>
         ) : null}
+
+        <Input
+          id="bi"
+          name="bi"
+          type="text"
+          placeholder="Número do bi"
+          icon={<BsFillTelephoneFill />}
+          onChange={formik.handleChange}
+          value={formik.values.bi}
+        />
+        {formik.touched.bi && formik.errors.bi ? (
+          <S.ErrorMessage>{formik.errors.bi}</S.ErrorMessage>
+        ) : null}
+
         <Input
           id="senha"
           name="senha"
@@ -130,7 +133,7 @@ const cadastroEstudante: NextPage = () => {
           </S.TextBack>
         </Link>
         <S.ContainerRadios>
-          <Link href="/cadastro-estudante">
+          <Link href="#">
             <RadioBox
               title="Estudante"
               description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
@@ -138,7 +141,7 @@ const cadastroEstudante: NextPage = () => {
               isActive={true}
             />
           </Link>
-          <Link href="/cadastro-parceiro">
+          <Link href="/parceiro">
             <RadioBox
               title="Parceiro"
               description="Entidades dispostas a contribuir para
