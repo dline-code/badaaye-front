@@ -15,18 +15,15 @@ import { useState } from 'react'
 import { api } from 'src/services/api'
 import { toast } from 'react-toastify'
 import { useMutation } from 'react-query'
-import { usePartner } from '../tela-principal-parceiro/hooks/usePartner'
 
 export const DadosParceiro = () => {
-  const { options } = usePartner()
-  const { data: PartnerData, isLoading } = useFetch('/parceiro/dados', options)
-  const { handleSubmit, initialValues } = usePartnerhook()
+  const { PartnerData, handleSubmit, initialValues } = usePartnerhook()
   const { data: Areas } = useFetch('/area')
   const [isOpen, setIsOpen] = useState(false)
   const [openArea, setOpenArea] = useState(false)
   const [openAreaIndex, setOpenAreaIndex] = useState<number>(0)
 
-  const deleteAreaMutation = useMutation(deleteArea)
+  const deleteAreaMutation = useMutation(deleteArea) // Movido para o nível superior do componente
 
   console.log(initialValues)
 
