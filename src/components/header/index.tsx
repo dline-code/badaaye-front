@@ -5,7 +5,7 @@ import { AiOutlineUser, AiOutlineMenu } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import * as S from './styles'
 import MenuMobile from '../menu-mobile'
-import { FiUser } from "react-icons/fi"
+import { FiUser } from 'react-icons/fi'
 
 interface Props {
   isLogged?: boolean
@@ -48,20 +48,22 @@ const header: React.FC<Props> = ({ isLogged }) => {
               alt="Picture of the author"
               width={140}
               height={48}
-              />
+            />
           </a>
         </Link>
         {isLogged ? (
           <S.ContainerUserLogged>
             <S.CardUserLogged>
-              <FiUser/>
+              <FiUser />
             </S.CardUserLogged>
           </S.ContainerUserLogged>
-        ): (
+        ) : (
           <>
-          <S.List>
+            <S.List>
               <Link href="/">
-                <S.Item className={currentRoute === '/' ? 'active' : 'non-active'}>
+                <S.Item
+                  className={currentRoute === '/' ? 'active' : 'non-active'}
+                >
                   Financiamentos
                 </S.Item>
               </Link>
@@ -71,26 +73,27 @@ const header: React.FC<Props> = ({ isLogged }) => {
               <Link href="/ajudas">
                 <S.Item>Outras Ajudas</S.Item>
               </Link>
-              <Link href="/parceiro">
+              <Link href="/cadastro-parceiro">
                 <S.Item>Seja Parceiro</S.Item>
               </Link>
               <Link href="/sobre">
                 <S.Item>Sobre nós</S.Item>
               </Link>
-            </S.List><S.ContainerButton>
-                <Link href="/login">
-                  <S.ButtonLogin>
-                    <S.IconUser>
-                      <AiOutlineUser />
-                    </S.IconUser>
-                    Entrar
-                  </S.ButtonLogin>
-                </Link>
-              </S.ContainerButton>
-            </>
+            </S.List>
+            <S.ContainerButton>
+              <Link href="/login">
+                <S.ButtonLogin>
+                  <S.IconUser>
+                    <AiOutlineUser />
+                  </S.IconUser>
+                  Entrar
+                </S.ButtonLogin>
+              </Link>
+            </S.ContainerButton>
+          </>
         )}
         <S.IconMenu>
-                  <AiOutlineMenu size={32} onClick={togleHidden} />
+          <AiOutlineMenu size={32} onClick={togleHidden} />
         </S.IconMenu>
       </S.Header>
       {visible ? <MenuMobile onClick={togleVisible} /> : null}
