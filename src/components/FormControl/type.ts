@@ -12,9 +12,9 @@ type SelectTypes = SelectHTMLAttributes<HTMLSelectElement>
 type TextAreaTypes = TextareaHTMLAttributes<HTMLTextAreaElement>
 
 type Options = {
-  designacao: string
-  id: string
-  selected: boolean
+  designacao?: string
+  id?: string
+  selected?: boolean
 }
 
 export type FormControlProps = {

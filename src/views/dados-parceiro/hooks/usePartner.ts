@@ -10,12 +10,7 @@ import { useMutation } from "react-query"
 
 export const usePartnerhook = () => {
     const { options } = usePartner()
-    const { data: Partner, isLoading } = useFetch('/parceiro/dados', options)
-    const [PartnerData, setPartnerData] = useState(Partner)
-
-    console.log(PartnerData);
-
-
+    const { data: PartnerData, isLoading } = useFetch('/parceiro/dados', options)
 
     const initialValues = {
         nome: PartnerData?.parceiro?.nome,
@@ -26,7 +21,7 @@ export const usePartnerhook = () => {
         areaId: ""
     }
 
-    const updatePartner = useMutation(
+    const { mutate, isLoading: isMutating, isError, data: mutateData } = useMutation(
         async (data: {
             nome: string
             descricao: string
@@ -82,9 +77,8 @@ export const usePartnerhook = () => {
         areaId: string
     }) {
         try {
-            console.log(data, "meu");
 
-            await updatePartner.mutateAsync(data)
+            await mutate(data)
             toast.success('Parceiro actualizado com sucesso')
         } catch (e) {
             const err = e as ApiResponse

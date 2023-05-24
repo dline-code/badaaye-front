@@ -15,15 +15,18 @@ import { useState } from 'react'
 import { api } from 'src/services/api'
 import { toast } from 'react-toastify'
 import { useMutation } from 'react-query'
+import { usePartner } from '../tela-principal-parceiro/hooks/usePartner'
 
 export const DadosParceiro = () => {
-  const { PartnerData, handleSubmit, initialValues } = usePartnerhook()
+  const { options } = usePartner()
+  const { data: PartnerData, isLoading } = useFetch('/parceiro/dados', options)
+  const { handleSubmit, initialValues } = usePartnerhook()
   const { data: Areas } = useFetch('/area')
   const [isOpen, setIsOpen] = useState(false)
   const [openArea, setOpenArea] = useState(false)
   const [openAreaIndex, setOpenAreaIndex] = useState<number>(0)
 
-  const deleteAreaMutation = useMutation(deleteArea) // Movido para o nível superior do componente
+  const deleteAreaMutation = useMutation(deleteArea)
 
   console.log(initialValues)
 
@@ -38,14 +41,14 @@ export const DadosParceiro = () => {
     return response
   }
 
-  async function handleDelete(id) {
+  async function handleDelete(id: string) {
     const confir = confirm(
       'Tens certeza que queres eliminar esta area de interesse?'
     )
     if (confir) {
       try {
         await deleteAreaMutation.mutateAsync(id)
-      } catch (error) {
+      } catch (error: any) {
         toast.error(error?.response?.data?.message)
       }
     }
@@ -115,36 +118,39 @@ export const DadosParceiro = () => {
                           id="descricao"
                           name="descricao"
                         />
-                        {PartnerData?.areasInteresse?.map((valor, index) => (
-                          <div key={index}>
-                            <FormControl
-                              labelName="Area de Interesse"
-                              as={'input'}
-                              LastIcon={<BsThreeDotsVertical />}
-                              handleOptions={() => handleOptions(index)}
-                              StarIcon={<Md.MdPerson />}
-                              name={`areasInteresse[${index}].area.designacao`}
-                              id={`areasInteresse[${index}].area.id`}
-                              value={valor?.id || ''}
-                            />
-                            {isOpen && openAreaIndex === index && (
-                              <S.MiniModal>
-                                <S.Container>
-                                  {PartnerData?.areasInteresse?.length > 1 && (
-                                    <span
-                                      onClick={() => handleDelete(valor?.id)}
-                                    >
-                                      Eliminar
+                        {PartnerData?.areasInteresse?.map(
+                          (valor: { id: string }, index: number) => (
+                            <div key={index}>
+                              <FormControl
+                                labelName="Area de Interesse"
+                                as={'input'}
+                                LastIcon={<BsThreeDotsVertical />}
+                                handleOptions={() => handleOptions(index)}
+                                StarIcon={<Md.MdPerson />}
+                                name={`areasInteresse[${index}].area.designacao`}
+                                id={`areasInteresse[${index}].area.id`}
+                                value={valor?.id || ''}
+                              />
+                              {isOpen && openAreaIndex === index && (
+                                <S.MiniModal>
+                                  <S.Container>
+                                    {PartnerData?.areasInteresse?.length >
+                                      1 && (
+                                      <span
+                                        onClick={() => handleDelete(valor?.id)}
+                                      >
+                                        Eliminar
+                                      </span>
+                                    )}
+                                    <span onClick={() => setOpenArea(true)}>
+                                      Adicionar
                                     </span>
-                                  )}
-                                  <span onClick={() => setOpenArea(true)}>
-                                    Adicionar
-                                  </span>
-                                </S.Container>
-                              </S.MiniModal>
-                            )}
-                          </div>
-                        ))}
+                                  </S.Container>
+                                </S.MiniModal>
+                              )}
+                            </div>
+                          )
+                        )}
 
                         {openArea && (
                           <FormControl

@@ -46,7 +46,7 @@ export function FormControl({
           />
         )}
         <span onClick={() => setDisabled(!disabled)}>{EndIcon}</span>
-        <span onClick={() => handleOptions()}>{LastIcon}</span>
+        <span onClick={handleOptions}>{LastIcon}</span>
       </S.ControlInput>
       <ErrorMessage name={name} component={S.ErrorMessage} />
     </S.ControlContent>
