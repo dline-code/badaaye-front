@@ -1,3 +1,6 @@
+import { useLayoutEffect, useContext } from 'react'
+import { useRouter } from 'next/router'
+import { setCookie, getCookie } from 'react-use-cookie'
 import { Form, Formik } from 'formik'
 import { FormControl } from 'src/components/FormControl'
 import Button from 'src/components/button'
@@ -8,7 +11,19 @@ import * as Md from 'react-icons/md'
 import { PageProps } from './type'
 import { Layout } from 'src/components/layout'
 
+import { AuthContext, AuthProvider } from 'src/context/auth-content'
+
 export function DadosEstudante(props: PageProps) {
+  const router = useRouter()
+  const authContext = useContext(AuthContext)
+
+  useLayoutEffect(() => {
+    const token = getCookie('baadaye-token')
+
+    //authContext.isUserAuthenticated()
+    token ? router.push('/dados-do-estudante') : router.push('/login')
+  }, [])
+  
   const {
     isFetching,
     initialValues,
