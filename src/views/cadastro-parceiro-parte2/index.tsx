@@ -3,26 +3,55 @@ import * as S from './styles'
 import LayoutAuthentication from '../../components/layout-authentication'
 import { FaGraduationCap } from 'react-icons/fa'
 import { HiArrowNarrowRight } from 'react-icons/hi'
-import Input from 'src/components/input';
-import Button from 'src/components/button';
+import Select from 'src/components/select'
+import { UseValidatePartnerData } from './hooks/useValidatePartnerData'
+import { useFetch } from 'src/hooks/useFetch'
+import { charCounterWarn } from 'src/functions/charCounterWarn'
 
 const CadastroParceiroPart2: NextPage = () => {
+  const {data:area,isLoading}=useFetch('/area');
+  const { formik } = UseValidatePartnerData();
+
+  if(isLoading)
+    return <>Carregando...</>
   return (
     <S.Container>
       <S.Wrapper>
-        <S.Form>
+        <S.Form onSubmit={formik.handleSubmit}>
           <S.Title>Informações do Parceiro</S.Title>
-          <Input
-            icon= {<FaGraduationCap />}
-            placeholder='Àrea de interesse'
-            type='text'
-            >
-          </Input>
-          <S.TextArea
+          <S.SelectContainer>
+            <Select
+              title="Àrea de interesse"
+              options={area}
+              name="areaId"
+              icon={<FaGraduationCap />}
+              onChange={formik.handleChange}
+            />    
+            {formik.touched.areaId && formik.errors.areaId ? (
+              <S.ErrorMessage>
+                {formik.errors.areaId}
+              </S.ErrorMessage>
+          ): null}
+          </S.SelectContainer>
+
+          <S.TextArea 
             placeholder='Fale sobre sí e seus objectivos'
+            name="descricao"
+            onChange={formik.handleChange}
             >
           </S.TextArea>
-          <S.Button>Continuar <HiArrowNarrowRight/></S.Button>
+          { charCounterWarn(formik.values.descricao) <=10 && (
+            <S.ErrorMessage>
+              falta apenas {charCounterWarn(formik.values.descricao)} caracteres 
+            </S.ErrorMessage>
+          )}
+          {formik.touched.descricao && formik.errors.descricao ? (
+              <S.ErrorMessage>
+                {formik.errors.descricao}
+              </S.ErrorMessage>
+          ): null}
+          
+          <S.Button type="submit">Continuar <HiArrowNarrowRight/></S.Button>
         </S.Form>
         <S.BadayeInfo>
           <LayoutAuthentication
