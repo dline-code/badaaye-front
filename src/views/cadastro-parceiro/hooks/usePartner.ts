@@ -5,9 +5,14 @@ import * as yup from 'yup'
 import { postPartner } from '../services'
 import Router from 'next/router'
 import { setCookie } from 'react-use-cookie'
+import { useState } from 'react'
 
 export const usePartner = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const partnerResistration = async (data: IPartner) => {
+    setIsSubmitting(true)
+
     try {
       const partner = await postPartner(data)
 
@@ -25,6 +30,10 @@ export const usePartner = () => {
     } catch (err) {
       const error = err as IErrorInterface
       toast(error.response?.data?.error, { autoClose: 2000, type: 'error' })
+    } finally {
+      setTimeout(() => {
+        setIsSubmitting(false)
+      }, 2000)
     }
   }
 
@@ -72,6 +81,7 @@ export const usePartner = () => {
   })
 
   return {
-    formik
+    formik,
+    isSubmitting
   }
 }

@@ -14,7 +14,7 @@ import Button from 'src/components/button'
 import { UseStudent } from './hooks/useStudent'
 
 const cadastroEstudante: NextPage = () => {
-  const { formik } = UseStudent()
+  const { formik, isSubmitting } = UseStudent()
 
   return (
     <S.Wrapper>
@@ -107,7 +107,7 @@ const cadastroEstudante: NextPage = () => {
           <S.ErrorMessage>{formik.errors.confirmarSenha}</S.ErrorMessage>
         ) : null}
 
-        <Button>Cadastrar</Button>
+        <Button disabled={isSubmitting}>Cadastrar</Button>
 
         <S.Description>
           Ao se cadastrar, você aceita nossos

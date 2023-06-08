@@ -1,30 +1,29 @@
-
 import type { NextPage } from 'next'
 import * as S from './styles'
 import LayoutAuthentication from '../../components/layout-authentication'
-import { FaBookOpen, FaBuilding, FaGraduationCap} from 'react-icons/fa'
+import { FaBookOpen, FaBuilding, FaGraduationCap } from 'react-icons/fa'
 import { HiArrowNarrowRight, HiLocationMarker } from 'react-icons/hi'
-import Input from 'src/components/input';
+import Input from 'src/components/input'
 import Select from 'src/components/select'
 import { UseValidateData } from './hooks/useValidateData'
 import { useFetchEstudantes } from './hooks/useFetschStudent'
 import { useEffect } from 'react'
 
-const CadastroEstudanteParte2:NextPage =() => {
-  const { formik } = UseValidateData();
-  
+const CadastroEstudanteParte2: NextPage = () => {
+  const { formik, isSubmitting } = UseValidateData()
+
   const {
     provinces,
     degree,
     course,
     university,
     municipalities,
-    getDataMunicipalities,
-  }=useFetchEstudantes();
-  
-  useEffect(()=>{
-    getDataMunicipalities(formik.values.provinciaId);
-  },[formik.values.provinciaId])
+    getDataMunicipalities
+  } = useFetchEstudantes()
+
+  useEffect(() => {
+    getDataMunicipalities(formik.values.provinciaId)
+  }, [formik.values.provinciaId])
 
   return (
     <S.Container>
@@ -42,14 +41,12 @@ const CadastroEstudanteParte2:NextPage =() => {
             />
           </S.SelectContainer>
           {formik.touched.grauId && formik.errors.grauId ? (
-              <S.ErrorMessage>
-                {formik.errors.grauId}
-              </S.ErrorMessage>
-          ): null}
+            <S.ErrorMessage>{formik.errors.grauId}</S.ErrorMessage>
+          ) : null}
 
           <S.SelectContainer>
             <Select
-              title='O seu Curso'
+              title="O seu Curso"
               options={course}
               name="cursoId"
               onChange={formik.handleChange}
@@ -57,10 +54,8 @@ const CadastroEstudanteParte2:NextPage =() => {
             />
           </S.SelectContainer>
           {formik.touched.cursoId && formik.errors.cursoId ? (
-              <S.ErrorMessage>
-                {formik.errors.cursoId}
-              </S.ErrorMessage>
-          ): null}
+            <S.ErrorMessage>{formik.errors.cursoId}</S.ErrorMessage>
+          ) : null}
 
           <S.SelectContainer>
             <Select
@@ -72,10 +67,8 @@ const CadastroEstudanteParte2:NextPage =() => {
             />
           </S.SelectContainer>
           {formik.touched.universidadeId && formik.errors.universidadeId ? (
-              <S.ErrorMessage>
-                {formik.errors.universidadeId}
-              </S.ErrorMessage>
-          ): null}
+            <S.ErrorMessage>{formik.errors.universidadeId}</S.ErrorMessage>
+          ) : null}
 
           <S.SelectContainer>
             <Select
@@ -87,10 +80,8 @@ const CadastroEstudanteParte2:NextPage =() => {
             />
           </S.SelectContainer>
           {formik.touched.provinciaId && formik.errors.provinciaId ? (
-              <S.ErrorMessage>
-                {formik.errors.provinciaId}
-              </S.ErrorMessage>
-          ): null}
+            <S.ErrorMessage>{formik.errors.provinciaId}</S.ErrorMessage>
+          ) : null}
 
           <S.SelectContainer>
             <Select
@@ -102,26 +93,24 @@ const CadastroEstudanteParte2:NextPage =() => {
             />
           </S.SelectContainer>
           {formik.touched.municipioId && formik.errors.municipioId ? (
-              <S.ErrorMessage>
-                {formik.errors.municipioId}
-              </S.ErrorMessage>
-          ): null}
+            <S.ErrorMessage>{formik.errors.municipioId}</S.ErrorMessage>
+          ) : null}
 
           <Input
-            icon={<HiLocationMarker/>}
-            type='text'
+            icon={<HiLocationMarker />}
+            type="text"
             onChange={formik.handleChange}
             value={formik.values.bairro}
             name="bairro"
-            placeholder='Bairro'
+            placeholder="Bairro"
           />
           {formik.touched.bairro && formik.errors.bairro ? (
-              <S.ErrorMessage>
-                {formik.errors.bairro}
-              </S.ErrorMessage>
-          ): null}
+            <S.ErrorMessage>{formik.errors.bairro}</S.ErrorMessage>
+          ) : null}
 
-          <S.Button type='submit'>Continuar <HiArrowNarrowRight/></S.Button>
+          <S.Button disabled={isSubmitting} type="submit">
+            Continuar <HiArrowNarrowRight />
+          </S.Button>
         </S.Form>
         <S.BadayeInfo>
           <LayoutAuthentication
@@ -135,4 +124,4 @@ const CadastroEstudanteParte2:NextPage =() => {
     </S.Container>
   )
 }
-export default CadastroEstudanteParte2;
+export default CadastroEstudanteParte2

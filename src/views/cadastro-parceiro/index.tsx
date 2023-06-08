@@ -18,7 +18,7 @@ import { useFetch } from 'src/hooks/useFetch'
 
 const Parceiro: NextPage = () => {
   const { data: partnerType, isLoading } = useFetch(`/tipoParceiro`)
-  const { formik } = usePartner()
+  const { formik, isSubmitting } = usePartner()
 
   if (isLoading) return <>Carregando...</>
 
@@ -94,7 +94,7 @@ const Parceiro: NextPage = () => {
           <S.ErrorMessage>{formik.errors.confirmeSenha}</S.ErrorMessage>
         ) : null}
 
-        <Button>Cadastrar</Button>
+        <Button disabled={isSubmitting}>Cadastrar</Button>
 
         <S.Description>
           Ao se cadastrar, você aceita todos nossos{' '}

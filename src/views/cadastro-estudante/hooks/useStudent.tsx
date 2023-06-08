@@ -1,5 +1,6 @@
 import { useFormik } from 'formik'
 import Router from 'next/router'
+import { useState } from 'react'
 import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { postFecthStudent1 } from '../services'
@@ -10,7 +11,11 @@ interface StudentProps {
 }
 
 const UseStudent = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   async function studentRegistration1(data: IStudent) {
+    setIsSubmitting(true)
+
     try {
       const student = await postFecthStudent1(data)
       if (student) {
@@ -27,6 +32,10 @@ const UseStudent = () => {
     } catch (err) {
       const error = err as IErrorInterface
       toast(error.response?.data?.error, { autoClose: 2000, type: 'error' })
+    } finally {
+      setTimeout(() => {
+        setIsSubmitting(false)
+      }, 2000)
     }
   }
 
@@ -73,7 +82,8 @@ const UseStudent = () => {
   })
 
   return {
-    formik
+    formik,
+    isSubmitting
   }
 }
 
