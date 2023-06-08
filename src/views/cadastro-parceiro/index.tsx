@@ -120,16 +120,17 @@ const Parceiro: NextPage = () => {
               title="Estudante"
               description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
               src="/assets/library-bolsas.svg"
-              isActive={false}
+              name="radioP"
             />
           </Link>
-          <Link href="#">
+          <Link href="/cadastro-parceiro">
             <RadioBox
               title="Parceiro"
               description="Entidades dispostas a contribuir para
               sucesso acádemico dos estudantes."
               src="/assets/parceiro.svg"
-              isActive={true}
+              name="radioP"
+              checked
             />
           </Link>
         </S.ContainerRadios>

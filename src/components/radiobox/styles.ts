@@ -41,5 +41,3 @@ export const Description = styled.p`
   margin-top: 1rem;
   line-height: 2rem;
 `
-
-export const Input = styled.input``

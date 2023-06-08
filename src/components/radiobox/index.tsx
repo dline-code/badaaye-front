@@ -6,21 +6,18 @@ const radiobox: React.FC<RadioboxProps> = ({
   title,
   description,
   src,
-  isActive,
-  onClick
+  onClick,
+  checked = false,
+  ...rest
 }) => {
   return (
-    <S.Label
-      htmlFor="radio"
-      isActive={isActive}
-      onClick={onClick}
-    >
+    <S.Label htmlFor="radio" isActive={checked} onClick={onClick}>
       <S.Image src={src} alt="image" />
       <S.Container>
         <S.Title>{title}</S.Title>
         <S.Description>{description}</S.Description>
       </S.Container>
-      <S.Input type="radio" id="radio" name="radio" checked={isActive} />
+      <input type="radio" id="radio" checked={checked} {...rest} />
     </S.Label>
   )
 }
