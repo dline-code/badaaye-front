@@ -1,6 +1,7 @@
 import React from 'react'
 import { RadioboxProps } from './type'
 import * as S from './styles'
+import Link from 'next/link'
 
 const radiobox: React.FC<RadioboxProps> = ({
   title,
@@ -12,6 +13,7 @@ const radiobox: React.FC<RadioboxProps> = ({
 }) => {
   return (
     <S.Label htmlFor="radio" isActive={checked} onClick={onClick}>
+      <Link href="/cadastro-estudante">{'  '}</Link>
       <S.Image src={src} alt="image" />
       <S.Container>
         <S.Title>{title}</S.Title>

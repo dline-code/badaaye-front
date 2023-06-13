@@ -115,24 +115,20 @@ const Parceiro: NextPage = () => {
           </S.TextBack>
         </Link>
         <S.ContainerRadios>
-          <Link href="/cadastro-estudante">
-            <RadioBox
-              title="Estudante"
-              description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
-              src="/assets/library-bolsas.svg"
-              name="radioP"
-            />
-          </Link>
-          <Link href="/cadastro-parceiro">
-            <RadioBox
-              title="Parceiro"
-              description="Entidades dispostas a contribuir para
+          <RadioBox
+            title="Estudante"
+            description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
+            src="/assets/library-bolsas.svg"
+            name="radioP"
+          />
+          <RadioBox
+            title="Parceiro"
+            description="Entidades dispostas a contribuir para
               sucesso acádemico dos estudantes."
-              src="/assets/parceiro.svg"
-              name="radioP"
-              checked
-            />
-          </Link>
+            src="/assets/parceiro.svg"
+            name="radioP"
+            defaultChecked
+          />
         </S.ContainerRadios>
 
         <Link href="/login">

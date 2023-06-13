@@ -12,6 +12,7 @@ import Link from 'next/link'
 import Input from 'src/components/input'
 import Button from 'src/components/button'
 import { UseStudent } from './hooks/useStudent'
+import { ToggleRegisterType } from 'src/components/ToggleRegisterType'
 
 const cadastroEstudante: NextPage = () => {
   const { formik, isSubmitting } = UseStudent()
@@ -125,26 +126,8 @@ const cadastroEstudante: NextPage = () => {
             <S.LinkDescription>Voltar para login</S.LinkDescription>
           </S.TextBack>
         </Link>
-        <S.ContainerRadios>
-          <Link href="/cadastro-estudante">
-            <RadioBox
-              title="Estudante"
-              description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
-              src="/assets/library-bolsas.svg"
-              name="radioE"
-              checked
-            />
-          </Link>
-          <Link href="/cadastro-parceiro">
-            <RadioBox
-              title="Parceiro"
-              description="Entidades dispostas a contribuir para
-              sucesso acádemico dos estudantes."
-              src="/assets/parceiro.svg"
-              name="radioE"
-            />
-          </Link>
-        </S.ContainerRadios>
+        {/* Mudar a maneira que foi contruido esse radio select, remover o link como container */}
+        <ToggleRegisterType checkedOne="estudante" />
 
         <Link href="/login">
           <S.Text>
