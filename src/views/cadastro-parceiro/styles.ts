@@ -115,18 +115,7 @@ export const Container = styled.div`
     width: 90%;
   }
 `
-export const ContainerRadios = styled.div`
-  width: 100% auto;
-  height: 23.5rem;
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 
-  @media screen and (max-width: 920px) {
-    margin-bottom: 3.2rem;
-  }
-`
 export const TextBack = styled.div`
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxxblue};

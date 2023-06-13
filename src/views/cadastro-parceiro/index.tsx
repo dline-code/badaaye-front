@@ -7,7 +7,6 @@ import LayoutAuthentication from '../../components/layout-authentication'
 import Input from 'src/components/input'
 import Button from 'src/components/button'
 import Select from 'src/components/select'
-import RadioBox from 'src/components/radiobox'
 
 import { MdEmail } from 'react-icons/md'
 import { HiUser, HiArrowNarrowLeft } from 'react-icons/hi'
@@ -15,6 +14,7 @@ import { RiLockPasswordFill } from 'react-icons/ri'
 import { BsBriefcaseFill, BsPhoneFill } from 'react-icons/bs'
 import { usePartner } from './hooks/usePartner'
 import { useFetch } from 'src/hooks/useFetch'
+import { ToggleRegisterType } from 'src/components/ToggleRegisterType'
 
 const Parceiro: NextPage = () => {
   const { data: partnerType, isLoading } = useFetch(`/tipoParceiro`)
@@ -114,22 +114,8 @@ const Parceiro: NextPage = () => {
             <S.LinkDescription>Voltar para login</S.LinkDescription>
           </S.TextBack>
         </Link>
-        <S.ContainerRadios>
-          <RadioBox
-            title="Estudante"
-            description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
-            src="/assets/library-bolsas.svg"
-            name="radioP"
-          />
-          <RadioBox
-            title="Parceiro"
-            description="Entidades dispostas a contribuir para
-              sucesso acádemico dos estudantes."
-            src="/assets/parceiro.svg"
-            name="radioP"
-            defaultChecked
-          />
-        </S.ContainerRadios>
+
+        <ToggleRegisterType checkedOne="parceiro" />
 
         <Link href="/login">
           <S.Text>

@@ -1,7 +1,6 @@
 import type { NextPage } from 'next'
 import * as S from './styles'
 import LayoutAuthentication from '../../components/layout-authentication'
-import RadioBox from 'src/components/radiobox'
 import { HiArrowNarrowLeft } from 'react-icons/hi'
 import { MdEmail } from 'react-icons/md'
 import { HiUser, HiIdentification } from 'react-icons/hi'
@@ -126,7 +125,7 @@ const cadastroEstudante: NextPage = () => {
             <S.LinkDescription>Voltar para login</S.LinkDescription>
           </S.TextBack>
         </Link>
-        {/* Mudar a maneira que foi contruido esse radio select, remover o link como container */}
+
         <ToggleRegisterType checkedOne="estudante" />
 
         <Link href="/login">
