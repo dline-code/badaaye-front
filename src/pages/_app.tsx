@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps, err }: AppPropsWithLayout) {
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>
         <ThemeProvider theme={theme}>
-          {isPublicRoute && (
+          {/* {isPublicRoute && (
             <ComponentLayout>
               <Component {...pageProps} err={err} />
               <ToastContainer />
@@ -55,7 +55,11 @@ function MyApp({ Component, pageProps, err }: AppPropsWithLayout) {
                 <ToastContainer />
               </ComponentLayout>
             </PrivateRoute>
-          )}
+          )} */}
+          <ComponentLayout>
+            <Component {...pageProps} err={err} />
+            <ToastContainer />
+          </ComponentLayout>
           <GlobalStyles />
         </ThemeProvider>
       </AuthContextProvider>
