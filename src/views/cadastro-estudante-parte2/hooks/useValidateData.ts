@@ -1,20 +1,17 @@
 import { useState } from 'react'
 import { useFormik } from 'formik'
-import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { putFetchStudentPart2 } from '../services'
 import { IErrorInterface, IStudent } from '../type'
 import Router from 'next/router'
+import { getCookie, setCookie } from 'cookies-next'
 
 const UseValidateData = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const router = useRouter()
-
-  const {
-    query: { estudanteId }
-  } = router
+  const estudanteId = getCookie('estudanteId')?.toString()
+  // setCookie('estudanteId', '')
 
   async function studentRegistrationPart2(data: IStudent) {
     setIsSubmitting(true)
@@ -71,8 +68,8 @@ const UseValidateData = () => {
       bairro: yup.string().required('O bairro é obrigatório')
     }),
     onSubmit: data => {
-      Object.assign(data, { estudanteId })
-      studentRegistrationPart2(data)
+      const targetData = Object.assign(data, { estudanteId })
+      studentRegistrationPart2(targetData)
     }
   })
   return {

@@ -52,8 +52,8 @@ const UseValidatePartnerData = () => {
         .required('a descricao é obrigatoria')
     }),
     onSubmit: data => {
-      Object.assign(data, { parceiroId })
-      partnerResistration(data)
+      const targetData = Object.assign(data, { parceiroId })
+      partnerResistration(targetData)
     }
   })
   return {

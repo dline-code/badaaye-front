@@ -1,5 +1,5 @@
 interface IStudent {
-  //estudanteId: string
+  estudanteId: string | string[] | undefined
   grauId: string
   cursoId: string
   universidadeId: string
