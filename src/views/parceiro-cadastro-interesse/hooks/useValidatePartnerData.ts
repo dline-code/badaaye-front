@@ -3,14 +3,17 @@ import { IErrorInterface, IPartnerPart2 } from '../type'
 import { postFetchPartner } from '../services'
 import { toast } from 'react-toastify'
 import * as yup from 'yup'
-import { getCookie } from 'react-use-cookie'
-import Router from 'next/router'
+import { getCookie, deleteCookie } from 'cookies-next'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 const UseValidatePartnerData = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const router = useRouter()
 
-  const parceiroId = getCookie('parceiroId')
+  const parceiroId = getCookie('parceiroId')?.toString()
+
+  deleteCookie('parceiroId')
 
   async function partnerResistration(data: IPartnerPart2) {
     setIsSubmitting(true)
@@ -22,9 +25,7 @@ const UseValidatePartnerData = () => {
           type: 'success'
         })
 
-        Router.push({
-          pathname: '/tela-principal-parceiro'
-        })
+        router.push('/tela-principal-parceiro')
       }
     } catch (err) {
       const error = err as IErrorInterface

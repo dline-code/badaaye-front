@@ -1,7 +1,7 @@
 export interface IPartnerPart2 {
   areaId: string
   descricao: string
-  parceiroId: string
+  parceiroId: string | undefined
 }
 
 interface IResponse {

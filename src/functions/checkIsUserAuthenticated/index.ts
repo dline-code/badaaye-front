@@ -33,7 +33,7 @@ export const isAuthenticated = (req: any) => {
   return getUser(cookiematch.split('=')[1].trim())
 }
 
-function getUser(token: string): User | undefined {
+export function getUser(token: string): User | undefined {
   if (token) {
     const user: User = decode(token)
     return user

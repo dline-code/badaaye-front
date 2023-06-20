@@ -3,29 +3,30 @@ import { IErrorInterface, IPartner } from '../type'
 import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { postPartner } from '../services'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 import { setCookie } from 'react-use-cookie'
 import { useState } from 'react'
 
 export const usePartner = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const router = useRouter()
 
   const partnerResistration = async (data: IPartner) => {
     setIsSubmitting(true)
 
     try {
-      const partner = await postPartner(data)
+      const response = await postPartner(data)
 
-      if (partner) {
+      if (response) {
         toast('Cadastro feito com sucesso', {
           autoClose: 2000,
           type: 'success'
         })
-        setCookie('parceiroId', partner.usuario.id)
 
-        Router.push({
-          pathname: '/cadastro-parceiro-parte2'
-        })
+        setCookie('baadaye-token', response.token)
+        setCookie('parceiroId', response.usuario.id)
+
+        router.push('/parceiro-cadastro-interesse')
       }
     } catch (err) {
       const error = err as IErrorInterface

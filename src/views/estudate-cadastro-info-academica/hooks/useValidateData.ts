@@ -5,13 +5,13 @@ import * as yup from 'yup'
 import { putFetchStudentPart2 } from '../services'
 import { IErrorInterface, IStudent } from '../type'
 import Router from 'next/router'
-import { getCookie, setCookie } from 'cookies-next'
+import { getCookie, deleteCookie } from 'cookies-next'
 
 const UseValidateData = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const estudanteId = getCookie('estudanteId')?.toString()
-  // setCookie('estudanteId', '')
+  deleteCookie('parceiroId')
 
   async function studentRegistrationPart2(data: IStudent) {
     setIsSubmitting(true)

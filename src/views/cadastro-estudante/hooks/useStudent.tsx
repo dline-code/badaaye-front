@@ -1,5 +1,5 @@
 import { useFormik } from 'formik'
-import Router from 'next/router'
+import { useRouter } from 'next/router'
 import { setCookie } from 'cookies-next'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
@@ -14,25 +14,23 @@ interface StudentProps {
 const UseStudent = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const router = useRouter()
+
   async function studentRegistration1(data: IStudent) {
     setIsSubmitting(true)
 
     try {
-      const student = await postFecthStudent1(data)
-      if (student) {
+      const response = await postFecthStudent1(data)
+      if (response.usuario) {
         toast('Cadastro feito com sucesso', {
           autoClose: 2000,
           type: 'success'
         })
 
-        console.log(student)
+        setCookie('baadaye-token', response.token)
+        setCookie('estudanteId', response.usuario.id)
 
-        //Guardar o token após o cadastro
-        setCookie('estudanteId', student.usuario.id)
-
-        Router.push({
-          pathname: '/cadastro-estudante-parte2'
-        })
+        router.push('/estudate-cadastro-info-academica')
       }
     } catch (err) {
       const error = err as IErrorInterface
