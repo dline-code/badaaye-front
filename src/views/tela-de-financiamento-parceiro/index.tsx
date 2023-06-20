@@ -1,4 +1,5 @@
-import React,{useState} from "react"
+import Link from "next/link"
+import React, { useState } from "react"
 import * as S from "./styles"
 import {Layout} from "src/components/layout"
 import { PageProps } from "../tela-principal-estudante/types"
@@ -12,10 +13,15 @@ import { BsCheck, BsX } from "react-icons/bs"
 import {financies} from "./service"
 
 const TelaDeFinanciamentoParceiroView: React.FC<PageProps> = (props) => {
+
+
     return (
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
             <S.Wrapper>
-                <DescriptionBanner />
+                <DescriptionBanner
+                    title="Solicitações de estudantes"
+                    description="Pode visualizar, aprovar e rejeitar pedidos de solicitação de financiamento"
+                />
                 <S.Container>
                     <S.Content>
                         <S.Form>
@@ -25,30 +31,34 @@ const TelaDeFinanciamentoParceiroView: React.FC<PageProps> = (props) => {
                             />
                             <Button>Procurar</Button>
                         </S.Form>
-                        <S.FinancyTitles>
-                                <div>Nome</div>
-                                <div>Grau</div>
-                                <div>Curso</div>
-                                <div>Instituição</div>
-                        </S.FinancyTitles>
-                        <S.FinancyList>
-                            {
-                                financies.map(item => (
-                                    <S.FinancyItem key={item.id}>
-                                        <S.LeftSide>
-                                            <div>{item.name}</div>
-                                            <div>{item.grad}</div>
-                                            <div>{item.course}</div>
-                                            <div>{item.instituition}</div>
-                                        </S.LeftSide>
-                                        <S.RightSide>
-                                            <Button><BsCheck /></Button>
-                                            <Button><BsX /></Button>
-                                        </S.RightSide>
-                                    </S.FinancyItem>
-                                ))
-                            }
-                        </S.FinancyList>
+                        <div>
+                            <S.FinancyTitles>
+                                    <div>Nome</div>
+                                    <div>Grau</div>
+                                    <div>Curso</div>
+                                    <div>Instituição</div>
+                            </S.FinancyTitles>
+                            <S.FinancyList>
+                                {
+                                    financies.map(item => (
+                                        <Link href="#">
+                                            <S.FinancyItem key={item.id}>
+                                                <S.LeftSide>
+                                                    <div>{item.name}</div>
+                                                    <div>{item.grad}</div>
+                                                    <div>{item.course}</div>
+                                                    <div>{item.instituition}</div>
+                                                </S.LeftSide>
+                                                <S.RightSide>
+                                                    <Button><BsCheck /></Button>
+                                                    <Button><BsX /></Button>
+                                                </S.RightSide>
+                                            </S.FinancyItem>
+                                        </Link>
+                                    ))
+                                }
+                            </S.FinancyList>
+                        </div>
                     </S.Content>
                 </S.Container>
             </S.Wrapper>

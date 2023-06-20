@@ -1,12 +1,13 @@
 import * as S from "./styles"
-import {AiOutlineArrowLeft} from "react-icons/ai"
+import { AiOutlineArrowLeft } from "react-icons/ai"
+import {descriptionBannerProps} from "./type"
 
-function DescriptionBanner() {
+const DescriptionBanner: React.FC<descriptionBannerProps> = ({title, description})=>{
     return (
         <S.Container>
             {false && <AiOutlineArrowLeft />}
-            <S.Title>Solicitações de estudantes</S.Title>
-            <S.Description>Pode visualizar, aprovar e rejeitar pedidos de solicitação de financiamento</S.Description>
+            <S.Title>{title}</S.Title>
+            <S.Description>{description}</S.Description>
         </S.Container>
     )
 }

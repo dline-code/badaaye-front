@@ -18,12 +18,15 @@ export const Form = styled.div`
     width: 100%;
     display: flex;
     height: 8rem;
-    border-bottom: 0.2rem solid ${({ theme }) => theme.colors.tertiary.gray};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.tertiary.gray};
     margin-bottom: ${({theme})=> theme.spacings.xxxmultipleeight};
 
     .button {
         width: 20rem;
         margin-left: ${({theme})=> theme.spacings.xxxmultipleeight};
+    }
+    .input {
+        border: 1.75px solid #AAAAAA;
     }
 `
 
@@ -59,11 +62,18 @@ export const LeftSide = styled.div`
     align-items: center;
     border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.xcinza};
     border-radius: 4px;
+
+    cursor: pointer;
    
     div {
         width: 25%;
         font-size: ${({ theme }) => theme.font.sizes.midle};
         font-weight: ${({ theme }) => theme.font.regular};
+    }
+
+    &:hover {
+        transition: ${({ theme }) => theme.transition.default};
+        background: ${({theme})=> theme.colors.tertiary.xcinza};
     }
 `
 
