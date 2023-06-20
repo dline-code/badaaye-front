@@ -17,6 +17,5 @@ export const APP_ROUTES = {
     cadastroEstudanteParte2: '/cadastro-estudante-parte2',
     cadastroParceiro: '/cadastro-parceiro',
     cadastroParceiroParte2: '/cadastro-parceiro-parte2',
-    telaDeFinanciamentoEstudante: '/tela-de-financiamento-parceiro'
   }
 }
