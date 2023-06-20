@@ -1,10 +1,7 @@
 import * as S from "./styles"
 import { AiOutlineArrowLeft } from "react-icons/ai"
 
-export type descriptionBannerProps = {
-    title: string,
-    description: string,
-}
+import {descriptionBannerProps} from "./type"
 
 const DescriptionBanner: React.FC<descriptionBannerProps> = ({title, description})=>{
     return (
