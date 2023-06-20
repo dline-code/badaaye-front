@@ -13,8 +13,22 @@ import { BsCheck, BsX } from "react-icons/bs"
 import {financies} from "./service"
 
 const TelaDeFinanciamentoParceiroView: React.FC<PageProps> = (props) => {
+    const [data, setData] = useState(financies)
+    const [searchText, setSearchText] = useState("Osvaldo")
 
-
+    const handleSearchFinancy = () => {
+        const text = searchText.trim().toLowerCase();
+        
+        const newFinancies = financies.filter(
+            ({name, grad, course, instituition }) => 
+                name.toLowerCase().includes(text) || 
+                grad.toLowerCase().includes(text) || 
+                course.toLowerCase().includes(text) || 
+                instituition.toLowerCase().includes(text) 
+            )
+        setData(newFinancies)
+        console.log(newFinancies)
+    }
     return (
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
             <S.Wrapper>
@@ -28,8 +42,9 @@ const TelaDeFinanciamentoParceiroView: React.FC<PageProps> = (props) => {
                             <Input
                                 type="text"
                                 placeholder="Procurar por nome, curso, grau"
+                                onChange={e => setSearchText(e.target.value)}
                             />
-                            <Button>Procurar</Button>
+                            <Button onClick={()=>handleSearchFinancy()}>Procurar</Button>
                         </S.Form>
                         <div>
                             <S.FinancyTitles>
@@ -40,7 +55,7 @@ const TelaDeFinanciamentoParceiroView: React.FC<PageProps> = (props) => {
                             </S.FinancyTitles>
                             <S.FinancyList>
                                 {
-                                    financies.map(item => (
+                                    data.map(item => (
                                         <Link href="#">
                                             <S.FinancyItem key={item.id}>
                                                 <S.LeftSide>
