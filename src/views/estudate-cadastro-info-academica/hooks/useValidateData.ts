@@ -11,7 +11,6 @@ const UseValidateData = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const estudanteId = getCookie('estudanteId')?.toString()
-  deleteCookie('parceiroId')
 
   async function studentRegistrationPart2(data: IStudent) {
     setIsSubmitting(true)
@@ -28,6 +27,8 @@ const UseValidateData = () => {
           pathname: '/tela-principal-estudante',
           query: { estudanteId }
         })
+
+        deleteCookie('estudanteId')
       }
     } catch (err) {
       const error = err as IErrorInterface

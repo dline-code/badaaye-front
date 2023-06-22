@@ -13,8 +13,6 @@ const UseValidatePartnerData = () => {
 
   const parceiroId = getCookie('parceiroId')?.toString()
 
-  deleteCookie('parceiroId')
-
   async function partnerResistration(data: IPartnerPart2) {
     setIsSubmitting(true)
     try {
@@ -26,6 +24,7 @@ const UseValidatePartnerData = () => {
         })
 
         router.push('/tela-principal-parceiro')
+        deleteCookie('parceiroId')
       }
     } catch (err) {
       const error = err as IErrorInterface
