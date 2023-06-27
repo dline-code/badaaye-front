@@ -1,7 +1,7 @@
 import { APP_ROUTES } from 'src/constants/app-routes'
 
-export const checkIsPublicRoute = (asPath: string) => {
+export const checkIsPublicRoute = (pathname: string) => {
   const appPublicRoutes = Object.values(APP_ROUTES.public)
 
-  return appPublicRoutes.includes(asPath)
+  return appPublicRoutes.some(route => route.startsWith(pathname))
 }

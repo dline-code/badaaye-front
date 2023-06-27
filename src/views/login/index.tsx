@@ -31,7 +31,6 @@ const Login: NextPage = () => {
           title="Seja bem vindo a nossa plataforma"
           description="Informe os seus dados para acessar a plataforma e conectar-se com parceiros ou apoiar estudantes."
           RegistrationLink="Ainda não tenho uma conta"
-          link="#"
         />
         <Link href="/cadastro-parceiro">
           <a>
@@ -69,7 +68,7 @@ const Login: NextPage = () => {
           <ErrorMassage errorMessage={formik.errors.senha} />
         ) : null}
         <S.ForgetPasswordLink>
-          <Link href="#">
+          <Link href="">
             <a>Esqueceu a sua senha?</a>
           </Link>
         </S.ForgetPasswordLink>
@@ -77,7 +76,7 @@ const Login: NextPage = () => {
           {isSubmitting ? 'Enviando' : 'Enviar'}
         </Button>
         <S.CreateAccountLink>
-          <Link href="cadastro-parceiro">
+          <Link href="/cadastro-parceiro">
             <a>Não tenho uma conta? Criar conta</a>
           </Link>
         </S.CreateAccountLink>

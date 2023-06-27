@@ -1,14 +1,23 @@
 import styled from 'styled-components'
 
-const colors = {
-  gray: '#AAAAA',
-  blue: 'blue'
-}
+export const Container = styled.div`
+  width: 100% auto;
+  height: 23.5rem;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-interface RadioboxProps {
+  @media screen and (max-width: 920px) {
+    margin-bottom: 3.2rem;
+  }
+`
+
+interface LabelProps {
   isActive: boolean
 }
-export const Label = styled.label<RadioboxProps>`
+export const Label = styled.label<LabelProps>`
+  position: relative;
   width: 100%;
   height: 11rem;
   display: flex;
@@ -17,6 +26,11 @@ export const Label = styled.label<RadioboxProps>`
   padding: 1rem;
   border: 0.2rem solid ${props => (props.isActive ? 'blue' : '#AAAAAA')};
   border-radius: 0.4rem;
+
+  a {
+    position: absolute;
+    inset: 0;
+  }
 `
 
 export const Image = styled.img`
@@ -24,7 +38,7 @@ export const Image = styled.img`
   height: 3rem;
 `
 
-export const Container = styled.div`
+export const Content = styled.div`
   padding: 0 2rem;
 `
 
@@ -41,5 +55,3 @@ export const Description = styled.p`
   margin-top: 1rem;
   line-height: 2rem;
 `
-
-export const Input = styled.input``

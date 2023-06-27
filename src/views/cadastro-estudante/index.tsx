@@ -1,10 +1,9 @@
 import type { NextPage } from 'next'
 import * as S from './styles'
 import LayoutAuthentication from '../../components/layout-authentication'
-import RadioBox from 'src/components/radiobox'
 import { HiArrowNarrowLeft } from 'react-icons/hi'
 import { MdEmail } from 'react-icons/md'
-import { HiUser } from 'react-icons/hi'
+import { HiUser, HiIdentification } from 'react-icons/hi'
 import { MdDateRange } from 'react-icons/md'
 import { RiLockPasswordFill } from 'react-icons/ri'
 import { BsFillTelephoneFill } from 'react-icons/bs'
@@ -12,9 +11,10 @@ import Link from 'next/link'
 import Input from 'src/components/input'
 import Button from 'src/components/button'
 import { UseStudent } from './hooks/useStudent'
+import { ToggleRegisterType } from 'src/components/ToggleRegisterType'
 
 const cadastroEstudante: NextPage = () => {
-  const { formik } = UseStudent()
+  const { formik, isSubmitting } = UseStudent()
 
   return (
     <S.Wrapper>
@@ -27,7 +27,6 @@ const cadastroEstudante: NextPage = () => {
           placeholder="Seu e-mail"
           icon={<MdEmail />}
           onChange={formik.handleChange}
-          value={formik.values.email}
         />
         {formik.touched.email && formik.errors.email ? (
           <S.ErrorMessage>{formik.errors.email}</S.ErrorMessage>
@@ -39,7 +38,6 @@ const cadastroEstudante: NextPage = () => {
           placeholder="Nome"
           icon={<HiUser />}
           onChange={formik.handleChange}
-          value={formik.values.nome}
         />
         {formik.touched.nome && formik.errors.nome ? (
           <S.ErrorMessage>{formik.errors.nome}</S.ErrorMessage>
@@ -51,7 +49,6 @@ const cadastroEstudante: NextPage = () => {
           type="date"
           icon={<MdDateRange />}
           onChange={formik.handleChange}
-          value={formik.values.dataNascimento}
         />
         {formik.touched.dataNascimento && formik.errors.dataNascimento ? (
           <S.ErrorMessage>{formik.errors.dataNascimento}</S.ErrorMessage>
@@ -63,7 +60,6 @@ const cadastroEstudante: NextPage = () => {
           placeholder="Número de telefone"
           icon={<BsFillTelephoneFill />}
           onChange={formik.handleChange}
-          value={formik.values.telefone}
         />
         {formik.touched.telefone && formik.errors.telefone ? (
           <S.ErrorMessage>{formik.errors.telefone}</S.ErrorMessage>
@@ -74,9 +70,8 @@ const cadastroEstudante: NextPage = () => {
           name="bi"
           type="text"
           placeholder="Número do bi"
-          icon={<BsFillTelephoneFill />}
+          icon={<HiIdentification />}
           onChange={formik.handleChange}
-          value={formik.values.bi}
         />
         {formik.touched.bi && formik.errors.bi ? (
           <S.ErrorMessage>{formik.errors.bi}</S.ErrorMessage>
@@ -89,7 +84,6 @@ const cadastroEstudante: NextPage = () => {
           placeholder="Sua senha"
           icon={<RiLockPasswordFill />}
           onChange={formik.handleChange}
-          value={formik.values.senha}
         />
         {formik.touched.senha && formik.errors.senha ? (
           <S.ErrorMessage>{formik.errors.senha}</S.ErrorMessage>
@@ -101,13 +95,12 @@ const cadastroEstudante: NextPage = () => {
           placeholder="Confirme senha"
           icon={<RiLockPasswordFill />}
           onChange={formik.handleChange}
-          value={formik.values.confirmarSenha}
         />
         {formik.touched.confirmarSenha && formik.errors.confirmarSenha ? (
           <S.ErrorMessage>{formik.errors.confirmarSenha}</S.ErrorMessage>
         ) : null}
 
-        <Button>Cadastrar</Button>
+        <Button disabled={isSubmitting}>Cadastrar</Button>
 
         <S.Description>
           Ao se cadastrar, você aceita nossos
@@ -132,25 +125,8 @@ const cadastroEstudante: NextPage = () => {
             <S.LinkDescription>Voltar para login</S.LinkDescription>
           </S.TextBack>
         </Link>
-        <S.ContainerRadios>
-          <Link href="#">
-            <RadioBox
-              title="Estudante"
-              description="Aluno com o ensino médio concluído frequentando ou não o ensino superior."
-              src="/assets/library-bolsas.svg"
-              isActive={true}
-            />
-          </Link>
-          <Link href="/parceiro">
-            <RadioBox
-              title="Parceiro"
-              description="Entidades dispostas a contribuir para
-              sucesso acádemico dos estudantes."
-              src="/assets/parceiro.svg"
-              isActive={false}
-            />
-          </Link>
-        </S.ContainerRadios>
+
+        <ToggleRegisterType checkedOne="estudante" />
 
         <Link href="/login">
           <S.Text>

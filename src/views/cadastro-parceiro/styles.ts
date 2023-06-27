@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.main`
-  width: 100%auto;
+  width: 100% auto;
   height: 100vh;
   padding: 0 10rem;
   background: ${({ theme }) => theme.colors.tertiary.white};
@@ -60,7 +60,7 @@ export const SelectContainer = styled.div`
         font-size: ${({ theme }) => theme.font.sizes.midle};
       }
     }
-    :has(> select:focus) {
+    :has(select:focus) {
       border-color: ${({ theme }) => theme.colors.primary.xblue};
     }
   }
@@ -115,18 +115,7 @@ export const Container = styled.div`
     width: 90%;
   }
 `
-export const ContainerRadios = styled.div`
-  width: 100%auto;
-  height: 23.5rem;
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 
-  @media screen and (max-width: 920px) {
-    margin-bottom: 3.2rem;
-  }
-`
 export const TextBack = styled.div`
   font-size: ${({ theme }) => theme.font.sizes.midle};
   color: ${({ theme }) => theme.colors.secondary.xxxblue};
