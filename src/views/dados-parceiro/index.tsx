@@ -54,7 +54,6 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
 
   const deleteAreaMutation = useMutation(deleteArea)
   const postAreaMutation = useMutation(postArea)
-  const areaMutation = useMutation(Areas)
 
 
   function handleOptions(index: number) {

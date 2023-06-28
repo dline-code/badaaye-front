@@ -11,7 +11,6 @@ export const HeaderInner = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   > div {
     padding: 1rem;
     border: ${({ theme }) => theme.border.solid(theme.colors.tertiary.gray)};
