@@ -5,10 +5,8 @@ import { inputControls } from './utils/formFrame'
 import * as S from './styles'
 import { UseStudentData } from './hooks/useStudentData'
 import * as Md from 'react-icons/md'
-import { PageProps } from './type'
 import { Layout } from 'src/components/layout'
-
-import { AuthContext, AuthProvider } from 'src/context/auth-content'
+import { PageProps } from './type'
 
 export function DadosEstudante(props: PageProps) {
   const {
