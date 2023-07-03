@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import * as S from './styles'
 import Image from 'next/image'
-import { AiOutlineUser } from 'react-icons/ai'
+import { AiOutlineRollback, AiOutlineUser } from 'react-icons/ai'
 import { FormControl } from 'src/components/FormControl'
 import Button from 'src/components/button'
 import * as Md from 'react-icons/md'
@@ -179,10 +179,14 @@ async function handleSubmit(data: {
                 />
               </a>
             </Link>
-
-            <div>
-              <AiOutlineUser />
-            </div>
+            <S.ContainerArea>
+              <div>
+                <AiOutlineUser />
+              </div>
+              <div onClick={()=> router.back()}>
+                <AiOutlineRollback />
+              </div>
+            </S.ContainerArea>
           </S.HeaderInner>
         </S.Header>
 

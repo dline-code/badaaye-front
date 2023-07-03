@@ -94,4 +94,16 @@ export const Container = styled.div`
 
 `
 
+export const ContainerArea = styled.section`
+  display: flex;
+  gap: 1rem;
 
+  div{
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+`
