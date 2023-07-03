@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import * as S from './styles'
 import MenuMobile from '../menu-mobile'
 import { FiLogOut, FiUser } from 'react-icons/fi'
-
+import { deleteCookie } from 'cookies-next'
 interface Props {
   isLogged?: boolean
 }
@@ -59,7 +59,11 @@ const header: React.FC<Props> = ({ isLogged }) => {
             }}
           >
             <S.DropDown isMenuOpened={isMenuOpened}>
-              <S.DropItem>
+              <S.DropItem
+                onClick={() => {
+                  deleteCookie('baadaye-token'), router.push('/login')
+                }}
+              >
                 <div>
                   <FiLogOut />
                   <span>Logout</span>
