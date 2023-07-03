@@ -178,15 +178,15 @@ export const CardUserLogged = styled.div`
   justify-content: center;
   border: 1px solid ${({ theme }) => theme.colors.tertiary.gray};
   cursor: pointer;
+  position: relative;
 `
 interface DropProps {
   isMenuOpened: boolean
 }
 
 export const DropDown = styled.div`
-  position: relative;
-  top: 3rem;
-  left: 3rem;
+  position: absolute;
+  top: 5rem;
   width: 25rem;
   max-width: 350px;
   background-color: #eee;
@@ -194,21 +194,24 @@ export const DropDown = styled.div`
   border-radius: 4px;
   overflow: hidden;
   max-height: ${({ isMenuOpened }: DropProps) =>
-    isMenuOpened ? '30rem' : '0'};
-  transition: max-height 0.3s;
+    isMenuOpened ? '40rem' : '0'};
+  transition: max-height ease-in-out 0.3s;
 `
 
 export const DropItem = styled.button`
   display: flex;
   justify-content: start;
   width: 100%;
-  border: none;
   padding: 1.2rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
   div {
     display: flex;
     gap: 1rem;
   }
   :hover {
-    background-color: #aaa;
+    border-color: #ccc;
+    color: rgba(44, 56, 74, 0.95);
+    background-color: #fff;
   }
 `

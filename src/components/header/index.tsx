@@ -66,7 +66,7 @@ const header: React.FC<Props> = ({ isLogged }) => {
               >
                 <div>
                   <FiLogOut />
-                  <span>Logout</span>
+                  <span>Terminar sessão</span>
                 </div>
               </S.DropItem>
             </S.DropDown>
