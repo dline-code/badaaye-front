@@ -11,158 +11,28 @@ import { validationSchema } from './utils'
 import { useFetch } from 'src/hooks/useFetch'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import React, { useState } from 'react'
-import { api } from 'src/services/api'
-import { toast } from 'react-toastify'
-import { useMutation } from 'react-query'
-import { ApiResponse } from './type'
+import { ApiResponse, PartnerDataProps, UpdatepPartner } from './type'
 import { useRouter } from 'next/router'
-
-
-type PartnerDataProps = {
-  parceiro: {
-    id: string,
-    nome: string,
-    email: string,
-    areaId: string,
-    descricao: string,
-    tipoParceiroId: string,
-    tipoParceiro: {
-      designacao: string
-    },
-  },
-  areasInteresse: [
-    {
-      id: string,
-      designacao: string,
-      areaId: string,
-    }
-  ],
-  telefone: {
-    id: string,
-    designacao: string,
-  }
-}
+import { usePartnerhook } from './hooks/usePartner'
 
 export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ PartnerData }) => {
-
   const { data: Areas } = useFetch('/area')
   const router = useRouter()
   const { data: AreaInteresse } = useFetch(`/areaInteresse/${PartnerData?.parceiro?.id}`)
-  const [isOpen, setIsOpen] = useState(false)
-  const [openArea, setOpenArea] = useState(false)
-  const [openAreaIndex, setOpenAreaIndex] = useState<number>(0)
 
-  const deleteAreaMutation = useMutation(deleteArea)
-  const postAreaMutation = useMutation(postArea)
-
-
-  function handleOptions(index: number) {
-    setIsOpen(state => !state)
-    setOpenAreaIndex(index)
-  }
-
-  async function deleteArea(id: string) {
-    const response = await api.delete(`/areaInteresse/${id}`)
-    if (response) toast.success('Area de Interesse deletada com sucesso')
-    return response
-  }
-  async function postArea(data: { parceiroId: string, areaId: string }) {
-    const response = await api.post(`/areaInteresse`, data)
-    return response
-  }
-
-
-  async function handleDelete(id: string) {
-    const confir = confirm(
-      'Tens certeza que queres eliminar esta area de interesse?'
-    )
-    if (confir) {
-      try {
-        await deleteAreaMutation.mutate(id)
-      } catch (error: any) {
-        toast.error(error?.response?.data?.message)
-      }
-    }
-  }
-
-
-  const initialValues = {
-    nome: PartnerData?.parceiro?.nome,
-    descricao: PartnerData?.parceiro?.descricao,
-    tipoParceiro: PartnerData?.parceiro?.tipoParceiro?.designacao,
-    telefone: PartnerData?.telefone?.designacao,
-    areasInteresse: PartnerData?.areasInteresse,
-    areaId: ""
-}
-
-const updatePartner = useMutation(
-    async (data: {
-        nome: string
-        descricao: string
-        tipoParceiro: string
-        telefone: string
-        areasInteresse: object[]
-        areaId: string
-    }) => {
-        const typePartner = {
-            designacao: data?.tipoParceiro
-        }
-        const contact = {
-            designacao: data?.telefone
-        }
-        const areaInteresse = {
-            parceiroId: PartnerData?.parceiro?.id,
-            areaId: data?.areaId
-        }
-
-        try {
-          await postAreaMutation.mutate(areaInteresse)
-        } catch (error: any) {
-          toast.error(error?.response?.data?.message)
-        }
-
-        const partnerResult: { id: string } = await api.put(
-            `/tipoParceiro/${PartnerData?.parceiro?.tipoParceiroId}`,
-            typePartner
-        )
-
-        const contactResult = await api.put(
-            `/contacto/${PartnerData?.telefone?.id}`,
-            contact
-        )
-
-        const partner = {
-            nome: data?.nome,
-            descricao: data?.descricao,
-            tipoParceiroId: partnerResult?.id
-        }
-
-        const result = await api.put(
-            `/parceiro/${PartnerData?.parceiro?.id}`,
-            partner
-        )
-
-        return result
-    }
-)
-
-async function handleSubmit(data: {
-    nome: string
-    descricao: string
-    tipoParceiro: string
-    telefone: string
-    areasInteresse: object[]
-    areaId: string
-}) {
-    try {
-        await updatePartner.mutate(data)
-        toast.success('Parceiro actualizado com sucesso')
-        router.reload()
-    } catch (e) {
-        const err = e as ApiResponse
-        toast.error(err?.response?.data?.message)
-    }
-}
+  const {
+    handleDelete,
+    handleOptions,
+    handleSubmit,
+    initialValues,
+    isOpen,
+    openAreaIndex,
+    setIsOpen,
+    openArea,
+    setOpenArea,
+    setOpenAreaIndex,
+    updatePartner
+  } = usePartnerhook(PartnerData)
 
   return (
     <>
