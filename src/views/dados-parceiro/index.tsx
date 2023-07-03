@@ -32,7 +32,9 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
     openArea,
     setOpenArea,
     setOpenAreaIndex,
-    updatePartner
+    updatePartner,
+    default1,
+    setDefault1
   } = usePartnerhook(PartnerData)
 
   return (
@@ -97,6 +99,10 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
                           id="nome"
                           StarIcon={<Md.MdPerson />}
                           EndIcon={<Md.MdEdit />}
+                          onChange={(e) => {
+                            handleChange(e);
+                            setDefault1(false);
+                          }}
                         />
                         <FormControl
                           labelName="Numero de telefone"
@@ -106,6 +112,10 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
                           blocked={true}
                           StarIcon={<Md.MdPerson />}
                           EndIcon={<Md.MdEdit />}
+                          onChange={(e) => {
+                            handleChange(e);
+                            setDefault1(false);
+                          }}
                         />
                         <FormControl
                           labelName="Descrição"
@@ -117,6 +127,10 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
                           name="descricao"
                           EndIcon={<Md.MdEdit />}
                           blocked={true}
+                          onChange={(e) => {
+                            handleChange(e);
+                            setDefault1(false);
+                          }}
                         />
                         {AreaInteresse?.map(
                           (valor: { id: string }, index: number) => (
@@ -126,6 +140,10 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
                                 as={'input'}
                                 disabled={true}
                                 LastIcon={<BsThreeDotsVertical />}
+                                onChange={(e) => {
+                                  handleChange(e);
+                                  setDefault1(false);
+                                }}
                                 handleOptions={() => handleOptions(index)}
                                 StarIcon={<Md.MdPerson />}
                                 name={`areasInteresse[${index}].area.designacao`}
@@ -160,6 +178,10 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
                             id="areaId"
                             labelName="Area de interesse"
                             options={Areas}
+                            onChange={(e) => {
+                              handleChange(e);
+                              setDefault1(false);
+                            }}
                           />
                         )}
                         <FormControl
@@ -169,11 +191,15 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
                           id="tipoParceiroId"
                           options={TipoParceiro}
                           blocked={true}
+                          onChange={(e) => {
+                            handleChange(e);
+                            setDefault1(false);
+                          }}
                           StarIcon={<HiUsers />}
                           EndIcon={<Md.MdEdit />}
                         />
                         <div>
-                          <Button type="submit" disabled={isSubmitting}>
+                          <Button type="submit" disabled={isSubmitting || default1}>
                             Modificar Dados
                           </Button>
                         </div>

@@ -13,6 +13,8 @@ export const usePartnerhook = ( PartnerData: PartnerDataProps ) => {
   const [isOpen, setIsOpen] = useState(false)
   const [openArea, setOpenArea] = useState(false)
   const [openAreaIndex, setOpenAreaIndex] = useState<number>(0)
+  const [default1, setDefault1] = useState(true)
+
 
   const deleteAreaMutation = useMutation(deleteArea)
   const postAreaMutation = useMutation(postArea)
@@ -25,7 +27,10 @@ export const usePartnerhook = ( PartnerData: PartnerDataProps ) => {
 
   async function deleteArea(id: string) {
     const response = await api.delete(`/areaInteresse/${id}`)
-    if (response) toast.success('Area de Interesse deletada com sucesso')
+    if (response) {
+      toast.success('Area de Interesse deletada com sucesso')
+      router.reload()
+    }
     return response
   }
   async function postArea(data: { parceiroId: string, areaId: string }) {
@@ -41,7 +46,8 @@ export const usePartnerhook = ( PartnerData: PartnerDataProps ) => {
     if (confir) {
       try {
         await deleteAreaMutation.mutate(id)
-      } catch (error: any) {
+      } catch (e) {
+        const error = e as ApiResponse
         toast.error(error?.response?.data?.message)
       }
     }
@@ -73,7 +79,8 @@ const updatePartner = useMutation(
 
         try {
           await postAreaMutation.mutate(areaInteresse)
-        } catch (error: any) {
+        } catch (e) {
+          const error = e as ApiResponse
           toast.error(error?.response?.data?.message)
         }
 
@@ -106,7 +113,7 @@ const updatePartner = useMutation(
 
 async function handleSubmit(data: UpdatepPartner) {
     try {
-        const resp =  await updatePartner.mutate(data)
+        await updatePartner.mutate(data)
     } catch (e) {
         const err = e as ApiResponse
         toast.error(err?.response?.data?.message)
@@ -124,6 +131,8 @@ async function handleSubmit(data: UpdatepPartner) {
         setIsOpen,
         setOpenArea,
         setOpenAreaIndex,
-        updatePartner
+        updatePartner,
+        default1,
+        setDefault1
     }
 }
