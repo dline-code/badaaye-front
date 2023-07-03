@@ -98,7 +98,7 @@ const updatePartner = useMutation(
         )
 
         if(result){
-          toast.success('Parceiro actualizado com sucesso')
+          toast.success('Dados actualizado com sucesso')
           router.reload()
         }
 
