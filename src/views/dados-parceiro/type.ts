@@ -35,6 +35,7 @@ export type UpdatepPartner = {
   nome: string
   descricao: string
   tipoParceiro: string
+  tipoParceiroId: string
   telefone: string
   areasInteresse: [
     {

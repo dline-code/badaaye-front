@@ -52,6 +52,7 @@ export const usePartnerhook = ( PartnerData: PartnerDataProps ) => {
     nome: PartnerData?.parceiro?.nome,
     descricao: PartnerData?.parceiro?.descricao,
     tipoParceiro: PartnerData?.parceiro?.tipoParceiro?.designacao,
+    tipoParceiroId:   PartnerData?.parceiro?.tipoParceiroId,
     telefone: PartnerData?.telefone?.designacao,
     areasInteresse: PartnerData?.areasInteresse,
     areaId: ""
@@ -76,10 +77,7 @@ const updatePartner = useMutation(
           toast.error(error?.response?.data?.message)
         }
 
-        const partnerResult: { id: string } = await api.put(
-            `/tipoParceiro/${PartnerData?.parceiro?.tipoParceiroId}`,
-            typePartner
-        )
+
 
         const contactResult = await api.put(
             `/contacto/${PartnerData?.telefone?.id}`,
@@ -89,7 +87,7 @@ const updatePartner = useMutation(
         const partner = {
             nome: data?.nome,
             descricao: data?.descricao,
-            tipoParceiroId: partnerResult?.id
+            tipoParceiroId: data?.tipoParceiroId
         }
 
         const result = await api.put(

@@ -17,6 +17,7 @@ import { usePartnerhook } from './hooks/usePartner'
 
 export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ PartnerData }) => {
   const { data: Areas } = useFetch('/area')
+  const { data: TipoParceiro} = useFetch("/tipoParceiro")
   const router = useRouter()
   const { data: AreaInteresse } = useFetch(`/areaInteresse/${PartnerData?.parceiro?.id}`)
 
@@ -79,6 +80,7 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
                     descricao: PartnerData?.parceiro?.descricao,
                     tipoParceiro: PartnerData?.parceiro?.tipoParceiro?.designacao,
                     telefone: PartnerData?.telefone?.designacao,
+                    tipoParceiroId: PartnerData?.parceiro.tipoParceiroId,
                     areasInteresse: PartnerData?.areasInteresse,
                     areaId: ""
                   }}
@@ -91,6 +93,7 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
                           labelName="Nome"
                           as={'input'}
                           name="nome"
+                          blocked={true}
                           id="nome"
                           StarIcon={<Md.MdPerson />}
                           EndIcon={<Md.MdEdit />}
@@ -100,6 +103,7 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
                           as={'input'}
                           name="telefone"
                           id="telefone"
+                          blocked={true}
                           StarIcon={<Md.MdPerson />}
                           EndIcon={<Md.MdEdit />}
                         />
@@ -107,10 +111,12 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
                           labelName="Descrição"
                           as="textarea"
                           style={{
-                            height: "120px"
+                            height: "100px"
                           }}
                           id="descricao"
                           name="descricao"
+                          EndIcon={<Md.MdEdit />}
+                          blocked={true}
                         />
                         {AreaInteresse?.map(
                           (valor: { id: string }, index: number) => (
@@ -158,9 +164,11 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
                         )}
                         <FormControl
                           labelName="Tipo de Parceiro"
-                          as={'input'}
-                          name="tipoParceiro"
-                          id="tipoParceiro"
+                          as={'select'}
+                          name="tipoParceiroId"
+                          id="tipoParceiroId"
+                          options={TipoParceiro}
+                          blocked={true}
                           StarIcon={<HiUsers />}
                           EndIcon={<Md.MdEdit />}
                         />
