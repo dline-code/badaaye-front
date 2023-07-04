@@ -186,7 +186,7 @@ interface DropProps {
 
 export const DropDown = styled.div`
   position: absolute;
-  top: 5rem;
+  top: 6.25rem;
   width: 25rem;
   max-width: 350px;
   background-color: #eee;
