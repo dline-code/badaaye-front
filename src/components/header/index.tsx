@@ -7,6 +7,7 @@ import * as S from './styles'
 import MenuMobile from '../menu-mobile'
 import { FiLogOut, FiUser } from 'react-icons/fi'
 import { deleteCookie } from 'cookies-next'
+import PopoverDemo from '../dropdown-pop-over'
 interface Props {
   isLogged?: boolean
 }
@@ -52,28 +53,9 @@ const header: React.FC<Props> = ({ isLogged }) => {
             />
           </a>
         </Link>
+
         {isLogged ? (
-          <S.ContainerUserLogged
-            onClick={() => {
-              setIsMenuOpened(!isMenuOpened)
-            }}
-          >
-            <S.DropDown isMenuOpened={isMenuOpened}>
-              <S.DropItem
-                onClick={() => {
-                  deleteCookie('baadaye-token'), router.push('/login')
-                }}
-              >
-                <div>
-                  <FiLogOut />
-                  <span>Terminar sessão</span>
-                </div>
-              </S.DropItem>
-            </S.DropDown>
-            <S.CardUserLogged>
-              <FiUser />
-            </S.CardUserLogged>
-          </S.ContainerUserLogged>
+          <PopoverDemo />
         ) : (
           <>
             <S.List>
