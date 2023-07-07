@@ -99,6 +99,7 @@ export const TBody = styled.tbody`
     border-style: solid none solid none;
     text-align: left;
     vertical-align: middle;
+    position: relative;
 
     &:first-child {
       border-top-left-radius: ${({ theme }) =>
@@ -115,5 +116,24 @@ export const TBody = styled.tbody`
         theme.spacings.xxxxxmultipleeight};
       border-style: solid solid solid none;
     }
+  }
+`
+export const PopOver = styled.div`
+  width: 10rem;
+  padding: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
+  border-radius: ${({ theme }) => theme.spacings.xxxxxmultipleeight};
+  background: ${({ theme }) => theme.colors.shades.white(1)};
+  box-shadow: 0 0 0.5rem ${({ theme }) => theme.colors.shades.black(0.4)};
+
+  position: absolute;
+  z-index: 9;
+
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+
+  a {
+    height: 14px;
+    overflow: hidden;
   }
 `
