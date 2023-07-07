@@ -1,6 +1,5 @@
 import React from 'react'
 import * as Popover from '@radix-ui/react-popover'
-import { MixerHorizontalIcon, Cross2Icon } from '@radix-ui/react-icons'
 import styles from './styles.module.css'
 import { FiLogOut, FiUser } from 'react-icons/fi'
 import { deleteCookie } from 'cookies-next'
@@ -29,9 +28,6 @@ const PopoverDemo = () => {
               <span>Terminar sessão</span>
             </button>
           </div>
-          <Popover.Close className={styles.PopoverClose} aria-label="Close">
-            <Cross2Icon />
-          </Popover.Close>
           <Popover.Arrow className={styles.PopoverArrow} />
         </Popover.Content>
       </Popover.Portal>
