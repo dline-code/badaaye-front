@@ -3,26 +3,41 @@ import { useState } from 'react'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 import Button from 'src/components/button'
 import { Layout } from 'src/components/layout'
-import { financingData } from './mock'
 import * as S from './styles'
 import { PageProps } from './types'
+import { useFetchData } from './hooks'
+import PopOver from './Components/PopOver'
 
 export default function TelaEstudantesFinaciadosView(props: PageProps) {
+  const { financingData, isLoading } = useFetchData()
+
   const [data, setData] = useState(financingData)
   const [seached, setSeached] = useState('')
 
   const handleFilterFinancigData = () => {
-    const text = seached.trim()
-    const newData = financingData.filter(
-      ({ nome, curso, instituicao, grau }) =>
-        nome.includes(text) ||
-        curso.includes(text) ||
-        instituicao.includes(text) ||
-        grau.includes(text)
+    const text = seached.toLowerCase().trim()
+    const newData = financingData?.filter(
+      ({
+        estudante,
+        anoAcademico,
+        valorConfirmacao,
+        estadoFinanciamento,
+        valorProprina
+      }) =>
+        estudante.nome.toLowerCase().includes(text) ||
+        anoAcademico.toLowerCase().includes(text) ||
+        valorConfirmacao.toLowerCase().includes(text) ||
+        valorProprina.toLowerCase().includes(text) ||
+        estadoFinanciamento.designacao.toLowerCase().includes(text)
     )
 
     setData(newData)
   }
+
+  if (isLoading) {
+    return <>Carregando...</>
+  }
+
   return (
     <Layout {...Object.assign({}, props, { hideFooter: true, isLogged: true })}>
       <S.Main>
@@ -47,7 +62,7 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
                 type="search"
                 name="filter"
                 id="filter"
-                placeholder="Procurar por nome, curso, grau...."
+                placeholder="Procurar por nome, ano academico, estado...."
                 onChange={e => setSeached(e.target.value)}
               />
               <Button onClick={handleFilterFinancigData}>Procurar</Button>
@@ -56,27 +71,51 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
               <S.THead>
                 <tr>
                   <th>Nome</th>
-                  <th>Grau</th>
-                  <th>Curso</th>
-                  <th>Instituição</th>
+                  <th>Ano Academico</th>
+                  <th>Confirmação</th>
+                  <th>Próprinas</th>
                   <th>Estado</th>
+                  <th>Opções</th>
                 </tr>
               </S.THead>
 
               <S.TBody>
-                {data.map(item => (
-                  <tr key={item.id}>
-                    <td>{item.nome}</td>
-                    <td>{item.grau}</td>
-                    <td>{item.curso}</td>
-                    <td>{item.instituicao}</td>
-                    {item.estado === 'Finaciando' ? (
-                      <td style={{ color: '#00B37E' }}>{item.estado}</td>
-                    ) : (
-                      <td style={{ color: '#F12929' }}>{item.estado}</td>
-                    )}
-                  </tr>
-                ))}
+                {data?.map(
+                  ({
+                    estudante,
+                    anoAcademico,
+                    id,
+                    valorConfirmacao,
+                    valorProprina,
+                    estadoFinanciamento,
+                    declaracaoNotas,
+                    declaracaoSemNotas,
+                    certificado,
+                    bilhete,
+                    extratoBancario
+                  }) => (
+                    <tr key={id}>
+                      <td>{estudante.nome}</td>
+                      <td>{anoAcademico}</td>
+                      <td>{valorConfirmacao}</td>
+                      <td>{valorProprina}</td>
+                      <td style={{ color: '#00B37E' }}>
+                        {estadoFinanciamento.designacao}
+                      </td>
+                      <td>
+                        <PopOver
+                          files={[
+                            declaracaoNotas,
+                            declaracaoSemNotas,
+                            certificado,
+                            bilhete,
+                            extratoBancario
+                          ]}
+                        />
+                      </td>
+                    </tr>
+                  )
+                )}
               </S.TBody>
             </table>
 
