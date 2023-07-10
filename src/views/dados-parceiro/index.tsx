@@ -19,7 +19,6 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
   const { data: Areas } = useFetch('/area')
   const { data: TipoParceiro} = useFetch("/tipoParceiro")
   const router = useRouter()
-  const { data: AreaInteresse } = useFetch(`/areaInteresse/${PartnerData?.parceiro?.id}`)
 
   const {
     handleDelete,
@@ -34,6 +33,7 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
     setOpenAreaIndex,
     updatePartner,
     default1,
+    AreaInteresse,
     setDefault1
   } = usePartnerhook(PartnerData)
 

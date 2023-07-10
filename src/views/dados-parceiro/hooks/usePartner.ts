@@ -14,12 +14,12 @@ export const usePartnerhook = ( PartnerData: PartnerDataProps ) => {
   const [openArea, setOpenArea] = useState(false)
   const [openAreaIndex, setOpenAreaIndex] = useState<number>(0)
   const [default1, setDefault1] = useState(true)
+  const { data: AreaInteresse, refetch } = useFetch(`/areaInteresse/${PartnerData?.parceiro?.id}`)
 
 
   const deleteAreaMutation = useMutation(deleteArea)
   const postAreaMutation = useMutation(postArea)
   const router = useRouter()
-
   function handleOptions(index: number) {
     setIsOpen(state => !state)
     setOpenAreaIndex(index)
@@ -29,7 +29,9 @@ export const usePartnerhook = ( PartnerData: PartnerDataProps ) => {
     const response = await api.delete(`/areaInteresse/${id}`)
     if (response) {
       toast.success('Area de Interesse deletada com sucesso')
-      router.reload()
+      setIsOpen(false)
+      setOpenArea(false)
+      setOpenAreaIndex(0)
     }
     return response
   }
@@ -64,7 +66,7 @@ export const usePartnerhook = ( PartnerData: PartnerDataProps ) => {
     areaId: ""
   }
 
-const updatePartner = useMutation(
+const updatePartner =
     async (data: UpdatepPartner) => {
         const typePartner = {
             designacao: data?.tipoParceiro
@@ -104,16 +106,17 @@ const updatePartner = useMutation(
 
         if(result){
           toast.success('Dados actualizado com sucesso')
-          router.reload()
+          setIsOpen(false)
+          setOpenArea(false)
+          refetch()
         }
 
         return result
     }
-)
 
 async function handleSubmit(data: UpdatepPartner) {
     try {
-        await updatePartner.mutate(data)
+        await updatePartner(data)
     } catch (e) {
         const err = e as ApiResponse
         toast.error(err?.response?.data?.message)
@@ -133,6 +136,7 @@ async function handleSubmit(data: UpdatepPartner) {
         setOpenAreaIndex,
         updatePartner,
         default1,
-        setDefault1
+        setDefault1,
+        AreaInteresse
     }
 }
