@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 import Button from 'src/components/button'
 import { Layout } from 'src/components/layout'
@@ -13,6 +13,10 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
 
   const [data, setData] = useState(financingData)
   const [seached, setSeached] = useState('')
+
+  useEffect(() => {
+    setData(financingData)
+  }, [isLoading, financingData])
 
   const handleFilterFinancigData = () => {
     const text = seached.toLowerCase().trim()
