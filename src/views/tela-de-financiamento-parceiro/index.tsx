@@ -14,7 +14,7 @@ import {financies} from "./service"
 
 const TelaDeFinanciamentoParceiroView: React.FC<PageProps> = (props) => {
     const [data, setData] = useState(financies)
-    const [searchText, setSearchText] = useState("Osvaldo")
+    const [searchText, setSearchText] = useState("")
 
     const handleSearchFinancy = () => {
         const text = searchText.trim().toLowerCase();
@@ -27,7 +27,6 @@ const TelaDeFinanciamentoParceiroView: React.FC<PageProps> = (props) => {
                 instituition.toLowerCase().includes(text) 
             )
         setData(newFinancies)
-        console.log(newFinancies)
     }
     return (
         <Layout {...Object.assign({}, props, {hideFooter: true, isLogged: true})}>
