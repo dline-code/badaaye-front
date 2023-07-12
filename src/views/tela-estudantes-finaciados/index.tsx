@@ -9,14 +9,14 @@ import { useFetchData } from './hooks'
 import PopOver from './Components/PopOver'
 
 export default function TelaEstudantesFinaciadosView(props: PageProps) {
-  const { financingData, isLoading } = useFetchData()
+  const { financingData, isFetching, isLoading } = useFetchData()
 
   const [data, setData] = useState(financingData)
   const [seached, setSeached] = useState('')
 
   useEffect(() => {
     setData(financingData)
-  }, [isLoading, financingData])
+  }, [isFetching, isLoading])
 
   const handleFilterFinancigData = () => {
     const text = seached.toLowerCase().trim()
@@ -38,7 +38,7 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
     setData(newData)
   }
 
-  if (isLoading) {
+  if (isFetching && isLoading) {
     return <>Carregando...</>
   }
 
