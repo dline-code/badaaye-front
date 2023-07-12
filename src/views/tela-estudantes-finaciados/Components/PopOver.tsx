@@ -18,8 +18,8 @@ export default function PopOver({ files }: PopOverProps) {
         }}
       >
         <Link href={`/estudate-info-resumo`}>Ver Mais</Link>
-        {files.map(file => (
-          <a key={file.id} target="_blank" href={file.link}>
+        {files.map((file, i) => (
+          <a key={file.id + i} target="_blank" href={file.link}>
             {file.nome}
           </a>
         ))}

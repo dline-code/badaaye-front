@@ -5,16 +5,16 @@ import { useAuth } from 'src/hooks/useAuth'
 
 export const useFetchData = () => {
   const { usuarioId } = useAuth()
-  const { data: financingData, isLoading } = useQuery<FinancingType[]>(
-    'financing',
-    async () => {
-      const response = await api.get(`/financiamento/parceiro/${usuarioId}`)
 
-      return response.data
-    },
-    {
-      refetchOnWindowFocus: false
-    }
-  )
-  return { financingData, isLoading }
+  const {
+    data: financingData,
+    isFetched,
+    isFetching,
+    isLoading
+  } = useQuery<FinancingType[]>('financingData', async () => {
+    const response = await api.get(`/financiamento/parceiro/${usuarioId}`)
+
+    return response.data
+  })
+  return { financingData, isFetched, isFetching, isLoading }
 }
