@@ -2,6 +2,7 @@ import Link from 'next/link'
 import * as S from './styles'
 import Image from 'next/image'
 import { AiOutlineRollback, AiOutlineUser } from 'react-icons/ai'
+import { BiArrowBack } from 'react-icons/bi'
 import { FormControl } from 'src/components/FormControl'
 import Button from 'src/components/button'
 import * as Md from 'react-icons/md'
@@ -56,9 +57,6 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
               <div>
                 <AiOutlineUser />
               </div>
-              <div onClick={()=> router.back()}>
-                <AiOutlineRollback />
-              </div>
             </S.ContainerArea>
           </S.HeaderInner>
         </S.Header>
@@ -66,6 +64,9 @@ export const DadosParceiro:React.FC<{ PartnerData: PartnerDataProps }> = ({ Part
         <S.Main>
           <S.Content>
             <S.ContentHeader>
+              <span>
+                <BiArrowBack onClick={()=> router.back()}/>
+              </span>
               <h2>Meus dados</h2>
               <p>
                 Podes visualizar e modificar os dados fornecidos <br /> durante

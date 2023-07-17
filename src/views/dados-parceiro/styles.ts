@@ -42,7 +42,10 @@ export const Content = styled.div`
 export const ContentHeader = styled.div`
   padding-top: ${({ theme }) => theme.spacings.xmultipleeight};
   color: ${({ theme }) => theme.colors.tertiary.white};
-
+  >span{
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
   > p {
     margin-top: ${({ theme }) => theme.spacings.xxxxmultipleeight};
   }

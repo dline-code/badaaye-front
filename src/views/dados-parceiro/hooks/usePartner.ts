@@ -106,9 +106,6 @@ const updatePartner =
 
         if(result){
           toast.success('Dados actualizado com sucesso')
-          setIsOpen(false)
-          setOpenArea(false)
-          refetch()
         }
 
         return result
@@ -117,6 +114,9 @@ const updatePartner =
 async function handleSubmit(data: UpdatepPartner) {
     try {
         await updatePartner(data)
+        setIsOpen(false)
+        setOpenArea(false)
+        refetch()
     } catch (e) {
         const err = e as ApiResponse
         toast.error(err?.response?.data?.message)
