@@ -5,8 +5,9 @@ import { AiOutlineUser, AiOutlineMenu } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import * as S from './styles'
 import MenuMobile from '../menu-mobile'
-import { FiUser } from 'react-icons/fi'
-
+import { FiLogOut, FiUser } from 'react-icons/fi'
+import { deleteCookie } from 'cookies-next'
+import PopoverDemo from '../dropdown-pop-over'
 interface Props {
   isLogged?: boolean
 }
@@ -16,6 +17,7 @@ const header: React.FC<Props> = ({ isLogged }) => {
   const currentRoute = router.pathname
   const [visible, setVisible] = useState(false)
   const [activeheader, setActiveheader] = useState(false)
+  const [isMenuOpened, setIsMenuOpened] = useState(false)
 
   const togleHidden = () => {
     setVisible(true)
@@ -51,12 +53,9 @@ const header: React.FC<Props> = ({ isLogged }) => {
             />
           </a>
         </Link>
+
         {isLogged ? (
-          <S.ContainerUserLogged>
-            <S.CardUserLogged>
-              <FiUser />
-            </S.CardUserLogged>
-          </S.ContainerUserLogged>
+          <PopoverDemo />
         ) : (
           <>
             <S.List>

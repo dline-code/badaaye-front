@@ -164,17 +164,54 @@ export const ContainerUserLogged = styled.div`
   flex: 1;
   justify-content: end;
 
-  @media screen and (max-width: 1060px){
+  @media screen and (max-width: 1060px) {
     margin-right: 2rem;
   }
 `
 
 export const CardUserLogged = styled.div`
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid ${({ theme }) => theme.colors.tertiary.gray};
+  cursor: pointer;
+  position: relative;
+`
+interface DropProps {
+  isMenuOpened: boolean
+}
+
+export const DropDown = styled.div`
+  position: absolute;
+  top: 6.25rem;
+  width: 25rem;
+  max-width: 350px;
+  background-color: #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  overflow: hidden;
+  max-height: ${({ isMenuOpened }: DropProps) =>
+    isMenuOpened ? '40rem' : '0'};
+  transition: max-height ease-in-out 0.3s;
+`
+
+export const DropItem = styled.button`
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  padding: 1.2rem;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  div {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid ${({ theme }) => theme.colors.tertiary.gray};
+    gap: 1rem;
+  }
+  :hover {
+    border-color: #ccc;
+    color: rgba(44, 56, 74, 0.95);
+    background-color: #fff;
+  }
 `

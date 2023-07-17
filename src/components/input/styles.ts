@@ -14,7 +14,6 @@ export const Container = styled.div`
 
   &:has(input:focus) {
     border-color: ${({ theme }) => theme.colors.primary.xblue};
-    border-color: ${({ theme }) => theme.colors.primary.xblue};
     box-shadow: 0 0 0 0.25rem rgb(20 31 255 / 25%);
     color: rgba(44, 56, 74, 0.95);
     background-color: #fff;
