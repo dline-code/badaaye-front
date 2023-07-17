@@ -39,7 +39,7 @@ const header: React.FC<Props> = ({ isLogged }) => {
     }
     window.addEventListener('scroll', positionScroll)
   }, [])
-
+  console.log(isLogged)
   return (
     <S.Wrapper>
       <S.Header className={activeheader ? 'active-header' : ''}>
