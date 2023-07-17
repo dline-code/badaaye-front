@@ -9,7 +9,7 @@ import { useFetchData } from './hooks'
 import PopOver from './Components/PopOver'
 
 export default function TelaEstudantesFinaciadosView(props: PageProps) {
-  const { financingData, isFetching, isLoading } = useFetchData()
+  const { data: financingData, isFetching, isLoading } = useFetchData()
 
   const [data, setData] = useState(financingData)
   const [seached, setSeached] = useState('')
