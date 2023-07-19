@@ -3,7 +3,6 @@ import Footer from '../footer'
 import Header from '../header'
 import * as S from './styles'
 import { useState, useEffect } from 'react'
-import { getCookie } from 'cookies-next'
 import { checkIsUserAuthenticated } from 'src/functions/checkIsUserAuthenticated'
 
 type LayoutProps = {
