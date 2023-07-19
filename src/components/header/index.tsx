@@ -5,8 +5,6 @@ import { AiOutlineUser, AiOutlineMenu } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import * as S from './styles'
 import MenuMobile from '../menu-mobile'
-import { FiLogOut, FiUser } from 'react-icons/fi'
-import { deleteCookie } from 'cookies-next'
 import PopoverDemo from '../dropdown-pop-over'
 interface Props {
   isLogged?: boolean

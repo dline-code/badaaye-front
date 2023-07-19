@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import Link from "next/link"
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 import * as S from './styles'
 import { FiUsers } from 'react-icons/fi'
 import { PartnersProps } from './type'
@@ -7,13 +7,16 @@ import { partners } from './mock'
 import Image from 'next/image'
 import Button from '../button'
 import Aos from 'aos'
+import { checkIsUserAuthenticated } from 'src/functions/checkIsUserAuthenticated'
 
 const banner: React.FC = () => {
+  const [isLogged, setIsLogged] = useState(false)
   useEffect(() => {
     Aos.init({ duration: 2000 })
+    setIsLogged(checkIsUserAuthenticated() ? false : true)
   })
   return (
-    <S.Banner id='banner'>
+    <S.Banner id="banner">
       <S.ContainerItems data-aos="fade-right">
         <S.Title>
           Aqui encontras bolsas de estudo para melhorar a tua vida académica!
@@ -25,12 +28,13 @@ const banner: React.FC = () => {
         </S.Summary>
 
         <S.Box>
-          <S.ContainerButton>
-            <Link href="cadastro-estudante">
-              <Button children="Fazer Parte" />
-            </Link>
-          </S.ContainerButton>
-
+          {isLogged && (
+            <S.ContainerButton>
+              <Link href="cadastro-estudante">
+                <Button children="Fazer Parte" />
+              </Link>
+            </S.ContainerButton>
+          )}
           <S.Paragraph>
             <S.IconUsers>
               <FiUsers />

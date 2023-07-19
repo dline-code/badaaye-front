@@ -17,7 +17,10 @@ const PopoverDemo = () => {
       <Popover.Portal>
         <Popover.Content className={styles.PopoverContent} sideOffset={5}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            <p className={styles.Text} style={{ marginBottom: 20 }}></p>
+            <button className={styles.Item}>
+              <FiUser />
+              <span>Meu perfil</span>
+            </button>
             <button
               className={styles.Item}
               onClick={() => {
