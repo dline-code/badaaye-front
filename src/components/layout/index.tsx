@@ -4,6 +4,7 @@ import Header from '../header'
 import * as S from './styles'
 import { useState, useEffect } from 'react'
 import { getCookie } from 'cookies-next'
+import { checkIsUserAuthenticated } from 'src/functions/checkIsUserAuthenticated'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -14,9 +15,8 @@ type LayoutProps = {
 export const Layout = ({ children, hideFooter /*isLogged*/ }: LayoutProps) => {
   const [isLogged, setIsLogged] = useState(false)
   useEffect(() => {
-    setIsLogged(getCookie('baadaye-token') ? true : false)
+    setIsLogged(checkIsUserAuthenticated())
   }, [])
-
   return (
     <S.Wrapper>
       <S.Content>
