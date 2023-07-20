@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { getCookie } from 'cookies-next'
 
-const token = getCookie(`${process.env.NEXT_PUBLIC_TOKEN_KEY}`)?.toString()
+const token = getCookie("baadaye-token")?.toString()
 
 export const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+  baseURL: "http://localhost:5554",
   headers: {
     Accept: 'application/json',
     Authorization: `Bearer ${token}`

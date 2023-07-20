@@ -63,10 +63,6 @@ const TelaDeFinanciamentoParceiroView: React.FC<PageProps> = (props) => {
                                                     <div>{item.course}</div>
                                                     <div>{item.instituition}</div>
                                                 </S.LeftSide>
-                                                <S.RightSide>
-                                                    <Button><BsCheck /></Button>
-                                                    <Button><BsX /></Button>
-                                                </S.RightSide>
                                             </S.FinancyItem>
                                         </Link>
                                     ))

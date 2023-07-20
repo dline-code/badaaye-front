@@ -31,7 +31,6 @@ export const Form = styled.div`
 `
 
 export const FinancyTitles = styled.div`
-    width: 89%;
     padding: ${({theme})=>theme.spacings.xxxxmultipleeight};
     display: flex;
     justify-content: center;
@@ -73,29 +72,6 @@ export const LeftSide = styled.div`
 
     &:hover {
         transition: ${({ theme }) => theme.transition.default};
-        background: ${({theme})=> theme.colors.tertiary.xcinza};
+        background: ${({theme})=> theme.colors.tertiary.white};
     }
 `
-
-    export const RightSide = styled.div`
-        width: 10rem;
-        margin-left: ${({theme})=>theme.spacings.xxxxmultipleeight};
-
-        display: flex;
-        justify-content: space-between;
-
-        .button{
-            width: 4rem;
-            height: 4rem;
-
-            display: flex;
-            justify-content: center;      
-            align-items: center;
-
-            font-size: ${({theme})=> theme.font.sizes.xxlarge};
-
-            background: ${({ theme }) => theme.colors.primary.xblue};  
-            color: ${({ theme }) => theme.colors.tertiary.white};
-            border-radius: 4px;
-        }
-    `

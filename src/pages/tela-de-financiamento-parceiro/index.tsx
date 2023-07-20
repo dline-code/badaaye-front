@@ -4,12 +4,12 @@ import {isAuthenticated} from "src/functions/checkIsUserAuthenticated"
 
 import TelaDeFinanciamentoParceiroView from "../../views/tela-de-financiamento-parceiro";
 
-const TelaDeFinanciamentoParceiro: NextPage = () =>{
+function TelaDeFinanciamentoParceiro(){
     return (
         <TelaDeFinanciamentoParceiroView />
     )
 }
-
+/*
 export const getServerSideProps: GetServerSideProps<{}> = async({
     req, 
     res
@@ -24,5 +24,5 @@ export const getServerSideProps: GetServerSideProps<{}> = async({
     }
     return {props: {}}
 }
-
+*/
 export default TelaDeFinanciamentoParceiro;
