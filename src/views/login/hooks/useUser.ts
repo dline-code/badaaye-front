@@ -8,6 +8,8 @@ import { useRouter } from 'next/router'
 
 import { useState } from 'react'
 
+const regexContact = /^(\d{9})$|^[\w._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 const UseUser = () => {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -49,7 +51,7 @@ const UseUser = () => {
       contacto: yup
         .string()
         .required('Campo obrigatório')
-        .matches(/^\9[1-9]\d{7}$/,"O telefone não é válido"),
+        .matches(regexContact,"O Informa um telefone ou email válido"),
 
       senha: yup.string().required('Campo obrigatório')
     }),
