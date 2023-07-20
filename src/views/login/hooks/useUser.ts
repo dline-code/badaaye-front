@@ -1,13 +1,11 @@
 import { useFormik } from 'formik'
-import { History } from 'history'
 import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { postFetchUser } from '../services'
 import { IError, IUser } from '../type'
-import { getCookie, setCookie } from 'cookies-next'
+import { setCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 
-import LoginView from '../index'
 import { useState } from 'react'
 
 const UseUser = () => {
@@ -44,14 +42,14 @@ const UseUser = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: '',
+      contacto: '',
       senha: ''
     },
     validationSchema: yup.object({
-      email: yup
+      contacto: yup
         .string()
-        .email('Email não válido')
-        .required('Campo obrigatório'),
+        .required('Campo obrigatório')
+        .matches(/^\9[1-9]\d{7}$/,"O telefone não é válido"),
 
       senha: yup.string().required('Campo obrigatório')
     }),
