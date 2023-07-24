@@ -6,10 +6,11 @@ import { Layout } from 'src/components/layout'
 import * as S from './styles'
 import { PageProps } from './types'
 import { useFetchData } from './hooks'
-import PopOver from './Components/PopOver'
+import { useRouter } from 'next/router'
 
 export default function TelaEstudantesFinaciadosView(props: PageProps) {
   const { data: financingData, isFetching, isLoading } = useFetchData()
+  const router = useRouter()
 
   const [data, setData] = useState(financingData)
   const [seached, setSeached] = useState('')
@@ -36,6 +37,12 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
     )
 
     setData(newData)
+  }
+
+  const handleViewFinancingStudentData = (id:string)=>{
+    if(id){
+      router.push(`/tela-informacao-estudante-financiado`)
+    }
   }
 
   if (isFetching && isLoading) {
@@ -79,7 +86,6 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
                   <th>Confirmação</th>
                   <th>Próprinas</th>
                   <th>Estado</th>
-                  <th>Opções</th>
                 </tr>
               </S.THead>
 
@@ -92,30 +98,14 @@ export default function TelaEstudantesFinaciadosView(props: PageProps) {
                     valorConfirmacao,
                     valorProprina,
                     estadoFinanciamento,
-                    declaracaoNotas,
-                    declaracaoSemNotas,
-                    certificado,
-                    bilhete,
-                    extratoBancario
                   }) => (
-                    <tr key={id}>
+                    <tr key={id} onClick={()=>handleViewFinancingStudentData(id)}>
                       <td>{estudante.nome}</td>
                       <td>{anoAcademico}</td>
                       <td>{valorConfirmacao}</td>
                       <td>{valorProprina}</td>
                       <td style={{ color: '#00B37E' }}>
                         {estadoFinanciamento.designacao}
-                      </td>
-                      <td>
-                        <PopOver
-                          files={[
-                            declaracaoNotas,
-                            declaracaoSemNotas,
-                            certificado,
-                            bilhete,
-                            extratoBancario
-                          ]}
-                        />
                       </td>
                     </tr>
                   )
