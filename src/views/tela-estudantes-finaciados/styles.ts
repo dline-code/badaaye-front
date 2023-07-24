@@ -91,6 +91,10 @@ export const TBody = styled.tbody`
   tr {
     background: #fafafc;
     padding: 0 ${({ theme }) => theme.spacings.xxxxmultipleeight};
+    cursor: pointer;
+    &:hover{
+      filter: brightness(0.9);
+    }
   }
 
   td {
