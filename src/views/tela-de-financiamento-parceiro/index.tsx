@@ -1,30 +1,34 @@
 import Link from "next/link"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import * as S from "./styles"
 import {Layout} from "src/components/layout"
-import { PageProps } from "../tela-principal-estudante/types"
+import { PageProps } from "./types"
 
 import DescriptionBanner from "src/components/description-banner"
 import Input from "src/components/input"
 import Button from "src/components/button"
 
-import { BsCheck, BsX } from "react-icons/bs"
-
-import {financies} from "./service"
+import {useFetchData} from "./hooks"
 
 const TelaDeFinanciamentoParceiroView: React.FC<PageProps> = (props) => {
+    const { data: financies, isFetching, isLoading } = useFetchData()
+    
     const [data, setData] = useState(financies)
     const [searchText, setSearchText] = useState("")
+
+    useEffect(() => {
+        setData(financies)
+    }, [isLoading, isFetching])
 
     const handleSearchFinancy = () => {
         const text = searchText.trim().toLowerCase();
         
-        const newFinancies = financies.filter(
-            ({name, grad, course, instituition }) => 
-                name.toLowerCase().includes(text) || 
-                grad.toLowerCase().includes(text) || 
-                course.toLowerCase().includes(text) || 
-                instituition.toLowerCase().includes(text) 
+        const newFinancies = financies?.filter(
+            ({estudante}) => 
+                estudante.nome.toLowerCase().includes(text) || 
+                estudante.grau.designacao.toLowerCase().includes(text) || 
+                estudante.curso.nome.toLowerCase().includes(text) || 
+                estudante.universidade.nome.toLowerCase().includes(text) 
             )
         setData(newFinancies)
     }
@@ -54,14 +58,14 @@ const TelaDeFinanciamentoParceiroView: React.FC<PageProps> = (props) => {
                             </S.FinancyTitles>
                             <S.FinancyList>
                                 {
-                                    data.map(item => (
+                                    data?.map( ({id, estudante})=> (
                                         <Link href="#">
-                                            <S.FinancyItem key={item.id}>
+                                            <S.FinancyItem key={id}>
                                                 <S.LeftSide>
-                                                    <div>{item.name}</div>
-                                                    <div>{item.grad}</div>
-                                                    <div>{item.course}</div>
-                                                    <div>{item.instituition}</div>
+                                                    <div>{estudante.nome}</div>
+                                                    <div>{estudante.grau.designacao}</div>
+                                                    <div>{estudante.curso.nome}</div>
+                                                    <div>{estudante.universidade.nome}</div>
                                                 </S.LeftSide>
                                             </S.FinancyItem>
                                         </Link>

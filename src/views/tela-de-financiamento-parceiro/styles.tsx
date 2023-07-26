@@ -72,6 +72,7 @@ export const LeftSide = styled.div`
 
     &:hover {
         transition: ${({ theme }) => theme.transition.default};
-        background: ${({theme})=> theme.colors.tertiary.white};
+        background: ${({ theme }) => theme.colors.tertiary.white};
+        
     }
 `
