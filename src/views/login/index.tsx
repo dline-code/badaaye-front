@@ -1,5 +1,5 @@
-import { ReactNode, useEffect, useState } from 'react'
-import { setCookie, getCookie } from 'react-use-cookie'
+import { ReactNode, useEffect } from 'react'
+import { setCookie} from 'react-use-cookie'
 import Link from 'next/link'
 import type { NextPage } from 'next'
 import * as S from './styles'
@@ -9,15 +9,13 @@ import Input from 'src/components/input'
 import Button from 'src/components/button'
 import ErrorMassage from 'src/components/error-validation-massage'
 
-import { MdEmail } from 'react-icons/md'
+import { MdEmail, MdPhone } from 'react-icons/md'
 import { FaArrowRight, FaFacebook, FaGoogle, FaInstagram } from 'react-icons/fa'
 import { RiLockPasswordFill } from 'react-icons/ri'
 
 import { UseUser } from './hooks/useUser'
 
 const Login: NextPage = () => {
-  const [isBtnDisabled, setIsBtnDisabled] = useState(false)
-
   const { formik, isSubmitting } = UseUser()
 
   useEffect(() => {
@@ -44,16 +42,16 @@ const Login: NextPage = () => {
       <S.Form onSubmit={formik.handleSubmit}>
         <S.Title>Entrar na plataforma</S.Title>
         <Input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Seu email"
-          icon={<MdEmail />}
+          type="text"
+          id="contacto"
+          name="contacto"
+          placeholder="Seu Contacto"
+          icon={<MdPhone />}
           onChange={formik.handleChange}
-          value={formik.values.email}
+          value={formik.values.contacto}
         />
-        {formik.touched.email && formik.errors.email ? (
-          <ErrorMassage errorMessage={formik.errors.email} />
+        {formik.touched.contacto && formik.errors.contacto ? (
+          <ErrorMassage errorMessage={formik.errors.contacto} />
         ) : null}
         <Input
           type="password"
