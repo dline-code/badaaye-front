@@ -44,7 +44,8 @@ export const theme = {
     },
     linear: {
       darkBlue: `linear-gradient(89.66deg, #1D2236 0.42%, rgba(29, 34, 54, 0.8) 32.52%, rgba(29, 34, 54, 0.4) 99.84%)`,
-      black: `linear-gradient(180deg, rgba(17, 24, 32, 0.4) 0%, #111820 100%)`
+      black: `linear-gradient(180deg, rgba(17, 24, 32, 0.4) 0%, #111820 100%)`,
+      blue: `linear-gradient(180deg, #5c63ef 240px, #e5e5e5 240px);`
     }
   },
   spacings: {

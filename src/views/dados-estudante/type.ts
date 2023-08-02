@@ -1,3 +1,8 @@
+export interface PageProps {
+  hideFooter?: boolean
+  isLogged?: boolean
+}
+
 export type ProvinciaType = {
   id: string
   designacao: string

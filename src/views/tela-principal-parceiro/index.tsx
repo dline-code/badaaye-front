@@ -12,6 +12,7 @@ import { PageProps } from './types'
 import { useFetch } from 'src/hooks/useFetch'
 import { usePartner } from './hooks/usePartner'
 import { Router, useRouter } from 'next/router'
+import Link from 'next/link'
 
 const TelaPrincipalParceiroView: React.FC<PageProps> = props => {
   const { options } = usePartner()
@@ -50,6 +51,7 @@ const TelaPrincipalParceiroView: React.FC<PageProps> = props => {
                   <BsFillTelephoneFill />
                   <span>{Partner?.telefone?.designacao}</span>
                 </S.InfoSections>
+                
               </S.InfoContainer>
               <Button
                 type="button"
@@ -68,7 +70,11 @@ const TelaPrincipalParceiroView: React.FC<PageProps> = props => {
                 bolsa de estudo que vai reduzir as suas despesas académicas.
               </p>
               <div>
-                <Button type="button">Saber mais</Button>
+                <Button type="button">
+                  <Link href={'/tela-estudantes-finaciados'}>
+                    <a>Saber mais</a>
+                  </Link>
+                </Button>
               </div>
             </S.CardContentRight>
             <S.CardContentRightMiddle>
