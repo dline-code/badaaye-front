@@ -1,3 +1,4 @@
+import error from "next/error"
 import { useQuery } from "react-query"
 import { api } from "src/services/api"
 
