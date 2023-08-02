@@ -44,7 +44,7 @@ const TelaPrincipalParceiroView: React.FC<PageProps> = props => {
                 </S.InfoSections>
                 <S.InfoSections>
                   <AiOutlineMail />
-                  <span>{Partner?.parceiro?.login?.email}</span>
+                  <span>{Partner?.email?.designacao}</span>
                 </S.InfoSections>
                 <S.InfoSections>
                   <BsFillTelephoneFill />
