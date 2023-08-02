@@ -13,7 +13,6 @@ const regexContact = /^(\d{9})$|^[\w._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const UseUser = () => {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
-
     async function LoginRequest(data: IUser) {
         setIsSubmitting(true)
         try {
