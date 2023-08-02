@@ -11,11 +11,11 @@ export const APP_ROUTES = {
   public: {
     login: '/login',
     home: '/',
+    sobre: '/sobre',
+    descontos: '/desconto',
     cadastroEstudante: '/cadastro-estudante',
     cadastroEstudanteParte2: '/cadastro-estudante-parte2',
     cadastroParceiro: '/cadastro-parceiro',
     cadastroParceiroParte2: '/cadastro-parceiro-parte2',
-    descontos: '/desconto',
-    sobre: '/sobre'
   }
 }
