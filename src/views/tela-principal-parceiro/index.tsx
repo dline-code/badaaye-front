@@ -5,16 +5,20 @@ import { BsFillTelephoneFill } from 'react-icons/bs'
 import { HiUsers } from 'react-icons/hi'
 import { FaBookOpen } from 'react-icons/fa'
 import { IoMdSchool } from 'react-icons/io'
+import { AiOutlineMail } from 'react-icons/ai'
 import { BsBagDashFill } from 'react-icons/bs'
-import React from 'react'
+import React, { useState } from 'react'
 import { PageProps } from './types'
 import { useFetch } from 'src/hooks/useFetch'
 import { usePartner } from './hooks/usePartner'
+import { Router, useRouter } from 'next/router'
 import Link from 'next/link'
 
 const TelaPrincipalParceiroView: React.FC<PageProps> = props => {
   const { options } = usePartner()
+  const router = useRouter()
   const { data: Partner, isLoading } = useFetch('/parceiro/dados', options)
+
   if (isLoading) return <h2>Loading...</h2>
 
   return (
@@ -36,19 +40,25 @@ const TelaPrincipalParceiroView: React.FC<PageProps> = props => {
                   <span>{Partner?.parceiro?.nome}</span>
                 </S.InfoSections>
                 <S.InfoSections>
-                  <BsBagDashFill />
+                  <IoMdSchool />
                   <span>{Partner?.parceiro?.tipoParceiro?.designacao}</span>
                 </S.InfoSections>
                 <S.InfoSections>
-                  <IoMdSchool />
+                  <AiOutlineMail />
                   <span>{Partner?.email?.designacao}</span>
                 </S.InfoSections>
                 <S.InfoSections>
                   <BsFillTelephoneFill />
                   <span>{Partner?.telefone?.designacao}</span>
                 </S.InfoSections>
+                
               </S.InfoContainer>
-              <Button type="button">Meus dados</Button>
+              <Button
+                type="button"
+                onClick={() => router.push('/dados-do-parceiro')}
+              >
+                Meus dados
+              </Button>
             </S.CardContentLeft>
           </S.ContentLeft>
           <S.ContentRight>

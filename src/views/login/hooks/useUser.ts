@@ -13,14 +13,13 @@ const regexContact = /^(\d{9})$|^[\w._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const UseUser = () => {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
-
-  async function LoginRequest(data: IUser) {
-    setIsSubmitting(true)
-    try {
-      const response = await postFetchUser(data)
-      if (response) {
-        toast('Login feito com sucesso', { autoClose: 2000, type: 'success' })
-        setCookie('baadaye-token', response.token)
+    async function LoginRequest(data: IUser) {
+        setIsSubmitting(true)
+        try {
+            const response = await postFetchUser(data)
+            if (response) {
+                toast("Login feito com sucesso", { autoClose: 2000, type: "success" })
+                setCookie("baadaye-token", response.token)
 
         if (response?.tipo_usuario === 'parceiro') {
           router.push({
