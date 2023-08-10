@@ -16,7 +16,7 @@ export const benefits = [
     description:
       'Faça parceria com a Baadaye para ajudar os alunos necessitados.',
     children: '⟶ Saber mais',
-    link: 'ajudas/parceiro'
+    link: '/cadastro-parceiro'
   },
   {
     id: 2,

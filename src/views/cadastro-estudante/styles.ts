@@ -10,10 +10,10 @@ export const Wrapper = styled.main`
   justify-content: center;
   align-items: center;
 
-  @media screen and (max-width: 1280px){
+  @media screen and (max-width: 1280px) {
     padding: ${({ theme }) => theme.spacings.xmultipleeight};
   }
-  @media screen and (max-width: 920px){
+  @media screen and (max-width: 920px) {
     height: 100%;
     padding: ${({ theme }) => theme.spacings.xxmultipleeight} 0;
     flex-direction: column-reverse;
@@ -26,7 +26,7 @@ export const Form = styled.form`
   height: max-height;
   padding: ${({ theme }) => theme.spacings.xmultipleeight} 4rem;
   background: #f0f0f0;
-  border-radius: .8rem;
+  border-radius: 0.8rem;
 
   .input {
     margin-top: 1.5rem;
@@ -36,17 +36,17 @@ export const Form = styled.form`
     margin-top: ${({ theme }) => theme.spacings.xxmultipleeight};
   }
 
-  @media screen and (max-width: 1280px){
+  @media screen and (max-width: 1280px) {
     width: 35%;
   }
-  @media screen and (max-width: 1000px){
+  @media screen and (max-width: 1000px) {
     width: 50%;
   }
-  @media screen and (max-width: 920px){
+  @media screen and (max-width: 920px) {
     margin: 0 0 !important;
     width: 80%;
   }
-  @media screen and (max-width: 550px){
+  @media screen and (max-width: 550px) {
     width: 90%;
   }
 `
@@ -79,7 +79,7 @@ export const Container = styled.div`
   align-items: center;
   margin-left: 12rem;
 
-  @media screen and (max-width: 1280px){
+  @media screen and (max-width: 1280px) {
     width: 36%;
 
     label {
@@ -87,27 +87,15 @@ export const Container = styled.div`
       margin-bottom: ${({ theme }) => theme.spacings.xxxxmultipleeight};
     }
   }
-  @media screen and (max-width: 1000px){
+  @media screen and (max-width: 1000px) {
     width: 50%;
   }
-  @media screen and (max-width: 920px){
+  @media screen and (max-width: 920px) {
     width: 80%;
     margin-left: 0 !important;
   }
-  @media screen and (max-width: 550px){
+  @media screen and (max-width: 550px) {
     width: 90%;
-  }
-`
-export const ContainerRadios = styled.div`
-  width: 100%;
-  height: 23.5rem;
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  @media screen and (max-width: 920px){
-    margin-bottom: 3.2rem;
   }
 `
 
@@ -120,7 +108,7 @@ export const Text = styled.div`
   flex-direction: row;
   align-items: center;
 
-  @media screen and (max-width: 920px){
+  @media screen and (max-width: 920px) {
     display: none;
   }
 
@@ -144,7 +132,7 @@ export const TextBack = styled.div`
     cursor: pointer;
     color: ${({ theme }) => theme.colors.primary.xblue};
   }
-  @media screen and (max-width: 920px){
+  @media screen and (max-width: 920px) {
     display: block;
   }
 `

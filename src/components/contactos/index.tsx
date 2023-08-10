@@ -5,6 +5,7 @@ import { BsTelephone } from 'react-icons/bs'
 import { TiLocationOutline } from 'react-icons/ti'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import Input from '../input'
 
 const Contactos = () => {
   useEffect(() => {
@@ -17,15 +18,15 @@ const Contactos = () => {
           <h1>Em caso de dúvida entre em contacto</h1>
           <S.ContainerField>
             <span>Nome Completo</span>
-            <input type="text"/>
+            <Input type='text' />
           </S.ContainerField>
           <S.ContainerField>
             <span>Sem e-mail</span>
-            <input type="text" />
+            <Input type="email" />
           </S.ContainerField>
           <S.ContainerField>
             <span>Mensagem</span>
-            <input type="text" className="sms" />
+            <textarea></textarea>
           </S.ContainerField>
           <S.Button>Enviar Mensagem</S.Button>
         </S.FirstContainer>

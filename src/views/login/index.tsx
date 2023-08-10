@@ -1,14 +1,27 @@
+import { ReactNode, useEffect } from 'react'
+import { setCookie} from 'react-use-cookie'
 import Link from 'next/link'
 import type { NextPage } from 'next'
 import * as S from './styles'
+
 import LayoutAuthentication from '../../components/layout-authentication'
 import Input from 'src/components/input'
 import Button from 'src/components/button'
-import { MdEmail } from 'react-icons/md'
+import ErrorMassage from 'src/components/error-validation-massage'
+
+import { MdEmail, MdPhone } from 'react-icons/md'
 import { FaArrowRight, FaFacebook, FaGoogle, FaInstagram } from 'react-icons/fa'
 import { RiLockPasswordFill } from 'react-icons/ri'
 
-const cadastroEstudante: NextPage = () => {
+import { UseUser } from './hooks/useUser'
+
+const Login: NextPage = () => {
+  const { formik, isSubmitting } = UseUser()
+
+  useEffect(() => {
+    setCookie('baadaye-token', '')
+  }, [])
+
   return (
     <S.Wrapper>
       <S.LayoutAuthContainer>
@@ -16,47 +29,77 @@ const cadastroEstudante: NextPage = () => {
           title="Seja bem vindo a nossa plataforma"
           description="Informe os seus dados para acessar a plataforma e conectar-se com parceiros ou apoiar estudantes."
           RegistrationLink="Ainda não tenho uma conta"
-          link="#"
         />
-        <Link href='/parceiro'><a>Ainda não tenho conta <i><FaArrowRight/></i></a></Link>
+        <Link href="/cadastro-parceiro">
+          <a>
+            Ainda não tenho conta{' '}
+            <i>
+              <FaArrowRight />
+            </i>
+          </a>
+        </Link>
       </S.LayoutAuthContainer>
-      <S.Form>
+      <S.Form onSubmit={formik.handleSubmit}>
         <S.Title>Entrar na plataforma</S.Title>
         <Input
-          type='email'
-          placeholder='Seu email'
-          icon={<MdEmail/>}
+          type="text"
+          id="contacto"
+          name="contacto"
+          placeholder="Seu Contacto"
+          icon={<MdPhone />}
+          onChange={formik.handleChange}
+          value={formik.values.contacto}
         />
+        {formik.touched.contacto && formik.errors.contacto ? (
+          <ErrorMassage errorMessage={formik.errors.contacto} />
+        ) : null}
         <Input
-          type='password'
-          placeholder='Sua senha'
-          icon={<RiLockPasswordFill/>}
+          type="password"
+          id="senha"
+          name="senha"
+          placeholder="Sua senha"
+          icon={<RiLockPasswordFill />}
+          onChange={formik.handleChange}
+          value={formik.values.senha}
         />
+        {formik.touched.senha && formik.errors.senha ? (
+          <ErrorMassage errorMessage={formik.errors.senha} />
+        ) : null}
         <S.ForgetPasswordLink>
-          <Link href="#">
+          <Link href="">
             <a>Esqueceu a sua senha?</a>
           </Link>
         </S.ForgetPasswordLink>
-        <Button>Cadastrar</Button>
+        <Button disabled={isSubmitting}>
+          {isSubmitting ? 'Enviando' : 'Enviar'}
+        </Button>
         <S.CreateAccountLink>
-          <Link href='parceiro'><a>Não tenho uma conta? Criar conta</a></Link>
+          <Link href="/cadastro-parceiro">
+            <a>Não tenho uma conta? Criar conta</a>
+          </Link>
         </S.CreateAccountLink>
         <S.SocialMediaContainer>
           <S.SocialMediaTitle>Entrar com </S.SocialMediaTitle>
           <S.SocialMediaList>
             <S.SocialMediaItem>
               <Link href="">
-                <a><FaFacebook/></a>
+                <a>
+                  <FaFacebook />
+                </a>
               </Link>
             </S.SocialMediaItem>
             <S.SocialMediaItem>
               <Link href="">
-                <a><FaGoogle/></a>
+                <a>
+                  <FaGoogle />
+                </a>
               </Link>
             </S.SocialMediaItem>
             <S.SocialMediaItem>
               <Link href="">
-                <a><FaInstagram/></a>
+                <a>
+                  <FaInstagram />
+                </a>
               </Link>
             </S.SocialMediaItem>
           </S.SocialMediaList>
@@ -66,4 +109,4 @@ const cadastroEstudante: NextPage = () => {
   )
 }
 
-export default cadastroEstudante
+export default Login

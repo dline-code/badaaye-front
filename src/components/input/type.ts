@@ -4,7 +4,7 @@ type InputTypes = InputHTMLAttributes<HTMLInputElement>
 
 export type InputContainerProps = {
   icon?: React.ReactNode,
-  type: string,
   label?: string
+  type:string,
   open?: boolean
 } & InputTypes

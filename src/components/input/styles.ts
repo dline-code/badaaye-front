@@ -5,20 +5,28 @@ export const Container = styled.div`
   height: 4rem;
   border: 0.1rem solid ${({ theme }) => theme.colors.tertiary.gray};
   border-radius: 0.25rem;
-  background: ${({ theme }) => theme.colors.tertiary.white};
+  background: ${({ theme }) => theme.colors.tertiary.contrast};
   display: flex;
   align-items: center;
   padding: 2rem 1rem;
   font-size: ${({ theme }) => theme.font.sizes.small};
   position: relative;
-  :has(> input:focus){
-      border-color: ${({ theme }) => theme.colors.primary.xblue};
-    }
-  svg {
-    color: ${({ theme }) => theme.colors.secondary.xxxblue};
+
+  &:has(input:focus) {
+    border-color: ${({ theme }) => theme.colors.primary.xblue};
+    box-shadow: 0 0 0 0.25rem rgb(20 31 255 / 25%);
+    color: rgba(44, 56, 74, 0.95);
+    background-color: #fff;
+  }
+
+  input {
+    flex: 1;
+    height: 2rem;
+    margin-left: 1rem;
+    border: none;
+    background: transparent;
   }
   span {
-    width: 10%;
     height: 2rem;
     display: flex;
     align-items: center;
@@ -26,6 +34,7 @@ export const Container = styled.div`
     padding: 0;
     margin: 0;
     position: relative;
+    cursor: pointer;
     svg {
       height: 100%;
       width: 100%;
@@ -33,13 +42,4 @@ export const Container = styled.div`
       color: ${({ theme }) => theme.colors.secondary.xxxblue};
     }
   }
-  > span {
-    cursor: pointer;
-  }
-`
-export const Input = styled.input`
-  width: 80%;
-  height: 2rem;
-  margin-left: 1rem;
-  border: none;
 `
