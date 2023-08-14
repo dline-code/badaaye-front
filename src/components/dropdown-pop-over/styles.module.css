@@ -60,6 +60,7 @@
   border: 1px solid #ccc;
   cursor: pointer;
   position: relative;
+  margin-left: 3rem;
 }
 
 .Item {
