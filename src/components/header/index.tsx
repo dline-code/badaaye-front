@@ -27,10 +27,9 @@ const header: React.FC<Props> = ({ isLogged }) => {
     document.body.style.overflow = 'visible'
   }
   useQuery('', async () => {
-    function positionScroll() {
-      window.scrollY > 10 ? setActiveheader(true) : setActiveheader(false)
-    }
-    window.addEventListener('scroll', positionScroll)
+    window.addEventListener('scroll', () => {
+      setActiveheader(window.scrollY > 10)
+    })
   })
   return (
     <S.Wrapper>
@@ -47,21 +46,25 @@ const header: React.FC<Props> = ({ isLogged }) => {
         </Link>
 
         {isLogged ? (
-          <S.List>
-            <S.Item className={currentRoute === '/' ? 'active' : 'non-active'}>
-              Financiamentos
-            </S.Item>
-            <Link href="/descontos">
-              <S.Item>Descontos</S.Item>
-            </Link>
-            <Link href="/ajudas">
-              <S.Item>Outras Ajudas</S.Item>
-            </Link>
-            <Link href="/sobre">
-              <S.Item>+ Baadaye</S.Item>
-            </Link>
+          <>
+            <S.List>
+              <S.Item
+                className={currentRoute === '/' ? 'active' : 'non-active'}
+              >
+                Financiamentos
+              </S.Item>
+              <Link href="/descontos">
+                <S.Item>Descontos</S.Item>
+              </Link>
+              <Link href="/ajudas">
+                <S.Item>Outras Ajudas</S.Item>
+              </Link>
+              <Link href="/sobre">
+                <S.Item>+ Baadaye</S.Item>
+              </Link>
+            </S.List>
             <PopoverDemo />
-          </S.List>
+          </>
         ) : (
           <>
             <S.List>
