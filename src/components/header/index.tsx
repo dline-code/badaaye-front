@@ -5,9 +5,8 @@ import { AiOutlineUser, AiOutlineMenu } from 'react-icons/ai'
 import { useRouter } from 'next/router'
 import * as S from './styles'
 import MenuMobile from '../menu-mobile'
-import { FiLogOut, FiUser } from 'react-icons/fi'
-import { deleteCookie } from 'cookies-next'
 import PopoverDemo from '../dropdown-pop-over'
+import { useQuery } from 'react-query'
 interface Props {
   isLogged?: boolean
 }
@@ -17,7 +16,6 @@ const header: React.FC<Props> = ({ isLogged }) => {
   const currentRoute = router.pathname
   const [visible, setVisible] = useState(false)
   const [activeheader, setActiveheader] = useState(false)
-  const [isMenuOpened, setIsMenuOpened] = useState(false)
 
   const togleHidden = () => {
     setVisible(true)
@@ -28,18 +26,11 @@ const header: React.FC<Props> = ({ isLogged }) => {
     setVisible(false)
     document.body.style.overflow = 'visible'
   }
-
-  useEffect(function () {
-    function positionScroll() {
-      if (window.scrollY > 10) {
-        setActiveheader(true)
-      } else {
-        setActiveheader(false)
-      }
-    }
-    window.addEventListener('scroll', positionScroll)
-  }, [])
-
+  useQuery('', async () => {
+    window.addEventListener('scroll', () => {
+      setActiveheader(window.scrollY > 10)
+    })
+  })
   return (
     <S.Wrapper>
       <S.Header className={activeheader ? 'active-header' : ''}>
@@ -55,7 +46,25 @@ const header: React.FC<Props> = ({ isLogged }) => {
         </Link>
 
         {isLogged ? (
-          <PopoverDemo />
+          <>
+            <S.List>
+              <S.Item
+                className={currentRoute === '/' ? 'active' : 'non-active'}
+              >
+                Financiamentos
+              </S.Item>
+              <Link href="/descontos">
+                <S.Item>Descontos</S.Item>
+              </Link>
+              <Link href="/ajudas">
+                <S.Item>Outras Ajudas</S.Item>
+              </Link>
+              <Link href="/sobre">
+                <S.Item>+ Baadaye</S.Item>
+              </Link>
+            </S.List>
+            <PopoverDemo />
+          </>
         ) : (
           <>
             <S.List>
@@ -76,7 +85,7 @@ const header: React.FC<Props> = ({ isLogged }) => {
                 <S.Item>Seja Parceiro</S.Item>
               </Link>
               <Link href="/sobre">
-                <S.Item>Sobre nós</S.Item>
+                <S.Item>+Baadaye</S.Item>
               </Link>
             </S.List>
             <S.ContainerButton>

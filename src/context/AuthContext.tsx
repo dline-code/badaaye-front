@@ -9,7 +9,7 @@ interface AuthContextProps {
   usuarioId: string | undefined
 }
 
-const AuthContext = createContext({} as AuthContextProps)
+export const AuthContext = createContext({} as AuthContextProps)
 
 export function AuthContextProvider({ children }: { children: ReactNode }) {
   const user = getUser()
