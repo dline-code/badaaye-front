@@ -13,15 +13,16 @@ export const ControlContent = styled.div`
 
 export const ControlInput = styled.div`
   width: 100%;
-  height: 4rem;
+  height: auto;
   border-radius: 0.4rem;
   border: 0.1rem solid ${({ theme }) => theme.colors.shades.white(0)};
   background: ${({ theme }) => theme.colors.tertiary.white};
   font-size: ${({ theme }) => theme.font.sizes.small};
 
+
   display: flex;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   position: relative;
 
   span {
