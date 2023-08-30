@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { api } from 'src/services/api'
-import { SolicitacaoFormType } from '../validation'
+import { SolicitacaoFormSchema, SolicitacaoFormType } from '../validation'
+import { useFormik } from 'formik'
 
 export function useSolicitacao(userId?: string) {
   const [studentData, setStudentData] = useState({})
@@ -10,6 +11,7 @@ export function useSolicitacao(userId?: string) {
     const resp = await api.get(`/estudante/dados?usuarioId=${userId}`)
     const data = resp.data
     console.log(data)
+    setStudentData(data)
   }
 
   const handleSolicitation = async (data: SolicitacaoFormType) => {
@@ -49,10 +51,25 @@ export function useSolicitacao(userId?: string) {
     // }
   }
 
+  const formik = useFormik({
+    initialValues: {
+      bilhete: '',
+      declaracaoNotas: '',
+      certificado: '',
+      declaracaoSemNotas: '',
+      extratoBancario: '',
+      videoMotivacional: '',
+      valorProprina: 0,
+      valorConfirmacao: 0
+    },
+    validationSchema: SolicitacaoFormSchema,
+    onSubmit: handleSolicitation
+  })
+
   useEffect(() => {
     if (userId) {
       getStudentData()
     }
   }, [userId])
-  return { handleSolicitation, isLoading }
+  return { handleSolicitation, isLoading, studentData, formik }
 }

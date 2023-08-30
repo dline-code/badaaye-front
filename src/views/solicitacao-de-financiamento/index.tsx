@@ -11,6 +11,7 @@ import { useFetch } from 'src/hooks/useFetch'
 import moment from 'moment'
 import { api } from 'src/services/api'
 import { SolicitacaoFormSchema } from './validation'
+import { useSolicitacao } from './hooks/useSolicitacao'
 
 interface PageProps {
   hideFooter?: boolean
@@ -19,108 +20,17 @@ interface PageProps {
 
 const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
   const { data: Student } = useFetch('/estudante/dados')
-  const [studentData, setStudentData] = useState(Student)
-  const { data: Grau } = useFetch('/grau')
-  const { data: University } = useFetch('/universidade')
+  const { studentData, formik } = useSolicitacao()
 
-  const formik = useFormik({
-    initialValues: {
-      usuarioId: studentData?.estudante?.id,
-      nome: '',
-      dataNascimento: '',
-      sobrenome: '',
-      loginId: '',
-      universidadeId: '',
-      enderecoId: '',
-      grauId: '',
-      cursoId: '',
-      bilheteId: '',
-      bi: '',
-      anoAcademico: '',
-      certificadoId: '',
-      declaracaoNotasId: '',
-      declaracaoSemNotasId: '',
-      extratoBancarioId: '',
-      valorConfirmacao: '',
-      valorProprina: '',
-      videoMotivacionalId: ''
-    },
-    validationSchema: SolicitacaoFormSchema,
-    onSubmit: async data => {
-      // const student = {
-      //     nome: studentData?.estudante?.nome,
-      //     dataNascimento: studentData?.estudante?.dataNascimento,
-      //     sobrenome: studentData?.estudante?.sobrenome,
-      //     loginId: studentData?.estudante?.login?.id,
-      //     universidadeId: data.universidadeId,
-      //     enderecoId: studentData?.estudante?.endereco?.id,
-      //     grauId: data.grauId,
-      //     cursoId: studentData?.estudante?.curso?.id,
-      // }
-      // console.log(student, "estudante");
+  // async function getFile(data) {
+  //   const dataD = await api.post('/ficheiro', data)
+  //   return dataD.data
+  // }
 
-      try {
-        const formData1 = new FormData()
-        const formData2 = new FormData()
-        const formData3 = new FormData()
-        const formData4 = new FormData()
-        const formData5 = new FormData()
-
-        formData1.append('file', data.bilheteId[0])
-        formData2.append('file', data.certificadoId[0])
-        formData3.append('file', data.declaracaoNotasId[0])
-        formData4.append('file', data.declaracaoSemNotasId[0])
-        formData5.append('file', data.extratoBancarioId[0])
-
-        const [
-          bilheteId,
-          certificadoId,
-          declaracaoNotasId,
-          declaracaoSemNotasId,
-          extratoBancarioId
-        ]: any = await Promise.all([
-          getFile(formData1),
-          getFile(formData2),
-          getFile(formData3),
-          getFile(formData4),
-          getFile(formData5)
-        ]).then(results => {
-          return {
-            bilheteId: results[0],
-            certificadoId: results[1],
-            declaracaoNotasId: results[2],
-            declaracaoSemNotasId: results[3],
-            extratoBancarioId: results[4]
-          }
-        })
-
-        data = {
-          ...data,
-          bilheteId,
-          certificadoId,
-          declaracaoNotasId,
-          declaracaoSemNotasId,
-          extratoBancarioId
-        }
-
-        console.log(data)
-      } catch (err) {
-        console.log(err?.response?.data?.message)
-      }
-    }
-  })
-
-  async function getFile(data) {
-    const dataD = await api.post('/ficheiro', data)
-    return dataD.data
-  }
-
-  function formateDate(data: string) {
-    const newDate = moment(data).format('YYYY-MM-DD')
-    return newDate
-  }
-
-  // console.log(formik.errors);
+  // function formateDate(data: string) {
+  //   const newDate = moment(data).format('YYYY-MM-DD')
+  //   return newDate
+  // }
 
   return (
     <Layout {...Object.assign({}, props, { hideFooter: true, isLogged: true })}>
@@ -129,8 +39,7 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
           <S.FirstSection>
             <S.Title>Solicitar Financiamento</S.Title>
             <S.Description>
-              Deve preencher o formulário abaixo para a solicitacão de um
-              financiamento
+              Dados de solicitacão de um financiamento
             </S.Description>
           </S.FirstSection>
           <S.SecondSection>
@@ -139,15 +48,7 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Seu primeiro nome</S.Label>
-                <Input
-                  type="text"
-                  placeholder="Nome"
-                  id="nome"
-                  name="nome"
-                  onChange={formik.handleChange}
-                  disabled={Student?.estudante?.nome ? true : false}
-                  value={Student?.estudante?.nome}
-                />
+                <Input type="text" id="nome" disabled={true} value={'Nome'} />
               </S.ContainerInput>
               <S.ContainerInput>
                 <S.Label>Seu ultimo nome</S.Label>
@@ -162,6 +63,7 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                 />
               </S.ContainerInput>
             </S.SectionInput>
+
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Numero do Bilhete de identidade</S.Label>
@@ -170,14 +72,13 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                   placeholder="Ex: 00942324LA041"
                   id="bi"
                   name="bi"
+                  disabled={true}
                   onChange={formik.handleChange}
-                  value={formik.values.bi}
+                  value={'00942324LA041'}
                 />
               </S.ContainerInput>
-              {formik.touched.bi && formik.errors.bi ? (
-                <span className="text-danger">{formik.errors.bi}</span>
-              ) : null}
             </S.SectionInput>
+
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Ano Académico</S.Label>
@@ -186,16 +87,12 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                   placeholder="digite o ano académico"
                   id="anoAcademico"
                   name="anoAcademico"
-                  onChange={formik.handleChange}
-                  value={formik.values.anoAcademico}
+                  disabled={true}
+                  value={'2023/2024'}
                 />
               </S.ContainerInput>
-              {formik.touched.anoAcademico && formik.errors.anoAcademico ? (
-                <span className="text-danger">
-                  {formik.errors.anoAcademico}
-                </span>
-              ) : null}
             </S.SectionInput>
+
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Data de nascimento</S.Label>
@@ -204,12 +101,12 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                   placeholder="Ex: DD/MM/AAAA"
                   id="dataNascimento"
                   name="dataNascimento"
-                  onChange={formik.handleChange}
-                  disabled={Student?.estudante?.dataNascimento ? true : false}
-                  value={formateDate(Student?.estudante?.dataNascimento)}
+                  disabled={true}
+                  value={'20/05/2023'}
                 />
               </S.ContainerInput>
             </S.SectionInput>
+
             <h2>Dados académicos</h2>
             <S.Separator />
             <S.SectionInput>
@@ -219,33 +116,16 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                   <S.Select
                     id="universidadeId"
                     name="universidadeId"
-                    onChange={formik.handleChange}
-                    value={Student?.estudante?.universidade?.nome}
-                    disabled={
-                      Student?.estudante?.universidade?.nome ? true : false
-                    }
+                    disabled={true}
+                    value={'universidadeNome'}
                   >
-                    {Student?.estudante?.universidade?.nome ? (
-                      <S.Option value={Student?.estudante?.universidade?.nome}>
-                        {Student?.estudante?.universidade?.nome}
-                      </S.Option>
-                    ) : (
-                      <>
-                        <S.Option value={''}>
-                          Selecione a instituição de ensino
-                        </S.Option>
-                        {University?.map(
-                          (item: { id: string; nome: string }) => (
-                            <S.Option value={item.id}>{item.nome}</S.Option>
-                          )
-                        )}
-                      </>
-                    )}
+                    <S.Option>universidadeNome</S.Option>
                   </S.Select>
                   <IoMdArrowDropdown className="icon2" />
                 </div>
               </S.ContainerInput>
             </S.SectionInput>
+
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Grau de escolaridade (Classe)</S.Label>
@@ -253,53 +133,30 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                   <S.Select
                     id="grauId"
                     name="grauId"
-                    onChange={formik.handleChange}
-                    value={Student?.estudante?.grau?.designacao}
-                    disabled={
-                      Student?.estudante?.grau?.designacao ? true : false
-                    }
+                    value={'grau'}
+                    disabled={true}
                   >
-                    {Student?.estudante?.grau?.designacao ? (
-                      <S.Option value={Student?.estudante?.grau?.designacao}>
-                        {Student?.estudante?.grau?.designacao}
-                      </S.Option>
-                    ) : (
-                      <>
-                        <S.Option value={''} defaultChecked>
-                          Selecione o grau de escolaridade
-                        </S.Option>
-                        {Grau?.map(
-                          (item: { id: string; designacao: string }) => (
-                            <S.Option key={item.id} value={item.id}>
-                              {item.designacao}
-                            </S.Option>
-                          )
-                        )}
-                      </>
-                    )}
+                    <S.Option>GrauName</S.Option>
                   </S.Select>
                   <IoMdArrowDropdown className="icon2" />
                 </div>
               </S.ContainerInput>
             </S.SectionInput>
+
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Valor da propina (Kz)</S.Label>
                 <Input
                   id="valorProprina"
                   name="valorProprina"
-                  onChange={formik.handleChange}
-                  value={formik.values.valorProprina}
+                  disabled={true}
+                  value={'45.000'}
                   type="text"
                   placeholder="Ex: 45.000"
                 />
               </S.ContainerInput>
-              {formik.touched.valorProprina && formik.errors.valorProprina ? (
-                <span className="text-danger">
-                  {formik.errors.valorProprina}
-                </span>
-              ) : null}
             </S.SectionInput>
+
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Valor da confirmação (Kz)</S.Label>
@@ -307,18 +164,13 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                   type="text"
                   id="valorConfirmacao"
                   name="valorConfirmacao"
-                  onChange={formik.handleChange}
-                  value={formik.values.valorConfirmacao}
+                  disabled={true}
+                  value={'5.000'}
                   placeholder="Ex: 5.000"
                 />
               </S.ContainerInput>
-              {formik.touched.valorConfirmacao &&
-              formik.errors.valorConfirmacao ? (
-                <span className="text-danger">
-                  {formik.errors.valorConfirmacao}
-                </span>
-              ) : null}
             </S.SectionInput>
+
             <h2>Documentos</h2>
             <S.Separator />
             <S.SectionInput>
@@ -326,13 +178,13 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                 <S.Label>Vídeo motivacional (1min)</S.Label>
                 <S.SectionVideo>
                   <Input
-                    id="videoMotivacionalId"
-                    name="videoMotivacionalId"
+                    id="videoMotivacional"
+                    name="videoMotivacional"
                     type="file"
                     label="procurar"
                     onChange={event => {
                       formik.setFieldValue(
-                        'videoMotivacionalId',
+                        'videoMotivacional',
                         event?.currentTarget?.files
                       )
                     }}
@@ -340,14 +192,14 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                   <div>
                     <VscCloudUpload className="icon" />
                     <span>Arraste e solte o vídeo aqui para carregar</span>
-                    <label htmlFor="videoMotivacionalId">Procurar</label>
+                    <label htmlFor="videoMotivacional">Procurar</label>
                   </div>
                 </S.SectionVideo>
               </S.ContainerInput>
-              {formik.touched.videoMotivacionalId &&
-              formik.errors.videoMotivacionalId ? (
+              {formik.touched.videoMotivacional &&
+              formik.errors.videoMotivacional ? (
                 <span className="text-danger">
-                  {formik.errors.videoMotivacionalId}
+                  {formik.errors.videoMotivacional}
                 </span>
               ) : null}
             </S.SectionInput>
@@ -359,11 +211,11 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                 <S.Label>Bilhete de identidade</S.Label>
                 <div>
                   <Input
-                    id="bilheteId"
-                    name="bilheteId"
+                    id="bilhete"
+                    name="bilhete"
                     onChange={event => {
                       formik.setFieldValue(
-                        'bilheteId',
+                        'bilhete',
                         event?.currentTarget?.files
                       )
                     }}
@@ -371,26 +223,27 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                     label="Nenhum arquivo carregado"
                   />
                   <Button>
-                    <label id="bilheteId" htmlFor="bilheteId">
+                    <label id="bilhete" htmlFor="bilhete">
                       Procurar
                     </label>
                   </Button>
                 </div>
               </S.ContainerInput>
-              {formik.touched.bilheteId && formik.errors.bilheteId ? (
-                <span className="text-danger">{formik.errors.bilheteId}</span>
+              {formik.touched.bilhete && formik.errors.bilhete ? (
+                <span className="text-danger">{formik.errors.bilhete}</span>
               ) : null}
             </S.SectionInput>
+
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Exatro bancário</S.Label>
                 <div>
                   <Input
-                    id="extratoBancarioId"
-                    name="extratoBancarioId"
+                    id="extratoBancario"
+                    name="extratoBancario"
                     onChange={event => {
                       formik.setFieldValue(
-                        'extratoBancarioId',
+                        'extratoBancario',
                         event?.currentTarget?.files
                       )
                     }}
@@ -398,108 +251,109 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                     label="Nenhum arquivo carregado"
                   />
                   <Button>
-                    <label id="extratoBancarioId" htmlFor="extratoBancarioId">
+                    <label id="extratoBancario" htmlFor="extratoBancario">
                       Procurar
                     </label>
                   </Button>
                 </div>
               </S.ContainerInput>
-              {formik.touched.extratoBancarioId &&
-              formik.errors.extratoBancarioId ? (
+              {formik.touched.extratoBancario &&
+              formik.errors.extratoBancario ? (
                 <span className="text-danger">
-                  {formik.errors.extratoBancarioId}
+                  {formik.errors.extratoBancario}
                 </span>
               ) : null}
             </S.SectionInput>
+
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Certificado</S.Label>
                 <div>
                   <Input
-                    id="certificadoId"
-                    name="certificadoId"
+                    id="certificado"
+                    name="certificado"
                     type="file"
                     label="Nenhum arquivo carregado"
                     onChange={event => {
                       formik.setFieldValue(
-                        'certificadoId',
+                        'certificado',
                         event?.currentTarget?.files
                       )
                     }}
                   />
                   <Button>
-                    <label id="certificadoId" htmlFor="certificadoId">
+                    <label id="certificado" htmlFor="certificado">
                       Procurar
                     </label>
                   </Button>
                 </div>
               </S.ContainerInput>
-              {formik.touched.certificadoId && formik.errors.certificadoId ? (
-                <span className="text-danger">
-                  {formik.errors.certificadoId}
-                </span>
+              {formik.touched.certificado && formik.errors.certificado ? (
+                <span className="text-danger">{formik.errors.certificado}</span>
               ) : null}
             </S.SectionInput>
+
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Declaração</S.Label>
                 <div>
                   <Input
-                    id="declaracaoNotasId"
-                    name="declaracaoNotasId"
+                    id="declaracaoNotas"
+                    name="declaracaoNotas"
                     type="file"
                     label="Nenhum arquivo carregado"
                     onChange={event => {
                       formik.setFieldValue(
-                        'declaracaoNotasId',
+                        'declaracaoNotas',
                         event.currentTarget.files
                       )
                     }}
                   />
                   <Button>
-                    <label id="declaracaoNotasId" htmlFor="declaracaoNotasId">
+                    <label id="declaracaoNotas" htmlFor="declaracaoNotas">
                       Procurar
                     </label>
                   </Button>
                 </div>
               </S.ContainerInput>
-              {formik.touched.declaracaoNotasId &&
-              formik.errors.declaracaoNotasId ? (
+              {formik.touched.declaracaoNotas &&
+              formik.errors.declaracaoNotas ? (
                 <span className="text-danger">
-                  {formik.errors.declaracaoNotasId}
+                  {formik.errors.declaracaoNotas}
                 </span>
               ) : null}
             </S.SectionInput>
+
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Declaração sem notas</S.Label>
                 <div>
                   <Input
-                    id=" declaracaoSemNotasId"
-                    name=" declaracaoSemNotasId"
+                    id=" declaracaoSemNotas"
+                    name=" declaracaoSemNotas"
                     type="file"
                     label="Nenhum arquivo carregado"
                     onChange={event => {
                       formik.setFieldValue(
-                        'declaracaoSemNotasId',
+                        'declaracaoSemNotas',
                         event.currentTarget.files
                       )
                     }}
                   />
                   <Button>
                     <label
-                      id=" declaracaoSemNotasId"
-                      htmlFor=" declaracaoSemNotasId"
+                      id=" declaracaoSemNotas"
+                      htmlFor=" declaracaoSemNotas"
                     >
                       Procurar
                     </label>
                   </Button>
                 </div>
               </S.ContainerInput>
-              {formik.touched.declaracaoSemNotasId &&
-              formik.errors.declaracaoSemNotasId ? (
+              {formik.touched.declaracaoSemNotas &&
+              formik.errors.declaracaoSemNotas ? (
                 <span className="text-danger">
-                  {formik.errors.declaracaoSemNotasId}
+                  {formik.errors.declaracaoSemNotas}
                 </span>
               ) : null}
             </S.SectionInput>
