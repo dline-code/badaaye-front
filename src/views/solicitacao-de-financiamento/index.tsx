@@ -12,6 +12,7 @@ import moment from 'moment'
 import { api } from 'src/services/api'
 import { SolicitacaoFormSchema } from './validation'
 import { useSolicitacao } from './hooks/useSolicitacao'
+import { FileUpload } from 'src/components/FileUpload'
 
 interface PageProps {
   hideFooter?: boolean
@@ -19,7 +20,6 @@ interface PageProps {
 }
 
 const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
-  const { data: Student } = useFetch('/estudante/dados')
   const { studentData, formik } = useSolicitacao()
 
   // async function getFile(data) {
@@ -57,9 +57,8 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                   placeholder="Sobrenome"
                   id="sobrenome"
                   name="sobrenome"
-                  onChange={formik.handleChange}
-                  disabled={Student?.estudante?.sobrenome ? true : false}
-                  value={Student?.estudante.sobrenome}
+                  disabled={true}
+                  value={'Sobre Nome'}
                 />
               </S.ContainerInput>
             </S.SectionInput>
@@ -362,6 +361,7 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
               declaração com notas
             </p>
             <S.LastSection>
+              <FileUpload />
               <Button type="submit">Cadastrar</Button>
             </S.LastSection>
           </S.SecondSection>
