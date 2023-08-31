@@ -361,7 +361,10 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
               declaração com notas
             </p>
             <S.LastSection>
-              <FileUpload />
+              <FileUpload
+                midiaType="pdf"
+                onChange={() => console.log('Hello')}
+              />
               <Button type="submit">Cadastrar</Button>
             </S.LastSection>
           </S.SecondSection>

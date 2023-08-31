@@ -3,6 +3,6 @@ import { InputHTMLAttributes } from 'react'
 type InputTypes = InputHTMLAttributes<HTMLInputElement>
 
 export type InputContainerProps = {
-  midiaType?: string
+  midiaType: 'video' | 'image' | 'pdf'
   label?: string
 } & InputTypes

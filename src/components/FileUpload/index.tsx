@@ -1,6 +1,7 @@
 import { InputContainerProps } from './type'
 import * as S from './styles'
-import { DragEvent, useRef, useState } from 'react'
+import { DragEvent, FormEvent, useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 
 interface FileObject {
   name: string
@@ -15,6 +16,9 @@ export function FileUpload({
   id,
   ...rest
 }: InputContainerProps) {
+  const [filePreview, setFilePreview] = useState<
+    string | ArrayBuffer | null | undefined
+  >(null)
   const [dragActive, setdragActive] = useState(false)
   const fileInput = useRef<HTMLInputElement>(null)
 
@@ -30,6 +34,23 @@ export function FileUpload({
         fileInput.current.files = dataTransfer.files
       }
     }
+  }
+
+  function handlePreviewFile(e: FormEvent<HTMLInputElement>) {
+    const reader = new FileReader()
+    const selectedFile = e.currentTarget.files?.[0]
+    if (selectedFile) {
+      reader.readAsDataURL(selectedFile)
+    }
+    reader.onload = readerEvent => {
+      setFilePreview(readerEvent.target?.result)
+    }
+  }
+
+  console.log(filePreview)
+
+  function clearFiles() {
+    setFilePreview(null)
   }
 
   return (
@@ -49,12 +70,29 @@ export function FileUpload({
         ref={fileInput}
         type="file"
         id={id}
+        onInput={handlePreviewFile}
         name={name}
-        accept="image/*"
+        accept={`${
+          midiaType == 'pdf' ? 'application/' + midiaType : midiaType + '/*'
+        }`}
         {...rest}
         required
+        hidden
       />
-      <S.Preview></S.Preview>
+      <S.Preview>
+        {filePreview && midiaType === 'image' && (
+          <Image src={`${filePreview}`} alt="image" width={100} height={100} />
+        )}
+
+        {filePreview && midiaType === 'pdf' && (
+          <embed
+            type="application/pdf"
+            src={`${filePreview}`}
+            width="200"
+            height="200"
+          />
+        )}
+      </S.Preview>
     </S.FileUploadContainer>
   )
 }
