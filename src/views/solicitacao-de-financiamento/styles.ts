@@ -8,7 +8,7 @@ export const Container = styled.div`
   height: 220rem;
 `
 
-export const Content = styled.form`
+export const Content = styled.section`
   width: 100%;
   height: 30rem;
   display: flex;

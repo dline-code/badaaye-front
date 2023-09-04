@@ -78,12 +78,7 @@ export function FileUploadWithPreview({
       ) : (
         <S.Preview>
           {filePreview && midiaType === 'image' && (
-            <Image
-              src={`${filePreview}`}
-              alt="image"
-              width={100}
-              height={100}
-            />
+            <Image src={`${filePreview}`} alt="image" layout="fill" />
           )}
           <button type="button" onClick={clearFiles}>
             Limpar Ficheiro

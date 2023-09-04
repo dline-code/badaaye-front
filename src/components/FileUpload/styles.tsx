@@ -92,6 +92,12 @@ export const Preview = styled.div`
   border-radius: 0.3rem;
   box-shadow: 0 0 10px #f5f4f4;
 
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
   button {
     position: absolute;
     bottom: -300px;

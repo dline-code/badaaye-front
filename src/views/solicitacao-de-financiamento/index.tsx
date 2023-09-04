@@ -35,7 +35,7 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
   return (
     <Layout {...Object.assign({}, props, { hideFooter: true, isLogged: true })}>
       <S.Container>
-        <S.Content onSubmit={formik.handleSubmit} encType="multipart/form-data">
+        <S.Content>
           <S.FirstSection>
             <S.Title>Solicitar Financiamento</S.Title>
             <S.Description>
@@ -142,138 +142,167 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
               </S.ContainerInput>
             </S.SectionInput>
 
-            <S.SectionInput>
-              <S.ContainerInput>
-                <S.Label>Valor da propina (Kz)</S.Label>
-                <Input
-                  id="valorProprina"
-                  name="valorProprina"
-                  disabled={true}
-                  value={'45.000'}
-                  type="text"
-                  placeholder="Ex: 45.000"
-                />
-              </S.ContainerInput>
-            </S.SectionInput>
+            <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
+              <S.SectionInput>
+                <S.ContainerInput>
+                  <S.Label>Valor da propina (Kz)</S.Label>
+                  <Input
+                    id="valorProprina"
+                    name="valorProprina"
+                    onChange={event => {
+                      formik.setFieldValue(
+                        'valorProprina',
+                        event?.currentTarget.value
+                      )
+                    }}
+                    type="number"
+                    placeholder="Ex: 45.000"
+                  />
+                  <span>
+                    {formik.touched.valorProprina && formik.errors.valorProprina
+                      ? formik.errors.valorProprina
+                      : null}
+                  </span>
+                </S.ContainerInput>
+              </S.SectionInput>
 
-            <S.SectionInput>
-              <S.ContainerInput>
-                <S.Label>Valor da confirmação (Kz)</S.Label>
-                <Input
-                  type="text"
-                  id="valorConfirmacao"
-                  name="valorConfirmacao"
-                  disabled={true}
-                  value={'5.000'}
-                  placeholder="Ex: 5.000"
-                />
-              </S.ContainerInput>
-            </S.SectionInput>
+              <S.SectionInput>
+                <S.ContainerInput>
+                  <S.Label>Valor da confirmação (Kz)</S.Label>
+                  <Input
+                    type="number"
+                    id="valorConfirmacao"
+                    name="valorConfirmacao"
+                    onChange={event => {
+                      formik.setFieldValue(
+                        'valorConfirmacao',
+                        event?.currentTarget?.value
+                      )
+                    }}
+                    placeholder="Ex: 5.000"
+                  />
+                  <span>
+                    {formik.touched.valorConfirmacao &&
+                    formik.errors.valorConfirmacao
+                      ? formik.errors.valorConfirmacao
+                      : null}
+                  </span>
+                </S.ContainerInput>
+              </S.SectionInput>
 
-            <h2>Documentos</h2>
-            <S.Separator />
-            <FileUploadWithPreview
-              label="Vídeo motivacional (1min)"
-              name="videoMotivacional"
-              midiaType="video"
-              onChange={event => {
-                formik.setFieldValue(
-                  'videoMotivacional',
-                  event?.currentTarget?.files
-                )
-              }}
-            >
-              {formik.touched.videoMotivacional &&
-              formik.errors.videoMotivacional ? (
-                <span className="text-danger">
-                  {formik.errors.videoMotivacional}
-                </span>
-              ) : null}
-            </FileUploadWithPreview>
-            <p>
-              *Deve carregar um video motivacional de aproximadamente 1 minutos
-            </p>
-            <FileUpload
-              label="Bilhete de identidade"
-              name="bilhete"
-              onChange={event => {
-                formik.setFieldValue('bilhete', event?.currentTarget?.files)
-              }}
-              midiaType="pdf"
-            >
-              {formik.touched.bilhete && formik.errors.bilhete
-                ? formik.errors.bilhete
-                : null}
-            </FileUpload>
+              <h2>Documentos</h2>
+              <S.Separator />
 
-            <FileUpload
-              label="Exatro bancário"
-              name="extratoBancario"
-              onChange={event => {
-                formik.setFieldValue(
-                  'extratoBancario',
-                  event?.currentTarget?.files
-                )
-              }}
-              midiaType="pdf"
-            >
-              {formik.touched.extratoBancario && formik.errors.extratoBancario
-                ? formik.errors.extratoBancario
-                : null}
-            </FileUpload>
+              <FileUploadWithPreview
+                label="Vídeo motivacional (1min)"
+                name="videoMotivacional"
+                midiaType="video"
+                onChange={event => {
+                  formik.setFieldValue(
+                    'videoMotivacional',
+                    event?.currentTarget?.files?.[0]
+                  )
+                }}
+              >
+                {formik.touched.videoMotivacional &&
+                formik.errors.videoMotivacional ? (
+                  <span className="text-danger">
+                    {formik.errors.videoMotivacional}
+                  </span>
+                ) : null}
+              </FileUploadWithPreview>
+              <p>
+                *Deve carregar um video motivacional de aproximadamente 1
+                minutos
+              </p>
+              <FileUpload
+                label="Bilhete de identidade"
+                name="bilhete"
+                onChange={event => {
+                  formik.setFieldValue(
+                    'bilhete',
+                    event?.currentTarget?.files?.[0]
+                  )
+                }}
+                midiaType="pdf"
+              >
+                {formik.touched.bilhete && formik.errors.bilhete
+                  ? formik.errors.bilhete
+                  : null}
+              </FileUpload>
 
-            <FileUpload
-              label="Certificado"
-              name="certificado"
-              onChange={event => {
-                formik.setFieldValue('certificado', event?.currentTarget?.files)
-              }}
-              midiaType="pdf"
-            >
-              {formik.touched.certificado && formik.errors.certificado
-                ? formik.errors.certificado
-                : null}
-            </FileUpload>
+              <FileUpload
+                label="Exatro bancário"
+                name="extratoBancario"
+                onChange={event => {
+                  formik.setFieldValue(
+                    'extratoBancario',
+                    event?.currentTarget?.files?.[0]
+                  )
+                }}
+                midiaType="pdf"
+              >
+                {formik.touched.extratoBancario && formik.errors.extratoBancario
+                  ? formik.errors.extratoBancario
+                  : null}
+              </FileUpload>
 
-            <FileUpload
-              label="Declaração"
-              name="declaracaoNotas"
-              onChange={event => {
-                formik.setFieldValue(
-                  'declaracaoNotas',
-                  event?.currentTarget?.files
-                )
-              }}
-              midiaType="pdf"
-            >
-              {formik.touched.declaracaoNotas && formik.errors.declaracaoNotas
-                ? formik.errors.declaracaoNotas
-                : null}
-            </FileUpload>
+              <FileUpload
+                label="Certificado"
+                name="certificado"
+                onChange={event => {
+                  formik.setFieldValue(
+                    'certificado',
+                    event?.currentTarget?.files?.[0]
+                  )
+                }}
+                midiaType="pdf"
+              >
+                {formik.touched.certificado && formik.errors.certificado
+                  ? formik.errors.certificado
+                  : null}
+              </FileUpload>
 
-            <FileUpload
-              label="Declaração Sem Nota"
-              name="declaracaoSemNotas"
-              onChange={event => {
-                formik.setFieldValue(
-                  'declaracaoSemNotas',
-                  event?.currentTarget?.files
-                )
-              }}
-              midiaType="pdf"
-            >
-              {formik.touched.declaracaoSemNotas &&
-              formik.errors.declaracaoSemNotas
-                ? formik.errors.declaracaoSemNotas
-                : null}
-            </FileUpload>
-            <p>
-              *Caso não frequente o primeiro ano da falcudade deve carregar uma
-              declaração com notas
-            </p>
-            <S.LastSection>
-              <Button type="submit">Cadastrar</Button>
-            </S.LastSection>
+              <FileUpload
+                label="Declaração"
+                name="declaracaoNotas"
+                onChange={event => {
+                  formik.setFieldValue(
+                    'declaracaoNotas',
+                    event?.currentTarget?.files?.[0]
+                  )
+                }}
+                midiaType="pdf"
+              >
+                {formik.touched.declaracaoNotas && formik.errors.declaracaoNotas
+                  ? formik.errors.declaracaoNotas
+                  : null}
+              </FileUpload>
+
+              <FileUpload
+                label="Declaração Sem Nota"
+                name="declaracaoSemNotas"
+                onChange={event => {
+                  formik.setFieldValue(
+                    'declaracaoSemNotas',
+                    event?.currentTarget?.files?.[0]
+                  )
+                }}
+                midiaType="pdf"
+              >
+                {formik.touched.declaracaoSemNotas &&
+                formik.errors.declaracaoSemNotas
+                  ? formik.errors.declaracaoSemNotas
+                  : null}
+              </FileUpload>
+              <p>
+                *Caso não frequente o primeiro ano da falcudade deve carregar
+                uma declaração com notas
+              </p>
+              <S.LastSection>
+                <Button type="submit">Cadastrar</Button>
+              </S.LastSection>
+            </form>
           </S.SecondSection>
         </S.Content>
       </S.Container>
