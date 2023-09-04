@@ -3,7 +3,6 @@ import * as S from './styles'
 import { DragEvent, FormEvent, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { VscCloudUpload } from 'react-icons/vsc'
-import { FaTimes } from 'react-icons/fa'
 
 interface FileObject {
   name: string
