@@ -46,54 +46,65 @@ export const FileUploadContainer = styled.div`
   }
 `
 
-export const FileUploadWithPreviewContainer = styled.label<{
+export const FileUploadWithPreviewContainer = styled.div<{
   dragActive: boolean
 }>`
-  position: relative;
-  display: flex;
-  gap: 0.62rem;
-  flex-direction: column;
-  align-items: center;
-  height: 200px;
-  padding: 0.62rem;
-  border-radius: 0.62rem;
-  border: 2px dashed ${({ theme }) => theme.colors.tertiary.gray};
-  color: ${({ theme }) => theme.colors.shades.black(0.5)};
-  cursor: pointer;
-  transition: ${({ theme }) => theme.transition.default};
+  padding: ${({ theme }) => theme.spacings.xxxxmultipleeight} 0;
 
-  &:hover {
+  strong {
+    display: inline-block;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+  }
+
+  > label {
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: ${({ theme }) => theme.spacings.xxxxmultipleeight};
     background: ${({ theme }) => theme.colors.tertiary.xwhite};
-    border-color: ${({ theme }) => theme.colors.primary.xblue};
+    border: 4px dotted ${({ theme }) => theme.colors.tertiary.xcinza};
+    border-radius: 0.5rem;
+    cursor: pointer;
+
     span {
-      color: ${({ theme }) => theme.colors.secondary.xxxblue};
+      width: 19rem;
+      text-align: center;
     }
   }
 
-  span {
-    color: ${({ theme }) => theme.colors.primary.xblue};
-    font-size: ${({ theme }) => theme.font.sizes.midle};
-    font-weight: bold;
-    text-align: center;
-    transition: ${({ theme }) => theme.transition.default};
-  }
-
-  input[type='file'] {
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-  }
-
-  input[type='file']::file-selector-button {
-    border: none;
-    cursor: pointer;
+  span.error {
+    color: red;
+    font-size: ${({ theme }) => theme.font.sizes.xsmall};
   }
 `
 
 export const Preview = styled.div`
-  width: 20rem;
-  height: 15rem;
-  margin: 0 2.5rem;
+  position: relative;
+  width: 100%;
+  height: 30rem;
   overflow: hidden;
+  background: ${({ theme }) => theme.colors.tertiary.white};
+  border: ${({ theme }) => theme.border.solid(theme.colors.tertiary.gray)};
+  border-radius: 0.3rem;
   box-shadow: 0 0 10px #f5f4f4;
+
+  button {
+    position: absolute;
+    bottom: -300px;
+    right: 10px;
+    padding: 0.62rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: ${({ theme }) => theme.colors.tertiary.white};
+    box-shadow: 0 0 10px ${({ theme }) => theme.colors.tertiary.gray};
+    transition: ${({ theme }) => theme.transition.default};
+  }
+
+  &:hover button {
+    bottom: 10px;
+  }
 `

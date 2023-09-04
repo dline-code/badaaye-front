@@ -2,6 +2,8 @@ import { InputContainerProps } from './type'
 import * as S from './styles'
 import { DragEvent, FormEvent, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import { VscCloudUpload } from 'react-icons/vsc'
+import { FaTimes } from 'react-icons/fa'
 
 interface FileObject {
   name: string
@@ -14,6 +16,7 @@ export function FileUploadWithPreview({
   label,
   name,
   id,
+  errorValue,
   ...rest
 }: InputContainerProps) {
   const [filePreview, setFilePreview] = useState<
@@ -52,45 +55,59 @@ export function FileUploadWithPreview({
   }
 
   return (
-    <S.FileUploadWithPreviewContainer
-      dragActive={dragActive}
-      htmlFor={id}
-      onDragOver={e => {
-        e.preventDefault()
-      }}
-      onDragEnter={e => setdragActive(true)}
-      onDragLeave={e => setdragActive(false)}
-      onDrop={handleDropFile}
-    >
-      <span className="drop-title">Click here to upload</span>
-      or
-      <input
-        ref={fileInput}
-        type="file"
-        id={id}
-        onInput={handlePreviewFile}
-        name={name}
-        accept={`${
-          midiaType == 'pdf' ? 'application/' + midiaType : midiaType + '/*'
-        }`}
-        {...rest}
-        required
-        hidden
-      />
-      <S.Preview>
-        {filePreview && midiaType === 'image' && (
-          <Image src={`${filePreview}`} alt="image" width={100} height={100} />
-        )}
-
-        {filePreview && midiaType === 'pdf' && (
-          <embed
-            type="application/pdf"
-            src={`${filePreview}`}
-            width="200"
-            height="200"
+    <S.FileUploadWithPreviewContainer dragActive={dragActive}>
+      <strong>{label}</strong>
+      {!filePreview ? (
+        <label htmlFor={id}>
+          <VscCloudUpload size={94} />
+          <span className="drop-title">Clique aqui para carregar</span>
+          <input
+            ref={fileInput}
+            type="file"
+            id={id}
+            onInput={handlePreviewFile}
+            name={name}
+            accept={`${
+              midiaType == 'pdf' ? 'application/' + midiaType : midiaType + '/*'
+            }`}
+            {...rest}
+            required
+            hidden
           />
-        )}
-      </S.Preview>
+        </label>
+      ) : (
+        <S.Preview>
+          {filePreview && midiaType === 'image' && (
+            <Image
+              src={`${filePreview}`}
+              alt="image"
+              width={100}
+              height={100}
+            />
+          )}
+          <button type="button" onClick={clearFiles}>
+            Limpar Ficheiro
+          </button>
+          {filePreview && midiaType === 'pdf' && (
+            <embed
+              type="application/pdf"
+              src={`${filePreview}`}
+              width="100%"
+              height="100%"
+            />
+          )}
+
+          {filePreview && midiaType === 'video' && (
+            <video
+              src={`${filePreview}`}
+              controls
+              width="100%"
+              height="100%"
+            ></video>
+          )}
+        </S.Preview>
+      )}
+      <span className="error">{errorValue}</span>
     </S.FileUploadWithPreviewContainer>
   )
 }

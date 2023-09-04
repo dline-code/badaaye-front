@@ -172,36 +172,24 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
 
             <h2>Documentos</h2>
             <S.Separator />
-            <S.SectionInput>
-              <S.ContainerInput>
-                <S.Label>Vídeo motivacional (1min)</S.Label>
-                <S.SectionVideo>
-                  <Input
-                    id="videoMotivacional"
-                    name="videoMotivacional"
-                    type="file"
-                    label="procurar"
-                    onChange={event => {
-                      formik.setFieldValue(
-                        'videoMotivacional',
-                        event?.currentTarget?.files
-                      )
-                    }}
-                  />
-                  <div>
-                    <VscCloudUpload className="icon" />
-                    <span>Arraste e solte o vídeo aqui para carregar</span>
-                    <label htmlFor="videoMotivacional">Procurar</label>
-                  </div>
-                </S.SectionVideo>
-              </S.ContainerInput>
+            <FileUploadWithPreview
+              label="Vídeo motivacional (1min)"
+              name="videoMotivacional"
+              midiaType="video"
+              onChange={event => {
+                formik.setFieldValue(
+                  'videoMotivacional',
+                  event?.currentTarget?.files
+                )
+              }}
+            >
               {formik.touched.videoMotivacional &&
               formik.errors.videoMotivacional ? (
                 <span className="text-danger">
                   {formik.errors.videoMotivacional}
                 </span>
               ) : null}
-            </S.SectionInput>
+            </FileUploadWithPreview>
             <p>
               *Deve carregar um video motivacional de aproximadamente 1 minutos
             </p>
@@ -284,10 +272,6 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
               declaração com notas
             </p>
             <S.LastSection>
-              <FileUploadWithPreview
-                midiaType="pdf"
-                onChange={() => console.log('Hello')}
-              />
               <Button type="submit">Cadastrar</Button>
             </S.LastSection>
           </S.SecondSection>
