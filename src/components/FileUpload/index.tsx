@@ -9,7 +9,7 @@ interface FileObject {
   type: string
 }
 
-export function FileUpload({
+export function FileUploadWithPreview({
   midiaType,
   label,
   name,
@@ -47,14 +47,12 @@ export function FileUpload({
     }
   }
 
-  console.log(filePreview)
-
   function clearFiles() {
     setFilePreview(null)
   }
 
   return (
-    <S.FileUploadContainer
+    <S.FileUploadWithPreviewContainer
       dragActive={dragActive}
       htmlFor={id}
       onDragOver={e => {
@@ -93,6 +91,34 @@ export function FileUpload({
           />
         )}
       </S.Preview>
+    </S.FileUploadWithPreviewContainer>
+  )
+}
+
+export function FileUpload({
+  midiaType,
+  label,
+  name,
+  errorValue,
+  ...rest
+}: InputContainerProps) {
+  return (
+    <S.FileUploadContainer>
+      <strong>{label}</strong>
+      <label htmlFor={name}>
+        <input
+          type="file"
+          id={name}
+          name={name}
+          accept={`${
+            midiaType == 'pdf' ? 'application/' + midiaType : midiaType + '/*'
+          }`}
+          {...rest}
+          required
+        />
+        <span className="drop-title">Procurar</span>
+      </label>
+      <span>{errorValue}</span>
     </S.FileUploadContainer>
   )
 }
