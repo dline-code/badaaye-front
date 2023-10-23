@@ -22,7 +22,9 @@ const CadastroEstudanteParte2: NextPage = () => {
   } = useFetchEstudantes()
 
   useEffect(() => {
-    getDataMunicipalities(formik.values.provinciaId)
+    if (formik.values.provinciaId) {
+      getDataMunicipalities(formik.values.provinciaId)
+    }
   }, [formik.values.provinciaId])
 
   return (

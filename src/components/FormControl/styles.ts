@@ -19,7 +19,6 @@ export const ControlInput = styled.div`
   background: ${({ theme }) => theme.colors.tertiary.white};
   font-size: ${({ theme }) => theme.font.sizes.small};
 
-
   display: flex;
   align-items: center;
   padding: 1rem 1rem;
@@ -36,7 +35,7 @@ export const ControlInput = styled.div`
       color: ${({ theme }) => theme.colors.secondary.xxxblue};
     }
 
-    &:last-child {
+    &.edit {
       cursor: pointer;
     }
   }

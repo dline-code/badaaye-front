@@ -1,9 +1,10 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
+import { TOKEN_KEY } from 'src/constants/appKey'
 import { getUser } from 'src/functions/checkIsUserAuthenticated'
 
 export function middleware(request: NextRequest) {
-  const authtoken = request.cookies[`${process.env.NEXT_PUBLIC_TOKEN_KEY}`]
+  const authtoken = request.cookies[TOKEN_KEY]
   const user = getUser(authtoken)
 
   if (
