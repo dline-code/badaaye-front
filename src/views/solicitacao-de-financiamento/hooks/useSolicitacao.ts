@@ -3,16 +3,23 @@ import { api } from 'src/services/api'
 import { SolicitacaoFormSchema, SolicitacaoFormType } from '../validation'
 import { useFormik } from 'formik'
 import { toast } from 'react-toastify'
+import { useQuery } from 'react-query'
+import { Estudante } from 'src/model/estudante.model'
 
 export function useSolicitacao(userId?: string) {
-  const [studentData, setStudentData] = useState({})
-  const [isLoading, setIsLoading] = useState(false)
+  const {
+    data: studentData,
+    isLoading,
+    refetch
+  } = useQuery({
+    queryKey: [Estudante.ENDPOINT],
+    queryFn: () => loadData(),
+    enabled: !!userId
+  })
 
-  const getStudentData = async () => {
-    const resp = await api.get(`/estudante/dados?usuarioId=${userId}`)
-    const data = resp.data
-    console.log(data)
-    setStudentData(data)
+  const loadData = async () => {
+    const { data } = await api.get<Estudante>(`${Estudante.ENDPOINT}/dados`)
+    return data
   }
 
   const handleSolicitation = async (data: SolicitacaoFormType) => {
@@ -60,10 +67,5 @@ export function useSolicitacao(userId?: string) {
     onSubmit: handleSolicitation
   })
 
-  useEffect(() => {
-    if (userId) {
-      getStudentData()
-    }
-  }, [userId])
   return { isLoading, studentData, formik }
 }

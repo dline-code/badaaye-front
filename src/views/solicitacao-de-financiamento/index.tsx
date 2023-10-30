@@ -20,7 +20,7 @@ interface PageProps {
 }
 
 const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
-  const { studentData, formik } = useSolicitacao()
+  const { formik, studentData, isLoading } = useSolicitacao('idEstudent')
 
   // async function getFile(data) {
   //   const dataD = await api.post('/ficheiro', data)
@@ -48,17 +48,18 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Seu primeiro nome</S.Label>
-                <Input type="text" id="nome" disabled={true} value={'Nome'} />
+                <Input
+                  type="text"
+                  disabled={true}
+                  value={studentData?.estudante?.nome}
+                />
               </S.ContainerInput>
               <S.ContainerInput>
                 <S.Label>Seu ultimo nome</S.Label>
                 <Input
                   type="text"
-                  placeholder="Sobrenome"
-                  id="sobrenome"
-                  name="sobrenome"
                   disabled={true}
-                  value={'Sobre Nome'}
+                  value={studentData?.estudante?.nome}
                 />
               </S.ContainerInput>
             </S.SectionInput>
@@ -68,12 +69,8 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
                 <S.Label>Numero do Bilhete de identidade</S.Label>
                 <Input
                   type="text"
-                  placeholder="Ex: 00942324LA041"
-                  id="bi"
-                  name="bi"
                   disabled={true}
-                  onChange={formik.handleChange}
-                  value={'00942324LA041'}
+                  value={studentData?.estudante?.bi}
                 />
               </S.ContainerInput>
             </S.SectionInput>
@@ -81,14 +78,7 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Ano Académico</S.Label>
-                <Input
-                  type="text"
-                  placeholder="digite o ano académico"
-                  id="anoAcademico"
-                  name="anoAcademico"
-                  disabled={true}
-                  value={'2023/2024'}
-                />
+                <Input type="text" disabled={true} value={''} />
               </S.ContainerInput>
             </S.SectionInput>
 
@@ -96,12 +86,9 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
               <S.ContainerInput>
                 <S.Label>Data de nascimento</S.Label>
                 <Input
-                  type="date"
-                  placeholder="Ex: DD/MM/AAAA"
-                  id="dataNascimento"
-                  name="dataNascimento"
+                  type="text"
                   disabled={true}
-                  value={'20/05/2023'}
+                  value={studentData?.estudante?.dataNascimento}
                 />
               </S.ContainerInput>
             </S.SectionInput>
@@ -111,34 +98,22 @@ const SolicitacaoDeFinanciamentoView: React.FC<PageProps> = props => {
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Instituição de ensino</S.Label>
-                <div>
-                  <S.Select
-                    id="universidadeId"
-                    name="universidadeId"
-                    disabled={true}
-                    value={'universidadeNome'}
-                  >
-                    <S.Option>universidadeNome</S.Option>
-                  </S.Select>
-                  <IoMdArrowDropdown className="icon2" />
-                </div>
+                <Input
+                  type="text"
+                  disabled={true}
+                  value={studentData?.estudante?.universidade.nome}
+                />
               </S.ContainerInput>
             </S.SectionInput>
 
             <S.SectionInput>
               <S.ContainerInput>
                 <S.Label>Grau de escolaridade (Classe)</S.Label>
-                <div>
-                  <S.Select
-                    id="grauId"
-                    name="grauId"
-                    value={'grau'}
-                    disabled={true}
-                  >
-                    <S.Option>GrauName</S.Option>
-                  </S.Select>
-                  <IoMdArrowDropdown className="icon2" />
-                </div>
+                <Input
+                  type="text"
+                  disabled={true}
+                  value={studentData?.estudante?.grau.designacao}
+                />
               </S.ContainerInput>
             </S.SectionInput>
 
