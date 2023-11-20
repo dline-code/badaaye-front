@@ -1,6 +1,7 @@
 import React from 'react'
 import * as S from './styles'
-import { ButtonProps } from './type'
+import { ButtonProps, LinkBtnProps } from './type'
+import Link from 'next/link'
 
 const Button: React.FC<ButtonProps> = ({
   type = 'submit',
@@ -21,3 +22,11 @@ const Button: React.FC<ButtonProps> = ({
 }
 
 export default Button
+
+export function LinkButton({ value, href }: LinkBtnProps) {
+  return (
+    <Link href={href}>
+      <S.LinkButton>{value}</S.LinkButton>
+    </Link>
+  )
+}

@@ -1,13 +1,9 @@
 import React from 'react'
-import { ReactNode, useEffect, useState } from 'react'
-import Link from 'next/link'
-
-import { setCookie, getCookie } from 'react-use-cookie'
 
 import * as S from './styles'
 
 import { Layout } from 'src/components/layout'
-import Button from '../../components/button'
+import Button, { LinkButton } from '../../components/button'
 
 import { RiUser3Fill } from 'react-icons/ri'
 import { HiAcademicCap } from 'react-icons/hi'
@@ -15,8 +11,6 @@ import { IoMdBusiness } from 'react-icons/io'
 import { FaBookOpen } from 'react-icons/fa'
 
 import { useFetchData } from './hooks/useFetchData'
-import { IStudent, PageProps } from './types'
-import { useRouter } from 'next/router'
 
 interface PageProp {
   hideFooter?: boolean
@@ -24,14 +18,6 @@ interface PageProp {
 }
 
 const TelaPrincipalEstudanteView: React.FC<PageProp> = props => {
-  const router = useRouter()
-
-  useEffect(() => {
-    const token = getCookie('baadaye-token')
-
-    token ? router.push('/tela-principal-estudante') : router.push('/login')
-  }, [])
-
   const { student, isLoading } = useFetchData()
 
   if (isLoading) return <>Carregando...</>
@@ -52,9 +38,7 @@ const TelaPrincipalEstudanteView: React.FC<PageProp> = props => {
                 <S.InfoSections>
                   <RiUser3Fill />
                   <span>
-                    {student?.estudante?.nome +
-                      ' ' +
-                      student?.estudante?.sobrenome}
+                    {student?.estudante?.nome} {student?.estudante?.sobrenome}
                   </span>
                 </S.InfoSections>
                 <S.InfoSections>
@@ -70,12 +54,11 @@ const TelaPrincipalEstudanteView: React.FC<PageProp> = props => {
                   <span>{student?.estudante?.curso?.nome}</span>
                 </S.InfoSections>
               </S.InfoContainer>
-              <Button
-                type="button"
-                onClick={() => router.push({ pathname: '/dados-do-estudante' })}
-              >
-                ver dados completos
-              </Button>
+
+              <LinkButton
+                href="/dados-do-estudante"
+                value="ver dados completos"
+              />
             </S.CardContentLeft>
           </S.ContentLeft>
           <S.ContentRight>
@@ -93,7 +76,10 @@ const TelaPrincipalEstudanteView: React.FC<PageProp> = props => {
                 bolsa de estudo que vai reduzir as despesas académicas.
               </p>
               <div>
-                <Button type="button">ver dados completos</Button>
+                <LinkButton
+                  href="/solicitacao-de-financiamento"
+                  value="Solicitar Financiamento"
+                />
               </div>
             </S.CardContentRight>
             <S.CardContentRightBottom>

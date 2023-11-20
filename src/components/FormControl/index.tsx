@@ -29,9 +29,13 @@ export function FormControl({
           <Field name={name} as={as} disabled={disabled} id={id} {...rest}>
             <option value="">Selecione uma opção</option>
             {options &&
-              options.map(({ designacao, id, selected }) => (
-                <option value={id} selected={selected} key={id}>
-                  {designacao}
+              options.map(item => (
+                <option
+                  key={item.value}
+                  value={item.value}
+                  selected={value === item.value}
+                >
+                  {item.desc}
                 </option>
               ))}
           </Field>
@@ -45,7 +49,9 @@ export function FormControl({
             {...rest}
           />
         )}
-        <span onClick={() => setDisabled(!disabled)}>{EndIcon}</span>
+        <span className="edit" onClick={() => setDisabled(!disabled)}>
+          {EndIcon}
+        </span>
         <span onClick={handleOptions}>{LastIcon}</span>
       </S.ControlInput>
       <ErrorMessage name={name} component={S.ErrorMessage} />

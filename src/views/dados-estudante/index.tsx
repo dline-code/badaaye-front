@@ -1,6 +1,3 @@
-import { useLayoutEffect, useContext } from 'react'
-import { useRouter } from 'next/router'
-import { setCookie, getCookie } from 'react-use-cookie'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineUser } from 'react-icons/ai'
@@ -11,28 +8,15 @@ import { inputControls } from './utils/formFrame'
 import * as S from './styles'
 import { UseStudentData } from './hooks/useStudentData'
 import * as Md from 'react-icons/md'
-
-import { AuthContext, AuthProvider } from 'src/context/auth-content'
+import { BiArrowBack } from 'react-icons/bi'
 
 export function DadosEstudante() {
-  const router = useRouter();
-  const authContext = useContext(AuthContext);
-
-  useLayoutEffect(() => {
-    const token = getCookie("baadaye-token");
-
-    //authContext.isUserAuthenticated()
-    token
-      ? router.push("/dados-do-estudante")
-      : router.push("/login");
-  }, []);
-
   const {
     isFetching,
     initialValues,
     validationSchema,
-    optionSelects,
     optionMunicipio,
+    options,
     handleChangeTheProvice,
     handleSubmit
   } = UseStudentData()
@@ -42,7 +26,7 @@ export function DadosEstudante() {
   }
 
   return (
-      <div>
+    <div>
       <S.Header>
         <S.HeaderInner>
           <Link href="/">
@@ -65,6 +49,11 @@ export function DadosEstudante() {
       <S.Main>
         <S.Content>
           <S.ContentHeader>
+            <Link href="/tela-principal-estudante">
+              <a>
+                <BiArrowBack />
+              </a>
+            </Link>
             <h2>Meus dados</h2>
             <p>
               Podes visualizar e modificar os dados fornecidos <br /> durante o
@@ -78,7 +67,7 @@ export function DadosEstudante() {
               initialValues={initialValues}
               validationSchema={validationSchema}
             >
-              {({ isSubmitting, handleChange }) => (
+              {({ isSubmitting, handleChange, values }) => (
                 <Form>
                   <div>
                     {inputControls.map(
@@ -101,7 +90,8 @@ export function DadosEstudante() {
                       labelName={'Grau académico'}
                       as="select"
                       name={'grauId'}
-                      options={optionSelects['grauId']}
+                      options={options?.graus}
+                      value={values.grauId}
                       StarIcon={<Md.MdSchool />}
                       EndIcon={<Md.MdEdit />}
                       blocked
@@ -111,7 +101,8 @@ export function DadosEstudante() {
                       labelName={'Curso'}
                       as="select"
                       name={'cursoId'}
-                      options={optionSelects['cursoId']}
+                      options={options?.cursos}
+                      value={values.cursoId}
                       StarIcon={<Md.MdBook />}
                       EndIcon={<Md.MdEdit />}
                       blocked
@@ -121,7 +112,8 @@ export function DadosEstudante() {
                       labelName={'Universidade'}
                       as="select"
                       name={'universidadeId'}
-                      options={optionSelects['universidadeId']}
+                      options={options?.universidades}
+                      value={values.universidadeId}
                       StarIcon={<Md.MdDomain />}
                       EndIcon={<Md.MdEdit />}
                       blocked
@@ -131,7 +123,8 @@ export function DadosEstudante() {
                       labelName={'Provincia'}
                       as="select"
                       name={'provinciaId'}
-                      options={optionSelects['provinciaId']}
+                      options={options?.provincias}
+                      value={values.provinciaId}
                       onChange={e => {
                         handleChange(e)
                         handleChangeTheProvice(e.target.value)
@@ -146,6 +139,7 @@ export function DadosEstudante() {
                       as="select"
                       name={'municipioId'}
                       options={optionMunicipio}
+                      value={values.municipioId}
                       StarIcon={<Md.MdPlace />}
                       EndIcon={<Md.MdEdit />}
                       blocked
@@ -156,6 +150,7 @@ export function DadosEstudante() {
                       name="bairro"
                       StarIcon={<Md.MdPlace />}
                       EndIcon={<Md.MdEdit />}
+                      value={values.bairro}
                       required
                       blocked
                     />
@@ -172,6 +167,6 @@ export function DadosEstudante() {
           </S.ContentBody>
         </S.Content>
       </S.Main>
-      </div>
+    </div>
   )
 }

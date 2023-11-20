@@ -13,13 +13,16 @@ import {
 } from '../service'
 import {
   IErrorInterface,
-  SelectsType,
   RecevedStudentData,
-  OptionType
+  OptionsDataProps,
+  OptionProps
 } from '../type'
 import { generateFrameOptions, validationSchema } from '../utils'
 
 export function UseStudentData() {
+  const [options, setOptions] = useState<OptionsDataProps>()
+  const [optionMunicipio, setOptionMunicipio] = useState<OptionProps[]>([])
+
   const {
     data: studentData,
     isFetching,
@@ -30,6 +33,7 @@ export function UseStudentData() {
     async () => {
       try {
         const studentData = await getFetchStudentData()
+        await loadGeralData()
 
         if (studentData)
           toast('Estudante Encotrado com sucesso', {
@@ -46,42 +50,47 @@ export function UseStudentData() {
     { refetchOnWindowFocus: false }
   )
 
-  useEffect(() => {
-    handleChangeTheProvice(studentData?.provinciaId)
-  }, [studentData, studentData?.provinciaId])
+  const loadGeralData = async () => {
+    const graus = await getFetchGrauData()
+    const cursos = await getFetchCursoData()
+    const universidades = await getFetchUnivData()
+    const provincias = await getFetchProvinceData()
 
-  const { data: graus } = useQuery('getGrau', getFetchGrauData, {
-    refetchOnWindowFocus: false
-  })
-  const { data: cursos } = useQuery('getCurso', getFetchCursoData, {
-    refetchOnWindowFocus: false
-  })
-  const { data: universidades } = useQuery('getUniv', getFetchUnivData, {
-    refetchOnWindowFocus: false
-  })
-  const { data: provincias } = useQuery('getProvincia', getFetchProvinceData, {
-    refetchOnWindowFocus: false
-  })
-
-  let optionSelects: SelectsType = {
-    grauId: [],
-    cursoId: [],
-    universidadeId: [],
-    provinciaId: []
+    setOptions(() => ({
+      graus: graus.map(item => ({
+        desc: item.designacao,
+        value: item.id
+      })),
+      cursos: cursos.map(item => ({
+        desc: item.nome,
+        value: item.id
+      })),
+      universidades: universidades.map(item => ({
+        desc: item.nome,
+        value: item.id
+      })),
+      provincias: provincias.map(item => ({
+        desc: item.designacao,
+        value: item.id
+      }))
+    }))
   }
 
-  const [optionMunicipio, setOptionMunicipio] = useState<OptionType[]>([])
+  useEffect(() => {
+    if (studentData?.provinciaId) {
+      handleChangeTheProvice(studentData?.provinciaId)
+    }
+  }, [studentData, studentData?.provinciaId])
 
   async function handleChangeTheProvice(currentProvince?: string) {
     try {
-      const municipioId = studentData?.municipioId
-        ? studentData.municipioId
-        : ''
       const provinciaId = currentProvince ? currentProvince : ''
 
       const municipioData = await getFetchMunicipios(provinciaId)
       if (municipioData) {
-        setOptionMunicipio(generateFrameOptions(municipioId, municipioData))
+        setOptionMunicipio(() =>
+          municipioData.map(item => ({ desc: item.designacao, value: item.id }))
+        )
       }
     } catch (err) {
       const error = err as IErrorInterface
@@ -111,24 +120,12 @@ export function UseStudentData() {
     setSubmitting(false)
   }
 
-  if (studentData && graus && cursos && universidades && provincias) {
-    optionSelects = {
-      grauId: generateFrameOptions(studentData.grauId, graus),
-      cursoId: generateFrameOptions(studentData.cursoId, cursos),
-      universidadeId: generateFrameOptions(
-        studentData.universidadeId,
-        universidades
-      ),
-      provinciaId: generateFrameOptions(studentData.provinciaId, provincias)
-    }
-  }
-
   return {
     error,
     isFetching,
     initialValues: studentData!,
     validationSchema,
-    optionSelects,
+    options,
     optionMunicipio,
     handleChangeTheProvice,
     handleSubmit

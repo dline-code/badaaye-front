@@ -7,19 +7,20 @@ import { setCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 
 import { useState } from 'react'
+import { TOKEN_KEY } from 'src/constants/appKey'
 
-const regexContact = /^(\d{9})$|^[\w._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const regexContact = /^(\d{9})$|^[\w._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
 const UseUser = () => {
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
-    async function LoginRequest(data: IUser) {
-        setIsSubmitting(true)
-        try {
-            const response = await postFetchUser(data)
-            if (response) {
-                toast("Login feito com sucesso", { autoClose: 2000, type: "success" })
-                setCookie("baadaye-token", response.token)
+  async function LoginRequest(data: IUser) {
+    setIsSubmitting(true)
+    try {
+      const response = await postFetchUser(data)
+      if (response) {
+        toast('Login feito com sucesso', { autoClose: 2000, type: 'success' })
+        setCookie(TOKEN_KEY, response.token)
 
         if (response?.tipo_usuario === 'parceiro') {
           router.push({
@@ -50,7 +51,7 @@ const UseUser = () => {
       contacto: yup
         .string()
         .required('Campo obrigatório')
-        .matches(regexContact,"O Informa um telefone ou email válido"),
+        .matches(regexContact, 'O Informa um telefone ou email válido'),
 
       senha: yup.string().required('Campo obrigatório')
     }),

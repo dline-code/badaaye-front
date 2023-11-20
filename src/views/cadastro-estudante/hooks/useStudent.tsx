@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 import * as yup from 'yup'
 import { postFecthStudent1 } from '../services'
 import { IErrorInterface, IStudent } from '../type'
+import { TOKEN_KEY } from 'src/constants/appKey'
 
 interface StudentProps {
   usuario: IStudent
@@ -27,7 +28,7 @@ const UseStudent = () => {
           type: 'success'
         })
 
-        setCookie('baadaye-token', response.token)
+        setCookie(TOKEN_KEY, response.token)
         setCookie('estudanteId', response.usuario.id)
 
         router.push('/estudate-cadastro-info-academica')

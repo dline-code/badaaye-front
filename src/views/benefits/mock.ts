@@ -6,7 +6,7 @@ export const benefits = [
     description:
       'Obtem descontos de propinas,  transportes públicos,  descontos lojas e outros serviços da vida de um estudante...',
     children: '⟶ Saber mais',
-    link: 'ajudas/auxilio-academico'
+    link: '/ajudas/auxilio-academico'
   },
 
   {
@@ -25,6 +25,6 @@ export const benefits = [
     description:
       'Junte-se a nós e ajudemos estudantes a ganhar bolsas de estudo para obtenção do sucesso escolar.',
     children: '⟶ Saber mais',
-    link: 'ajudas/bolsas-de-estudos'
+    link: '/ajudas/bolsas-de-estudos'
   }
 ]

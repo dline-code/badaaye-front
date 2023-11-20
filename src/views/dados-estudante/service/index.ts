@@ -1,14 +1,10 @@
 import { api } from 'src/services/api'
-import {
-  CursoType,
-  GrauType,
-  MunicipioType,
-  AddressSend,
-  ProvinciaType,
-  RecevedStudentData,
-  UniversidadeType,
-  UpdateStudentData
-} from '../type'
+import { AddressSend, RecevedStudentData, UpdateStudentData } from '../type'
+import { Grau } from 'src/model/grau.model'
+import { Curso } from 'src/model/curso.model'
+import { Universidade } from 'src/model/universidade.model'
+import { Provincia } from 'src/model/provincia.model'
+import { Municipio } from 'src/model/municipio.model'
 
 const getFetchStudentData = async (): Promise<RecevedStudentData> => {
   const {
@@ -92,35 +88,35 @@ const setFetchEndereco = async (enderecoData: AddressSend) => {
 
 const getFetchGrauData = async () => {
   const resp = await api.get('/grau')
-  const data: GrauType[] = resp.data
+  const data: Grau[] = resp.data
 
   return data
 }
 
 const getFetchCursoData = async () => {
   const resp = await api.get('/curso')
-  const data: CursoType[] = resp.data
+  const data: Curso[] = resp.data
 
   return data
 }
 
 const getFetchUnivData = async () => {
   const resp = await api.get('/universidade')
-  const data: UniversidadeType[] = resp.data
+  const data: Universidade[] = resp.data
 
   return data
 }
 
 const getFetchProvinceData = async () => {
   const resp = await api.get('/provincia')
-  const data: ProvinciaType[] = resp.data
+  const data: Provincia[] = resp.data
 
   return data
 }
 
 async function getFetchMunicipios(provinciaId: string) {
   const response = await api.get(`/municipio/${provinciaId}`)
-  const municipios: MunicipioType[] = response.data
+  const municipios: Municipio[] = response.data
 
   return municipios
 }

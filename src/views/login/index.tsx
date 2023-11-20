@@ -1,5 +1,5 @@
 import { ReactNode, useEffect } from 'react'
-import { setCookie} from 'react-use-cookie'
+import { setCookie } from 'react-use-cookie'
 import Link from 'next/link'
 import type { NextPage } from 'next'
 import * as S from './styles'
@@ -66,7 +66,7 @@ const Login: NextPage = () => {
           <ErrorMassage errorMessage={formik.errors.senha} />
         ) : null}
         <S.ForgetPasswordLink>
-          <Link href="">
+          <Link href="#">
             <a>Esqueceu a sua senha?</a>
           </Link>
         </S.ForgetPasswordLink>
@@ -82,21 +82,21 @@ const Login: NextPage = () => {
           <S.SocialMediaTitle>Entrar com </S.SocialMediaTitle>
           <S.SocialMediaList>
             <S.SocialMediaItem>
-              <Link href="">
+              <Link href="#">
                 <a>
                   <FaFacebook />
                 </a>
               </Link>
             </S.SocialMediaItem>
             <S.SocialMediaItem>
-              <Link href="">
+              <Link href="#">
                 <a>
                   <FaGoogle />
                 </a>
               </Link>
             </S.SocialMediaItem>
             <S.SocialMediaItem>
-              <Link href="">
+              <Link href="#">
                 <a>
                   <FaInstagram />
                 </a>

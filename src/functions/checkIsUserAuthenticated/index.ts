@@ -1,5 +1,6 @@
 import { getCookie } from 'react-use-cookie'
 import decode from 'jwt-decode'
+import { TOKEN_KEY } from 'src/constants/appKey'
 
 export type User = {
   tipo_usuario: string
@@ -7,7 +8,7 @@ export type User = {
 }
 
 export function checkIsUserAuthenticated() {
-  const isUserAuthenticated = getCookie('baadaye-token')
+  const isUserAuthenticated = getCookie(TOKEN_KEY)
 
   if (isUserAuthenticated) return true
   else return false
@@ -22,9 +23,7 @@ export const isAuthenticated = (req: any) => {
 
   const cookiematch = cookies
     .split(';')
-    .find(item =>
-      item.trim().startsWith(`${process.env.NEXT_PUBLIC_TOKEN_KEY}=`)
-    )
+    .find(item => item.trim().startsWith(`${TOKEN_KEY}=`))
 
   if (!cookiematch) {
     return undefined
