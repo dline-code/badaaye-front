@@ -34,7 +34,7 @@ export function useSolicitacao(userId?: string) {
     formData.append('videoMotivacional', data.videoMotivacional as Blob)
 
     try {
-      const response = await api.post(`/`, formData, {
+      const response = await api.post(`/financiamento`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
